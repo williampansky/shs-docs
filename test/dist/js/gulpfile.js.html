@@ -1,4 +1,55 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>MOHG Scripts | gulpfile.js</title>
+
+        <!-- <script src="scripts/prettify/prettify.js"></script> -->
+        <!-- <script src="scripts/prettify/lang-css.js"></script> -->
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link type="text/css" rel="stylesheet" href="css/uikit.min.css">
+        <link type="text/css" rel="stylesheet" href="css/prism.css" />
+        <link type="text/css" rel="stylesheet" href="css/prism-treeview-seti.css" />
+        <link type="text/css" rel="stylesheet" href="css/prism-onedark.css" />
+        <link type="text/css" rel="stylesheet" href="css/custom.css">
+        <!-- <link type="text/css" rel="stylesheet" href="../../themes/jsdoc_docdash/static/styles/custom.css"> -->
+        <!-- <script src="scripts/clipboard.min.js"></script> -->
+    </head>
+
+    <body class="jsdoc uk-offcanvas-content">
+
+        <main id="main">
+            <nav class="uk-navbar-container" uk-navbar uk-sticky="show-on-up:true; animation:uk-animation-slide-top;">
+                <div class="uk-navbar-left">
+                    
+                        <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
+                            <li><a href="../../../documentation.html">MOHG</a></li>
+                            <li><a href="index.html">JSdocs</a></li>
+                            <li><span class="uk-text-accent">gulpfile.js</span></li>
+                        </ul>
+                    
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li><a href="../../../documentation.html">Project Docs</a></li>
+                        <li class="uk-active"><a href="index.html">JavaScript Docs</a></li>
+                        <li><button class="uk-navbar-toggle uk-hidden@m" type="button" uk-toggle="target: #offcanvas-overlay" uk-navbar-toggle-icon></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <article class="uk-container uk-container-small uk-article uk-animation-fade">
+                
+
+    
+    
+        
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
  * @namespace gulpfile
  * @requires node_modules/gulp
  */
@@ -90,7 +141,7 @@ const support = 'last 2 versions';
  * @memberof gulpfile
  * @inner
  * 
- * @prop {Object/String} dev Pass this flag to use unminified files & sourcemaps.
+ * @prop {Object/String} dev Pass this flag to use unminified files &amp; sourcemaps.
  * @prop {Object/String} bs Pass this flag to initiate an instance of BrowserSync.
  * @prop {Object/String} proxy Pass this flag to use the currently defined localhost variable.
  * 
@@ -114,7 +165,7 @@ const flags = minimist(process.argv.slice(2), knownFlags);
 
 
 /**
- * @summary Compile Sass, run Autoprefixer, & save to `paths.css`.
+ * @summary Compile Sass, run Autoprefixer, &amp; save to `paths.css`.
  * 
  * @function sassTask
  * @memberof gulpfile
@@ -141,7 +192,7 @@ function sassTask() {
         }))
         .pipe(gulpif(flags.bs, browserSync.stream({ match: '**/*.css' })));
 }
-sassTask.description = `Compile Sass, run Autoprefixer, & save to ${paths.css} directory.`;
+sassTask.description = `Compile Sass, run Autoprefixer, &amp; save to ${paths.css} directory.`;
 sassTask.flags = {
     'default': 'Output style is compressed.',
     '--dev': 'Output style is expanded and uses sourcemaps.'
@@ -183,7 +234,7 @@ gulp.task('images', imageTask.description, imageTask);
  * ```
  */
 function watchTask() {
-    // watch Sass files, recompile, & inject on save
+    // watch Sass files, recompile, &amp; inject on save
     gulp.watch(paths.theme + '**/*.scss', ['sass'])
         .on('change', event => {
             console.log(`
@@ -356,7 +407,7 @@ gulp.task('jsdocs-svn', false, jsdocsTask_svn);
 
 
 /**
- * @summary Generates a TODO.md from `@todo` & `@fixme` comment tags.
+ * @summary Generates a TODO.md from `@todo` &amp; `@fixme` comment tags.
  * 
  * @function todo
  * @memberof gulpDocs
@@ -371,7 +422,7 @@ gulp.task('jsdocs-svn', false, jsdocsTask_svn);
  */
 const todoTask = ()=> {
     console.log(`
-        ———— [jsDocs] Parsing @todo & @fixme source-code comment annotations...
+        ———— [jsDocs] Parsing @todo &amp; @fixme source-code comment annotations...
     `);
 
     return gulp.src([
@@ -396,7 +447,7 @@ const todoTask = ()=> {
     .pipe(gulp.dest(`./test/markdown`));
     // -> Will output a TODO.md with your todos
 };
-todoTask.description = 'Generates a TODO.md from @todo & @fixme source-code comment tags.';
+todoTask.description = 'Generates a TODO.md from @todo &amp; @fixme source-code comment tags.';
 gulp.task('todo', todoTask.description, todoTask);
 
 
@@ -423,4 +474,35 @@ gulp.task('todo', todoTask.description, todoTask);
 gulp.task('webpack', 
     'Bundles everything via Webpack.', 
     run('npm run build')
-);
+);</code></pre>
+    </section>
+    <link rel="stylesheet" href="css/prettify.css">
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
+    
+
+
+
+                
+                <footer class="uk-section">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>.</p>
+                    <p> Last compiled on Thu Jun 07 2018 11:52:02 GMT-0500 (CDT) using a <a href="#" class="uk-disabled">custom version</a> of the <a href="https://github.com/clenemt/docdash">docdash</a> theme.</p>
+                </footer>
+            </article>
+        </main>
+
+        <aside id="navWrapper">
+            <section id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+                <div id="sideNav" class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                    <nav class="uk-nav uk-nav-default">
+                        <a href="index.html">Home</a><h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#appendToNav">appendToNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#convertIdToNavItem">convertIdToNavItem</a></li><li><a href="global.html#getSidebarPosition">getSidebarPosition</a></li><li><a href="global.html#initNav">initNav</a></li><li><a href="global.html#makeHeadingsSticky">makeHeadingsSticky</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#makeUIkitTablesResponsive">makeUIkitTablesResponsive</a></li><li><a href="global.html#moveSidebarToPosition">moveSidebarToPosition</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#onload">onload</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#setSidebarActiveNode">setSidebarActiveNode</a></li><li><a href="global.html#setSidebarPosition">setSidebarPosition</a></li><li><a href="global.html#sidebarScrollListener">sidebarScrollListener</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    </nav>
+                </div>
+            </section>
+        </aside>
+
+        <script src="js/bundle.js"></script>
+    </body>
+</html>

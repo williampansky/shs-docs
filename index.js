@@ -1,3 +1,4 @@
+import fs from 'fs';
 import _ from 'lodash';
 import uikit from 'uikit';
 import prism from './src/js/prism.custom.js';

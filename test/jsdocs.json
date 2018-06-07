@@ -1,0 +1,42 @@
+{
+    "plugins": [
+        "node_modules/jsdoc-vue-component",
+        "plugins/markdown"
+    ],
+    "jsdoc-vue-component": {
+        "log": false
+    },
+    "markdown": {
+        "tags": ["author", "classdesc", "description", "param", "property", "returns", "see", "throws", "vue"]
+    },
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "recurseDepth": 10,
+    "source": {
+        "include": [
+            "README.md",
+            "gulpfile.js",
+            "src/js"
+        ],
+        "exclude": [
+            "dist/bundle.js",
+            "node_modules"
+        ],
+        "includePattern": ".+\\.(js|vue)$",
+        "excludePattern": "(node_modules/|dist|.min)"
+    },
+    "opts": {
+        "template": "src",
+        "encoding": "utf8",
+        "destination": "test/dist/js",
+        "recurse": true,
+        "verbose": true
+    },
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+    },
+    "tutorials": "test/dist/tutorials"
+}
