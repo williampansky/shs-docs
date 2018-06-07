@@ -1063,7 +1063,15 @@
       "integrity": "sha1-OciRjO/1eZ+D+UkqhI9iWt0Mdm8=",
       "dev": true,
       "requires": {
-        "hoek": "2.16.3"
+        "hoek": "5.0.3"
+      },
+      "dependencies": {
+        "hoek": {
+          "version": "5.0.3",
+          "resolved": "https://registry.npmjs.org/hoek/-/hoek-5.0.3.tgz",
+          "integrity": "sha512-Bmr56pxML1c9kU+NS51SMFkiVQAb+9uFfXwyqR2tn4w2FPvmPt65eZ9aCcEfRXd9G74HkZnILC6p967pED4aiw==",
+          "dev": true
+        }
       }
     },
     "brace-expansion": {
@@ -6603,7 +6611,7 @@
       "requires": {
         "boom": "2.10.1",
         "cryptiles": "2.0.5",
-        "hoek": "2.16.3",
+        "hoek": "5.0.3",
         "sntp": "1.0.9"
       }
     },
@@ -6625,8 +6633,8 @@
       }
     },
     "hoek": {
-      "version": "2.16.3",
-      "resolved": "https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz",
+      "version": "5.0.3",
+      "resolved": "https://registry.npmjs.org/hoek/-/hoek-5.0.3.tgz",
       "integrity": "sha1-ILt0A9POo5jpHcRxCo/xuCdKJe0=",
       "dev": true
     },
@@ -10957,7 +10965,7 @@
       "integrity": "sha1-ZUEYTMkK7qbG57NeJlkIJEPGYZg=",
       "dev": true,
       "requires": {
-        "hoek": "2.16.3"
+        "hoek": "5.0.3"
       }
     },
     "socket.io": {
