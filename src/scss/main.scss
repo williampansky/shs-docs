@@ -1,0 +1,27 @@
+// ========================================================================
+// MAIN SCSS FILE
+// ========================================================================
+
+@charset 'utf-8';
+
+/***
+| TABLE OF CONTENTS
+=======================
+|– ABSTRACTS     Mixins, definitions, functions, selectors, etc.
+|– VENDORS       3rd-party vendor styles (normalize, bootstrap), etc.
+|- BASE          Global styles such as non-vendor resets, typography, etc.
+|- LAYOUT        Styling for larger layout modules; e.g. nav, header, etc.
+|- COMPONENTS    Resuable / independant module components (buttons, etc.)
+|- PAGES         Page-specific styling, such as homepage, if necessary.
+|- THEMES        Styles for different themes; such as holidays, events, etc.
+|- UTILITIES     Helper utility styles for adjusting margin, padding, etc.
+***/
+
+@import 'abstracts/!module';
+@import 'vendors/!module';
+@import 'base/!module';
+@import 'layout/!module';
+@import 'components/!module';
+@import 'pages/!module';
+@import 'themes/!module';
+@import 'utilities/!module';

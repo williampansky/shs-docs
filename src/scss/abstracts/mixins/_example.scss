@@ -1,0 +1,25 @@
+// ========================================================================
+// ABSTRACTS => MIXINS => EXAMPLE
+// ========================================================================
+
+/// This mixin is an example to showcase proper commenting. Lorem ipsum dolor 
+/// sit amet, consectetur adipiscing elit. Ut sed nulla at tellus bibendum 
+/// tempus. Vivamus convallis ante ut viverra viverra. Duis varius pretium erat.
+/// 
+/// @name     Example
+/// @group    Mixins
+/// 
+/// @since    1.0.0
+/// @access   public
+/// @author   [William Pansky](mailto:william.pansky@sabre.com)
+/// 
+/// @example scss
+///   .foo {
+///     @include example(bar);
+///   }
+/// 
+/// @link     https://getuikit.com/ Button & core props forked via UIkit.
+
+@mixin example {
+  display: block;
+}

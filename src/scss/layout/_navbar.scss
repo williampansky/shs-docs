@@ -1,0 +1,24 @@
+// ========================================================================
+// LAYOUT => NAVBAR
+// ========================================================================
+.uk-navbar,
+.uk-navbar-container:not(.uk-navbar-transparent),
+.uk-navbar-dropdown {
+	color: #fff;
+	background: var(--color-secondary);
+}
+
+.uk-navbar-dropdown-nav .uk-nav-header {
+	color: #fff;
+}
+.uk-navbar-nav > li.uk-active > a {
+	color: var(--color-accent) !important;
+}
+.uk-navbar-nav > li > a:focus, 
+.uk-navbar-nav > li > a:hover {
+	color: rgba(255,255,255,.7);
+}
+.uk-navbar-dropdown,
+.uk-navbar-dropdown-nav {
+	min-width: auto;
+}

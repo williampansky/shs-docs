@@ -1,0 +1,17 @@
+// ========================================================================
+// LAYOUT => OFFCANVAS
+// ========================================================================
+.uk-offcanvas-bar {
+	background: var(--color-secondary);
+}
+.uk-offcanvas-bar .uk-nav-default .uk-active,
+.uk-offcanvas-bar .uk-nav-default .uk-nav-sub .uk-active {
+	color: var(--color-accent);
+}
+
+@media screen and (min-width: 768px) {
+	/* force-display sidebar on 768+ */
+	.uk-offcanvas { display: block; }
+	.uk-offcanvas-bar { transform: translateX(0); }
+	.uk-offcanvas-close { display: none; }
+ }

@@ -1,0 +1,25 @@
+// ========================================================================
+// BASE => RESETS
+// ========================================================================
+body {
+	background-color: #f4f4f6;
+	color: rgba(0, 0, 0, 0.695);
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.68;
+	letter-spacing: -.003em;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+/* Never like UIkit's red <em> color */
+em {
+	color: inherit;
+	letter-spacing: -0.015em;
+}
+
+@media screen and (min-width: 768px) {
+	/* to accomodate the centering of main.uk-container */
+	body { padding-left: 350px; }
+}

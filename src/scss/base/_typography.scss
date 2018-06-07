@@ -1,0 +1,38 @@
+// ========================================================================
+// BASE => TYPOGRAPHY
+// ========================================================================
+// LINKS
+a, a:link, a:visited {
+	color: var(--color-primary);
+	text-decoration: underline;
+	word-break: break-word;
+}
+
+a.token.url-link {
+	color: #98c379;
+	text-decoration: underline;
+}
+
+a:hover, a:link:hover, a:visited:hover {
+	text-decoration: none;
+}
+
+
+/* TYPOGRAPHY */
+h1 {
+	border-top: 4px solid #ddd;
+	padding-top: 3.5rem;
+	margin-top: 4rem;
+}
+
+main > article:first-of-type > h1 {
+	border: none;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+main blockquote {
+	border-left: 4px solid #ddd;
+	color: #777;
+	padding: 0 1rem;
+}

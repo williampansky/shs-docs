@@ -1,0 +1,21 @@
+:not(pre) > code, 
+:not(pre) > kbd, 
+:not(pre) > samp {
+	color: var(--color-secondary);
+	background: var(--color-accent);
+}
+
+pre {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+/* CUSTOM PRISM KEYWORDS */
+.language-xml .token.cdata {
+	color: var(--color-accent);
+}
+/* PRISM-TREEVIEW  */
+pre.language-treeview {
+	padding-bottom: 0.75em;
+}

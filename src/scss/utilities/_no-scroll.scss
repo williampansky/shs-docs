@@ -1,0 +1,21 @@
+// ========================================================================
+// UTILITIES => NO-SCROLL
+// ========================================================================
+
+/// This class is placed on the `<body>` when opening fullscreen menus 
+/// and modals to prevent the document from scrolling while scrolling 
+/// inside said menus or modals.
+/// 
+/// @name     no-scroll
+/// @group    Utilities
+/// 
+/// @since    1.0.0
+/// @access   public
+/// @author   [William Pansky](mailto:william.pansky@sabre.com)
+/// 
+
+.no-scroll {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}

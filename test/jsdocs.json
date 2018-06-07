@@ -30,7 +30,7 @@
     "opts": {
         "template": "src",
         "encoding": "utf8",
-        "destination": "test/dist/js",
+        "destination": "test/dist",
         "recurse": true,
         "verbose": true
     },
