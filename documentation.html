@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>shs-docs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src/css/uikit.min.css" />
+        <link rel="stylesheet" href="src/css/prism.css" />
+        <link rel="stylesheet" href="src/css/prism-treeview-seti.css" />
+        <link rel="stylesheet" href="src/css/prism-onedark.css" />
+        <link rel="stylesheet" href="src/css/main.css" />
+    </head>
+    <body class="documentation uk-offcanvas-content">
+        <nav 
+            class="uk-navbar-container uk-light uk-animation-fade" 
+            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
+            uk-navbar
+        >
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active">
+                        <a href="./documentation.html">Project Docs</a>
+                    </li>
+                    <li>
+                        <a href="dist/js/index.html">JavaScript Docs</a>
+                    </li>
+                    <li>
+                        <button 
+                            class="uk-navbar-toggle uk-hidden@m" 
+                            type="button" 
+                            uk-toggle="target: #offcanvas-overlay" 
+                            uk-navbar-toggle-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main id="content" class="uk-container uk-container-small uk-padding-large uk-animation-fade">
+            <!-- Set the order of your compiled .md files here -->
+            <article id="intro"><h1 id="markdown-sample-file">Markdown Sample File</h1>
+<blockquote>
+<p>An example of a documentation.html partial</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<h3 id="who-is-mandarin-oriental-">Who is Mandarin Oriental?</h3>
+<p>Mandarin Oriental Hotel Group (MOHG; Chinese: 文華東方酒店), a member of the Jardine Matheson Group, is an international hotel investment and management group with luxury hotels, resorts and residences in Asia, Europe and the Americas [<a href="https://www.wikiwand.com/en/Mandarin_Oriental_Hotel_Group">Wikipedia</a>].</p>
+<h3 id="the-project-at-a-glance">The Project, At a Glance</h3>
+<p>You can think of the <code>mandarinoriental_com</code> repository project as a single entity with multiple parts (in regards to development; i.e. individual package.json, gulpfile.js, Sass, JS, etc files):</p>
+<ul>
+<li>Core <em>(Website as a whole)</em><ul>
+<li>PHP</li>
+<li>XML</li>
+<li>XSLT</li>
+<li>JavaScript (jQuery, <em>minified</em> but <em><strong>not run through Babel</strong></em>)</li>
+<li>Sass</li>
+</ul>
+</li>
+<li>CBE <em>(<strong>C</strong>ustom <strong>B</strong>ooking <strong>E</strong>ngine)</em><ul>
+<li>Vue.js</li>
+<li>JavaScript (ES6+, compiled with Webpack[v3]/Babel[v6])</li>
+<li>Sass</li>
+</ul>
+</li>
+<li>Gallery-V2 <em>(Upgraded single-property media gallery)</em><ul>
+<li>Vue.js</li>
+<li>JavaScript (ES6+, compiled with Webpack[v3]/Babel[v6])</li>
+<li>Sass</li>
+</ul>
+</li>
+</ul>
+<h2 id="javascript-docs">JavaScript Docs</h2>
+<p>See <a href="./dist/js/index.html">jsDocs</a> for JavaScript source-code documentation; compiled using 
+node to parse <a href="http://usejsdoc.org/">JSdoc annotation comments</a>.</p>
+<h2 id="version-control">Version Control</h2>
+<p>Be sure to set an <code>svn:ignore</code> flag on the /assets folder for new builds.</p>
+<p>Via the command line, follow these steps:</p>
+<ul>
+<li><code>cd</code> to the project root folder</li>
+<li><code>svn delete --keep-local assets</code><ul>
+<li>(this removes the /assets folder from version control but leaves the local folder and contents alone)</li>
+</ul>
+</li>
+<li>Commit your changes to SVN</li>
+<li><code>svn propedit svn:ignore .</code><ul>
+<li>(this should open up the current ignores list)</li>
+</ul>
+</li>
+<li>Add <code>assets</code> to the list and save the file</li>
+<li>Commit the propedit changes to SVN</li>
+</ul>
+<p>If you get an error when running propedit then you need to update your CLI profile to set a preferred editor for that command. If you wanted to edit SVN config files with the nano editor, for instance, you would run this:</p>
+<ul>
+<li><code>cd ~</code></li>
+<li><code>nano .bash_profile</code></li>
+<li><code>export SVN_EDITOR=nano</code></li>
+</ul>
+<h2 id="symlink">Symlink</h2>
+<p>In terminal/cmd, create a symlink named &#39;cbe&#39; in your <code>./templates/main/css/scss</code> folder pointing to <code>./templates/main/cbe/css/scss</code></p>
+<h2 id="-showxml-content">?SHOWXML content</h2>
+<pre><code class="lang-treeview">root/templates/main/
+    └── includes/
+        └── mandarin/
+            └── global/
+                └── template-includes.xsl
+</code></pre>
+<p>The Mandarin admin delivers content via the <code>?SHOWXML</code> feed, in much the same way that traditional CDE does.</p>
+<h2 id="module-templating">Module templating</h2>
+<p>We&#39;ve utilized a modular approach to file/include development that helps keep files and content node / phpclasses aligned. Though this approach leads to the development of a large number of includes, it produces reusable chunks of dynamic templating for global use. </p>
+<p>Components and template files are configured to support admin-set module ordering and placement, on any given page. Templating has flexible xsl logic to support these dynamic requirements.</p>
+<h2 id="requirements">Requirements</h2>
+<p>This project requires a corresponding database and CMS, such as the chaincmsseed project.</p>
+<!-- LINKS -->
+</article>
+        </main>
+
+        <aside id="navWrapper">
+            <nav id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+                <div id="sideNav" class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                </div>
+            </nav>
+        </aside>
+
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>

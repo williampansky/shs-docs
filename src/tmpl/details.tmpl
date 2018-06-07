@@ -1,0 +1,184 @@
+<?js
+    var data = obj;
+    var self = this;
+    var defaultObjectClass = '';
+
+    // Check if the default value is an object or array; if so, apply code highlighting
+    if (data.defaultvalue && (data.defaultvaluetype === 'object' || data.defaultvaluetype === 'array')) {
+        try {
+            var indentedValues = JSON.stringify(JSON.parse(data.defaultvalue), null, '  ');
+            data.defaultvalue = indentedValues;
+        } catch (e) {}
+        data.defaultvalue = "<pre class=\"prism\"><code>" + data.defaultvalue + "</code></pre>";
+        defaultObjectClass = ' class="object-value"';
+    }
+?>
+
+<dl class="details">
+    <?js if (data.summary) { ?>
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><?js= summary ?></dd>
+        <hr>
+    <?js } ?>
+
+    <?js if (data.meta && self.outputSourceFiles) { ?>
+        <dt class="tag-source uk-text-meta">Source:</dt>
+        <dd class="tag-source"><?js= self.linkto(meta.shortpath) ?>, <?js= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'line' + meta.lineno) ?></dd>
+    <?js } ?>
+
+    <?js
+        var classes = self.find({ kind: 'class', memberof: data.longname });
+        if (classes && classes.length) {
+    ?>
+        <dt class="tag-class uk-text-meta">Classes:</dt>
+        <dd class="tag-class">
+            <?js classes.forEach(function(c) { ?>
+                <?js= self.linkto(c.longname, c.name) ?>
+            <?js }); ?>
+        </dd>
+    <?js } ?>
+
+    <?js
+        var mixins = self.find({ kind: 'mixin', memberof: data.longname });
+        if (mixins && mixins.length) {
+    ?>
+        <dt class="tag-mixins uk-text-meta">Mixins:</dt>
+        <dd class="tag-mixins">
+            <?js mixins.forEach(function(m) { ?>
+                <?js= self.linkto(m.longname, m.name) ?>
+            <?js }); ?>
+        </dd>
+    <?js } ?>
+
+    <?js
+        var namespaces = self.find({ kind: 'namespace', memberof: data.longname });
+        if (namespaces && namespaces.length) {
+    ?>
+        <dt class="tag-namespaces uk-text-meta">Namespaces:</dt>
+        <dd class="tag-namespaces">
+            <?js namespaces.forEach(function(m) { ?>
+                <?js= self.linkto(m.longname, m.name) ?>
+            <?js }); ?>
+        </dd>
+    <?js } ?>
+
+    <?js if (kind === 'event' && data.type && data.type.names) { ?>
+        <dt class="tag-event uk-text-meta">Event:</dt>
+        <dd class="tag-event"><?js= self.partial('type.tmpl', data.type.names) ?></dd>
+    <?js } ?>
+
+    <?js if (data.type && data.type.names) {?>
+        <dt class="tag-type uk-text-meta">Type:</dt>
+        <dd class="tag-type"><?js= self.partial('type.tmpl', data.type.names) ?></dd>
+    <?js } ?>
+
+    <?js if (data.returns && returns.length) { ?>
+        <?js returns.forEach(function(r) { ?>
+            <dt class="tag-returns uk-text-meta">Returns:</dt>
+            <dd class="tag-returns"><?js= self.partial('returns.tmpl', r) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.version) { ?>
+        <dt class="tag-version uk-text-meta">Version:</dt>
+        <dd class="tag-version"><?js= version ?></dd>
+    <?js } ?>
+
+    <?js if (data.since) { ?>
+        <dt class="tag-since uk-text-meta">Since:</dt>
+        <dd class="tag-since"><?js= since ?></dd>
+    <?js } ?>
+
+    <?js if (data.inherited && data.inherits && !data.overrides) { ?>
+        <dt class="inherited-from uk-text-meta">Inherited From:</dt>
+        <dd class="inherited-from"><?js= this.linkto(data.inherits, this.htmlsafe(data.inherits)) ?></dd>
+    <?js } ?>
+
+    <?js if (data.overrides) { ?>
+        <dt class="tag-overrides uk-text-meta">Overrides:</dt>
+        <dd class="tag-overrides"><?js= this.linkto(data.overrides, this.htmlsafe(data.overrides)) ?></dd>
+    <?js } ?>
+
+    <?js if (data.implementations && data.implementations.length) { ?>
+        <?js data.implementations.forEach(function(impl) { ?>
+            <dt class="implementations uk-text-meta">Implementations:</dt>
+            <dd class="implementations"><?js= self.linkto(impl, self.htmlsafe(impl)) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.implements && data.implements.length) { ?>
+        <?js data.implements.forEach(function(impl) { ?>
+            <dt class="implements uk-text-meta">Implements:</dt>
+            <dd class="implements"><?js= self.linkto(impl, self.htmlsafe(impl)) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.mixes && data.mixes.length) { ?>
+        <?js data.mixes.forEach(function(a) { ?>
+            <dt class="mixes uk-text-meta">Mixes In:</dt>
+            <dd class="mixes"><?js= self.linkto(a, a) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.deprecated) { ?>
+        <dt class="important tag-deprecated uk-text-meta">Deprecated:</dt>
+            <?js if (data.deprecated === true) { ?>
+                <dd class="yes-def tag-deprecated">Yes</dd>
+            <?js } else { ?>
+                <dd><span><?js= data.deprecated ?></dd>
+            <?js } ?>
+    <?js } ?>
+
+    <?js if (data.author && author.length) {?>
+        <?js author.forEach(function(a) { ?>
+            <dt class="tag-author uk-text-meta">Author:</dt>
+            <dd class="tag-author"><?js= self.resolveAuthorLinks(a) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.copyright) {?>
+        <dt class="tag-copyright uk-text-meta">Copyright:</dt>
+        <dd class="tag-copyright"><?js= copyright ?></dd>
+    <?js } ?>
+
+    <?js if (data.license) {?>
+        <dt class="tag-license uk-text-meta">License:</dt>
+        <dd class="tag-license"><?js= license ?></dd>
+    <?js } ?>
+
+    <?js if (data.defaultvalue) {?>
+        <dt class="tag-default uk-text-meta">Default Value:</dt>
+        <dd class="tag-default">
+            <span<?js= defaultObjectClass ?>><?js= data.defaultvalue ?></span>
+        </dd>
+    <?js } ?>
+
+    <?js if (data.tutorials && tutorials.length) {?>
+        <?js tutorials.forEach(function(t) { ?>
+            <dt class="tag-tutorial uk-text-meta">Tutorials:</dt>
+            <dd class="tag-tutorial"><?js= self.tutoriallink(t) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.see && see.length) {?>
+        <?js see.forEach(function(s) { ?>
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><?js= self.linkto(s) ?></dd>
+        <?js }); ?>
+    <?js } ?>
+
+    <?js if (data.todo && todo.length) {?>
+        <?js todo.forEach(function(t) { ?>
+            <dt class="tag-todo uk-text-meta">To Do:</dt>
+            <dd class="tag-todo"><?js= t ?></dd>
+        <?js }); ?>
+    <?js } ?>
+</dl>
+
+<?js
+    var properties = data.properties;
+    if (properties && properties.length && properties.forEach) {
+?>
+    <h5 class="subsection-title uk-margin-small-bottom">Properties:</h5>
+    <?js= this.partial('properties.tmpl', data) ?>
+<?js } ?>

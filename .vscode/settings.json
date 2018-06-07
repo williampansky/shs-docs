@@ -1,0 +1,14 @@
+{
+    "stylelint.enable": false,
+    "css.validate": false,
+    "eslint.enable": false,
+    "search.followSymlinks": false,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.min.*": true,
+        "**/*.css": true,
+        "**/*.css.map": true,
+        "**/*.svn": true,
+    }
+}

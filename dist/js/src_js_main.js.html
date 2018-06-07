@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>MOHG Scripts | src/js/main.js</title>
+
+        <!-- <script src="scripts/prettify/prettify.js"></script> -->
+        <!-- <script src="scripts/prettify/lang-css.js"></script> -->
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link type="text/css" rel="stylesheet" href="../../src/css/uikit.min.css">
+        <link type="text/css" rel="stylesheet" href="../../src/css/prism.css" />
+        <link type="text/css" rel="stylesheet" href="../../src/css/prism-treeview-seti.css" />
+        <link type="text/css" rel="stylesheet" href="../../src/css/prism-onedark.css" />
+        <link type="text/css" rel="stylesheet" href="../../src/css/custom.css">
+        <!-- <link type="text/css" rel="stylesheet" href="../../themes/jsdoc_docdash/static/styles/custom.css"> -->
+        <!-- <script src="scripts/clipboard.min.js"></script> -->
+    </head>
+
+    <body class="jsdoc uk-offcanvas-content">
+
+        <main id="main">
+            <nav class="uk-navbar-container" uk-navbar uk-sticky="show-on-up:true; animation:uk-animation-slide-top;">
+                <div class="uk-navbar-left">
+                    
+                        <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
+                            <li><a href="../../../documentation.html">MOHG</a></li>
+                            <li><a href="index.html">JSdocs</a></li>
+                            <li><span class="uk-text-accent">src/js/main.js</span></li>
+                        </ul>
+                    
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li><a href="../../../documentation.html">Project Docs</a></li>
+                        <li class="uk-active"><a href="index.html">JavaScript Docs</a></li>
+                        <li><button class="uk-navbar-toggle uk-hidden@m" type="button" uk-toggle="target: #offcanvas-overlay" uk-navbar-toggle-icon></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <article class="uk-container uk-container-small uk-article uk-animation-fade">
+                
+
+    
+    
+        
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>window.onload = ()=> {
+    if (document.body.classList.contains('documentation')) {
+        const promises = [];
+        promises.push(initNav());
+        Promise.all(promises).then(()=> {
+            fixBrokenHrefs();
+            fixBrokenIDs();
+            addNavHeader();
+            makeUIkitTables();
+            // scrollNavToActive();
+            // makeHeadingsSticky();
+        }, (err)=> {
+            console.log(err);
+        });
+    }
+}
+
+
+/**
+ * "document.ready"
+ */
+document.addEventListener('DOMContentLoaded', ()=> {
+    if (document.body.classList.contains('documentation')) {
+        addShadows();
+        centerSmallImages();
+    }
+
+    if (document.body.classList.contains('jsdoc')) {
+        makeUIkitTables();
+        wordBreakLongTableTDs();
+    }
+});
+
+
+/**
+ * @param {String} id — &lt;element id="" />
+ * @param {String} title — element.innerText;
+ */
+function NavItem(id, title) {
+    this.id     = id;
+    this.title  = title;
+}
+
+
+/**
+ * 
+ * @param {*} id 
+ */
+function convertIdToNavItem(id) {
+    let element = document.querySelector(`#${id}`);
+    let title   = element.innerText;
+    let obj     = new NavItem(id, title);
+    console.log(obj);
+    return obj;
+}
+
+
+/**
+ * Takes a convertIdToNavItem() func's return and molds it into a
+ * navigation item before appending it to the #sideNav elem.
+ * @param {Object} item
+ */
+function appendToNav(item) {
+    let nav         = document.querySelector('#sideNav');
+    let itemWrapper = document.createElement('li');
+    itemWrapper.classList.add('nav-item');
+    itemWrapper.innerHTML = `
+        &lt;a href="#${item.id}" class="uk-text-truncate">${item.title}&lt;/a>
+    `;
+    nav.append(itemWrapper);
+}
+
+
+/**
+ * Uses convertIdToNavItem(id) as a param in the appendToNav() func 
+ * in order to pass the value of `return obj` to the append function.
+ */
+function initNav() {
+    let headings = document.querySelectorAll('h1') &amp;&amp; document.querySelectorAll('h2');
+    for (let i=0; i &lt; headings.length; i++) {
+        let id = headings[i].id;
+        appendToNav(convertIdToNavItem(id));
+    }
+}
+
+
+/**
+ * Recursive parsing and nav building.
+ * @param {*} nodes 
+ * @param {*} element 
+ * @param {*} level 
+ * @author Louis Ricci
+ * [Stack Overflow]{@link https://stackoverflow.com/a/17430494}
+ */
+function buildRec(nodes, element, level) {
+    var node;
+
+    // filter
+    do {
+        node = nodes.shift();
+    } while (node &amp;&amp; !(/^h[123456]$/i.test(node.tagName)));
+
+    // process the next node
+    if (node) {
+        var ul, li, currentNode;
+        var currentLevel = parseInt(node.tagName.substring(1));
+
+        // same level append an il
+        if (currentLevel == level) {
+            currentNode = 0;
+        // walk up then append il
+        } else if (currentLevel &lt; level) {
+            currentNode = 0;
+            do {
+                element = element.parentNode.parentNode;
+                currentNode--;
+            } while (currentNode > (currentLevel - level));
+        // create children then append il
+        } else if (currentLevel > level) {
+            currentNode = 0;
+            do {
+                li = element.lastChild;
+                if (li == null) {
+                    li = element.appendChild(document.createElement('li'));
+                }
+                element = li.appendChild(document.createElement('ul'));
+                element.classList.add('uk-nav-sub');
+                // element.setAttribute('uk-scrollspy-nav', 'closest: li; scroll: true; offset: 100');
+                currentNode++;
+            } while (currentNode &lt; (currentLevel - level));
+        }
+
+        li = element.appendChild(document.createElement('li'));
+
+        // replace the next line with archor tags or whatever you want
+        // console.log(node);
+        li.innerHTML = `
+            &lt;a href="#${node.id}" class="uk-text-truncate uk-animation-fade">${node.innerText}&lt;/a>
+        `;
+
+        // recursive call
+        buildRec(nodes, element, level + currentNode);
+    }
+}
+
+
+/**
+ * Wrapper func to call onload to build nav
+ * Thx to https://stackoverflow.com/a/10004137 for info w/Promises
+ */
+function initNav() {
+    return new Promise((resolve)=> {
+        var all   = document.getElementById('content').getElementsByTagName('*');
+        var nodes = [];
+
+        for (
+            var index = all.length;
+            index--;
+            nodes.unshift(all[index])
+        );
+
+        var result = document.createElement('ul');
+        result.classList.add('uk-nav', 'uk-nav-default');
+        result.setAttribute('uk-scrollspy-nav', 'closest: a; scroll: true; offset: 100');
+        // result.setAttribute('uk-scrollspy', 'target: > li; cls:uk-animation-slide-left-small; delay: 100')
+
+        buildRec(nodes, result, 1);
+        resolve(document.getElementById('sideNav').appendChild(result));
+    });
+}
+
+
+/**
+ * Scroll offcanvas to active link
+ */
+// function scrollNavToActive() {
+//     var nav = document.querySelector('sideNav');
+//     var active = document.querySelector('#sideNav .uk-active');
+//     var activePosition = document.querySelector('#sideNav .uk-active').getBoundingClientRect();
+//     nav.scrollTop = activePosition.y;
+//     console.log(activePosition.y);
+// }
+
+
+// add shadows to imgs
+function addShadows() {
+    let images = document.querySelectorAll('#content img');
+    for (let i=0; i &lt; images.length; i++)
+        images[i].classList.add('uk-box-shadow-large');
+}
+
+
+// add .uk-nav-header to first &lt;li> items
+function addNavHeader() {
+    let navHeaders = document.querySelectorAll('#sideNav .uk-nav > li > a:first-of-type');
+    for (let i=0; i &lt; navHeaders.length; i++)
+        navHeaders[i].classList.add('uk-nav-header');
+}
+
+
+// regex array to remove some chars from the buildRec() nav
+// that breaks the windows scrolling behavior
+function fixBrokenHrefs() {
+    let regexMatch = /(-)$/g;
+    let links = document.querySelectorAll('.uk-nav a');
+
+    for (let i=0; i &lt; links.length; i++) {
+        if (links[i].getAttribute('href').match(regexMatch)) {
+            let href = links[i].getAttribute('href');
+            let newHref = href.substr(
+                0, href.lastIndexOf("-", href.length - 1)
+            );
+            links[i].setAttribute('href', newHref);
+        }
+    }
+}
+
+
+function fixBrokenIDs() {
+    let regexMatch = /(-)$/g;
+    let headings = document.querySelectorAll(
+        'h1, h2, h3, h4, h5, h6'
+    );
+
+    for (let i=0; i &lt; headings.length; i++) {
+        if (headings[i].getAttribute('id').match(regexMatch)) {
+            let id = headings[i].getAttribute('id');
+            let newID = id.substr(
+                0, id.lastIndexOf("-", id.length - 1)
+            );
+            headings[i].setAttribute('id', newID);
+        }
+    }
+}
+
+
+/**
+ * Add `uk-scroll` attribute to internal document links.
+ * [UIkit Scrolling]{@link https://getuikit.com/docs/scroll}
+ */
+function addScrollingBehavior() {
+    let content     = document.getElementById('content');
+    let links       = content.querySelectorAll('a');
+    let regexMatch  = /(#)/g;
+
+    for (let i=0; i &lt; links.length; i++) {
+        if (links[i].getAttribute('href').match(regexMatch))
+            links[i].setAttribute('uk-scroll', '');
+    }
+}
+
+
+/**
+ * Add `.uk-align-center` to images less than 740px.
+ */
+function centerSmallImages() {
+    let content = document.getElementById('content');
+    let images = content.getElementsByTagName('img');
+    let minWidth = 740;
+
+    for (let i=0; i &lt; images.length; i++) {
+        if (images[i].style.width &lt; minWidth)
+            images[i].classList.add('uk-align-center');
+    }
+}
+
+
+/**
+ * Add `uk-sticky` to H1s and H2s.
+ */
+function makeHeadingsSticky() {
+    let headings = document.getElementsByTagName('h1');
+    for (let i=0; i &lt; headings.length; i++) {
+        headings[i].setAttribute('uk-sticky', 'bottom: true');
+    }
+}
+
+
+/**
+ * Add `uk-table` classes to markdown tables
+ */
+function makeUIkitTables() {
+    setTimeout(()=> {
+        let tables = document.getElementsByTagName('table');
+        
+        for (let i=0; i &lt; tables.length; i++) {
+            tables[i].classList.add(
+                'uk-table',
+                'uk-table-small',
+                'uk-table-striped',
+                'uk-table-hover',
+                'uk-table-responsive',
+                'uk-box-shadow-medium'
+            );
+            // th_filename.classList.add('uk-table-auto');
+            // th_lineNums.classList.add('uk-table-shrink');
+            // th_TODOs.classList.add('uk-table-expand');
+        }
+    }, 300);
+}
+
+
+/**
+ * Apply `word-break: break-all` inline style if &lt;td> string length
+ * is longer than 70 characters.
+ */
+function wordBreakLongTableTDs() {
+    setTimeout(()=> {
+        var tds = document.getElementsByTagName('td');
+        
+        for (var i=0; i &lt; tds.length; i++) {
+            var values = tds[i].innerText;
+            var string_length = values.length;
+
+            if (string_length >= 70)
+                tds[i].style.wordBreak = 'break-all';
+        }
+    }, 300);
+}
+
+
+/**
+ * Add `uk-table` classes to markdown tables
+ */
+function makeUIkitTables() {
+    setTimeout(()=> {
+        let tables = document.getElementsByTagName('table');
+        
+        for (let i=0; i &lt; tables.length; i++) {
+            // add uk-* classes if it doesn't already have 'em
+            if (!tables[i].classList.contains('uk-table')) {
+                tables[i].classList.add(
+                    'uk-table',
+                    'uk-table-small',
+                    'uk-table-striped',
+                    'uk-table-hover',
+                    'uk-table-responsive',
+                    'uk-box-shadow-medium'
+                );
+            }
+        }
+    }, 300);
+}
+
+
+
+/**
+ * Wrap uk-* tables in a div.uk-overflow-auto
+ * @todo fix?
+ */
+function makeUIkitTablesResponsive() {
+    setTimeout(()=> {
+        let tables = document.querySelectorAll('.uk-table');
+        for (let i=0; i &lt; tables.length; i++) {
+            // wrapInOverflow(tables[i]);
+            let org_html = tables[i].innerHTML;
+            let new_html = '&lt;div class="uk-overflow-auto">' + org_html + '&lt;/div>';
+            setTimeout(()=> { tables[i].innerHTML = new_html; }, 100);
+        }
+    }, 600);
+}
+
+function wrapInOverflow(element) {
+    // element = document.querySelector(element);
+    let org_html = element.innerHTML;
+    let new_html = '&lt;div class="uk-overflow-auto">' + org_html + '&lt;/div>';
+    element.innerHTML = new_html;
+}</code></pre>
+    </section>
+    <link rel="stylesheet" href="../../src/css/prettify.css">
+    <script src="../../src/js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="../../src/js/linenumber.js"></script>
+    
+
+
+
+                
+                <footer class="uk-section">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>.</p>
+                    <p> Last compiled on Thu Jun 07 2018 07:59:04 GMT-0500 (CDT) using a <a href="#" class="uk-disabled">custom version</a> of the <a href="https://github.com/clenemt/docdash">docdash</a> theme.</p>
+                </footer>
+            </article>
+        </main>
+
+        <aside id="navWrapper">
+            <section id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+                <div id="sideNav" class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                    <nav class="uk-nav uk-nav-default">
+                        <a href="index.html">Home</a><h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#appendToNav">appendToNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#convertIdToNavItem">convertIdToNavItem</a></li><li><a href="global.html#getSidebarPosition">getSidebarPosition</a></li><li><a href="global.html#initNav">initNav</a></li><li><a href="global.html#makeHeadingsSticky">makeHeadingsSticky</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#makeUIkitTablesResponsive">makeUIkitTablesResponsive</a></li><li><a href="global.html#moveSidebarToPosition">moveSidebarToPosition</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#onload">onload</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#setSidebarActiveNode">setSidebarActiveNode</a></li><li><a href="global.html#setSidebarPosition">setSidebarPosition</a></li><li><a href="global.html#sidebarScrollListener">sidebarScrollListener</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    </nav>
+                </div>
+            </section>
+        </aside>
+
+        <script src="../../dist/bundle.js"></script>
+    </body>
+</html>

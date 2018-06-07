@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>shs-docs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src/css/uikit.min.css" />
+        <link rel="stylesheet" href="src/css/prism.css" />
+        <link rel="stylesheet" href="src/css/prism-treeview-seti.css" />
+        <link rel="stylesheet" href="src/css/prism-onedark.css" />
+        <link rel="stylesheet" href="src/css/main.css" />
+    </head>
+    <body class="documentation uk-offcanvas-content">
+        <nav 
+            class="uk-navbar-container uk-light uk-animation-fade" 
+            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
+            uk-navbar
+        >
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active">
+                        <a href="./documentation.html">Project Docs</a>
+                    </li>
+                    <li>
+                        <a href="dist/js/index.html">JavaScript Docs</a>
+                    </li>
+                    <li>
+                        <button 
+                            class="uk-navbar-toggle uk-hidden@m" 
+                            type="button" 
+                            uk-toggle="target: #offcanvas-overlay" 
+                            uk-navbar-toggle-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main id="content" class="uk-container uk-container-small uk-padding-large uk-animation-fade">
+            <!-- Set the order of your compiled .md files here -->
+            <article id="intro">{{SAMPLE.md}}</article>
+        </main>
+
+        <aside id="navWrapper">
+            <nav id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+                <div id="sideNav" class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                </div>
+            </nav>
+        </aside>
+
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>

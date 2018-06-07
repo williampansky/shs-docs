@@ -1,0 +1,19 @@
+<?js
+    var data = obj || {};
+    if (data.description) {
+?>
+    <?js if (data.type && data.type.names) { ?>
+        <div class="param-desc">
+            <span><?js= description ?></span>,
+            <span><em class="uk-text-meta">
+                Type: → {
+                <?js= this.partial('type.tmpl', data.type.names) ?>
+                }
+            </em></span>
+        </div>
+    <?js } else { ?>
+        <div class="param-desc">
+            <?js= description ?>
+        </div>
+    <?js } ?>
+<?js } ?>
