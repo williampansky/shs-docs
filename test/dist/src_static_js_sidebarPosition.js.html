@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | LineNumbers</title>
+        <title>MOHG Scripts | src/static/js/sidebarPosition.js</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,7 +28,7 @@
                     <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
                         <li><a href="readme.html">Home</a></li>
                         <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent">LineNumbers</span></li>
+                        <li><span class="uk-text-accent">src/static/js/sidebarPosition.js</span></li>
                     </ul>
                 
             </div>
@@ -58,43 +58,62 @@
 
     
     
-
-        <section class="uk-section container-overview uk-padding-remove-bottom">
-            <header>
-                
-                    <h1 class="uk-article-title">LineNumbers</h1>
-                
-
-                
-                    
-                
-            </header>
-
-            
-                
-
-                
-            
-
-            
-
-            
-        </section>
-
         
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
+ * @module sidebarPosition
+ * @description Uses `sessionStorage` to store &amp; use the sidebar's 
+ * scrolling state to preserve position between page views.
+ */
 
-        
+/**
+ * @summary Adds a listener for #sideNav scrolling position
+ * @method sidebarScrollListener
+ */
+export const sidebarScrollListener = ()=> {
+    let sidebar = document.getElementById('sideNav');
+    sidebar.onscroll = (position)=> {
+        position = sidebar.scrollTop;
+        setSidebarPosition(position);
+    }
+}
 
-        
 
-        
+/**
+ * @summary Uses session storage to track the sidebar X position.
+ * @method setSidebarPosition
+ * @param {Number} position Current sidebar.scrollTop val
+ */
+export const setSidebarPosition = position => {
+    sessionStorage.setItem('sidebarPosition', position);
+};
 
-        
 
-        
+/**
+ * @summary Gets the number value from session storage and returns
+ * @method getSidebarPosition
+ */
+export const getSidebarPosition = ()=> {
+    sessionStorage.getItem('sidebarPosition');
+    return;
+};
 
-        
 
+/**
+ * @summary Moves #sideNav.scrollTo to set value of session storage number
+ * @method moveSidebarToPosition
+ * @param {Number} position value returned from sessionStorage.getItem('sidebarPosition');
+ */
+export const moveSidebarToPosition = position => {
+    position = sessionStorage.getItem('sidebarPosition');
+    let sidebar = document.getElementById('sideNav');
+
+    sidebar.scrollTo(0, position);
+};</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 

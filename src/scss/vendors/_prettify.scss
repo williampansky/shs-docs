@@ -77,3 +77,35 @@ ol.linenums {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+
+.source code, 
+.source kbd, 
+.source samp {
+	color: #abb2bf;
+  background-color: #282c34;
+  white-space: pre;
+}
+.source-code .prettyprint.source {
+  padding: 0 0 0 2em;
+}
+.source-code .prettyprint.source code {
+	padding: 0 15px;
+}
+.source-code .prettyprint.source li:first-of-type {
+	padding-top: 15px;
+}
+.source-code .prettyprint.source li:last-of-type {
+	padding-bottom: 15px;
+}
+.source-code .prettyprint.linenums li {
+	border-left: 3px #383e49 solid;
+}
+.source-code .prettyprint.source li.selected,
+.source-code .prettyprint.source li.selected * {
+	border-left-color: #c678dd;
+	background: #383e49;
+}
+.source-code .prettyprint.linenums li * {
+	user-select: text;
+}

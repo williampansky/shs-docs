@@ -106,6 +106,18 @@ pre[class*="language-"] {
   cursor: help;
 }
 
+.token.interpolation {
+	color: #e06c75;
+}
+
+.token.interpolation-punctuation.punctuation {
+	color: #bf76d6;
+}
+
+.token.regex {
+	color: #56b6c2;
+}
+
 pre.line-numbers {
 	position: relative;
 	padding-left: 3.8em;
@@ -125,12 +137,7 @@ pre.line-numbers > code {
 	width: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
 	border-right: 0;
-
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
-
 }
 
 .line-numbers-rows > span {

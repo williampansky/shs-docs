@@ -21,7 +21,8 @@ const gulp          = require('gulp-help')(require('gulp')),
     todo            = require('gulp-todo'),
     run             = require('gulp-run-command').default,
     sequence        = require('run-sequence'),
-    svn             = require('gulp-svn2');
+    svn             = require('gulp-svn2'),
+    fs              = require('fs');
 
 
 /**
@@ -61,9 +62,9 @@ const paths = {
     src:    'src',
     theme:  'src/tmpl',
     sass:   'src/scss',
-    css:    'src/css',
-    img:    'src/img',
-    js:     'src/js',
+    css:    'src/static/css',
+    img:    'src/static/img',
+    js:     'src/static/js',
     test:   'test'
 };
 
@@ -219,12 +220,38 @@ gulp.task('images', imageTask.description, imageTask);
  * ```
  */
 function watchTask() {
-    // watch Sass files, recompile, & inject on save
+    // watch .scss files, recompile, & inject on save
     gulp.watch('src/**/*.scss', ['sass'])
         .on('change', event => {
-            console.log(`
-                ———— File ${event.path} was ${event.type}, running sass task...
-            `);
+            console.log(`[watchTask] ———— File ${event.path} was ${event.type}, running sassTask()...`);
+        });
+    
+    // watch .js files, recompile, & reload on save
+    gulp.watch([
+        './index.js',
+        './webpack.config.js',
+        'src/static/js/**/*.js', 
+        '!src/static/js/bundle.js', 
+        '!node_modules/**/*.js', 
+        '!dist/js/**/*.js'
+    ], ['webpack'])
+        .on('end', event => {
+            console.log(`[watchTask] ———— File ${event.path} was ${event.type}, running webpack task...`);
+            browserSync.reload(event);
+        });
+    
+    // watch .html files, recompile, & reload on save
+    gulp.watch('src/**/*.html', ['markdown'])
+        .on('end', event => {
+            console.log(`[watchTask] ———— File ${event.path} was ${event.type}, running parseMarkdown() task...`);
+            browserSync.reload(event);
+        });
+    
+    // watch .tmpl files, recompile, & reload on save
+    gulp.watch('src/**/*.tmpl', ['jsdocs'])
+        .on('end', event => {
+            console.log(`[watchTask] ———— File ${event.path} was ${event.type}, running jsDocs task...`);
+            browserSync.reload(event);
         });
 }
 watchTask.description = 'Watches files for changes and reloads BrowserSync if flagged.';
@@ -245,9 +272,9 @@ gulp.task('watch', watchTask.description, watchTask);
  */
 gulp.task('sync', 'Initiates a BrowserSync instance.', ()=> {
     browserSync.init({
-        // open: false,
+        open: false,
         online: true,
-        files: ['src/css/main.min.css'],
+        files: ['src/static/css/main.min.css'],
         // proxy: localhost,
         // browser: 'google chrome',
         // single: true,
@@ -303,13 +330,13 @@ gulp.task('docs', docsTask.description, docsTask);
  */
 const parseMarkdown = ()=> {
     console.log(`
-        ———— [jsDocs] Parsing Markdown (.md) files and compiling to ./documentation.html file...
+    [docsTask] ———— Parsing Markdown (.md) files and compiling to ./documentation.html file...
     `);
 
     return gulp.src(`./src/template.html`)
         .pipe(template(`./test/markdown`))
-        .pipe(rename('test/documentation.html'))
-        .pipe(gulp.dest('./'));
+        .pipe(rename('readme.html'))
+        .pipe(gulp.dest('./test/dist'));
 };
 parseMarkdown.description = 'Builds complete documentation package.';
 gulp.task('markdown', false, parseMarkdown);
@@ -353,7 +380,7 @@ gulp.task('jsdocs',
  */
 const jsdocsTask_clear = ()=> {
     console.log(`
-        ———— [jsDocs] Clearing old jsDoc files...
+    [docsTask] ———— Clearing old jsDoc files...
     `);
 
     // -- globbing pattern to match everything inside the `docs/dist/js` folder
@@ -378,7 +405,7 @@ gulp.task('jsdocs-clear', false, jsdocsTask_clear);
  */
 const jsdocsTask_svn = ()=> {
     console.log(`
-        ———— [jsDocs] Adding new doc items to SVN...
+    [docsTask] ———— Adding new jsDoc files to SVN...
     `);
 
     // -- svn add --force --depth infinity on docs/dist/js folder
@@ -410,26 +437,17 @@ gulp.task('jsdocs-svn', false, jsdocsTask_svn);
  */
 const todoTask = ()=> {
     console.log(`
-        ———— [jsDocs] Parsing @todo & @fixme source-code comment annotations...
+    [docsTask] ———— Parsing @todo & @fixme source-code comment annotations...
     `);
 
     return gulp.src([
         // include the following directories:
-        'templates/main/js/**/*.js',
-        'templates/main/cbe/js/source/**/*.js',
-        'templates/main/docs/assets/js/mainjs',
-        'templates/main/gallery-v2/src/**/*.js',
+        'src/**/*.js',
         'gulpfile.js',
+        'webpack.config.js',
         
         // exlude the following directories:
-        '!templates/main/js/**/*.min.js',
-        '!templates/main/cbe/node_modules/**/*.js',
-        '!templates/main/gallery-v2/node_modules/**/*.js',
-        '!templates/main/js/galleria-1.4.2.js',
-        '!templates/main/js/gallery/**/*.js',
-        '!templates/main/js/geoLocation.js',
-        '!templates/main/js/libs/**/*.js',
-        '!templates/main/js/plugins/**/*.js'
+        '!node_modules/**/*.js',
     ])
     .pipe(todo())
     .pipe(gulp.dest(`./test/markdown`));

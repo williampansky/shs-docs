@@ -17,7 +17,7 @@
         <?js= self.partial('source.tmpl', doc) ?>
     <?js } else { ?>
 
-        <section class="uk-section container-overview">
+        <section class="uk-section container-overview uk-padding-remove-bottom">
             <header>
                 <?js if (title != 'Home') { ?>
                     <h1 class="uk-article-title"><?js= title ?></h1>
@@ -71,12 +71,12 @@
             <?js } ?>
 
             <?js if (doc.augments && doc.augments.length) { ?>
-                <h3 class="subsection-title uk-margin-small-bottom">Extends</h3>
+                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Extends</h3>
                 <?js= self.partial('augments.tmpl', doc) ?>
             <?js } ?>
 
             <?js if (doc.requires && doc.requires.length) { ?>
-                <h3 class="subsection-title uk-margin-small-bottom">Requires</h3>
+                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Requires</h3>
                 <ul>
                     <?js doc.requires.forEach(function(r) { ?>
                         <li><?js= self.linkto(r, r) ?></li>
@@ -91,7 +91,7 @@
             });
             if (!isGlobalPage && classes && classes.length && classes.summary) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Classes</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Classes</h3>
             <dl class="uk-description-list uk-description-list-divider">
                 <?js classes.forEach(function(c) { ?>
                     <dt><?js= self.linkto(c.longname, c.name) ?></dt>
@@ -104,7 +104,7 @@
             var mixins = self.find({kind: 'mixin', memberof: doc.longname});
             if (!isGlobalPage && mixins && mixins.length && mixins.summary) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Mixins</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Mixins</h3>
             <dl class="uk-description-list uk-description-list-divider">
                 <?js mixins.forEach(function(m) { ?>
                     <dt><?js= self.linkto(m.longname, m.name) ?></dt>
@@ -120,7 +120,7 @@
             });
             if (!isGlobalPage && namespaces && namespaces.length && namespaces.summary) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Namespaces</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Namespaces</h3>
             <dl class="uk-description-list uk-description-list-divider">
                 <?js namespaces.forEach(function(n) { ?>
                     <dt><?js= self.linkto(n.longname, n.name) ?></dt>
@@ -143,7 +143,7 @@
             }
             if (members && members.length && members.forEach) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Members</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Members</h3>
             <?js members.forEach(function(p) { ?>
                 <?js= self.partial('members.tmpl', p) ?>
             <?js }); ?>
@@ -156,7 +156,7 @@
             });
             if (methods && methods.length && methods.forEach) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Methods</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
             <?js methods.forEach(function(m) { ?>
                 <?js= self.partial('method.tmpl', m) ?>
             <?js }); ?>
@@ -169,7 +169,7 @@
             });
             if (typedefs && typedefs.length && typedefs.forEach) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Type Definitions</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Type Definitions</h3>
             <?js typedefs.forEach(function(e) { if (e.signature) { ?>
                 <?js= self.partial('method.tmpl', e) ?>
             <?js } else { ?>
@@ -184,7 +184,7 @@
             });
             if (events && events.length && events.forEach) {
         ?>
-            <h3 class="subsection-title uk-margin-small-bottom">Events</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Events</h3>
             <?js events.forEach(function(e) { ?>
                 <?js= self.partial('method.tmpl', e) ?>
             <?js }); ?>

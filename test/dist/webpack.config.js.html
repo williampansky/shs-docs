@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | LineNumbers</title>
+        <title>MOHG Scripts | webpack.config.js</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,7 +28,7 @@
                     <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
                         <li><a href="readme.html">Home</a></li>
                         <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent">LineNumbers</span></li>
+                        <li><span class="uk-text-accent">webpack.config.js</span></li>
                     </ul>
                 
             </div>
@@ -58,43 +58,47 @@
 
     
     
-
-        <section class="uk-section container-overview uk-padding-remove-bottom">
-            <header>
-                
-                    <h1 class="uk-article-title">LineNumbers</h1>
-                
-
-                
-                    
-                
-            </header>
-
-            
-                
-
-                
-            
-
-            
-
-            
-        </section>
-
         
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
+module.exports = {
+    entry: './index.js',
+    mode: 'development',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'src/static/js')
+    },
+    node: {
+        fs: 'empty'
+    },
+    plugins: [
+        /**
+         * @summary Uses UglifyJS v3 (uglify-es) to minify JavaScript.
+         * 
+         * @method UglifyJsPlugin
+         * @see [Webpack.UglifyJsPlugin]{@link https://webpack.js.org/plugins/uglifyjs-webpack-plugin}
+         * 
+         * @prop {Option} sourceMap true
+         * @prop {Option} comments false
+         * @prop {Option} beautify false
+         */
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                sourceMap: true,
+                output: {
+                    comments: false,
+                    beautify: false
+                },
+            }
+        })
+    ]
+};</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 

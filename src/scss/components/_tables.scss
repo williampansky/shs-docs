@@ -5,10 +5,14 @@
 	font-size: .675rem;
 	color: #444;
 }
-.uk-table-small td, 
-.uk-table-small th {
-	border: 1px solid #e5e5e5;
-}
-.uk-table tr > td:first-child {
-	font-weight: bold;
+// .uk-table-small td, 
+// .uk-table-small th {
+// 	border: 1px solid #e5e5e5;
+// }
+// .uk-table tr > td:first-child {
+// 	font-weight: bold;
+// }
+.uk-table-striped tbody tr:last-of-type, 
+.uk-table-striped > tr:last-of-type {
+	border-bottom: none;
 }

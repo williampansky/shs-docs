@@ -3,8 +3,8 @@
 // ========================================================================
 // LINKS
 a, a:link, a:visited {
-	color: var(--color-primary);
-	text-decoration: underline;
+	// color: var(--color-primary);
+	text-decoration: none;
 	word-break: break-word;
 }
 
@@ -13,17 +13,37 @@ a.token.url-link {
 	text-decoration: underline;
 }
 
-a:hover, a:link:hover, a:visited:hover {
+a:hover, 
+a:link:hover, 
+a:visited:hover,
+.uk-link:hover {
 	text-decoration: none;
+}
+
+#content a {
+  border-bottom: 1px solid #ddd;
+}
+#content a:hover,
+#content a:active {
+  border-bottom-color: var(--color-secondary);
+}
+
+.uk-disabled {
+	pointer-events: auto;
+}
+a.uk-disabled:hover {
+	color: #1e87f0;
+	border-color: #ddd;
+	cursor: not-allowed;
 }
 
 
 /* TYPOGRAPHY */
-h1 {
-	border-top: 4px solid #ddd;
-	padding-top: 3.5rem;
-	margin-top: 4rem;
-}
+// h1 {
+// 	border-top: 4px solid #ddd;
+// 	padding-top: 3.5rem;
+// 	margin-top: 4rem;
+// }
 
 main > article:first-of-type > h1 {
 	border: none;
@@ -35,4 +55,39 @@ main blockquote {
 	border-left: 4px solid #ddd;
 	color: #777;
 	padding: 0 1rem;
+}
+
+/* TYPOGRAPHY/WORD BREAKS */
+.uk-article-title,
+dd.tag-source,
+table td {
+	word-break: break-word;
+}
+.description :not(pre) > code, 
+.description :not(pre) > kbd, 
+.description :not(pre) > samp {
+	white-space: normal;
+}
+
+.uk-text-accent {
+	color: var(--color-accent) !important;
+}
+
+@media screen and (min-width: 1200px) {
+	/* Type breaks reset */
+	.uk-article-title,
+	dd.tag-source,
+	table td {
+		word-break: initial;
+	}
+	.description :not(pre) > code, 
+	.description :not(pre) > kbd, 
+	.description :not(pre) > samp {
+		white-space: nowrap;
+	}
+}
+
+
+p:last-child, p:only-child {
+	margin-bottom: 0 !important;
 }

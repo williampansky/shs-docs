@@ -23,3 +23,8 @@ em {
 	/* to accomodate the centering of main.uk-container */
 	body { padding-left: 350px; }
 }
+
+/* Hides unnecessary content from home (index.html) page */
+.home .container-overview {
+	display: none;
+}

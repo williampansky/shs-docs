@@ -1,17 +1,46 @@
 // ========================================================================
 // LAYOUT => OFFCANVAS
 // ========================================================================
-.uk-offcanvas-bar {
-	background: var(--color-secondary);
-}
-.uk-offcanvas-bar .uk-nav-default .uk-active,
-.uk-offcanvas-bar .uk-nav-default .uk-nav-sub .uk-active {
-	color: var(--color-accent);
-}
+// .uk-offcanvas-bar {
+// 	background: var(--color-secondary);
+// }
 
-@media screen and (min-width: 768px) {
-	/* force-display sidebar on 768+ */
+// .uk-offcanvas-bar .uk-nav-default .uk-active,
+// .uk-offcanvas-bar .uk-nav-default .uk-nav-sub .uk-active {
+// 	color: var(--color-accent);
+// }
+
+.uk-nav-header {
+  // border-bottom: 1px solid hsl(207, 10%, 86%);
+  background-image: linear-gradient(to right, #d8dcdf 40%, rgba(255, 255, 255, 0) 20%);
+  background-position: bottom;
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+  padding: 8px 0;
+  margin-bottom: .35rem;
+}
+.uk-nav-sub a {
+  border-left: 1px solid hsl(207, 10%, 86%);
+  padding: 0 0 0 20px;
+}
+// .uk-offcanvas .uk-nav ul li {
+// 	transition: all 300ms ease-in-out;
+// }
+// .uk-offcanvas .uk-nav > ul > li.uk-active {
+// 	color: var(--color-accent);
+// 	padding: 2em 0;
+// 	opacity: 1;
+// 	transform: translateX(15px);
+// }
+// .uk-offcanvas-bar .uk-nav a:hover,
+// .uk-offcanvas-bar .uk-nav-default .uk-nav-sub a:hover {
+// 	color: var(--color-accent);
+// }
+
+
+@media screen and (min-width: 960px) {
+	/* force-display sidebar on 960+ */
 	.uk-offcanvas { display: block; }
 	.uk-offcanvas-bar { transform: translateX(0); }
 	.uk-offcanvas-close { display: none; }
- }
+}

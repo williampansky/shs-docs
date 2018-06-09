@@ -18,10 +18,11 @@
         "include": [
             "README.md",
             "gulpfile.js",
-            "src/js"
+            "webpack.config.js",
+            "src/static/js"
         ],
         "exclude": [
-            "dist/bundle.js",
+            "dist/js/bundle.js",
             "node_modules"
         ],
         "includePattern": ".+\\.(js|vue)$",

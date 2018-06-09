@@ -8,7 +8,24 @@
 	--color-primary: 	#b02909;
 	--color-secondary:#312a29;
 	--color-accent: 	#EEC33F;
+	// --color-gradient:	linear-gradient(to left, #28a5f5, #1e87f0);
+	--color-gradient:	linear-gradient(to left, #0964B9, #1e87f0);
 	--color-success: 	#32d296;
 	--color-warning: 	#faa05a;
 	--color-danger: 	#f23e60;
+}
+
+$uikit-colors: (
+  primary: var(--color-primary),
+  secondary: var(--color-secondary),
+  gradient: var(--color-gradient),
+  // muted: var(--color-muted),
+  success: var(--color-success),
+  warning: var(--color-warning),
+  danger: var(--color-danger)
+);
+
+@each $key, $value in $uikit-colors {
+  .uk-background-#{$key} { background-color: $value !important; }
+  .uk-text-#{$key} { color: $value !important; }
 }

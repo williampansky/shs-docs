@@ -10,39 +10,56 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link type="text/css" rel="stylesheet" href="css/uikit.min.css">
-        <link type="text/css" rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="css/uikit.min.css">
+        <link rel="stylesheet" href="../main.min.css">
     </head>
+
 
     <body class="jsdoc uk-offcanvas-content">
 
-        <main id="main">
-            <nav class="uk-navbar-container" uk-navbar uk-sticky="show-on-up:true; animation:uk-animation-slide-top;">
-                <div class="uk-navbar-left">
-                    
-                        <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
-                            <li><a href="../../../documentation.html">MOHG</a></li>
-                            <li><a href="index.html">JSdocs</a></li>
-                            <li><span class="uk-text-accent">Global</span></li>
-                        </ul>
-                    
-                </div>
-                <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav">
-                        <li><a href="../../../documentation.html">Project Docs</a></li>
-                        <li class="uk-active"><a href="index.html">JavaScript Docs</a></li>
-                        <li><button class="uk-navbar-toggle uk-hidden@m" type="button" uk-toggle="target: #offcanvas-overlay" uk-navbar-toggle-icon></button></li>
-                    </ul>
-                </div>
-            </nav>
 
-            <article class="uk-container uk-container-small uk-article uk-animation-fade">
+        <nav 
+            class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
+            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
+            uk-navbar
+        >
+            <div class="uk-navbar-left">
+                
+                    <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
+                        <li><a href="readme.html">Home</a></li>
+                        <li><a href="index.html">JS Docs</a></li>
+                        <li><span class="uk-text-accent">Global</span></li>
+                    </ul>
+                
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="readme.html">Readme Docs</a>
+                    </li>
+                    <li class="uk-active">
+                        <a href="index.html">JS Docs</a>
+                    </li>
+                    <li>
+                        <button 
+                            class="uk-navbar-toggle uk-hidden@m" 
+                            type="button" 
+                            uk-toggle="target: #offcanvas-overlay" 
+                            uk-navbar-toggle-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main id="content" class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
+            <article class="uk-article">
                 
 
     
     
 
-        <section class="uk-section container-overview">
+        <section class="uk-section container-overview uk-padding-remove-bottom">
             <header>
                 
                     <h1 class="uk-article-title">Global</h1>
@@ -63,7 +80,7 @@
             
                 
 
-<dl class="details">
+<dl class="jsdoc-item-details">
     
 
     
@@ -73,12 +90,14 @@
     
 
     
+        <div class="container">
         <dt class="tag-namespaces uk-text-meta">Namespaces:</dt>
         <dd class="tag-namespaces">
             
                 <a href="gulpfile.html">gulpfile</a>
             
         </dd>
+        </div>
     
 
     
@@ -138,76 +157,30 @@
         
 
         
-            <h3 class="subsection-title uk-margin-small-bottom">Members</h3>
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Members</h3>
             
                 
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="getSidebarPosition">
-        <span class="type-signature uk-text-meta"></span>getSidebarPosition<span class="type-signature uk-text-meta"></span>
+<section id="buildNav" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="members.tmpl">
+    <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+        <span class="type-signature uk-text-meta">(constant) </span>buildNav<span class="type-signature uk-text-meta"></span>
         <span class="uk-label">Member</span>
     </h4>
 
-    <!--  -->
+    <div class="uk-card-body">
+        
 
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Wrapper func to call onload to build nav.</p></dd>
+        </div>
     
 
-<dl class="details">
     
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line24">line 24</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin-small">
-            <p>Gets the number value from session storage and returns</p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line137">line 137</a></dd>
         </div>
     
 
@@ -216,26 +189,6 @@
     
 
     
-</section>
-            
-                
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="moveSidebarToPosition">
-        <span class="type-signature uk-text-meta"></span>moveSidebarToPosition<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label">Member</span>
-    </h4>
-
-    <!--  -->
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line34">line 34</a></dd>
-    
 
     
 
@@ -270,11 +223,12 @@
     
 
     
-
-    
-
-    
-
+        
+            <div class="container">
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><p><a href="https://stackoverflow.com/a/10004137">Stack Overflow</a></p></dd>
+        
+        </div>
     
 
     
@@ -283,114 +237,38 @@
 
 
 
-    
-        <div class="description uk-margin-small">
-            <p>Moves #sideNav.scrollTo to set value of session storage number</p>
-        </div>
-    
+        
+            <div class="description uk-margin-small">
+                <p>Thx to https://stackoverflow.com/a/10004137 for info w/Promises</p>
+            </div>
+        
 
-    
+        
 
-    
+        
 
-    
+        
+    </div>
 </section>
             
                 
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="onload">
-        <span class="type-signature uk-text-meta"></span>onload<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label">Member</span>
-    </h4>
-
-    <!--  -->
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line47">line 47</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin-small">
-            <p>Calls both sidebarScrollListener() and moveSidebarToPosition() on window load.</p>
-        </div>
-    
-
-    
-
-    
-
-    
-</section>
-            
-                
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="Prism">
+<section id="Prism" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="members.tmpl">
+    <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
         <span class="type-signature uk-text-meta"></span>Prism<span class="type-signature uk-text-meta"></span>
         <span class="uk-label">Member</span>
     </h4>
 
-    <!--  -->
+    <div class="uk-card-body">
+        
 
+<dl class="jsdoc-item-details">
     
 
-<dl class="details">
     
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_prism.custom.js.html">src/js/prism.custom.js</a>, <a href="src_js_prism.custom.js.html#line17">line 17</a></dd>
+        <dd class="tag-source"><a href="src_static_js_prism.custom.js.html">src/static/js/prism.custom.js</a>, <a href="src_static_js_prism.custom.js.html#line17">line 17</a></dd>
+        </div>
     
 
     
@@ -423,9 +301,11 @@
 
     
         
+            <div class="container">
             <dt class="tag-author uk-text-meta">Author:</dt>
             <dd class="tag-author">Lea Verou http://lea.verou.me</dd>
         
+        </div>
     
 
     
@@ -444,37 +324,53 @@
 
 
 
-    
-        <div class="description uk-margin-small">
-            <p>Prism: Lightweight, robust, elegant syntax highlighting
+        
+            <div class="description uk-margin-small">
+                <p>Prism: Lightweight, robust, elegant syntax highlighting
 MIT license http://<a href="http://www.opensource.org/licenses/mit-license.php/">www.opensource.org/licenses/mit-license.php/</a></p>
+            </div>
+        
+
+        
+
+        
+
+        
+    </div>
+</section>
+            
+        
+
+        
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
+            
+                
+<section id="addNavHeader" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>addNavHeader<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="uk-label">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>add .uk-nav-header to first <code>&lt;li&gt;</code> items</p></dd>
         </div>
     
 
     
-
-    
-
-    
-</section>
-            
-                
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="setSidebarPosition">
-        <span class="type-signature uk-text-meta"></span>setSidebarPosition<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label">Member</span>
-    </h4>
-
-    <!--  -->
-
-    
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line14">line 14</a></dd>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line170">line 170</a></dd>
+        </div>
     
 
     
@@ -523,175 +419,58 @@ MIT license http://<a href="http://www.opensource.org/licenses/mit-license.php/"
 
 
 
-    
-        <div class="description uk-margin-small">
-            <p>Uses session storage to track the sidebar X position.</p>
-        </div>
-    
+        
 
-    
+        
 
-    
+        
 
-    
-</section>
-            
-                
-<section data-file="members.tmpl" class="">
-    <h4 class="name" id="sidebarScrollListener">
-        <span class="type-signature uk-text-meta"></span>sidebarScrollListener<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label">Member</span>
-    </h4>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
 
     <!--  -->
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line1">line 1</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin-small">
-            <p>Adds a listener for #sideNav scrolling position</p>
-        </div>
-    
-
-    
-
-    
-
-    
 </section>
             
-        
-
-        
-            <h3 class="subsection-title uk-margin-small-bottom">Methods</h3>
-            
                 
-<section data-file="method.tmpl" class="">
+<section id="addScrollingBehavior" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="addScrollingBehavior">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>addScrollingBehavior<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Add <code>uk-scroll</code> attribute to internal document links.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line241">line 241</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Add <code>uk-scroll</code> attribute to internal document links.
-<a href="https://getuikit.com/docs/scroll">UIkit Scrolling</a></p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line227">line 227</a></dd>
         </div>
     
 
@@ -715,30 +494,92 @@ MIT license http://<a href="http://www.opensource.org/licenses/mit-license.php/"
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><p><a href="https://getuikit.com/docs/scroll">UIkit Scrolling</a></p></dd>
+        
+        </div>
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="addShadows" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="addShadows">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>addShadows<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>add shadows to imgs</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line186">line 186</a></dd>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line159">line 159</a></dd>
+        </div>
     
 
     
@@ -787,262 +628,58 @@ MIT license http://<a href="http://www.opensource.org/licenses/mit-license.php/"
 
 
 
-    
-        <div class="description uk-margin">
-            <p>Scroll offcanvas to active link</p>
-        </div>
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
+    </div>
 
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="buildRec" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="appendToNav">
-            <span class="type-signature uk-text-meta"></span>appendToNav<span class="signature">(item)</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line63">line 63</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Takes a convertIdToNavItem() func's return and molds it into a
-navigation item before appending it to the #sideNav elem.</p>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5 class="subsection-title uk-margin-small-bottom">Parameters:</h5>
-        
-
-<div class="uk-overflow-auto">
-<table class="params uk-table uk-table-small uk-table-striped uk-table-hover uk-table-responsive">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-    <span class="param-type">Object</span>
-    
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="buildRec">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>buildRec<span class="signature">(nodes, element, level)</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Recursive parsing and nav building.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line95">line 95</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-            <dt class="tag-author uk-text-meta">Author:</dt>
-            <dd class="tag-author">&lt;p>Louis Ricci
-<a href="https://stackoverflow.com/a/17430494">Stack Overflow</a>&lt;/p></dd>
-        
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Recursive parsing and nav building.</p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line57">line 57</a></dd>
         </div>
     
 
@@ -1055,188 +692,201 @@ navigation item before appending it to the #sideNav elem.</p>
     
 
     
-        <h5 class="subsection-title uk-margin-small-bottom">Parameters:</h5>
-        
 
-<div class="uk-overflow-auto">
-<table class="params uk-table uk-table-small uk-table-striped uk-table-hover uk-table-responsive">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
-        <tr>
-            
-                <td class="name"><code>nodes</code></td>
-            
+    
 
-            <td class="type">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+            <dt class="tag-author uk-text-meta">Author:</dt>
+            <dd class="tag-author">Louis Ricci</dd>
+        
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><p><a href="https://stackoverflow.com/a/17430494">Stack Overflow</a></p></dd>
+        
+        </div>
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
             
+<fieldset class="js-docitem-params uk-overflow-auto">
+    <legend class="subsection-title uk-text-meta">Parameters</legend>
+    <table class="params uk-table uk-table-small uk-table-striped uk-table-responsive uk-margin-remove">
+        <thead>
+            <tr>
                 
+                    <th>Name</th>
+                
+
+                <th>Type</th>
+
+                
+
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>nodes</code></td>
+                    
+
+                    <td class="type">
+                    
+                        
     <span class="param-type">*</span>
     
 
-            
-            </td>
+                    
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"></td>
+                </tr>
 
             
+                <tr>
+                    
+                        <td class="name"><code>element</code></td>
+                    
 
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-
-            <td class="type">
-            
-                
+                    <td class="type">
+                    
+                        
     <span class="param-type">*</span>
     
 
-            
-            </td>
+                    
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"></td>
+                </tr>
 
             
+                <tr>
+                    
+                        <td class="name"><code>level</code></td>
+                    
 
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>level</code></td>
-            
-
-            <td class="type">
-            
-                
+                    <td class="type">
+                    
+                        
     <span class="param-type">*</span>
     
 
-            
-            </td>
+                    
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"></td>
+                </tr>
 
             
+        </tbody>
+    </table>
+</fieldset>
+        
 
-            
+        
 
-            <td class="description last"></td>
-        </tr>
+        
 
-    
-    </tbody>
-</table>
-</div>
-    
+        
 
-    
+        
 
-    
-
-    
-
-    
-
-    
+        
+    </div>
 
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="centerSmallImages" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="centerSmallImages">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>centerSmallImages<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Add <code>.uk-align-center</code> to images less than 740px.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line256">line 256</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Add <code>.uk-align-center</code> to images less than 740px.</p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line244">line 244</a></dd>
         </div>
     
 
@@ -1260,52 +910,6 @@ navigation item before appending it to the #sideNav elem.</p>
 
     
 
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="convertIdToNavItem">
-            <span class="type-signature uk-text-meta"></span>convertIdToNavItem<span class="signature">(id)</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line49">line 49</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1332,154 +936,58 @@ navigation item before appending it to the #sideNav elem.</p>
 
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5 class="subsection-title uk-margin-small-bottom">Parameters:</h5>
         
 
-<div class="uk-overflow-auto">
-<table class="params uk-table uk-table-small uk-table-striped uk-table-hover uk-table-responsive">
-    <thead>
-    <tr>
         
-        <th>Name</th>
-        
-
-        <th>Type</th>
 
         
 
         
 
-        <th class="last">Description</th>
-    </tr>
-    </thead>
+        
 
-    <tbody>
-    
+        
 
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
+        
 
-            <td class="type">
-            
-                
-    <span class="param-type">*</span>
-    
+        
 
-            
-            </td>
+        
 
-            
+        
 
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+        
+    </div>
 
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="fixBrokenHrefs" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="initNav">
-            <span class="type-signature uk-text-meta"></span>initNav<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>fixBrokenHrefs<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>fixing href issues.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line151">line 151</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Wrapper func to call onload to build nav
-Thx to https://stackoverflow.com/a/10004137 for info w/Promises</p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line182">line 182</a></dd>
         </div>
     
 
@@ -1503,30 +1011,90 @@ Thx to https://stackoverflow.com/a/10004137 for info w/Promises</p>
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+        
+            <div class="description uk-margin">
+                <p>regex array to remove some chars from the buildRec() nav
+that breaks the windows scrolling behavior.</p>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="fixBrokenIDs" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="initNav">
-            <span class="type-signature uk-text-meta"></span>initNav<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>fixBrokenIDs<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>fixing #id issues.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line78">line 78</a></dd>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line205">line 205</a></dd>
+        </div>
     
 
     
@@ -1575,10 +1143,58 @@ Thx to https://stackoverflow.com/a/10004137 for info w/Promises</p>
 
 
 
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+</section>
+            
+                
+<section id="formatDate" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
-        <div class="description uk-margin">
-            <p>Uses convertIdToNavItem(id) as a param in the appendToNav() func 
-in order to pass the value of <code>return obj</code> to the append function.</p>
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>formatDate<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="uk-label">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Formats date for easier reading.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+        <dt class="tag-source uk-text-meta">Source:</dt>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line334">line 334</a></dd>
         </div>
     
 
@@ -1602,70 +1218,31 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
     
 
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
         
-
-        <h4 class="name" id="makeHeadingsSticky">
-            <span class="type-signature uk-text-meta"></span>makeHeadingsSticky<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line271">line 271</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+            <div class="container">
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><p><a href="https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date">StackOverflow</a></p></dd>
+        
+        </div>
     
 
     
@@ -1674,107 +1251,58 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
 
 
-    
-        <div class="description uk-margin">
-            <p>Add <code>uk-sticky</code> to H1s and H2s.</p>
-        </div>
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
+    </div>
 
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="makeUIkitTables" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="makeUIkitTables">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>makeUIkitTables<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Add <code>uk-table</code> classes to markdown tables</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line282">line 282</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Add <code>uk-table</code> classes to markdown tables</p>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line260">line 260</a></dd>
         </div>
     
 
@@ -1798,52 +1326,6 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
     
 
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="makeUIkitTables">
-            <span class="type-signature uk-text-meta"></span>makeUIkitTables<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line325">line 325</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1870,9 +1352,58 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
 
 
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+</section>
+            
+                
+<section id="UglifyJsPlugin" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
-        <div class="description uk-margin">
-            <p>Add <code>uk-table</code> classes to markdown tables</p>
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>UglifyJsPlugin<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="uk-label">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Uses UglifyJS v3 (uglify-es) to minify JavaScript.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+        <dt class="tag-source uk-text-meta">Source:</dt>
+        <dd class="tag-source"><a href="webpack.config.js.html">webpack.config.js</a>, <a href="webpack.config.js.html#line15">line 15</a></dd>
         </div>
     
 
@@ -1896,54 +1427,6 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
     
 
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="makeUIkitTablesResponsive">
-            <span class="type-signature uk-text-meta"></span>makeUIkitTablesResponsive<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line351">line 351</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1964,331 +1447,166 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
     
         
-            <dt class="tag-todo uk-text-meta">To Do:</dt>
-            <dd class="tag-todo">fix?</dd>
+            <div class="container">
+            <dt class="tag-see uk-text-meta">See:</dt>
+            <dd class="tag-see"><p><a href="https://webpack.js.org/plugins/uglifyjs-webpack-plugin">Webpack.UglifyJsPlugin</a></p></dd>
         
-    
-</dl>
-
-
-
-
-    
-        <div class="description uk-margin">
-            <p>Wrap uk-* tables in a div.uk-overflow-auto</p>
         </div>
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="NavItem">
-            <span class="type-signature uk-text-meta"></span>NavItem<span class="signature">(id, title)</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line39">line 39</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 </dl>
 
 
-
-
     
 
-    
-
-    
-
-    
-
-    
-
-    
-        <h5 class="subsection-title uk-margin-small-bottom">Parameters:</h5>
-        
-
-<div class="uk-overflow-auto">
-<table class="params uk-table uk-table-small uk-table-striped uk-table-hover uk-table-responsive">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
+<fieldset class="js-docitem-props uk-overflow-auto">
+    <legend class="subsection-title uk-text-meta">Properties</legend>
+    <table class="props uk-table uk-table-small uk-table-striped uk-table-responsive uk-margin-remove">
+        <thead>
+            <tr>
                 
-    <span class="param-type">String</span>
-    
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>— <element id="" /></p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>title</code></td>
-            
-
-            <td class="type">
-            
+                    <th>Name</th>
                 
-    <span class="param-type">String</span>
+
+                <th>Type</th>
+
+                
+
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>sourceMap</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">Option</span>
     
+
+                        
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"><p>true</p></td>
+                </tr>
 
             
-            </td>
+                <tr>
+                    
+                        <td class="name"><code>comments</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">Option</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"><p>false</p></td>
+                </tr>
 
             
+                <tr>
+                    
+                        <td class="name"><code>beautify</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">Option</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"><p>false</p></td>
+                </tr>
 
             
+        </tbody>
+    </table>
+</fieldset>
+    </div>
 
-            <td class="description last"><p>— element.innerText;</p></td>
-        </tr>
 
-    
-    </tbody>
-</table>
-</div>
-    
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
 
     <!--  -->
 </section>
             
                 
-<section data-file="method.tmpl" class="">
+<section id="wordBreakLongTableTDs" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     
         
 
-        <h4 class="name" id="setSidebarActiveNode">
-            <span class="type-signature uk-text-meta"></span>setSidebarActiveNode<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label">Method</span>
-        </h4>
-
-        <!--  -->
-    
-
-    
-
-<dl class="details">
-    
-
-    
-        <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_sidebarPosition.js.html">src/js/sidebarPosition.js</a>, <a href="src_js_sidebarPosition.js.html#line58">line 58</a></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-            <dt class="tag-todo uk-text-meta">To Do:</dt>
-            <dd class="tag-todo">fix</dd>
-        
-    
-</dl>
-
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-</section>
-            
-                
-<section data-file="method.tmpl" class="">
-    
-        
-
-        <h4 class="name" id="wordBreakLongTableTDs">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <span class="type-signature uk-text-meta"></span>wordBreakLongTableTDs<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label">Method</span>
         </h4>
+    
 
-        <!--  -->
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+        <dt class="tag-summary uk-text-meta">Summary:</dt>
+        <dd class="tag-summary"><p>Handles long <code>&lt;td&gt;</code> tags.</p></dd>
+        </div>
     
 
     
-
-<dl class="details">
-    
-
-    
+        <div class="container">
         <dt class="tag-source uk-text-meta">Source:</dt>
-        <dd class="tag-source"><a href="src_js_main.js.html">src/js/main.js</a>, <a href="src_js_main.js.html#line307">line 307</a></dd>
+        <dd class="tag-source"><a href="src_static_js_main.js.html">src/static/js/main.js</a>, <a href="src_static_js_main.js.html#line289">line 289</a></dd>
+        </div>
     
 
     
@@ -2337,32 +1655,33 @@ in order to pass the value of <code>return obj</code> to the append function.</p
 
 
 
-    
-        <div class="description uk-margin">
-            <p>Apply <code>word-break: break-all</code> inline style if <td> string length
-is longer than 70 characters.</p>
-        </div>
-    
+        
+            <div class="description uk-margin">
+                <p>Apply <code>word-break: break-all</code> inline style if 
+<code>&lt;td&gt;</code> string length is longer than 70 characters.</p>
+            </div>
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
 
-    
+        
+    </div>
 
     <!--  -->
 </section>
@@ -2378,24 +1697,25 @@ is longer than 70 characters.</p>
 
 
                 
-                <footer class="uk-section">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>.</p>
-                    <p> Last compiled on Thu Jun 07 2018 14:27:44 GMT-0500 (CDT) using a <a href="#" class="uk-disabled">custom version</a> of the <a href="https://github.com/clenemt/docdash">docdash</a> theme.</p>
-                </footer>
             </article>
+            <footer class="uk-container uk-container-small uk-margin-large uk-section-small">
+                <p class="uk-text-meta">
+                    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc</a>.
+                <br />
+                    Last compiled on <time></time> using a <a href="https://github.com/williampansky/shs-docs" target="_blank">custom version</a> of the <a href="https://github.com/clenemt/docdash" target="_blank">docdash</a> theme.
+                </p>
+            </footer>
         </main>
 
-        <aside id="navWrapper">
-            <section id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
-                <div id="sideNav" class="uk-offcanvas-bar">
-                    <button class="uk-offcanvas-close" type="button" uk-close></button>
-                    <nav class="uk-nav uk-nav-default">
-                        <a href="index.html">Home</a><h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#appendToNav">appendToNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#convertIdToNavItem">convertIdToNavItem</a></li><li><a href="global.html#getSidebarPosition">getSidebarPosition</a></li><li><a href="global.html#initNav">initNav</a></li><li><a href="global.html#makeHeadingsSticky">makeHeadingsSticky</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#makeUIkitTablesResponsive">makeUIkitTablesResponsive</a></li><li><a href="global.html#moveSidebarToPosition">moveSidebarToPosition</a></li><li><a href="global.html#NavItem">NavItem</a></li><li><a href="global.html#onload">onload</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#setSidebarActiveNode">setSidebarActiveNode</a></li><li><a href="global.html#setSidebarPosition">setSidebarPosition</a></li><li><a href="global.html#sidebarScrollListener">sidebarScrollListener</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
-                    </nav>
-                </div>
-            </section>
+        <aside id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+            <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <nav class="uk-nav uk-nav-default">
+                    <h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                </nav>
+            </div>
         </aside>
-
+            
         <script src="js/uikit.min.js"></script>
         <script src="js/bundle.js"></script>
     </body>

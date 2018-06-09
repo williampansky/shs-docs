@@ -2,95 +2,90 @@
     var data = obj;
     var self = this;
 ?>
-<section data-file="method.tmpl" class="">
+<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
     <?js if (data.kind !== 'module') { ?>
         <?js if (data.kind === 'class' && data.classdesc) { ?>
             <h2 class="subsection-title uk-margin-small-bottom">Constructor</h2>
         <?js } ?>
 
-        <h4 class="name" id="<?js= id ?>">
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <?js= data.attribs + (kind === 'class' ? 'new ' : '') + name + (data.signature || '') ?>
             <span class="uk-label">Method</span>
         </h4>
+    <?js } ?>
 
-        <!-- <?js if (data.summary) { ?>
-            <div class="summary">
-                <?js= summary ?>
+    <div class="uk-card-body">
+        <?js= this.partial('details.tmpl', data) ?>
+
+        <?js if (data.kind !== 'module' && data.description) { ?>
+            <div class="description uk-margin">
+                <?js= data.description ?>
             </div>
-        <?js } ?> -->
-    <?js } ?>
+        <?js } ?>
 
-    <?js= this.partial('details.tmpl', data) ?>
+        <?js if (data.augments && data.alias && data.alias.indexOf('module:') === 0) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Extends:</h5>
+            <?js= self.partial('augments.tmpl', data) ?>
+        <?js } ?>
 
-    <?js if (data.kind !== 'module' && data.description) { ?>
-        <div class="description uk-margin">
-            <?js= data.description ?>
-        </div>
-    <?js } ?>
+        <?js if (kind === 'event' && data.type && data.type.names) {?>
+            <h5>Type: <span><?js= self.partial('type.tmpl', data.type.names) ?></span></h5>
+        <?js } ?>
 
-    <?js if (data.augments && data.alias && data.alias.indexOf('module:') === 0) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Extends:</h5>
-        <?js= self.partial('augments.tmpl', data) ?>
-    <?js } ?>
+        <?js if (data['this']) { ?>
+            <h5>This: <span><?js= this.linkto(data['this'], data['this']) ?></span></h5>
+        <?js } ?>
 
-    <?js if (kind === 'event' && data.type && data.type.names) {?>
-        <h5>Type: <span><?js= self.partial('type.tmpl', data.type.names) ?></span></h5>
-    <?js } ?>
+        <?js if (data.examples && examples.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Example<?js= examples.length > 1? 's':'' ?></h5>
+            <?js= this.partial('examples.tmpl', examples) ?>
+        <?js } ?>
 
-    <?js if (data['this']) { ?>
-        <h5>This: <span><?js= this.linkto(data['this'], data['this']) ?></span></h5>
-    <?js } ?>
+        <?js if (data.params && params.length) { ?>
+            <?js= this.partial('params.tmpl', params) ?>
+        <?js } ?>
 
-    <?js if (data.examples && examples.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Example<?js= examples.length > 1? 's':'' ?></h5>
-        <?js= this.partial('examples.tmpl', examples) ?>
-    <?js } ?>
+        <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Requires:</h5>
+            <ul><?js data.requires.forEach(function(r) { ?>
+                <li><?js= self.linkto(r) ?></li>
+            <?js }); ?></ul>
+        <?js } ?>
 
-    <?js if (data.params && params.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Parameters:</h5>
-        <?js= this.partial('params.tmpl', params) ?>
-    <?js } ?>
+        <?js if (data.fires && fires.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Fires:</h5>
+            <ul><?js fires.forEach(function(f) { ?>
+                <li><?js= self.linkto(f) ?></li>
+            <?js }); ?></ul>
+        <?js } ?>
 
-    <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Requires:</h5>
-        <ul><?js data.requires.forEach(function(r) { ?>
-            <li><?js= self.linkto(r) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>
+        <?js if (data.listens && listens.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Listens to Events:</h5>
+            <ul><?js listens.forEach(function(f) { ?>
+                <li><?js= self.linkto(f) ?></li>
+            <?js }); ?></ul>
+        <?js } ?>
 
-    <?js if (data.fires && fires.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Fires:</h5>
-        <ul><?js fires.forEach(function(f) { ?>
-            <li><?js= self.linkto(f) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>
+        <?js if (data.listeners && listeners.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Listeners of This Event:</h5>
+            <ul><?js listeners.forEach(function(f) { ?>
+                <li><?js= self.linkto(f) ?></li>
+            <?js }); ?></ul>
+        <?js } ?>
 
-    <?js if (data.listens && listens.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Listens to Events:</h5>
-        <ul><?js listens.forEach(function(f) { ?>
-            <li><?js= self.linkto(f) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>
-
-    <?js if (data.listeners && listeners.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Listeners of This Event:</h5>
-        <ul><?js listeners.forEach(function(f) { ?>
-            <li><?js= self.linkto(f) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>
-
-    <?js if (data.exceptions && exceptions.length) { ?>
-        <h5 class="subsection-title uk-margin-small-bottom">Throws:</h5>
-        <?js if (exceptions.length > 1) { ?>
-            <ul>
-                <?js exceptions.forEach(function(r) { ?>
-                    <li><?js= self.partial('exceptions.tmpl', r) ?></li>
-                <?js }); ?>
-            </ul>
-            <?js } else { exceptions.forEach(function(r) { ?>
-                <?js= self.partial('exceptions.tmpl', r) ?>
-            <?js }); } ?>
-    <?js } ?>
+        <?js if (data.exceptions && exceptions.length) { ?>
+            <h5 class="subsection-title uk-margin-small-bottom">Throws:</h5>
+            <?js if (exceptions.length > 1) { ?>
+                <ul>
+                    <?js exceptions.forEach(function(r) { ?>
+                        <li><?js= self.partial('exceptions.tmpl', r) ?></li>
+                    <?js }); ?>
+                </ul>
+                <?js } else { exceptions.forEach(function(r) { ?>
+                    <?js= self.partial('exceptions.tmpl', r) ?>
+                <?js }); } ?>
+        <?js } ?>
+    </div>
 
     <!-- <?js if (data.returns && returns.length) { ?>
         <h5 class="subsection-title uk-margin-small-bottom">Returns:</h5>

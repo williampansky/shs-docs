@@ -366,7 +366,8 @@ function linktoExternal(longName, name) {
  */
 
 function buildNav(members) {
-    var nav = '<a href="index.html">Home</a>';
+    // var nav = '<a href="index.html">Home</a>';
+    var nav = '';
     var seen = {};
     var seenTutorials = {};
 

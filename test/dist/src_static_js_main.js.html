@@ -1,4 +1,66 @@
-// /**
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>MOHG Scripts | src/static/js/main.js</title>
+
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="css/uikit.min.css">
+        <link rel="stylesheet" href="../main.min.css">
+    </head>
+
+
+    <body class="jsdoc uk-offcanvas-content">
+
+
+        <nav 
+            class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
+            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
+            uk-navbar
+        >
+            <div class="uk-navbar-left">
+                
+                    <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
+                        <li><a href="readme.html">Home</a></li>
+                        <li><a href="index.html">JS Docs</a></li>
+                        <li><span class="uk-text-accent">src/static/js/main.js</span></li>
+                    </ul>
+                
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="readme.html">Readme Docs</a>
+                    </li>
+                    <li class="uk-active">
+                        <a href="index.html">JS Docs</a>
+                    </li>
+                    <li>
+                        <button 
+                            class="uk-navbar-toggle uk-hidden@m" 
+                            type="button" 
+                            uk-toggle="target: #offcanvas-overlay" 
+                            uk-navbar-toggle-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main id="content" class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
+            <article class="uk-article">
+                
+
+    
+    
+        
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>// /**
 //  * @name NavItem
 //  * @class
 //  * @param {String} id Unique identifier tag for element.
@@ -34,7 +96,7 @@
 //     let itemWrapper = document.createElement('li');
 //     itemWrapper.classList.add('nav-item');
 //     itemWrapper.innerHTML = `
-//         <a href="#${item.id}" class="uk-text-truncate">${item.title}</a>
+//         &lt;a href="#${item.id}" class="uk-text-truncate">${item.title}&lt;/a>
 //     `;
 //     nav.append(itemWrapper);
 // }
@@ -46,8 +108,8 @@
 //  * function in order to pass the value of `return obj` to the append function.
 //  */
 // export const initNav = ()=> {
-//     let headings = document.querySelectorAll('h1') && document.querySelectorAll('h2');
-//     for (let i=0; i < headings.length; i++) {
+//     let headings = document.querySelectorAll('h1') &amp;&amp; document.querySelectorAll('h2');
+//     for (let i=0; i &lt; headings.length; i++) {
 //         let id = headings[i].id;
 //         appendToNav(convertIdToNavItem(id));
 //     }
@@ -72,7 +134,7 @@ export const buildRec = (nodes, element, level)=> {
     do {
         node = nodes.shift();
     } while (
-        node && !(/^h[123456]$/i.test(node.tagName))
+        node &amp;&amp; !(/^h[123456]$/i.test(node.tagName))
     );
 
     // ----------
@@ -88,7 +150,7 @@ export const buildRec = (nodes, element, level)=> {
 
         // ----------
         // walk up then append il
-        } else if (currentLevel < level) {
+        } else if (currentLevel &lt; level) {
             currentNode = 0;
             do {
                 element = element.parentNode.parentNode;
@@ -113,7 +175,7 @@ export const buildRec = (nodes, element, level)=> {
                 element.classList.add('uk-nav-sub');
                 currentNode++;
             } while (
-                currentNode < (currentLevel - level)
+                currentNode &lt; (currentLevel - level)
             );
         }
 
@@ -121,7 +183,7 @@ export const buildRec = (nodes, element, level)=> {
         li.setAttribute('data-line', '121');
 
         // replace the next line with archor tags or whatever you want
-        li.innerHTML = `<a href="#${node.id}" class="uk-text-truncate uk-animation-fade">${node.innerText}</a>`;
+        li.innerHTML = `&lt;a href="#${node.id}" class="uk-text-truncate uk-animation-fade">${node.innerText}&lt;/a>`;
 
         // recursive call
         buildRec(nodes, element, level + currentNode);
@@ -162,18 +224,18 @@ export const buildNav = ()=> {
  */
 export const addShadows = ()=> {
     let images = document.querySelectorAll('#content img');
-    for (let i=0; i < images.length; i++)
+    for (let i=0; i &lt; images.length; i++)
         images[i].classList.add('uk-box-shadow-large');
 }
 
 
 /**
- * @summary add .uk-nav-header to first `<li>` items
+ * @summary add .uk-nav-header to first `&lt;li>` items
  * @func addNavHeader
  */
 export const addNavHeader = ()=> {
     let navHeaders = document.querySelectorAll('#sideNav .uk-nav > li > a:first-of-type');
-    for (let i=0; i < navHeaders.length; i++)
+    for (let i=0; i &lt; navHeaders.length; i++)
         navHeaders[i].classList.add('uk-nav-header');
 }
 
@@ -189,7 +251,7 @@ export const fixBrokenHrefs = ()=> {
     let regexMatch = /(-)$/g;
     let links = document.querySelectorAll('.uk-nav a');
 
-    for (let i=0; i < links.length; i++) {
+    for (let i=0; i &lt; links.length; i++) {
         if (links[i].getAttribute('href').match(regexMatch)) {
             let href = links[i].getAttribute('href');
             let newHref = href.substr(
@@ -212,7 +274,7 @@ export const fixBrokenIDs = ()=> {
         'h1, h2, h3, h4, h5, h6'
     );
 
-    for (let i=0; i < headings.length; i++) {
+    for (let i=0; i &lt; headings.length; i++) {
         if (headings[i].getAttribute('id').match(regexMatch)) {
             let id = headings[i].getAttribute('id');
             let newID = id.substr(
@@ -234,7 +296,7 @@ export const addScrollingBehavior = ()=> {
     let links       = content.querySelectorAll('a');
     let regexMatch  = /(#)/g;
 
-    for (let i=0; i < links.length; i++) {
+    for (let i=0; i &lt; links.length; i++) {
         if (links[i].getAttribute('href').match(regexMatch))
             links[i].setAttribute('uk-scroll', '');
     }
@@ -250,8 +312,8 @@ export const centerSmallImages = ()=> {
     let images = content.getElementsByTagName('img');
     let minWidth = 740;
 
-    for (let i=0; i < images.length; i++) {
-        if (images[i].style.width < minWidth)
+    for (let i=0; i &lt; images.length; i++) {
+        if (images[i].style.width &lt; minWidth)
             images[i].classList.add('uk-align-center');
     }
 }
@@ -265,7 +327,7 @@ export const makeUIkitTables = ()=> {
     setTimeout(()=> {
         let tables = document.getElementsByTagName('table');
         
-        for (let i=0; i < tables.length; i++) {
+        for (let i=0; i &lt; tables.length; i++) {
             // tables[i].classList.add(
             //     'uk-table',
             //     'uk-table-small',
@@ -287,16 +349,16 @@ export const makeUIkitTables = ()=> {
 
 
 /**
- * @summary Handles long `<td>` tags.
+ * @summary Handles long `&lt;td>` tags.
  * @func wordBreakLongTableTDs
  * @description Apply `word-break: break-all` inline style if 
- * `<td>` string length is longer than 70 characters.
+ * `&lt;td>` string length is longer than 70 characters.
  */
 export const wordBreakLongTableTDs = ()=> {
     setTimeout(()=> {
         let tds = document.getElementsByTagName('td');
         
-        for (let i=0; i < tds.length; i++) {
+        for (let i=0; i &lt; tds.length; i++) {
             let values = tds[i].innerText;
             let string_length = values.length;
 
@@ -315,9 +377,9 @@ export const wordBreakLongTableTDs = ()=> {
 // export const makeUIkitTablesResponsive = ()=> {
 //     setTimeout(()=> {
 //         let tables = document.querySelectorAll('.uk-table');
-//         for (let i=0; i < tables.length; i++) {
+//         for (let i=0; i &lt; tables.length; i++) {
 //             let org_html = tables[i].innerHTML;
-//             let new_html = '<div class="uk-overflow-auto">' + org_html + '</div>';
+//             let new_html = '&lt;div class="uk-overflow-auto">' + org_html + '&lt;/div>';
 //             setTimeout(()=> { tables[i].innerHTML = new_html; }, 100);
 //         }
 //     }, 600);
@@ -325,7 +387,7 @@ export const wordBreakLongTableTDs = ()=> {
 
 // export const wrapInOverflow = (element)=> {
 //     let org_html = element.innerHTML;
-//     let new_html = '<div class="uk-overflow-auto">' + org_html + '</div>';
+//     let new_html = '&lt;div class="uk-overflow-auto">' + org_html + '&lt;/div>';
 //     element.innerHTML = new_html;
 // }
 
@@ -346,4 +408,36 @@ export const formatDate = ()=> {
     };
 
     return today.toLocaleDateString('en-US', options)
-}
+}</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
+    
+
+
+
+                
+            </article>
+            <footer class="uk-container uk-container-small uk-margin-large uk-section-small">
+                <p class="uk-text-meta">
+                    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc</a>.
+                <br />
+                    Last compiled on <time></time> using a <a href="https://github.com/williampansky/shs-docs" target="_blank">custom version</a> of the <a href="https://github.com/clenemt/docdash" target="_blank">docdash</a> theme.
+                </p>
+            </footer>
+        </main>
+
+        <aside id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+            <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <nav class="uk-nav uk-nav-default">
+                    <h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                </nav>
+            </div>
+        </aside>
+            
+        <script src="js/uikit.min.js"></script>
+        <script src="js/bundle.js"></script>
+    </body>
+</html>

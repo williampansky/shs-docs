@@ -8,4 +8,7 @@ The vendors/ folder (may) contain all the CSS files from external libraries
 and frameworks; e.g. Normalize, Bootstrap, Foundation, and so on.
 ***/
 
-// @import 'os_vendor';
+@import 'prettify';
+@import 'prism';
+@import 'prism.onedark';
+@import 'prism.treeview';

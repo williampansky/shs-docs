@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'src/js')
+        path: path.resolve(__dirname, 'src/static/js')
     },
     node: {
         fs: 'empty'
