@@ -33,14 +33,20 @@
 // .uk-navbar-item > span {
 // 	padding-left: 4px;
 // }
+.uk-navbar-item, 
+.uk-navbar-nav > li > a, 
+.uk-navbar-toggle {
+  line-height: 1;
+  height: 40px;
+}
 
 .uk-navbar-item.uk-breadcrumb {
-	padding: 0 15px;
+  padding: 0 15px;
 }
 
 .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
-	content: "»";
-	margin: 0 1em;
-	position: relative;
-	bottom: 1px;
+  content: '»';
+  margin: 0 1em;
+  position: relative;
+  bottom: 1px;
 }

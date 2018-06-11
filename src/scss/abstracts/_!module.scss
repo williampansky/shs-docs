@@ -10,6 +10,8 @@ put in here. The rule of thumb for this folder is that it should not output a
 single line of CSS when compiled on its own. These are nothing but Sass helpers.
 ***/
 
+@import 'mixins/breakpoints';
+@import 'mixins/box-shadows';
 @import 'variables/colors';
 @import 'variables/fonts';
 @import 'settings';

@@ -110,7 +110,7 @@ export const buildRec = (nodes, element, level)=> {
                 }
                 
                 element = li.appendChild(document.createElement('ul'));
-                element.classList.add('uk-nav-sub');
+                // element.classList.add('uk-nav-sub');
                 currentNode++;
             } while (
                 currentNode < (currentLevel - level)
@@ -132,7 +132,10 @@ export const buildRec = (nodes, element, level)=> {
 /**
  * @summary Wrapper func to call onload to build nav.
  * @see [Stack Overflow]{@link https://stackoverflow.com/a/10004137} 
- * @desc Thx to https://stackoverflow.com/a/10004137 for info w/Promises
+ * @desc Thx to {@link https://stackoverflow.com/a/10004137} for info w/Promises.
+ * ```js
+ * let all === document.getElementById('content').getElementsByTagName('*');
+ * ```
  */
 export const buildNav = ()=> {
     return new Promise(resolve => {
@@ -148,9 +151,15 @@ export const buildNav = ()=> {
         let result = document.createElement('nav');
         result.classList.add('uk-nav', 'uk-nav-default');
         result.setAttribute('uk-scrollspy-nav', 'closest:li; scroll:true; offset:100;');
-
+        
         buildRec(nodes, result, 1);
         resolve(document.querySelector('#sideNav').appendChild(result));
+
+        let subnavs = document.querySelectorAll('#sideNav ul > li > ul');
+        for (let i=0; i < subnavs.length; i++) {
+            if (subnavs[i] !== null && subnavs[i] !== 'undefined')
+                subnavs[i].classList.add('uk-nav-sub');
+        }
     });
 }
 
@@ -180,10 +189,24 @@ export const addNavHeader = ()=> {
 
 
 /**
- * @summary fixing href issues.
+ * @summary Fixing `href` attribute value issues.
  * @func fixBrokenHrefs
- * @desc regex array to remove some chars from the buildRec() nav
+ * @desc Regex array to remove some chars from the buildRec() nav
  * that breaks the windows scrolling behavior.
+ * ```js
+ * let regexMatch = /(-)$/g;
+ * let links = document.querySelectorAll('.uk-nav a');
+ * 
+ * for (let i=0; i < links.length; i++) {
+ *      if (links[i].getAttribute('href').match(regexMatch)) {
+ *          let href = links[i].getAttribute('href');
+ *          let newHref = href.substr(
+ *              0, href.lastIndexOf('-', href.length - 1)
+ *          );
+ *          links[i].setAttribute('href', newHref);
+ *      }
+ * }
+ * ```
  */
 export const fixBrokenHrefs = ()=> {
     let regexMatch = /(-)$/g;
@@ -193,7 +216,7 @@ export const fixBrokenHrefs = ()=> {
         if (links[i].getAttribute('href').match(regexMatch)) {
             let href = links[i].getAttribute('href');
             let newHref = href.substr(
-                0, href.lastIndexOf("-", href.length - 1)
+                0, href.lastIndexOf('-', href.length - 1)
             );
             links[i].setAttribute('href', newHref);
         }
@@ -212,15 +235,15 @@ export const fixBrokenIDs = ()=> {
         'h1, h2, h3, h4, h5, h6'
     );
 
-    for (let i=0; i < headings.length; i++) {
-        if (headings[i].getAttribute('id').match(regexMatch)) {
-            let id = headings[i].getAttribute('id');
-            let newID = id.substr(
-                0, id.lastIndexOf("-", id.length - 1)
-            );
-            headings[i].setAttribute('id', newID);
-        }
-    }
+    // for (let i=0; i < headings.length; i++) {
+    //     if (headings[i].getAttribute('id').match(regexMatch)) {
+    //         let id = headings[i].getAttribute('id');
+    //         let newID = id.substr(
+    //             0, id.lastIndexOf("-", id.length - 1)
+    //         );
+    //         headings[i].setAttribute('id', newID);
+    //     }
+    // }
 }
 
 
@@ -260,24 +283,33 @@ export const centerSmallImages = ()=> {
 /**
  * @summary Add `uk-table` classes to markdown tables
  * @func makeUIkitTables
+ * @description
+ * ```js
+ * let tables = document.getElementsByTagName('table');
+ * for (let i=0; i < tables.length; i++) {
+ *      if (!tables[i].classList.contains('uk-table')) {
+ *          tables[i].classList.add(
+ *              'uk-table',
+ *              'uk-table-small',
+ *              'uk-table-striped',
+ *              'uk-table-middle',
+ *              'uk-table-responsive'
+ *          );
+ *      }
+ * }
+ * ```
  */
 export const makeUIkitTables = ()=> {
     setTimeout(()=> {
         let tables = document.getElementsByTagName('table');
         
         for (let i=0; i < tables.length; i++) {
-            // tables[i].classList.add(
-            //     'uk-table',
-            //     'uk-table-small',
-            //     'uk-table-striped',
-            //     'uk-table-responsive'
-            // );
-            
             if (!tables[i].classList.contains('uk-table')) {
                 tables[i].classList.add(
                     'uk-table',
                     'uk-table-small',
                     'uk-table-striped',
+                    'uk-table-middle',
                     'uk-table-responsive'
                 );
             }
@@ -292,19 +324,19 @@ export const makeUIkitTables = ()=> {
  * @description Apply `word-break: break-all` inline style if 
  * `<td>` string length is longer than 70 characters.
  */
-export const wordBreakLongTableTDs = ()=> {
-    setTimeout(()=> {
-        let tds = document.getElementsByTagName('td');
+// export const wordBreakLongTableTDs = ()=> {
+    // setTimeout(()=> {
+    //     let tds = document.getElementsByTagName('td');
         
-        for (let i=0; i < tds.length; i++) {
-            let values = tds[i].innerText;
-            let string_length = values.length;
+    //     for (let i=0; i < tds.length; i++) {
+    //         let values = tds[i].innerText;
+    //         let string_length = values.length;
 
-            if (string_length >= 70)
-                tds[i].style.wordBreak = 'break-all';
-        }
-    }, 300);
-}
+    //         if (string_length >= 70)
+    //             tds[i].style.wordBreak = 'break-all';
+    //     }
+    // }, 300);
+// }
 
 
 
@@ -335,6 +367,7 @@ export const wordBreakLongTableTDs = ()=> {
  * @summary Formats date for easier reading.
  * @func formatDate
  * @see [StackOverflow]{@link https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date}
+ * @returns today.toLocaleDateString('en-US', options);
  */
 export const formatDate = ()=> {
     let today = new Date();
@@ -345,5 +378,5 @@ export const formatDate = ()=> {
         day: 'numeric'
     };
 
-    return today.toLocaleDateString('en-US', options)
+    return today.toLocaleDateString('en-US', options);
 }

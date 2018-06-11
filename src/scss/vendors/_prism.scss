@@ -8,9 +8,17 @@ http://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clik
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #ccc;
+	// color: #ccc;
 	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+	// @if $other == single {
+		// @include code-with-ligatures;
+	// } @else {
+		// font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		// font-family: inherit; // will inherit UIkit's default (Consolas,monaco,monospace)
+	// }
+
+
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -26,7 +34,6 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-
 }
 
 /* Code blocks */
@@ -37,10 +44,10 @@ pre[class*="language-"] {
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #2d2d2d;
-}
+// :not(pre) > code[class*="language-"],
+// pre[class*="language-"] {
+// 	background: #2d2d2d;
+// }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {

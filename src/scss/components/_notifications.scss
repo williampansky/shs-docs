@@ -1,0 +1,53 @@
+// ========================================================================
+// COMPONENTS => NOTIFICATION
+// ========================================================================
+/* stylelint-disable */
+.uk-notification {
+  width: 100% !important;
+  margin-left: 0 !important;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+/* stylelint-enable */
+
+.uk-notification-message {
+  line-height: 1;
+  margin: 0;
+
+  & > div { margin-left: 3rem; }
+
+  &-success {
+    color: #fff;
+    background: var(--color-success);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.345);
+  }
+
+  & .uk-icon:not(.uk-close) {
+    background: rgba(0, 0, 0, 0.275);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  & .uk-close {
+    color: #fff;
+    display: block;
+    top: 18px;
+    opacity: 1;
+    transition: 200ms ease-in-out;
+  }
+
+  &:hover .uk-close {
+    color: rgba(0, 0, 0, 0.675);
+    transform: scale(1.325);
+  }
+}

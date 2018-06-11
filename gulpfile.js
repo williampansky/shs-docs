@@ -33,13 +33,13 @@ const gulp          = require('gulp-help')(require('gulp')),
  * @memberof gulpfile
  * @inner
  * 
+ * @prop {String} localhost URL endpoint
+ * 
  * @description Define the localhost proxy to use when activating the `--proxy` flag,
  * this will point your BrowserSync initiation to the desired URL instead
  * of opening up a new tab window using `localhost:3000`.
- * 
- * @prop {String} localhost URL endpoint
  */
-const localhost = 'documentation.html';
+const localhost = 'readme.html';
 
 
 /**
@@ -329,9 +329,7 @@ gulp.task('docs', docsTask.description, docsTask);
  * Builds documentation.html out of all readme.md files and template.html.
  */
 const parseMarkdown = ()=> {
-    console.log(`
-    [docsTask] ———— Parsing Markdown (.md) files and compiling to ./documentation.html file...
-    `);
+    console.log(`[docsTask] ———— Parsing Markdown (.md) files and compiling to ./documentation.html file...`);
 
     return gulp.src(`./src/template.html`)
         .pipe(template(`./test/markdown`))
@@ -379,9 +377,7 @@ gulp.task('jsdocs',
  * Deletes all files in docs/dist/js dir.
  */
 const jsdocsTask_clear = ()=> {
-    console.log(`
-    [docsTask] ———— Clearing old jsDoc files...
-    `);
+    console.log(`[docsTask] ———— Clearing old jsDoc files...`);
 
     // -- globbing pattern to match everything inside the `docs/dist/js` folder
     del([
@@ -404,9 +400,7 @@ gulp.task('jsdocs-clear', false, jsdocsTask_clear);
  * Adds all files in docs/dist/js to SVN.
  */
 const jsdocsTask_svn = ()=> {
-    console.log(`
-    [docsTask] ———— Adding new jsDoc files to SVN...
-    `);
+    console.log(`[docsTask] ———— Adding new jsDoc files to SVN...`);
 
     // -- svn add --force --depth infinity on docs/dist/js folder
     return svn.addSync(paths.docs + 'dist/**/*', {
@@ -436,9 +430,7 @@ gulp.task('jsdocs-svn', false, jsdocsTask_svn);
  * ```
  */
 const todoTask = ()=> {
-    console.log(`
-    [docsTask] ———— Parsing @todo & @fixme source-code comment annotations...
-    `);
+    console.log(`[docsTask] ———— Parsing @todo & @fixme source-code comment annotations...`);
 
     return gulp.src([
         // include the following directories:

@@ -2,6 +2,7 @@ import fs from 'fs';
 import _ from 'lodash';
 import prism from './src/static/js/prism.custom.js';
 import treeview from './src/static/js/prism-treeview.js';
+import {Settings} from './src/static/js/localSettings';
 
 import {
     sidebarScrollListener, 
@@ -16,7 +17,7 @@ import {
     makeUIkitTables,
     addShadows,
     centerSmallImages,
-    wordBreakLongTableTDs,
+    // wordBreakLongTableTDs,
     formatDate
 } from './src/static/js/main';
 
@@ -38,6 +39,9 @@ window.onload = ()=> {
     }
 
     document.querySelector('footer time').innerHTML = formatDate();
+
+    // init & apply settings
+    Settings.init();
 }
 
 /**
@@ -51,6 +55,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     if (document.body.classList.contains('jsdoc')) {
         makeUIkitTables();
-        wordBreakLongTableTDs();
+        // wordBreakLongTableTDs();
     }
 });

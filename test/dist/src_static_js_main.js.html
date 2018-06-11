@@ -12,25 +12,26 @@
 
         <link rel="stylesheet" href="css/uikit.min.css">
         <link rel="stylesheet" href="../main.min.css">
+        <link rel="stylesheet" href="css/prism.onedark.css">
     </head>
 
 
     <body class="jsdoc uk-offcanvas-content">
 
 
-        <nav 
+<!-- uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;"  -->
+        <nav uk-navbar
             class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
-            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
-            uk-navbar
+            uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" 
         >
             <div class="uk-navbar-left">
-                
-                    <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
-                        <li><a href="readme.html">Home</a></li>
+                <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
+                    <li><a href="readme.html">Home</a></li>
+                    
                         <li><a href="index.html">JS Docs</a></li>
                         <li><span class="uk-text-accent">src/static/js/main.js</span></li>
-                    </ul>
-                
+                    
+                </ul>
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
@@ -41,8 +42,14 @@
                         <a href="index.html">JS Docs</a>
                     </li>
                     <li>
-                        <button 
-                            class="uk-navbar-toggle uk-hidden@m" 
+                        <a title="Settings" 
+                            href="#settingsModal" 
+                            uk-icon="icon:cog;" 
+                            uk-toggle>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="uk-navbar-toggle uk-hidden@m" 
                             type="button" 
                             uk-toggle="target: #offcanvas-overlay" 
                             uk-navbar-toggle-icon>
@@ -172,7 +179,7 @@ export const buildRec = (nodes, element, level)=> {
                 }
                 
                 element = li.appendChild(document.createElement('ul'));
-                element.classList.add('uk-nav-sub');
+                // element.classList.add('uk-nav-sub');
                 currentNode++;
             } while (
                 currentNode &lt; (currentLevel - level)
@@ -194,7 +201,10 @@ export const buildRec = (nodes, element, level)=> {
 /**
  * @summary Wrapper func to call onload to build nav.
  * @see [Stack Overflow]{@link https://stackoverflow.com/a/10004137} 
- * @desc Thx to https://stackoverflow.com/a/10004137 for info w/Promises
+ * @desc Thx to {@link https://stackoverflow.com/a/10004137} for info w/Promises.
+ * ```js
+ * let all === document.getElementById('content').getElementsByTagName('*');
+ * ```
  */
 export const buildNav = ()=> {
     return new Promise(resolve => {
@@ -210,9 +220,15 @@ export const buildNav = ()=> {
         let result = document.createElement('nav');
         result.classList.add('uk-nav', 'uk-nav-default');
         result.setAttribute('uk-scrollspy-nav', 'closest:li; scroll:true; offset:100;');
-
+        
         buildRec(nodes, result, 1);
         resolve(document.querySelector('#sideNav').appendChild(result));
+
+        let subnavs = document.querySelectorAll('#sideNav ul > li > ul');
+        for (let i=0; i &lt; subnavs.length; i++) {
+            if (subnavs[i] !== null &amp;&amp; subnavs[i] !== 'undefined')
+                subnavs[i].classList.add('uk-nav-sub');
+        }
     });
 }
 
@@ -242,10 +258,24 @@ export const addNavHeader = ()=> {
 
 
 /**
- * @summary fixing href issues.
+ * @summary Fixing `href` attribute value issues.
  * @func fixBrokenHrefs
- * @desc regex array to remove some chars from the buildRec() nav
+ * @desc Regex array to remove some chars from the buildRec() nav
  * that breaks the windows scrolling behavior.
+ * ```js
+ * let regexMatch = /(-)$/g;
+ * let links = document.querySelectorAll('.uk-nav a');
+ * 
+ * for (let i=0; i &lt; links.length; i++) {
+ *      if (links[i].getAttribute('href').match(regexMatch)) {
+ *          let href = links[i].getAttribute('href');
+ *          let newHref = href.substr(
+ *              0, href.lastIndexOf('-', href.length - 1)
+ *          );
+ *          links[i].setAttribute('href', newHref);
+ *      }
+ * }
+ * ```
  */
 export const fixBrokenHrefs = ()=> {
     let regexMatch = /(-)$/g;
@@ -255,7 +285,7 @@ export const fixBrokenHrefs = ()=> {
         if (links[i].getAttribute('href').match(regexMatch)) {
             let href = links[i].getAttribute('href');
             let newHref = href.substr(
-                0, href.lastIndexOf("-", href.length - 1)
+                0, href.lastIndexOf('-', href.length - 1)
             );
             links[i].setAttribute('href', newHref);
         }
@@ -274,15 +304,15 @@ export const fixBrokenIDs = ()=> {
         'h1, h2, h3, h4, h5, h6'
     );
 
-    for (let i=0; i &lt; headings.length; i++) {
-        if (headings[i].getAttribute('id').match(regexMatch)) {
-            let id = headings[i].getAttribute('id');
-            let newID = id.substr(
-                0, id.lastIndexOf("-", id.length - 1)
-            );
-            headings[i].setAttribute('id', newID);
-        }
-    }
+    // for (let i=0; i &lt; headings.length; i++) {
+    //     if (headings[i].getAttribute('id').match(regexMatch)) {
+    //         let id = headings[i].getAttribute('id');
+    //         let newID = id.substr(
+    //             0, id.lastIndexOf("-", id.length - 1)
+    //         );
+    //         headings[i].setAttribute('id', newID);
+    //     }
+    // }
 }
 
 
@@ -322,24 +352,33 @@ export const centerSmallImages = ()=> {
 /**
  * @summary Add `uk-table` classes to markdown tables
  * @func makeUIkitTables
+ * @description
+ * ```js
+ * let tables = document.getElementsByTagName('table');
+ * for (let i=0; i &lt; tables.length; i++) {
+ *      if (!tables[i].classList.contains('uk-table')) {
+ *          tables[i].classList.add(
+ *              'uk-table',
+ *              'uk-table-small',
+ *              'uk-table-striped',
+ *              'uk-table-middle',
+ *              'uk-table-responsive'
+ *          );
+ *      }
+ * }
+ * ```
  */
 export const makeUIkitTables = ()=> {
     setTimeout(()=> {
         let tables = document.getElementsByTagName('table');
         
         for (let i=0; i &lt; tables.length; i++) {
-            // tables[i].classList.add(
-            //     'uk-table',
-            //     'uk-table-small',
-            //     'uk-table-striped',
-            //     'uk-table-responsive'
-            // );
-            
             if (!tables[i].classList.contains('uk-table')) {
                 tables[i].classList.add(
                     'uk-table',
                     'uk-table-small',
                     'uk-table-striped',
+                    'uk-table-middle',
                     'uk-table-responsive'
                 );
             }
@@ -354,19 +393,19 @@ export const makeUIkitTables = ()=> {
  * @description Apply `word-break: break-all` inline style if 
  * `&lt;td>` string length is longer than 70 characters.
  */
-export const wordBreakLongTableTDs = ()=> {
-    setTimeout(()=> {
-        let tds = document.getElementsByTagName('td');
+// export const wordBreakLongTableTDs = ()=> {
+    // setTimeout(()=> {
+    //     let tds = document.getElementsByTagName('td');
         
-        for (let i=0; i &lt; tds.length; i++) {
-            let values = tds[i].innerText;
-            let string_length = values.length;
+    //     for (let i=0; i &lt; tds.length; i++) {
+    //         let values = tds[i].innerText;
+    //         let string_length = values.length;
 
-            if (string_length >= 70)
-                tds[i].style.wordBreak = 'break-all';
-        }
-    }, 300);
-}
+    //         if (string_length >= 70)
+    //             tds[i].style.wordBreak = 'break-all';
+    //     }
+    // }, 300);
+// }
 
 
 
@@ -397,6 +436,7 @@ export const wordBreakLongTableTDs = ()=> {
  * @summary Formats date for easier reading.
  * @func formatDate
  * @see [StackOverflow]{@link https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date}
+ * @returns today.toLocaleDateString('en-US', options);
  */
 export const formatDate = ()=> {
     let today = new Date();
@@ -407,7 +447,7 @@ export const formatDate = ()=> {
         day: 'numeric'
     };
 
-    return today.toLocaleDateString('en-US', options)
+    return today.toLocaleDateString('en-US', options);
 }</code></pre>
     </section>
     <script src="js/prettify/prettify.js"></script>
@@ -432,12 +472,59 @@ export const formatDate = ()=> {
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-Settings.html">Settings</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul><li><a href="gulpfile.html">gulpfile</a><ul class='uk-nav-sub methods'><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallImages">centerSmallImages</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
                 </nav>
             </div>
         </aside>
+
+        <div id="settingsModal" uk-modal>
+            <article class="uk-modal-dialog">
+                <form id="cookieSettings">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <header class="uk-modal-header">
+                        <h2 class="uk-modal-title">Settings</h2>
+                    </header>
+                    <div class="uk-modal-body" uk-overflow-auto>
+                        <fieldset class="uk-fieldset">
+                            <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
+                            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                <label>
+                                    <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
+                                    Type Without Ligatures
+                                </label>
+                                <label>
+                                    <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
+                                    Type With Ligatures
+                                </label>
+                                <!-- <label>
+                                    <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                    Light Theme
+                                </label>
+                                <label>
+                                    <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
+                                    Dark Theme
+                                </label> -->
+                            </div>
+                        </fieldset>
+                    </div>
+                    <footer class="uk-modal-footer uk-text-right">
+                        <button id="settingsCancel" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="settingsSave" 
+                            class="uk-button uk-button-primary uk-modal-close" 
+                            type="button" 
+                            onclick="UIkit.notification({
+                                message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
+                                status: 'success',
+                                timeout: '2500'
+                            })" 
+                        >Save</button>
+                    </footer>
+                </form>
+            </article>
+        </div>
             
         <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
         <script src="js/bundle.js"></script>
     </body>
 </html>

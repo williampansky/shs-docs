@@ -1,5 +1,5 @@
 {
-    "stylelint.enable": false,
+    "stylelint.enable": true,
     "css.validate": false,
     "eslint.enable": false,
     "search.followSymlinks": false,

@@ -8,15 +8,16 @@
 
         <link rel="stylesheet" href="css/uikit.min.css" />
         <link rel="stylesheet" href="../main.min.css" />
+        <link rel="stylesheet" href="css/prism.onedark.css">
     </head>
     <body class="readme uk-offcanvas-content">
-        <nav 
+        <!-- uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;"  -->
+        <nav uk-navbar
             class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
-            uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;" 
-            uk-navbar
+            uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" 
         >
             <div class="uk-navbar-left">
-                <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@l">
+                <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
                     <li><a href="readme.html">Home</a></li>
                     <li><a href="index.html">JS Docs</a></li>
                     <li><span class="uk-text-accent">Test</span></li>
@@ -31,8 +32,14 @@
                         <a href="index.html">JS Docs</a>
                     </li>
                     <li>
-                        <button 
-                            class="uk-navbar-toggle uk-hidden@m" 
+                        <a title="Settings" 
+                            href="#settingsModal" 
+                            uk-icon="icon:cog;" 
+                            uk-toggle>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="uk-navbar-toggle uk-hidden@m" 
                             type="button" 
                             uk-toggle="target: #offcanvas-overlay" 
                             uk-navbar-toggle-icon>
@@ -44,7 +51,81 @@
 
         <main id="content" class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
             <!-- Set the order of your compiled .md files here -->
-            <article id="intro" class="uk-article">{{ SAMPLE.md }}</article>
+            <article id="intro" class="uk-article"><h1 id="markdown-sample-file">Markdown Sample File</h1>
+<blockquote>
+<p>An example of a documentation.html partial</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<h3 id="who-is-mandarin-oriental-">Who is Mandarin Oriental?</h3>
+<p>Mandarin Oriental Hotel Group (MOHG; Chinese: 文華東方酒店), a member of the Jardine Matheson Group, is an international hotel investment and management group with luxury hotels, resorts and residences in Asia, Europe and the Americas [<a href="https://www.wikiwand.com/en/Mandarin_Oriental_Hotel_Group">Wikipedia</a>].</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac fringilla nunc, vel pellentesque ante. Vestibulum in luctus nisi. Phasellus eget libero vitae urna convallis suscipit. Pellentesque interdum iaculis nisi quis aliquam. Fusce sit amet lectus et risus aliquet blandit volutpat vitae elit. Suspendisse ac lacus a tortor facilisis semper. Nullam laoreet leo eu nisl porta pellentesque. Suspendisse faucibus nibh nec tortor luctus placerat.</p>
+<h3 id="the-project-at-a-glance">The Project, At a Glance</h3>
+<p>You can think of the <code>mandarinoriental_com</code> repository project as a single entity with multiple parts (in regards to development; i.e. individual package.json, gulpfile.js, Sass, JS, etc files):</p>
+<ul>
+<li>Core <em>(Website as a whole)</em><ul>
+<li>PHP</li>
+<li>XML</li>
+<li>XSLT</li>
+<li>JavaScript (jQuery, <em>minified</em> but <em><strong>not run through Babel</strong></em>)</li>
+<li>Sass</li>
+</ul>
+</li>
+<li>CBE <em>(<strong>C</strong>ustom <strong>B</strong>ooking <strong>E</strong>ngine)</em><ul>
+<li>Vue.js</li>
+<li>JavaScript (ES6+, compiled with Webpack[v3]/Babel[v6])</li>
+<li>Sass</li>
+</ul>
+</li>
+<li>Gallery-V2 <em>(Upgraded single-property media gallery)</em><ul>
+<li>Vue.js</li>
+<li>JavaScript (ES6+, compiled with Webpack[v3]/Babel[v6])</li>
+<li>Sass</li>
+</ul>
+</li>
+</ul>
+<h2 id="javascript-docs">JavaScript Docs</h2>
+<p>See <a href="./dist/js/index.html">jsDocs</a> for JavaScript source-code documentation; compiled using 
+node to parse <a href="http://usejsdoc.org/">JSdoc annotation comments</a>.</p>
+<h2 id="version-control">Version Control</h2>
+<p>Be sure to set an <code>svn:ignore</code> flag on the /assets folder for new builds.</p>
+<p>Via the command line, follow these steps:</p>
+<ul>
+<li><code>cd</code> to the project root folder</li>
+<li><code>svn delete --keep-local assets</code><ul>
+<li>(this removes the /assets folder from version control but leaves the local folder and contents alone)</li>
+</ul>
+</li>
+<li>Commit your changes to SVN</li>
+<li><code>svn propedit svn:ignore .</code><ul>
+<li>(this should open up the current ignores list)</li>
+</ul>
+</li>
+<li>Add <code>assets</code> to the list and save the file</li>
+<li>Commit the propedit changes to SVN</li>
+</ul>
+<p>If you get an error when running propedit then you need to update your CLI profile to set a preferred editor for that command. If you wanted to edit SVN config files with the nano editor, for instance, you would run this:</p>
+<ul>
+<li><code>cd ~</code></li>
+<li><code>nano .bash_profile</code></li>
+<li><code>export SVN_EDITOR=nano</code></li>
+</ul>
+<h2 id="symlink">Symlink</h2>
+<p>In terminal/cmd, create a symlink named &#39;cbe&#39; in your <code>./templates/main/css/scss</code> folder pointing to <code>./templates/main/cbe/css/scss</code></p>
+<h2 id="-showxml-content">?SHOWXML content</h2>
+<pre><code class="lang-treeview">root/templates/main/
+    └── includes/
+        └── mandarin/
+            └── global/
+                └── template-includes.xsl
+</code></pre>
+<p>The Mandarin admin delivers content via the <code>?SHOWXML</code> feed, in much the same way that traditional CDE does.</p>
+<h2 id="module-templating">Module templating</h2>
+<p>We&#39;ve utilized a modular approach to file/include development that helps keep files and content node / phpclasses aligned. Though this approach leads to the development of a large number of includes, it produces reusable chunks of dynamic templating for global use. </p>
+<p>Components and template files are configured to support admin-set module ordering and placement, on any given page. Templating has flexible xsl logic to support these dynamic requirements.</p>
+<h2 id="requirements">Requirements</h2>
+<p>This project requires a corresponding database and CMS, such as the chaincmsseed project.</p>
+<!-- LINKS -->
+</article>
 
             <footer class="uk-container uk-container-small uk-margin-large uk-section-small">
                 <p class="uk-text-meta">
@@ -60,6 +141,52 @@
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
             </div>
         </aside>
+
+        <div id="settingsModal" uk-modal>
+            <article class="uk-modal-dialog">
+                <form id="cookieSettings">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <header class="uk-modal-header">
+                        <h2 class="uk-modal-title">Settings</h2>
+                    </header>
+                    <div class="uk-modal-body" uk-overflow-auto>
+                        <fieldset class="uk-fieldset">
+                            <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
+                            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                <label>
+                                    <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
+                                    Type Without Ligatures
+                                </label>
+                                <label>
+                                    <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
+                                    Type With Ligatures
+                                </label>
+                                <!-- <label>
+                                    <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                    Light Theme
+                                </label>
+                                <label>
+                                    <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
+                                    Dark Theme
+                                </label> -->
+                            </div>
+                        </fieldset>
+                    </div>
+                    <footer class="uk-modal-footer uk-text-right">
+                        <button id="settingsCancel" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="settingsSave" 
+                            class="uk-button uk-button-primary uk-modal-close" 
+                            type="button" 
+                            onclick="UIkit.notification({
+                                message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
+                                status: 'success',
+                                timeout: '2500'
+                            })" 
+                        >Save</button>
+                    </footer>
+                </form>
+            </article>
+        </div>
 
         <script src="js/uikit.min.js"></script>
         <script src="js/uikit-icons.min.js"></script>

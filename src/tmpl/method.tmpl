@@ -10,7 +10,7 @@
 
         <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
             <?js= data.attribs + (kind === 'class' ? 'new ' : '') + name + (data.signature || '') ?>
-            <span class="uk-label">Method</span>
+            <span class="uk-label uk-light">Method</span>
         </h4>
     <?js } ?>
 
@@ -18,7 +18,7 @@
         <?js= this.partial('details.tmpl', data) ?>
 
         <?js if (data.kind !== 'module' && data.description) { ?>
-            <div class="description uk-margin">
+            <div class="description uk-margin" data-file="method">
                 <?js= data.description ?>
             </div>
         <?js } ?>
@@ -28,7 +28,7 @@
             <?js= self.partial('augments.tmpl', data) ?>
         <?js } ?>
 
-        <?js if (kind === 'event' && data.type && data.type.names) {?>
+        <?js if (kind === 'event' && data.type && data.type.names) { ?>
             <h5>Type: <span><?js= self.partial('type.tmpl', data.type.names) ?></span></h5>
         <?js } ?>
 
@@ -47,30 +47,38 @@
 
         <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
             <h5 class="subsection-title uk-margin-small-bottom">Requires:</h5>
-            <ul><?js data.requires.forEach(function(r) { ?>
-                <li><?js= self.linkto(r) ?></li>
-            <?js }); ?></ul>
+            <ul>
+                <?js data.requires.forEach(function(r) { ?>
+                    <li><?js= self.linkto(r) ?></li>
+                <?js }); ?>
+            </ul>
         <?js } ?>
 
         <?js if (data.fires && fires.length) { ?>
             <h5 class="subsection-title uk-margin-small-bottom">Fires:</h5>
-            <ul><?js fires.forEach(function(f) { ?>
-                <li><?js= self.linkto(f) ?></li>
-            <?js }); ?></ul>
+            <ul>
+                <?js fires.forEach(function(f) { ?>
+                    <li><?js= self.linkto(f) ?></li>
+                <?js }); ?>
+            </ul>
         <?js } ?>
 
         <?js if (data.listens && listens.length) { ?>
             <h5 class="subsection-title uk-margin-small-bottom">Listens to Events:</h5>
-            <ul><?js listens.forEach(function(f) { ?>
-                <li><?js= self.linkto(f) ?></li>
-            <?js }); ?></ul>
+            <ul>
+                <?js listens.forEach(function(f) { ?>
+                    <li><?js= self.linkto(f) ?></li>
+                <?js }); ?>
+            </ul>
         <?js } ?>
 
         <?js if (data.listeners && listeners.length) { ?>
             <h5 class="subsection-title uk-margin-small-bottom">Listeners of This Event:</h5>
-            <ul><?js listeners.forEach(function(f) { ?>
-                <li><?js= self.linkto(f) ?></li>
-            <?js }); ?></ul>
+            <ul>
+                <?js listeners.forEach(function(f) { ?>
+                    <li><?js= self.linkto(f) ?></li>
+                <?js }); ?>
+            </ul>
         <?js } ?>
 
         <?js if (data.exceptions && exceptions.length) { ?>
@@ -81,9 +89,9 @@
                         <li><?js= self.partial('exceptions.tmpl', r) ?></li>
                     <?js }); ?>
                 </ul>
-                <?js } else { exceptions.forEach(function(r) { ?>
-                    <?js= self.partial('exceptions.tmpl', r) ?>
-                <?js }); } ?>
+            <?js } else { exceptions.forEach(function(r) { ?>
+                <?js= self.partial('exceptions.tmpl', r) ?>
+            <?js }); } ?>
         <?js } ?>
     </div>
 

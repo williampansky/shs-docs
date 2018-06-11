@@ -15,7 +15,7 @@ body {
 }
 
 .jsdoc-item {
-	& + & {
+  & + & {
     margin-top: 60px;
   }
   
@@ -24,7 +24,6 @@ body {
     color: #fff;
     background: var(--color-gradient);
     margin: 0;
-    // padding: .75em 0 .75em 10px;
     position: relative; 
   }
 
@@ -36,28 +35,28 @@ body {
   }
 
   & &-name .signature {
-    // color: var(--color-accent);
-    color: #00fbff;
+    // color: #00fbff;
+    color: var(--color-accent);
   }
 
   & &-name.uk-sticky.uk-active {
     border-top: 0;
     background: var(--color-secondary);
-    width: 100% !important;
-    padding: .75em 0 .75em 3.85em;
+    width: 100%;
+    padding: 0.75em 0 0.75em 3.85em;
     left: 350px;
   }
 
   & &-name .uk-label {
-    // background: rgba(255,255,255,0.25);
-    background: rgba(0, 0, 0, 0.25);
+    // background: rgba(0, 0, 0, 0.125);
+    background: rgba(255, 255, 255, 0.125);
     clip-path: polygon(29% 0, 100% 0, 100% 100%, 51% 100%);
     line-height: 1;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
     justify-content: center;
-    width: 14%;
+    width: 120px;
     padding-bottom: 1px;
     position: absolute;
     top: 0;
@@ -66,22 +65,19 @@ body {
   }
 
   & &-details {
-    // border-left: 2px solid var(--color-secondary);
     font-size: 14px;
     line-height: 20px;
-    // padding: 8px 0;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(2, auto);
+    @include breakpoint(large) { grid-template-columns: repeat(4, auto); }
     grid-row-gap: 8px;
-    grid-column-gap: 8px;
+    grid-column-gap: 1rem;
     margin-top: 0;
   }
 
   & &-details > .container {
     display: flex;
     flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
   }
 
   & &-details :not(pre) > code {
@@ -90,31 +86,17 @@ body {
     font-size: 90%;
     padding: 0 2px;
   }
-
-  & &-details dt {
-    // width: auto;
-    // padding-left: 10px;
-    // padding-left: 0.5em;
-
-    // @media screen and (min-width: 960px) {
-    //   width: 90px;
-		//   float: left;
-    // }
+  
+  & &-details ul {
+    list-style-type: none;
+    margin: 0;
   }
 
-  & &-details dd {
-    // margin-left: 10px;
-    margin-top: 0;
-    // margin-bottom: 6px;
-  }
-
-
+  & &-details dd { margin-top: 0; }
   & &-details dd:last-child { margin-bottom: 0; }
   & &-details p { margin: 0; }
   & &-details .param-desc p { display: inline-block; }
-  & &-details ul { margin: 0; }
-  & &-details ul { list-style-type: none; }
-  & &-details pre.prettyprint { margin: 0; }
+  & &-details .prettyprint { margin: 0; }
   & &-details .object-value { padding-top: 0; }
   & &-details hr { margin: 0.5em 0; }
 }
@@ -132,6 +114,9 @@ body {
     letter-spacing: 0.0675em;
     padding: 0 1rem;
   }
+
+  & .type { white-space: nowrap; }
+  & .description { line-height: 1.25; }
 }
 
 .description .code-toolbar {
@@ -139,7 +124,7 @@ body {
 }
 
 /** Add a '#' to static members */
-[data-type="member"] a::before {
+[data-type='member'] a::before {
   content: '#';
   display: inline-block;
   margin-left: -14px;
@@ -147,24 +132,5 @@ body {
 }
 
 .uk-container > :last-child {
-	margin-bottom: 0;
-}
-.tm-sidebar-right {
-	position: absolute;
-	top: 0;
-	left: calc(100% + 0px);
-	width: 200px;
-}
-@media (min-width: 1400px) {
-	.tm-sidebar-right {
-		left: calc(100% + 60px);
-	}
-	.tm-sidebar-left+.tm-main {
-		padding-left: 40px;
-	}
-}
-@media (min-width: 1200px) {
-	.tm-sidebar-right {
-		left: calc(100% + 0px);
-	}
+  margin-bottom: 0;
 }

@@ -17,7 +17,7 @@
         <?js= self.partial('source.tmpl', doc) ?>
     <?js } else { ?>
 
-        <section class="uk-section container-overview uk-padding-remove-bottom">
+        <section class="intro">
             <header>
                 <?js if (title != 'Home') { ?>
                     <h1 class="uk-article-title"><?js= title ?></h1>
@@ -49,7 +49,7 @@
 
             <?js if (doc.kind === 'module' && doc.modules) { ?>
                 <?js if (doc.description) { ?>
-                    <div class="description uk-margin"><?js= doc.description ?></div>
+                    <div class="description uk-margin" data-line="52"><?js= doc.description ?></div>
                 <?js } ?>
 
                 <?js doc.modules.forEach(function(module) { ?>
@@ -61,7 +61,7 @@
                 <?js= self.partial('details.tmpl', doc) ?>
 
                 <?js if (doc.description) { ?>
-                    <div class="description uk-margin"><?js= doc.description ?></div>
+                    <div class="description uk-margin" data-line="64"><?js= doc.description ?></div>
                 <?js } ?>
 
                 <?js if (doc.examples && doc.examples.length) { ?>

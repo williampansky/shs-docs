@@ -6,6 +6,8 @@
 ### Who is Mandarin Oriental?
 Mandarin Oriental Hotel Group (MOHG; Chinese: 文華東方酒店), a member of the Jardine Matheson Group, is an international hotel investment and management group with luxury hotels, resorts and residences in Asia, Europe and the Americas [[Wikipedia][MOHG Wiki Entry]].
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac fringilla nunc, vel pellentesque ante. Vestibulum in luctus nisi. Phasellus eget libero vitae urna convallis suscipit. Pellentesque interdum iaculis nisi quis aliquam. Fusce sit amet lectus et risus aliquet blandit volutpat vitae elit. Suspendisse ac lacus a tortor facilisis semper. Nullam laoreet leo eu nisl porta pellentesque. Suspendisse faucibus nibh nec tortor luctus placerat.
+
 ### The Project, At a Glance
 You can think of the `mandarinoriental_com` repository project as a single entity with multiple parts (in regards to development; i.e. individual package.json, gulpfile.js, Sass, JS, etc files):
 - Core _(Website as a whole)_
