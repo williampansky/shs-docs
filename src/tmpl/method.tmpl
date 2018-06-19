@@ -2,7 +2,7 @@
     var data = obj;
     var self = this;
 ?>
-<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="method.tmpl">
+<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
     <?js if (data.kind !== 'module') { ?>
         <?js if (data.kind === 'class' && data.classdesc) { ?>
             <h2 class="subsection-title uk-margin-small-bottom">Constructor</h2>
@@ -107,4 +107,10 @@
             <?js= self.partial('returns.tmpl', r) ?>
         <?js }); } ?>
     <?js } ?> -->
+
+    <!-- <a href="<?js= id ?>" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
 </section>

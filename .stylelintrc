@@ -2,6 +2,7 @@
     "ignoreFiles": [
         "**/*.js",
         "**/*.css",
+        "**/*.tmpl",
         "node_modules/**/*.scss",
         "src/scss/vendors/**/*.scss",
         "templates/main/css/scss/libs/*.scss",

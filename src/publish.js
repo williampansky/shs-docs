@@ -305,7 +305,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''));
 
                 if (docdash.static && members.find(function (m) { return m.scope === 'static'; } )) {
-                    itemsNav += "<ul class='members'>";
+                    itemsNav += '<ul class="members" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">';
 
                     members.forEach(function (member) {
                         if (!member.scope === 'static') return;
@@ -318,7 +318,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
 
                 if (methods.length) {
-                    itemsNav += "<ul class='uk-nav-sub methods'>";
+                    itemsNav += '<ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">';
 
                     methods.forEach(function (method) {
                         itemsNav += "<li data-type='method'>";
@@ -335,7 +335,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         });
 
         if (itemsNav !== '') {
-            nav += '<h3 class="uk-nav-header">' + itemHeading + '</h3><ul>' + itemsNav + '</ul>';
+            nav += '<h3 class="uk-nav-header">' + itemHeading + '</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;">' + itemsNav + '</ul>';
         }
     }
 
@@ -395,7 +395,7 @@ function buildNav(members) {
             nav += '<h3>' + linkto('global', 'Global') + '</h3>';
         }
         else {
-            nav += '<h3 class="uk-nav-header">Global</h3><ul>' + globalNav + '</ul>';
+            nav += '<h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">' + globalNav + '</ul>';
         }
     }
 

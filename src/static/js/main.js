@@ -131,7 +131,11 @@ export const buildRec = (nodes, element, level)=> {
 
 /**
  * @summary Wrapper func to call onload to build nav.
- * @see [Stack Overflow]{@link https://stackoverflow.com/a/10004137} 
+ * 
+ * @func buildNav
+ * @returns {Promise} resolve
+ * @see [Stack Overflow]{@link https://stackoverflow.com/a/10004137}
+ * 
  * @desc Thx to {@link https://stackoverflow.com/a/10004137} for info w/Promises.
  * ```js
  * let all === document.getElementById('content').getElementsByTagName('*');
@@ -266,9 +270,14 @@ export const addScrollingBehavior = ()=> {
 
 /**
  * @summary Add `.uk-align-center` to images less than 740px.
- * @func centerSmallImages
+ * @func centerSmallerImages
+ * @example
+ * for (let i=0; i < images.length; i++) {
+ *      if (images[i].style.width < minWidth) 
+ *          images[i].classList.add('uk-align-center');
+ * }
  */
-export const centerSmallImages = ()=> {
+export const centerSmallerImages = ()=> {
     let content = document.getElementById('content');
     let images = content.getElementsByTagName('img');
     let minWidth = 740;
@@ -379,4 +388,56 @@ export const formatDate = ()=> {
     };
 
     return today.toLocaleDateString('en-US', options);
+}
+
+
+
+/**
+ * @summary Edits the `href` attributes of sidebar links 
+ * if the current page matches the parent nav item.
+ * 
+ * @func enableScrollSpy
+ */
+export const enableScrollSpy = ()=> {
+    var pageMatch = document.head.querySelector('title').innerText;
+    var navMatch = document.querySelectorAll('#sideNav li > a');
+
+    for (let i=0; i < navMatch.length; i++) {
+        if (pageMatch.includes('Global')) {
+            scrollSpyHelper('global');
+        } else if (pageMatch.includes(navMatch[i].innerText)) {
+            navMatch[i].parentNode.classList.add('navMatch');
+            setTimeout(()=> { scrollSpyHelper('default'); }, 400);
+        } 
+    }
+}
+
+const scrollSpyHelper = (env)=> {
+    let regexMatch = /((#|#~))\w+/gi;
+    let links = document.querySelectorAll('.navMatch .uk-nav-sub a');
+    let globalLinks = document.querySelectorAll('#globalNav a');
+
+    switch (env) {
+        case 'global':
+            for (let i=0; i < globalLinks.length; i++) {
+                if (globalLinks[i].getAttribute('href').match(regexMatch)) {
+                    let href    = globalLinks[i].getAttribute('href');
+                    let newHref = href.substring(href.indexOf('#', + 1));
+
+                    globalLinks[i].setAttribute('href', newHref);
+                }
+            }
+        break;
+    
+        default:
+            for (let i=0; i < links.length; i++) {
+                if (links[i].getAttribute('href').match(regexMatch)) {
+                    let href    = links[i].getAttribute('href');
+                    let newHref = href.substring(href.indexOf('#', + 1));
+
+                    links[i].setAttribute('href', newHref);
+                }
+            }
+        break;
+    }
 }

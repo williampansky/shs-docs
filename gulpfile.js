@@ -25,6 +25,8 @@ const gulp          = require('gulp-help')(require('gulp')),
     fs              = require('fs');
 
 
+
+
 /**
  * @summary Variable for `--proxy` flag.
  * 
@@ -40,6 +42,8 @@ const gulp          = require('gulp-help')(require('gulp')),
  * of opening up a new tab window using `localhost:3000`.
  */
 const localhost = 'readme.html';
+
+
 
 
 /**
@@ -64,13 +68,10 @@ const paths = {
     sass:   'src/scss',
     css:    'src/static/css',
     img:    'src/static/img',
-    js:     'src/static/js',
-    test:   'test'
+    js:     'src/static/js'
 };
 
-gulp.task('test', ()=> {
-    console.log(paths.sass);
-});
+
 
 /**
  * @summary Autoprefixer browser support, used in Gulp's `sassTask()` function.
@@ -85,6 +86,8 @@ gulp.task('test', ()=> {
  * @prop {String} last last 2 versions
  */
 const support = 'last 2 versions';
+
+
 
 
 /**
@@ -110,8 +113,6 @@ const knownFlags = {
     }
 };
 const flags = minimist(process.argv.slice(2), knownFlags);
-
-
 
 
 
@@ -142,6 +143,8 @@ const defaultTask = ()=> {
 }
 defaultTask.description = 'Runs all Gulp functions in one call.';
 gulp.task('default', defaultTask.description, defaultTask);
+
+
 
 
 /**
@@ -207,6 +210,8 @@ imageTask.description = `Optimizes images in ${paths.img} directory.`;
 gulp.task('images', imageTask.description, imageTask);
 
 
+
+
 /**
  * @summary Watches files for changes.
  * 
@@ -258,6 +263,8 @@ watchTask.description = 'Watches files for changes and reloads BrowserSync if fl
 gulp.task('watch', watchTask.description, watchTask);
 
 
+
+
 /**
  * @summary Initiates a BrowserSync instance.
  * 
@@ -285,6 +292,7 @@ gulp.task('sync', 'Initiates a BrowserSync instance.', ()=> {
         }
     });
 });
+
 
 
 
@@ -333,7 +341,7 @@ const parseMarkdown = ()=> {
 
     return gulp.src(`./src/template.html`)
         .pipe(template(`./test/markdown`))
-        .pipe(rename('readme.html'))
+        .pipe(rename('README.html'))
         .pipe(gulp.dest('./test/dist'));
 };
 parseMarkdown.description = 'Builds complete documentation package.';
@@ -364,6 +372,9 @@ gulp.task('jsdocs',
     'Parses JavaScript files and creates dist/js/*.html documentation files.', 
     run('npm run jsdoc')
 );
+
+
+
 
 /**
  * @summary Supplemental task for jsDocs; 
@@ -469,6 +480,15 @@ gulp.task('todo', todoTask.description, todoTask);
  *  gulp webpack
  * ```
  */
+const webpackTask = ()=> {
+    return sequence(
+        'sass',
+        'webpack'
+    );
+};
+webpackTask.description = 'Bundles everything via Webpack.';
+gulp.task('sasspack', webpackTask.description, webpackTask);
+
 gulp.task('webpack', 
     'Bundles everything via Webpack.', 
     run('npm run build')

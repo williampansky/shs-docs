@@ -35,8 +35,8 @@ body {
   }
 
   & &-name .signature {
-    // color: #00fbff;
-    color: var(--color-accent);
+    color: #95ffd9;
+    // color: var(--color-accent);
   }
 
   & &-name.uk-sticky.uk-active {
@@ -91,7 +91,8 @@ body {
     list-style-type: none;
     margin: 0;
   }
-
+  
+  & &-details .param-desc .uk-text-meta { font-size: 12px; }
   & &-details dd { margin-top: 0; }
   & &-details dd:last-child { margin-bottom: 0; }
   & &-details p { margin: 0; }
@@ -99,6 +100,29 @@ body {
   & &-details .prettyprint { margin: 0; }
   & &-details .object-value { padding-top: 0; }
   & &-details hr { margin: 0.5em 0; }
+
+  & .uk-icon {
+    border: 0;
+    cursor: pointer;
+    padding: 1.215rem;
+    position: absolute;
+    top: 0;
+    left: -3.45rem;
+    opacity: 0;
+    visibility: hidden;
+    &:hover, &:focus {
+      color: var(--color-primary);
+      transform: scale(1.35);
+    }
+  }
+
+  &:hover, &:focus {
+    & .uk-icon {
+      opacity: 1;
+      visibility: visible;
+      transition: 200ms ease-out;
+    }
+  }
 }
 
 .js-docitem-params,
@@ -119,8 +143,9 @@ body {
   & .description { line-height: 1.25; }
 }
 
-.description .code-toolbar {
-  margin: 20px -20px -28px -20px;
+.jsdoc-item .code-toolbar {
+  margin: 0 -20px -28px -20px;
+  & a { border: 0; }
 }
 
 /** Add a '#' to static members */
@@ -133,4 +158,18 @@ body {
 
 .uk-container > :last-child {
   margin-bottom: 0;
+}
+
+
+
+.intro {
+  & .uk-card-default {
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+  }
+
+  & .uk-card-body {
+    padding: 0;
+  }
 }

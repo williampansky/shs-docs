@@ -17,8 +17,7 @@
     padding: 0 0 0 20px;
 
     &:hover, &:focus {
-      color: var(--color-accent);
-      border-left: 4px solid var(--color-accent);
+      border-left: 4px solid;
     }
   }
 
@@ -37,6 +36,10 @@
 
   &-bar a:hover,
   &-bar a:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &-bar .navMatch > a {
     color: var(--color-accent);
   }
 

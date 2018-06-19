@@ -2,7 +2,7 @@
     var data = obj;
     var self = this;
 ?>
-<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small" data-file="members.tmpl">
+<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="members.tmpl">
     <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
         <?js= data.attribs + name + (data.signature ? data.signature : '') ?>
         <span class="uk-label uk-light">Member</span>
@@ -17,12 +17,12 @@
             </div>
         <?js } ?>
 
-        <?js if (data.type && data.type.names) { ?>
+        <!-- <?js if (data.type && data.type.names) { ?>
             <h5>Type:</h5>
             <ul>
                 <li><?js= self.partial('type.tmpl', data.type.names) ?></li>
             </ul>
-        <?js } ?>
+        <?js } ?> -->
 
         <?js if (data.fires && fires.length) { ?>
             <h5>Fires:</h5>
@@ -37,5 +37,10 @@
             <h5 class="uk-margin-small-bottom">Example<?js= examples.length > 1? 's':'' ?></h5>
             <?js= this.partial('examples.tmpl', examples) ?>
         <?js } ?>
-    
+
+        <!-- <a href="<?js= id ?>" 
+            class="uk-icon uk-animation-slide-right-small" 
+            uk-icon="link" 
+            uk-tooltip="Copy Link">
+        </a> -->
 </section>

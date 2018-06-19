@@ -16,9 +16,10 @@ import {
     addNavHeader,
     makeUIkitTables,
     addShadows,
-    centerSmallImages,
+    centerSmallerImages,
     // wordBreakLongTableTDs,
-    formatDate
+    formatDate,
+    enableScrollSpy
 } from './src/static/js/main';
 
 window.onload = ()=> {
@@ -50,11 +51,12 @@ window.onload = ()=> {
 document.addEventListener('DOMContentLoaded', ()=> {
     if (document.body.classList.contains('readme')) {
         addShadows();
-        centerSmallImages();
+        centerSmallerImages();
     }
 
     if (document.body.classList.contains('jsdoc')) {
         makeUIkitTables();
+        enableScrollSpy();
         // wordBreakLongTableTDs();
     }
 });
