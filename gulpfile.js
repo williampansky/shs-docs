@@ -68,7 +68,8 @@ const paths = {
     sass:   'src/scss',
     css:    'src/static/css',
     img:    'src/static/img',
-    js:     'src/static/js'
+    js:     'src/static/js',
+    example:'./example'
 };
 
 
@@ -178,7 +179,7 @@ function sassTask() {
         .pipe(gulpif( flags.dev, sourcemaps.write('./') ))
         .pipe(rename({ suffix: '.min' }))
         // .pipe(gulp.dest(paths.css))
-        .pipe(gulp.dest(paths.test))
+        .pipe(gulp.dest(paths.example))
         .pipe(gulpif( flags.bs, browserSync.stream({match: '**/*.css'}) ));
 }
 sassTask.description = `Compile Sass, run Autoprefixer, & save to ${paths.css} directory.`;
@@ -287,7 +288,7 @@ gulp.task('sync', 'Initiates a BrowserSync instance.', ()=> {
         // single: true,
         // port: 3000,
         server: {
-            baseDir: 'test',
+            baseDir: 'example',
             directory: true
         }
     });
@@ -340,9 +341,9 @@ const parseMarkdown = ()=> {
     console.log(`[docsTask] ———— Parsing Markdown (.md) files and compiling to ./documentation.html file...`);
 
     return gulp.src(`./src/template.html`)
-        .pipe(template(`./test/markdown`))
+        .pipe(template(`${paths.example}/markdown`))
         .pipe(rename('README.html'))
-        .pipe(gulp.dest('./test/dist'));
+        .pipe(gulp.dest(`${paths.example}/dist`));
 };
 parseMarkdown.description = 'Builds complete documentation package.';
 gulp.task('markdown', false, parseMarkdown);
@@ -392,8 +393,7 @@ const jsdocsTask_clear = ()=> {
 
     // -- globbing pattern to match everything inside the `docs/dist/js` folder
     del([
-        'test/dist/**/*',
-        'test/documentation.html'
+        `${paths.example}/dist`
     ]);
 };
 jsdocsTask_clear.description = 'Deletes all files in docs/dist/js directory.';
@@ -453,7 +453,7 @@ const todoTask = ()=> {
         '!node_modules/**/*.js',
     ])
     .pipe(todo())
-    .pipe(gulp.dest(`./test/markdown`));
+    .pipe(gulp.dest(`${paths.example}/markdown`));
     // -> Will output a TODO.md with your todos
 };
 todoTask.description = 'Generates a TODO.md from @todo & @fixme source-code comment tags.';

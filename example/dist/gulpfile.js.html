@@ -94,6 +94,8 @@ const gulp          = require('gulp-help')(require('gulp')),
     fs              = require('fs');
 
 
+
+
 /**
  * @summary Variable for `--proxy` flag.
  * 
@@ -109,6 +111,8 @@ const gulp          = require('gulp-help')(require('gulp')),
  * of opening up a new tab window using `localhost:3000`.
  */
 const localhost = 'readme.html';
+
+
 
 
 /**
@@ -134,12 +138,10 @@ const paths = {
     css:    'src/static/css',
     img:    'src/static/img',
     js:     'src/static/js',
-    test:   'test'
+    example:'./example'
 };
 
-gulp.task('test', ()=> {
-    console.log(paths.sass);
-});
+
 
 /**
  * @summary Autoprefixer browser support, used in Gulp's `sassTask()` function.
@@ -154,6 +156,8 @@ gulp.task('test', ()=> {
  * @prop {String} last last 2 versions
  */
 const support = 'last 2 versions';
+
+
 
 
 /**
@@ -179,8 +183,6 @@ const knownFlags = {
     }
 };
 const flags = minimist(process.argv.slice(2), knownFlags);
-
-
 
 
 
@@ -211,6 +213,8 @@ const defaultTask = ()=> {
 }
 defaultTask.description = 'Runs all Gulp functions in one call.';
 gulp.task('default', defaultTask.description, defaultTask);
+
+
 
 
 /**
@@ -244,7 +248,7 @@ function sassTask() {
         .pipe(gulpif( flags.dev, sourcemaps.write('./') ))
         .pipe(rename({ suffix: '.min' }))
         // .pipe(gulp.dest(paths.css))
-        .pipe(gulp.dest(paths.test))
+        .pipe(gulp.dest(paths.example))
         .pipe(gulpif( flags.bs, browserSync.stream({match: '**/*.css'}) ));
 }
 sassTask.description = `Compile Sass, run Autoprefixer, &amp; save to ${paths.css} directory.`;
@@ -274,6 +278,8 @@ function imageTask() {
 }
 imageTask.description = `Optimizes images in ${paths.img} directory.`;
 gulp.task('images', imageTask.description, imageTask);
+
+
 
 
 /**
@@ -327,6 +333,8 @@ watchTask.description = 'Watches files for changes and reloads BrowserSync if fl
 gulp.task('watch', watchTask.description, watchTask);
 
 
+
+
 /**
  * @summary Initiates a BrowserSync instance.
  * 
@@ -349,11 +357,12 @@ gulp.task('sync', 'Initiates a BrowserSync instance.', ()=> {
         // single: true,
         // port: 3000,
         server: {
-            baseDir: 'test',
+            baseDir: 'example',
             directory: true
         }
     });
 });
+
 
 
 
@@ -401,9 +410,9 @@ const parseMarkdown = ()=> {
     console.log(`[docsTask] ———— Parsing Markdown (.md) files and compiling to ./documentation.html file...`);
 
     return gulp.src(`./src/template.html`)
-        .pipe(template(`./test/markdown`))
+        .pipe(template(`${paths.example}/markdown`))
         .pipe(rename('README.html'))
-        .pipe(gulp.dest('./test/dist'));
+        .pipe(gulp.dest(`${paths.example}/dist`));
 };
 parseMarkdown.description = 'Builds complete documentation package.';
 gulp.task('markdown', false, parseMarkdown);
@@ -434,6 +443,9 @@ gulp.task('jsdocs',
     run('npm run jsdoc')
 );
 
+
+
+
 /**
  * @summary Supplemental task for jsDocs; 
  * using 'false' to hide task fro gulp-help.
@@ -450,8 +462,7 @@ const jsdocsTask_clear = ()=> {
 
     // -- globbing pattern to match everything inside the `docs/dist/js` folder
     del([
-        'test/dist/**/*',
-        'test/documentation.html'
+        `${paths.example}/dist`
     ]);
 };
 jsdocsTask_clear.description = 'Deletes all files in docs/dist/js directory.';
@@ -511,7 +522,7 @@ const todoTask = ()=> {
         '!node_modules/**/*.js',
     ])
     .pipe(todo())
-    .pipe(gulp.dest(`./test/markdown`));
+    .pipe(gulp.dest(`${paths.example}/markdown`));
     // -> Will output a TODO.md with your todos
 };
 todoTask.description = 'Generates a TODO.md from @todo &amp; @fixme source-code comment tags.';
@@ -573,7 +584,7 @@ gulp.task('webpack',
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
                 </nav>
             </div>
         </aside>

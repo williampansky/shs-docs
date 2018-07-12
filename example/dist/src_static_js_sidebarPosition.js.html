@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | JavaScript</title>
+        <title>MOHG Scripts | src/static/js/sidebarPosition.js</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,7 +29,7 @@
                     <li><a href="readme.html">Home</a></li>
                     
                         <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent">JavaScript</span></li>
+                        <li><span class="uk-text-accent">src/static/js/sidebarPosition.js</span></li>
                     
                 </ul>
             </div>
@@ -65,53 +65,62 @@
 
     
     
-
-        <section class="intro">
-            <header>
-                
-                    <h1 class="uk-article-title">JavaScript</h1>
-                
-
-                
-                    
-                
-            </header>
-
-            
-                
-
-                
-            
-
-            
-                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Extends</h3>
-                
-
-
-    <ul>
-        <li>Prism.languages(clike)</li>
-    </ul>
-
-
-            
-
-            
-        </section>
-
         
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
+ * @module sidebarPosition
+ * @description Uses `sessionStorage` to store &amp; use the sidebar's 
+ * scrolling state to preserve position between page views.
+ */
 
-        
+/**
+ * @summary Adds a listener for #sideNav scrolling position
+ * @method sidebarScrollListener
+ */
+export const sidebarScrollListener = ()=> {
+    let sidebar = document.getElementById('sideNav');
+    sidebar.onscroll = (position)=> {
+        position = sidebar.scrollTop;
+        setSidebarPosition(position);
+    }
+}
 
-        
 
-        
+/**
+ * @summary Uses session storage to track the sidebar X position.
+ * @method setSidebarPosition
+ * @param {Number} position Current sidebar.scrollTop val
+ */
+export const setSidebarPosition = position => {
+    sessionStorage.setItem('sidebarPosition', position);
+};
 
-        
 
-        
+/**
+ * @summary Gets the number value from session storage and returns
+ * @method getSidebarPosition
+ */
+export const getSidebarPosition = ()=> {
+    sessionStorage.getItem('sidebarPosition');
+    return;
+};
 
-        
 
+/**
+ * @summary Moves #sideNav.scrollTo to set value of session storage number
+ * @method moveSidebarToPosition
+ * @param {Number} position value returned from sessionStorage.getItem('sidebarPosition');
+ */
+export const moveSidebarToPosition = position => {
+    position = sessionStorage.getItem('sidebarPosition');
+    let sidebar = document.getElementById('sideNav');
+
+    sidebar.scrollTo(0, position);
+};</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 
@@ -130,7 +139,7 @@
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
                 </nav>
             </div>
         </aside>

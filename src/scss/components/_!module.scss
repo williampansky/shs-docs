@@ -11,7 +11,7 @@ basically anything along those lines. There are usually a lot of files in
 components/ since the whole site should be mostly composed of tiny modules.
 ***/
 
-// @import 'buttons';
+@import 'jsdoc-item';
 @import 'code';
 @import 'tables';
 @import 'notifications';

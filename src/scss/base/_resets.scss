@@ -11,17 +11,17 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+
+  // to accomodate the centering of main.uk-container
+  @include breakpoint(medium) {
+    padding-left: 350px;
+  }
 }
 
 /* Never like UIkit's red <em> color */
 em {
   color: inherit;
   letter-spacing: -0.015em;
-}
-
-/* to accomodate the centering of main.uk-container */
-@media screen and (min-width: 768px) {
-  body { padding-left: 350px; }
 }
 
 /* Hides unnecessary content from home (index.html) page */

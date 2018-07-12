@@ -22,7 +22,13 @@
             "src/static/js"
         ],
         "exclude": [
-            "dist/js/bundle.js",
+            "src/static/js/bundle.js",
+            "src/static/js/clipboard.min.js",
+            "src/static/js/linenumber.js",
+            "src/static/js/highlight.pack.js",
+            "src/static/js/prism-treeview.js",
+            "src/static/js/prism.custom.js",
+            "src/static/js/prism.min.js",
             "node_modules"
         ],
         "includePattern": ".+\\.(js|vue)$",
@@ -31,7 +37,7 @@
     "opts": {
         "template": "src",
         "encoding": "utf8",
-        "destination": "test/dist",
+        "destination": "example/dist",
         "recurse": true,
         "verbose": true
     },
@@ -39,5 +45,5 @@
         "cleverLinks": true,
         "monospaceLinks": true
     },
-    "tutorials": "test/dist/tutorials"
+    "tutorials": "example/dist/tutorials"
 }

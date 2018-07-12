@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | ApacheConfiguration</title>
+        <title>MOHG Scripts | webpack.config.js</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,7 +29,7 @@
                     <li><a href="readme.html">Home</a></li>
                     
                         <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent">ApacheConfiguration</span></li>
+                        <li><span class="uk-text-accent">webpack.config.js</span></li>
                     
                 </ul>
             </div>
@@ -65,53 +65,47 @@
 
     
     
-
-        <section class="intro">
-            <header>
-                
-                    <h1 class="uk-article-title">ApacheConfiguration</h1>
-                
-
-                
-                    
-                
-            </header>
-
-            
-                
-
-                
-            
-
-            
-                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Extends</h3>
-                
-
-
-    <ul>
-        <li>Prism.languages(apacheconf)</li>
-    </ul>
-
-
-            
-
-            
-        </section>
-
         
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
+module.exports = {
+    entry: './index.js',
+    mode: 'development',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'src/static/js')
+    },
+    node: {
+        fs: 'empty'
+    },
+    plugins: [
+        /**
+         * @summary Uses UglifyJS v3 (uglify-es) to minify JavaScript.
+         * 
+         * @method UglifyJsPlugin
+         * @see [Webpack.UglifyJsPlugin]{@link https://webpack.js.org/plugins/uglifyjs-webpack-plugin}
+         * 
+         * @prop {Option} sourceMap true
+         * @prop {Option} comments false
+         * @prop {Option} beautify false
+         */
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                sourceMap: true,
+                output: {
+                    comments: false,
+                    beautify: false
+                },
+            }
+        })
+    ]
+};</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 
@@ -130,7 +124,7 @@
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-ApacheConfiguration.html">ApacheConfiguration</a></li><li><a href="module-JavaScript.html">JavaScript</a></li><li><a href="module-LineNumbers.html">LineNumbers</a></li><li><a href="module-SCSS.html">SCSS</a></li><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#Prism">Prism</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
                 </nav>
             </div>
         </aside>
