@@ -271,11 +271,13 @@ export const addScrollingBehavior = ()=> {
 /**
  * @summary Add `.uk-align-center` to images less than 740px.
  * @func centerSmallerImages
- * @example
+ * @description
+ * ```js
  * for (let i=0; i < images.length; i++) {
  *      if (images[i].style.width < minWidth) 
  *          images[i].classList.add('uk-align-center');
  * }
+ * ```
  */
 export const centerSmallerImages = ()=> {
     let content = document.getElementById('content');
