@@ -48,13 +48,12 @@
             </header>
 
             <?js if (doc.kind === 'module' && doc.modules) { ?>
-                <?js if (doc.description) { ?>
-                    <div class="description uk-margin" data-line="52"><?js= doc.description ?></div>
-                <?js } ?>
-
                 <?js doc.modules.forEach(function(module) { ?>
                     <?js= self.partial('method.tmpl', module) ?>
                 <?js }) ?>
+                <?js if (doc.description) { ?>
+                    <div class="description uk-margin" data-line="52"><?js= doc.description ?></div>
+                <?js } ?>
             <?js } else if (doc.kind === 'class') { ?>
                 <?js= self.partial('method.tmpl', doc) ?>
             <?js } else { ?>

@@ -7,11 +7,24 @@
         "log": false
     },
     "markdown": {
-        "tags": ["author", "classdesc", "description", "param", "property", "returns", "see", "throws", "vue"]
+        "tags": [
+            "author", 
+            "classdesc", 
+            "description", 
+            "param", 
+            "property", 
+            "returns", 
+            "see", 
+            "throws", 
+            "vue"
+        ]
     },
     "tags": {
         "allowUnknownTags": true,
-        "dictionaries": ["jsdoc", "closure"]
+        "dictionaries": [
+            "jsdoc", 
+            "closure"
+        ]
     },
     "recurseDepth": 10,
     "source": {

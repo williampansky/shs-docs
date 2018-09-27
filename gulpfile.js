@@ -69,6 +69,10 @@ const paths = {
     css:    'src/static/css',
     img:    'src/static/img',
     js:     'src/static/js',
+    dist:   {
+        css:    'src/dist/css',
+        js:     'src/dist/js',
+    },
     example:'./example'
 };
 
@@ -178,8 +182,7 @@ function sassTask() {
         .pipe(postcss(plugins))
         .pipe(gulpif( flags.dev, sourcemaps.write('./') ))
         .pipe(rename({ suffix: '.min' }))
-        // .pipe(gulp.dest(paths.css))
-        .pipe(gulp.dest(paths.example))
+        .pipe(gulp.dest(paths.css))
         .pipe(gulpif( flags.bs, browserSync.stream({match: '**/*.css'}) ));
 }
 sassTask.description = `Compile Sass, run Autoprefixer, & save to ${paths.css} directory.`;
@@ -188,6 +191,8 @@ sassTask.flags = {
     '--dev':    'Output style is expanded & uses sourcemaps.'
 };
 gulp.task('sass', sassTask.description, sassTask);
+
+
 
 
 /**
@@ -325,6 +330,9 @@ const docsTask = ()=> {
 };
 docsTask.description = 'Builds complete documentation package.';
 gulp.task('docs', docsTask.description, docsTask);
+
+
+
 
 /**
  * @summary Supplemental task for docs; 
