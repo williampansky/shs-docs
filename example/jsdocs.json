@@ -29,7 +29,6 @@
     "recurseDepth": 10,
     "source": {
         "include": [
-            "README.md",
             "example/"
         ],
         "exclude": [
@@ -47,6 +46,8 @@
     },
     "opts": {
         "template": "src",
+        "readme": "example/README.md",
+        "tutorials": "example/tutorials",
         "encoding": "utf8",
         "destination": "example/dist",
         "recurse": true,
@@ -55,6 +56,5 @@
     "templates": {
         "cleverLinks": true,
         "monospaceLinks": true
-    },
-    "tutorials": "example/dist/tutorials"
+    }
 }

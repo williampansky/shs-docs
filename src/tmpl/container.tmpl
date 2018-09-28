@@ -49,7 +49,7 @@
 
             <?js if (doc.kind === 'module' && doc.modules) { ?>
                 <?js doc.modules.forEach(function(module) { ?>
-                    <?js= self.partial('method.tmpl', module) ?>
+                    <?js= self.partial('details.tmpl', doc) ?>
                 <?js }) ?>
                 <?js if (doc.description) { ?>
                     <div class="description uk-margin" data-line="52"><?js= doc.description ?></div>

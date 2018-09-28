@@ -98,4 +98,14 @@ p:last-child, p:only-child {
   margin-bottom: 0 !important;
 }
 
+
+.uk-text-small {
+  :not(pre)>code, 
+  :not(pre)>kbd, 
+  :not(pre)>samp {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+}
+
 /* stylelint-enable */

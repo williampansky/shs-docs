@@ -224,5 +224,7 @@
     var properties = data.properties;
     if (properties && properties.length && properties.forEach) {
 ?>
-    <?js= this.partial('properties.tmpl', data) ?>
+    <div class="jsdoc-item">
+        <?js= this.partial('properties.tmpl', data) ?>
+    </div>
 <?js } ?>
