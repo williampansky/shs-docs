@@ -30,9 +30,7 @@
     "source": {
         "include": [
             "README.md",
-            "gulpfile.js",
-            "webpack.config.js",
-            "src/static/js"
+            "example/"
         ],
         "exclude": [
             "src/static/js/bundle.js",

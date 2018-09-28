@@ -76,6 +76,10 @@
     & a { border: 0; }
   }
 
+  .code-toolbar + * {
+    margin-top: 60px;
+  }
+
   & &-details {
     font-size: 14px;
     line-height: 20px;

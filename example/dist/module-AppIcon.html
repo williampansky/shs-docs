@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | Settings</title>
+        <title>MOHG Scripts | AppIcon</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,7 +29,7 @@
                     <li><a href="readme.html">Home</a></li>
                     
                         <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent">Settings</span></li>
+                        <li><span class="uk-text-accent">AppIcon</span></li>
                     
                 </ul>
             </div>
@@ -69,16 +69,258 @@
         <section class="intro">
             <header>
                 
-                    <h1 class="uk-article-title">Settings</h1>
+                    <h1 class="uk-article-title">AppIcon</h1>
                 
 
                 
+                    
+                        
                     
                 
             </header>
 
             
                 
+                    
+<section id="AppIcon" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>Render an SVG icon from the img/icons directory.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line1">line 1</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="container">
+            <dt class="tag-version uk-text-meta">Version:</dt>
+            <dd class="tag-version">0.2.5</dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-author uk-text-meta">Author:</dt>
+                <dd class="tag-author">Ross Joo</dd>
+            </div>
+        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-todo uk-text-meta">To Do:</dt>
+                <dd class="tag-todo">continue research into necessity of <i></i> and if it can be removed</dd>
+            </div>
+        
+            <div class="container">
+                <dt class="tag-todo uk-text-meta">To Do:</dt>
+                <dd class="tag-todo">add support for the rest of the color schemes (black-lighten, gray-darken)</dd>
+            </div>
+        
+    
+</dl>
+
+
+    
+
+<fieldset class="js-docitem-props uk-overflow-auto">
+    <legend class="subsection-title uk-text-meta uk-text-uppercase">Properties</legend>
+    <table class="props uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive uk-margin-remove">
+        <thead>
+            <tr>
+                
+                    <th>Name</th>
+                
+
+                <th>Type</th>
+
+                
+
+                
+                    <th>Default</th>
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>icon</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">String</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>''</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p></td>
+                </tr>
+
+            
+                <tr>
+                    
+                        <td class="name"><code>color</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">String</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>black</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p></td>
+                </tr>
+
+            
+                <tr>
+                    
+                        <td class="name"><code>form</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">Boolean</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>false</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>Used to determine if this icon is part of a form input element.</p></td>
+                </tr>
+
+            
+        </tbody>
+    </table>
+</fieldset>
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href="AppIcon" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+                
+                
+                    <div class="description uk-margin" data-line="52"><pre class="prettyprint source lang-jsx"><code>// This will load `@/img/icons/icon-close.svg`
+&lt;AppIcon icon=&quot;close&quot; /></code></pre></div>
                 
             
 
@@ -99,12 +341,12 @@
             <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
             
                 
-<section id="~applySettings" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
+<section id="~created" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
     
         
 
         <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-            <span class="type-signature uk-text-meta">(inner) </span>applySettings<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="type-signature uk-text-meta">(inner) </span>created<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label uk-light">Method</span>
         </h4>
     
@@ -118,7 +360,7 @@
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="src_static_js_localSettings.js.html">src/static/js/localSettings.js</a>, <a href="src_static_js_localSettings.js.html#line75">line 75</a></dd>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line19">line 19</a></dd>
         </div>
     
 
@@ -168,6 +410,12 @@
 
 
 
+        
+            <div class="description uk-margin" data-file="method">
+                <p>123</p>
+<pre class="prettyprint source lang-jsx"><code>if (this.icon)
+     this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);</code></pre>
+            </div>
         
 
         
@@ -193,7 +441,7 @@
 
     <!--  -->
 
-    <!-- <a href="~applySettings" 
+    <!-- <a href="~created" 
         class="uk-icon uk-animation-slide-right-small" 
         uk-icon="link" 
         uk-tooltip="Copy Link">
@@ -201,12 +449,12 @@
 </section>
             
                 
-<section id="~getSettings" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
+<section id="~render" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
     
         
 
         <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-            <span class="type-signature uk-text-meta">(inner) </span>getSettings<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="type-signature uk-text-meta">(inner) </span>render<span class="signature">(createElement)</span><span class="type-signature uk-text-meta"></span>
             <span class="uk-label uk-light">Method</span>
         </h4>
     
@@ -216,16 +464,11 @@
 
 <dl class="jsdoc-item-details">
     
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Uses case-switching to determine key for <code>localStorage.getItem(key)</code>.</p></dd>
-        </div>
-    
 
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="src_static_js_localSettings.js.html">src/static/js/localSettings.js</a>, <a href="src_static_js_localSettings.js.html#line27">line 27</a></dd>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line29">line 29</a></dd>
         </div>
     
 
@@ -276,321 +519,9 @@
 
 
         
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-    </div>
-
-    <!--  -->
-
-    <!-- <a href="~getSettings" 
-        class="uk-icon uk-animation-slide-right-small" 
-        uk-icon="link" 
-        uk-tooltip="Copy Link">
-    </a> -->
-</section>
-            
-                
-<section id="~handleFormRadios" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
-    
-        
-
-        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-            <span class="type-signature uk-text-meta">(inner) </span>handleFormRadios<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label uk-light">Method</span>
-        </h4>
-    
-
-    <div class="uk-card-body">
-        
-
-<dl class="jsdoc-item-details">
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="src_static_js_localSettings.js.html">src/static/js/localSettings.js</a>, <a href="src_static_js_localSettings.js.html#line125">line 125</a></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-    </div>
-
-    <!--  -->
-
-    <!-- <a href="~handleFormRadios" 
-        class="uk-icon uk-animation-slide-right-small" 
-        uk-icon="link" 
-        uk-tooltip="Copy Link">
-    </a> -->
-</section>
-            
-                
-<section id="~init" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
-    
-        
-
-        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-            <span class="type-signature uk-text-meta">(inner) </span>init<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label uk-light">Method</span>
-        </h4>
-    
-
-    <div class="uk-card-body">
-        
-
-<dl class="jsdoc-item-details">
-    
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Initiate local user settings via localStorage.</p></dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="src_static_js_localSettings.js.html">src/static/js/localSettings.js</a>, <a href="src_static_js_localSettings.js.html#line17">line 17</a></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-    </div>
-
-    <!--  -->
-
-    <!-- <a href="~init" 
-        class="uk-icon uk-animation-slide-right-small" 
-        uk-icon="link" 
-        uk-tooltip="Copy Link">
-    </a> -->
-</section>
-            
-                
-<section id="~setSettings" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
-    
-        
-
-        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-            <span class="type-signature uk-text-meta">(inner) </span>setSettings<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
-            <span class="uk-label uk-light">Method</span>
-        </h4>
-    
-
-    <div class="uk-card-body">
-        
-
-<dl class="jsdoc-item-details">
-    
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Sets localStorage via <code>#settingsModal</code>.</p></dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="src_static_js_localSettings.js.html">src/static/js/localSettings.js</a>, <a href="src_static_js_localSettings.js.html#line48">line 48</a></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
+            <div class="description uk-margin" data-file="method">
+                <p>123</p>
+            </div>
         
 
         
@@ -602,10 +533,59 @@
         
             <h5 class="subsection-title uk-margin-small-bottom">Example</h5>
             
-    <pre class="language-"><code class="language-">localStorage.setItem('type', 'ligatures');</code></pre>
+    <pre class="language-"><code class="language-">if (this.icon)
+     this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);</code></pre>
 
         
 
+        
+            
+<fieldset class="js-docitem-params uk-overflow-auto">
+    <legend class="subsection-title uk-text-meta uk-text-uppercase">Parameters</legend>
+    <table class="params uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive uk-margin-remove">
+        <thead>
+            <tr>
+                
+                    <th>Name</th>
+                
+
+                <th>Type</th>
+
+                
+
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>createElement</code></td>
+                    
+
+                    <td class="type">
+                    
+                        
+    <span class="param-type">String</span>
+    
+
+                    
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"><p>Basically document.createElement('i');</p></td>
+                </tr>
+
+            
+        </tbody>
+    </table>
+</fieldset>
         
 
         
@@ -621,7 +601,7 @@
 
     <!--  -->
 
-    <!-- <a href="~setSettings" 
+    <!-- <a href="~render" 
         class="uk-icon uk-animation-slide-right-small" 
         uk-icon="link" 
         uk-tooltip="Copy Link">
@@ -652,7 +632,7 @@
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-Settings.html">Settings</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-Settings.html#~applySettings">applySettings</a></li><li data-type='method'><a href="module-Settings.html#~getSettings">getSettings</a></li><li data-type='method'><a href="module-Settings.html#~handleFormRadios">handleFormRadios</a></li><li data-type='method'><a href="module-Settings.html#~init">init</a></li><li data-type='method'><a href="module-Settings.html#~setSettings">setSettings</a></li></ul></li><li><a href="module-sidebarPosition.html">sidebarPosition</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-sidebarPosition.html#~getSidebarPosition">getSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~moveSidebarToPosition">moveSidebarToPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~setSidebarPosition">setSidebarPosition</a></li><li data-type='method'><a href="module-sidebarPosition.html#~sidebarScrollListener">sidebarScrollListener</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="gulpfile.html">gulpfile</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="gulpfile.html#~defaultTask">defaultTask</a></li><li data-type='method'><a href="gulpfile.html#~docs">docs</a></li><li data-type='method'><a href="gulpfile.html#~imageTask">imageTask</a></li><li data-type='method'><a href="gulpfile.html#~jsDocs">jsDocs</a></li><li data-type='method'><a href="gulpfile.html#~sassTask">sassTask</a></li><li data-type='method'><a href="gulpfile.html#~syncTask">syncTask</a></li><li data-type='method'><a href="gulpfile.html#~watchTask">watchTask</a></li><li data-type='method'><a href="gulpfile.html#~webpack">webpack</a></li></ul></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#addNavHeader">addNavHeader</a></li><li><a href="global.html#addScrollingBehavior">addScrollingBehavior</a></li><li><a href="global.html#addShadows">addShadows</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#buildRec">buildRec</a></li><li><a href="global.html#centerSmallerImages">centerSmallerImages</a></li><li><a href="global.html#enableScrollSpy">enableScrollSpy</a></li><li><a href="global.html#fixBrokenHrefs">fixBrokenHrefs</a></li><li><a href="global.html#fixBrokenIDs">fixBrokenIDs</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#makeUIkitTables">makeUIkitTables</a></li><li><a href="global.html#UglifyJsPlugin">UglifyJsPlugin</a></li><li><a href="global.html#wordBreakLongTableTDs">wordBreakLongTableTDs</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-AppIcon.html#~created">created</a></li><li data-type='method'><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="router.html">router</a></li></ul>
                 </nav>
             </div>
         </aside>

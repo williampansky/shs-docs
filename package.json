@@ -31,12 +31,12 @@
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "event-stream": "^3.3.4",
-    "gulp": "^4.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
     "gulp-help": "^1.6.1",
     "gulp-if": "^2.0.2",
     "gulp-md-template": "^1.1.2",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.3",
     "gulp-run-command": "0.0.9",
     "gulp-sass": "^4.0.1",
@@ -46,8 +46,10 @@
     "gulp-template": "^5.0.0",
     "gulp-todo": "^6.0.0",
     "gulp-uglify": "^3.0.0",
+    "hoek": "^5.0.4",
     "jsdoc": "^3.5.5",
     "jsdoc-vue-component": "^2.2.4",
+    "karma": "^3.0.0",
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "run-sequence": "^2.2.1",
@@ -56,6 +58,7 @@
     "webpack-cli": "^3.0.2"
   },
   "dependencies": {
+    "gulp-cli": "^2.0.1",
     "prism": "^4.1.2",
     "uikit": "^3.0.0-rc.5"
   }

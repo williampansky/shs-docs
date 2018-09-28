@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | Home</title>
+        <title>MOHG Scripts | appicon.js</title>
 
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,7 +16,7 @@
     </head>
 
 
-    <body class="home jsdoc uk-offcanvas-content">
+    <body class="jsdoc uk-offcanvas-content">
 
 
 <!-- uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;"  -->
@@ -28,8 +28,8 @@
                 <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
                     <li><a href="readme.html">Home</a></li>
                     
-                        <li><a href="readme.html">Home</a></li>
-                        <li><span class="uk-text-accent">JS Docs</span></li>
+                        <li><a href="index.html">JS Docs</a></li>
+                        <li><span class="uk-text-accent">appicon.js</span></li>
                     
                 </ul>
             </div>
@@ -66,118 +66,48 @@
     
     
         
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
+ * @todo continue research into necessity of &lt;i>&lt;/i> and if it can be removed
+ * @todo add support for the rest of the color schemes (black-lighten, gray-darken)
+ *
+ * @summary Render an SVG icon from the img/icons directory.
+ * @module AppIcon
+ * @author Ross Joo
+ * @version 0.2.5
+ * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.
+ * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.
+ * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.
+ * @desc
+ * ```jsx
+ * // This will load `@/img/icons/icon-close.svg`
+ * &lt;AppIcon icon="close" />
+ * ```
+ */
 
+ /**
+ * @method created
+ * @desc 123
+ * ```jsx
+ * if (this.icon)
+ *      this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);
+ * ```
+ */
+function created() {}
 
-    
-
-
-
-    
-    
-        
-
-
-    <section class="uk-section readme">
-        <h1>shs-docs</h1><p>A documentation generator package designed for SHSDX OpMod developers.</p>
-<h2>Dependencies</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Ver</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/del">del</a></td>
-<td style="text-align:left">^3.0.0</td>
-<td style="text-align:left">Delete files and folders using globs.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/clenemt/docdash">docdash</a></td>
-<td style="text-align:left">0.4.1</td>
-<td style="text-align:left">Lodash inspired JSDoc 3 template/theme.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/gulpjs/gulp">gulp</a></td>
-<td style="text-align:left">^3.9.1</td>
-<td style="text-align:left">Toolkit for automating painful or time-consuming tasks.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-rename">gulp-rename</a></td>
-<td style="text-align:left">^1.2.3</td>
-<td style="text-align:left">Gulp plugin to rename files easily.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-run-command">gulp-run-command</a></td>
-<td style="text-align:left">0.0.9</td>
-<td style="text-align:left">A simple way to run command-line programs from gulp in a cross-platform way.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-sequence">gulp-sequence</a></td>
-<td style="text-align:left">^1.0.0</td>
-<td style="text-align:left">Run a series of gulp tasks in order.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-svn2">gulp-svn2</a></td>
-<td style="text-align:left">^2.0.0</td>
-<td style="text-align:left">SVN plugin for Gulp.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-template">gulp-template</a></td>
-<td style="text-align:left">^5.0.0</td>
-<td style="text-align:left">Render/precompile Lodash/Underscore templates.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.npmjs.com/package/gulp-todo">gulp-todo</a></td>
-<td style="text-align:left">^6.0.0</td>
-<td style="text-align:left">Parse and output TODOs and FIXMEs from comments in your file in a stream.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/jsdoc3/jsdoc">jsdoc</a></td>
-<td style="text-align:left">^3.5.5</td>
-<td style="text-align:left">An API documentation generator for JavaScript.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/ccqgithub/jsdoc-vue-component">jsdoc-vue-component</a></td>
-<td style="text-align:left">^2.2.4</td>
-<td style="text-align:left">A simple plugin for JSDoc to parse <code>.vue</code> Single-File Components.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/lodash/lodash">lodash</a></td>
-<td style="text-align:left">^3.5.5</td>
-<td style="text-align:left">A modern JavaScript utility library delivering modularity, performance, &amp; extras.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/PrismJS/prism">prism</a></td>
-<td style="text-align:left">1.14.0</td>
-<td style="text-align:left">Lightweight, robust, elegant syntax highlighting.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/Golmote/prism-treeview">prism-treeview</a></td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">Treeview language definition for Prism.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://getuikit.com/docs/introduction">uikit</a></td>
-<td style="text-align:left">^3.0.0-rc.5</td>
-<td style="text-align:left">A lightweight and modular front-end framework for developing fast and powerful web interfaces.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/webpack/webpack">webpack</a></td>
-<td style="text-align:left">4.11.1</td>
-<td style="text-align:left">A bundler for javascript and friends.</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/webpack/webpack">webpack-cli</a></td>
-<td style="text-align:left">^3.0.2</td>
-<td style="text-align:left">CLI for Webpack.</td>
-</tr>
-</tbody>
-</table>
-<!-- LINKS & IMAGES -->
+/**
+ * @method render
+ * @param {String} createElement - Basically document.createElement('i');
+ * @desc 123
+ * @example
+ * if (this.icon)
+ *      this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);
+ */
+function render() {}</code></pre>
     </section>
-
+    <script src="js/prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 

@@ -11,7 +11,7 @@
         <![endif]-->
 
         <link rel="stylesheet" href="css/uikit.min.css">
-        <link rel="stylesheet" href="../main.min.css">
+        <link rel="stylesheet" href="css/main.min.css">
         <link rel="stylesheet" href="css/prism.onedark.css">
     </head>
 
@@ -76,11 +76,11 @@ const gulp          = require('gulp-help')(require('gulp')),
     uglify          = require('gulp-uglify'),
     postcss         = require('gulp-postcss'),
     autoprefixer    = require('autoprefixer'),
-    browserSync     = require('browser-sync').create(),
+    // browserSync     = require('browser-sync').create(),
     del             = require('del'),
     cssnano         = require('cssnano'),
     gulpif          = require('gulp-if'),
-    imagemin        = require('gulp-imagemin'),
+    // imagemin        = require('gulp-imagemin'),
     minimist        = require('minimist'),
     sass            = require('gulp-sass'),
     sourcemaps      = require('gulp-sourcemaps'),
@@ -138,6 +138,10 @@ const paths = {
     css:    'src/static/css',
     img:    'src/static/img',
     js:     'src/static/js',
+    dist:   {
+        css:    'src/dist/css',
+        js:     'src/dist/js',
+    },
     example:'./example'
 };
 
@@ -247,8 +251,7 @@ function sassTask() {
         .pipe(postcss(plugins))
         .pipe(gulpif( flags.dev, sourcemaps.write('./') ))
         .pipe(rename({ suffix: '.min' }))
-        // .pipe(gulp.dest(paths.css))
-        .pipe(gulp.dest(paths.example))
+        .pipe(gulp.dest(paths.css))
         .pipe(gulpif( flags.bs, browserSync.stream({match: '**/*.css'}) ));
 }
 sassTask.description = `Compile Sass, run Autoprefixer, &amp; save to ${paths.css} directory.`;
@@ -257,6 +260,8 @@ sassTask.flags = {
     '--dev':    'Output style is expanded &amp; uses sourcemaps.'
 };
 gulp.task('sass', sassTask.description, sassTask);
+
+
 
 
 /**
@@ -394,6 +399,9 @@ const docsTask = ()=> {
 };
 docsTask.description = 'Builds complete documentation package.';
 gulp.task('docs', docsTask.description, docsTask);
+
+
+
 
 /**
  * @summary Supplemental task for docs; 
