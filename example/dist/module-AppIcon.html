@@ -26,7 +26,7 @@
         >
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
-                    <li><a href="readme.html">Home</a></li>
+                    <!-- <li><a href="readme.html">Home</a></li> -->
                     
                         <li><a href="index.html">JS Docs</a></li>
                         <li><span class="uk-text-accent">AppIcon</span></li>
@@ -35,9 +35,9 @@
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li>
+                    <!-- <li>
                         <a href="readme.html">Readme Docs</a>
-                    </li>
+                    </li> -->
                     <li class="uk-active">
                         <a href="index.html">JS Docs</a>
                     </li>
@@ -79,9 +79,14 @@
                 
             </header>
 
+
+
+
+            <!-- ====================================================
+            * @name details
+            * @desc Renders details.tmpl to the top of the content page.
+            ==================================================== -->
             
-                
-                    
 
 <dl class="jsdoc-item-details">
     
@@ -282,26 +287,172 @@
     </div>
 
 
-                
+
+
+
+            
+            <!-- ====================================================
+            * @name type
+            * @desc Conditional check; either 'module', 'class', or otherwise.
+            ==================================================== -->
+            <!-- doc.kind === 'module' -->
+            <!-- =============================================== -->
+            
                 
                     <div class="description uk-margin" data-line="52"><pre class="prettyprint source lang-jsx"><code>// This will load `@/img/icons/icon-close.svg`
 &lt;AppIcon icon=&quot;close&quot; /></code></pre></div>
                 
+            <!-- ====================================================
+            doc.kind === 'class'
+            ==================================================== -->
             
 
+
+
+            
+            <!-- ====================================================
+            * @name augments
+            * @desc Renders function arguments.
+            ==================================================== -->
             
 
+
+
+            
+            <!-- ====================================================
+            * @name requires
+            * @desc Lists required modules and links them, if applicable.
+            ==================================================== -->
             
         </section>
 
+
+
+            
+        <!-- ====================================================
+        * @name classes
+        * @desc Renders classes, if applicable.
+        ==================================================== -->
         
+
+
+
+            
+        <!-- ====================================================
+        * @name mixins
+        * @desc Renders mixins, if applicable.
+        ==================================================== -->
+        
+
+
+
+            
+        <!-- ====================================================
+        * @name namespaces
+        * @desc Renders namespaces, if applicable.
+        ==================================================== -->
+        
+
+
+
+            
+        <!-- ====================================================
+        * @name members
+        * @desc Renders members, if applicable.
+        ==================================================== -->
+        
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Members</h3>
+            
+                
+<section id="~mounted" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="members.tmpl">
+    <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+        <span class="type-signature uk-text-meta">(inner) </span>mounted<span class="type-signature uk-text-meta"></span>
+        <span class="uk-label uk-light">Member</span>
+    </h4>
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line19">line 19</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        <!--  -->
 
         
 
         
 
+        <!-- <a href="~mounted" 
+            class="uk-icon uk-animation-slide-right-small" 
+            uk-icon="link" 
+            uk-tooltip="Copy Link">
+        </a> -->
+</section>
+            
         
 
+
+
+            
+        <!-- ====================================================
+        * @name methods
+        * @desc Renders methods, if applicable.
+        ==================================================== -->
         
             <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
             
@@ -325,7 +476,7 @@
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line19">line 19</a></dd>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line24">line 24</a></dd>
         </div>
     
 
@@ -433,7 +584,7 @@
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line29">line 29</a></dd>
+            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line34">line 34</a></dd>
         </div>
     
 
@@ -575,8 +726,22 @@
             
         
 
+
+
+            
+        <!-- ====================================================
+        * @name typedefs
+        * @desc Renders typedefs, if applicable.
+        ==================================================== -->
         
 
+
+
+            
+        <!-- ====================================================
+        * @name events
+        * @desc Renders events, if applicable.
+        ==================================================== -->
         
 
     
@@ -597,7 +762,7 @@
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-AppIcon.html#~created">created</a></li><li data-type='method'><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="router.html">router</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-AppIcon.html#~created">created</a></li><li data-type='method'><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config.html">config</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="config.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
                 </nav>
             </div>
         </aside>

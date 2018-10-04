@@ -47,33 +47,69 @@
                 <?js } ?>
             </header>
 
+
+
+
+            <!-- ====================================================
+            * @name details
+            * @desc Renders details.tmpl to the top of the content page.
+            ==================================================== -->
+            <?js= self.partial('details.tmpl', doc) ?>
+
+
+
+            
+            <!-- ====================================================
+            * @name type
+            * @desc Conditional check; either 'module', 'class', or otherwise.
+            ==================================================== -->
+            <!-- doc.kind === 'module' -->
+            <!-- =============================================== -->
             <?js if (doc.kind === 'module' && doc.modules) { ?>
-                <?js doc.modules.forEach(function(module) { ?>
-                    <?js= self.partial('details.tmpl', doc) ?>
-                <?js }) ?>
                 <?js if (doc.description) { ?>
                     <div class="description uk-margin" data-line="52"><?js= doc.description ?></div>
                 <?js } ?>
+            <!-- ====================================================
+            doc.kind === 'class'
+            ==================================================== -->
             <?js } else if (doc.kind === 'class') { ?>
                 <?js= self.partial('method.tmpl', doc) ?>
+            <!-- ====================================================
+            doc.kind === otherwise
+            ==================================================== -->
             <?js } else { ?>
-                <?js= self.partial('details.tmpl', doc) ?>
-
                 <?js if (doc.description) { ?>
                     <div class="description uk-margin" data-line="64"><?js= doc.description ?></div>
                 <?js } ?>
 
+                <!-- ====================================================
+                @name doc.examples
+                ==================================================== -->
                 <?js if (doc.examples && doc.examples.length) { ?>
                     <h3>Example<?js= doc.examples.length > 1? 's':'' ?></h3>
                     <?js= self.partial('examples.tmpl', doc.examples) ?>
                 <?js } ?>
             <?js } ?>
 
+
+
+            
+            <!-- ====================================================
+            * @name augments
+            * @desc Renders function arguments.
+            ==================================================== -->
             <?js if (doc.augments && doc.augments.length) { ?>
                 <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Extends</h3>
                 <?js= self.partial('augments.tmpl', doc) ?>
             <?js } ?>
 
+
+
+            
+            <!-- ====================================================
+            * @name requires
+            * @desc Lists required modules and links them, if applicable.
+            ==================================================== -->
             <?js if (doc.requires && doc.requires.length) { ?>
                 <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Requires</h3>
                 <ul>
@@ -84,6 +120,13 @@
             <?js } ?>
         </section>
 
+
+
+            
+        <!-- ====================================================
+        * @name classes
+        * @desc Renders classes, if applicable.
+        ==================================================== -->
         <?js
             var classes = self.find({
                 kind: 'class', memberof: doc.longname
@@ -99,6 +142,13 @@
             </dl>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name mixins
+        * @desc Renders mixins, if applicable.
+        ==================================================== -->
         <?js
             var mixins = self.find({kind: 'mixin', memberof: doc.longname});
             if (!isGlobalPage && mixins && mixins.length && mixins.summary) {
@@ -112,6 +162,13 @@
             </dl>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name namespaces
+        * @desc Renders namespaces, if applicable.
+        ==================================================== -->
         <?js
             var namespaces = self.find({
                 kind: 'namespace', 
@@ -128,6 +185,13 @@
             </dl>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name members
+        * @desc Renders members, if applicable.
+        ==================================================== -->
         <?js
             var members = self.find({
                 kind: 'member', 
@@ -148,6 +212,13 @@
             <?js }); ?>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name methods
+        * @desc Renders methods, if applicable.
+        ==================================================== -->
         <?js
             var methods = self.find({
                 kind: 'function', 
@@ -161,6 +232,13 @@
             <?js }); ?>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name typedefs
+        * @desc Renders typedefs, if applicable.
+        ==================================================== -->
         <?js
             var typedefs = self.find({
                 kind: 'typedef', 
@@ -176,6 +254,13 @@
             <?js } }); ?>
         <?js } ?>
 
+
+
+            
+        <!-- ====================================================
+        * @name events
+        * @desc Renders events, if applicable.
+        ==================================================== -->
         <?js
             var events = self.find({
                 kind: 'event', 

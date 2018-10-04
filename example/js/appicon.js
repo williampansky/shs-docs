@@ -17,6 +17,11 @@
  */
 
  /**
+ * @member mounted
+ */
+function mounted() {}
+
+ /**
  * @method created
  * @desc 123
  * ```jsx
