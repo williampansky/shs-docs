@@ -26,7 +26,7 @@
         >
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
-                    <li><a href="readme.html">Home</a></li>
+                    <!-- <li><a href="readme.html">Home</a></li> -->
                     
                         <li><a href="index.html">JS Docs</a></li>
                         <li><span class="uk-text-accent">Global</span></li>
@@ -35,9 +35,9 @@
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li>
+                    <!-- <li>
                         <a href="readme.html">Readme Docs</a>
-                    </li>
+                    </li> -->
                     <li class="uk-active">
                         <a href="index.html">JS Docs</a>
                     </li>
@@ -106,6 +106,10 @@
         <div class="container">
             <dt class="tag-namespaces uk-text-meta">Namespaces:</dt>
             <dd class="tag-namespaces">
+                
+                    <a href="config_postcss.html">config:postcss</a>
+                
+                    <a href="config_vue.html">config:vue</a>
                 
                     <a href="router.html">router</a>
                 
@@ -225,30 +229,38 @@
         * @desc Renders members, if applicable.
         ==================================================== -->
         
-            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Members</h3>
+
+
+
+            
+        <!-- ====================================================
+        * @name methods
+        * @desc Renders methods, if applicable.
+        ==================================================== -->
+        
+            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
             
                 
-<section id="vueConfig" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="members.tmpl">
-    <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
-        <span class="type-signature uk-text-meta"></span>vueConfig<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label uk-light">Member</span>
-    </h4>
+<section id="chainWebpack" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+            <span class="type-signature uk-text-meta"></span>chainWebpack<span class="signature">(config)</span><span class="type-signature uk-text-meta"></span>
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
 
     <div class="uk-card-body">
         
 
 <dl class="jsdoc-item-details">
     
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>vue.config.js</p></dd>
-        </div>
-    
 
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="vue.config.js.html">vue.config.js</a>, <a href="vue.config.js.html#line1">line 1</a></dd>
+            <dd class="tag-source"><a href="vue.config.js.html">vue.config.js</a>, <a href="vue.config.js.html#line46">line 46</a></dd>
         </div>
     
 
@@ -300,28 +312,84 @@
 
         
 
-        <!--  -->
+        
+
+        
 
         
 
         
 
-        <!-- <a href="vueConfig" 
-            class="uk-icon uk-animation-slide-right-small" 
-            uk-icon="link" 
-            uk-tooltip="Copy Link">
-        </a> -->
+        
+            
+<fieldset class="js-docitem-params uk-overflow-auto">
+    <legend class="subsection-title uk-text-meta uk-text-uppercase">Parameters</legend>
+    <table class="params uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive uk-margin-remove">
+        <thead>
+            <tr>
+                
+                    <th>Name</th>
+                
+
+                <th>Type</th>
+
+                
+
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>config</code></td>
+                    
+
+                    <td class="type">
+                    
+                        
+    <span class="param-type">Object</span>
+    
+
+                    
+                    </td>
+
+                    
+
+                    
+
+                    <td class="description last"><p>Configuration object to pass to Webpack.</p></td>
+                </tr>
+
+            
+        </tbody>
+    </table>
+</fieldset>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href="chainWebpack" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
 </section>
             
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name methods
-        * @desc Renders methods, if applicable.
-        ==================================================== -->
         
 
 
@@ -360,7 +428,7 @@
             <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
                 <button class="uk-offcanvas-close" type="button" uk-close></button>
                 <nav class="uk-nav uk-nav-default">
-                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-AppIcon.html#~created">created</a></li><li data-type='method'><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="router.html">router</a></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#vueConfig">vueConfig</a></li></ul>
+                    <h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="module-AppIcon.html#~created">created</a></li><li data-type='method'><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type='method'><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type='method'><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type='method'><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type='method'><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type='method'><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type='method'><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul><h3 class="uk-nav-header">Global</h3><ul id="globalNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="global.html#chainWebpack">chainWebpack</a></li></ul>
                 </nav>
             </div>
         </aside>

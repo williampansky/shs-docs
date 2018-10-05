@@ -1,6 +1,9 @@
 /**
  * @summary vue.config.js
- * @namespace config
+ * @namespace config:vue
+ * 
+ * @requires path
+ * @requires TodoWebpackPlugin
  * 
  * @prop {String} outputDir=dist - Output directory of compiled Vue bundle.
  * @prop {String} assetsDir=media - Assets will be referenced using /media as the base URL.
@@ -20,7 +23,7 @@ module.exports = {
             /**
              * @summary Webpack Plugin to generate TODO.md report.
              * @method TodoWebpackPlugin
-             * @memberof config
+             * @memberof config:vue
              * @see [Github/todo-webpack-plugin]{@link https://github.com/mikeerickson/todo-webpack-plugin}
              */
             new TodoWebpackPlugin({
@@ -40,17 +43,38 @@ module.exports = {
         }
     },
 
+    /**
+     * @summary Pass config opts to webpack.
+     * @method chainWebpack
+     * @memberof config:vue
+     * 
+     * @param {Object} config Configuration object to pass to Webpack.
+     * 
+     * @description
+     * ### config.plugins
+     * Disable preload/prefetch directives in link elements
+     * ```js
+     * config.plugins.delete('preload');
+     * config.plugins.delete('prefetch');
+     * ```
+     * 
+     * ### config.module
+     * [vue-markdown-loader]{@link https://github.com/QingWei-Li/vue-markdown-loader} 
+     * converts Markdown files to Vue components.
+     * ```js
+     * config.module.rule('md')
+     *      .test(/\.md/)
+     *      .use('vue-loader')
+     *      .loader('vue-loader')
+     *      .end()
+     *      .use('vue-markdown-loader')
+     *      .loader('vue-markdown-loader/lib/markdown-compiler')
+     *      .options({ raw: true });
+     * ```
+     */
     chainWebpack: config => {
-        /**
-         * @desc disable preload/prefetch directives in link elements
-         */
         config.plugins.delete('preload');
         config.plugins.delete('prefetch');
-
-        /**
-         * @summary Convert Markdown files to Vue component.
-         * @see [Github]{@link https://github.com/QingWei-Li/vue-markdown-loader}
-         */
         config.module.rule('md')
             .test(/\.md/)
             .use('vue-loader')

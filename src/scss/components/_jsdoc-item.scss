@@ -13,6 +13,10 @@
     margin: 0;
     position: relative; 
   }
+  
+  &.deprecated .jsdoc-item-name {
+    background: var(--color-secondary);
+  }
 
   & &-name .type-signature {
     color: rgba(255, 255, 255, 0.75);
@@ -163,4 +167,21 @@
 .intro > .jsdoc-item .js-docitem-props {
   border-color: #bbb;
   .subsection-title { color: #666; }
+}
+
+.description + .js-docitem-params {
+  margin-top: 60px;
+}
+
+.jsdoc-item-name .uk-badge {
+  border-radius: 0;
+  color: #fff;
+  background: var(--color-danger);
+  padding: 0 8px;
+  opacity: 0.875;
+
+  &:hover, &:focus {
+    color: #fff;
+    background: var(--color-danger);
+  }
 }

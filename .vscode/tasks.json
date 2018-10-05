@@ -4,18 +4,18 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "[build:jsdoc] Builds documentation files.",
+            "type": "npm",
+            "script": "build:jsdoc",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "[build] Runs webpack and builds template bundle.",
             "type": "npm",
             "script": "build",
-            "problemMatcher": []
-        },
-        {
-            "type": "npm",
-            "script": "jsdoc",
-            "problemMatcher": []
-        },
-        {
-            "type": "gulp",
-            "task": "compile",
             "problemMatcher": []
         }
     ]

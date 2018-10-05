@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <title>MOHG Scripts | <?js= title ?></title>
+<head>
+    <?js if (!env.conf.docdash) { env.conf.docdash = {}; } ?>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title><?js= ((env.conf.docdash.meta && env.conf.docdash.meta.title) || "Documentation") ?> | <?js= title ?></title>
 
-        <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+    <?js if (env.conf.docdash.meta) { ?>
+        <?js if (env.conf.docdash.meta.description) { ?>
+            <meta name="description" content="<?js= env.conf.docdash.meta.description ?>" />
+        <?js } ?>
+        <?js if (env.conf.docdash.meta.keyword) { ?>
+            <meta name="keywords" content="<?js= env.conf.docdash.meta.keyword ?>" />
+            <meta name="keyword" content="<?js= env.conf.docdash.meta.keyword ?>" />
+        <?js } ?>
+    <?js } ?>
 
-        <link rel="stylesheet" href="css/uikit.min.css">
-        <link rel="stylesheet" href="css/main.min.css">
-        <link rel="stylesheet" href="css/prism.onedark.css">
-    </head>
+    <?js if (env.conf.docdash.openGraph) { ?>
+        <meta property="og:title" content="<?js= env.conf.docdash.openGraph.title ?>"/>
+        <meta property="og:type" content="<?js= env.conf.docdash.openGraph.type ?>"/>
+        <meta property="og:image" content="<?js= env.conf.docdash.openGraph.image ?>"/>
+        <?js if (env.conf.docdash.openGraph.site_name) { ?>
+            <meta property="og:site_name" content="<?js= env.conf.docdash.openGraph.site_name ?>"/>
+        <?js } ?>
+        <meta property="og:url" content="<?js= env.conf.docdash.openGraph.url ?>"/>
+    <?js } ?>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/prism.onedark.css">
+</head>
 
 <?js if (title != 'Home') { ?>
     <body class="jsdoc uk-offcanvas-content">
@@ -22,119 +43,149 @@
 <?js } ?>
 
 <!-- uk-sticky="sel-target:.uk-navbar-container; cls-active:uk-navbar-sticky;"  -->
-        <nav uk-navbar
-            class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
-            uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" 
-        >
-            <div class="uk-navbar-left">
-                <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
+    <nav uk-navbar
+        class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
+        uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" 
+    >
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
+                <!-- <li><a href="readme.html">Home</a></li> -->
+                <?js if (title != 'Home') { ?>
+                    <li><a href="index.html">JS Docs</a></li>
+                    <li><span class="uk-text-accent"><?js= title ?></span></li>
+                <?js } else if (title == 'Home') {  ?>
                     <!-- <li><a href="readme.html">Home</a></li> -->
-                    <?js if (title != 'Home') { ?>
-                        <li><a href="index.html">JS Docs</a></li>
-                        <li><span class="uk-text-accent"><?js= title ?></span></li>
-                    <?js } else if (title == 'Home') {  ?>
-                        <!-- <li><a href="readme.html">Home</a></li> -->
-                        <li><span class="uk-text-accent">JS Docs</span></li>
-                    <?js } ?>
-                </ul>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <!-- <li>
-                        <a href="readme.html">Readme Docs</a>
-                    </li> -->
-                    <li class="uk-active">
-                        <a href="index.html">JS Docs</a>
-                    </li>
-                    <li>
-                        <a title="Settings" 
-                            href="#settingsModal" 
-                            uk-icon="icon:cog;" 
-                            uk-toggle>
-                        </a>
-                    </li>
-                    <li>
-                        <button class="uk-navbar-toggle uk-hidden@m" 
-                            type="button" 
-                            uk-toggle="target: #offcanvas-overlay" 
-                            uk-navbar-toggle-icon>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <main id="content" class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
-            <article class="uk-article">
-                <?js= content ?>
-            </article>
-            <footer class="uk-container uk-container-small uk-margin-xlarge uk-section-small">
-                <p class="uk-text-meta">
-                    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc</a>.
-                <br />
-                    Last compiled on <time></time> using a <a href="https://github.com/williampansky/shs-docs" target="_blank">custom version</a> of the <a href="https://github.com/clenemt/docdash" target="_blank">docdash</a> theme.
-                </p>
-            </footer>
-        </main>
-
-        <aside id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
-            <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <nav class="uk-nav uk-nav-default">
-                    <?js= this.nav ?>
-                </nav>
-            </div>
-        </aside>
-
-        <div id="settingsModal" uk-modal>
-            <article class="uk-modal-dialog">
-                <form id="cookieSettings">
-                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                    <header class="uk-modal-header">
-                        <h2 class="uk-modal-title">Settings</h2>
-                    </header>
-                    <div class="uk-modal-body" uk-overflow-auto>
-                        <fieldset class="uk-fieldset">
-                            <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
-                            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                                <label>
-                                    <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
-                                    Type Without Ligatures
-                                </label>
-                                <label>
-                                    <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
-                                    Type With Ligatures
-                                </label>
-                                <!-- <label>
-                                    <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
-                                    Light Theme
-                                </label>
-                                <label>
-                                    <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
-                                    Dark Theme
-                                </label> -->
-                            </div>
-                        </fieldset>
-                    </div>
-                    <footer class="uk-modal-footer uk-text-right">
-                        <button id="settingsCancel" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button id="settingsSave" 
-                            class="uk-button uk-button-primary uk-modal-close" 
-                            type="button" 
-                            onclick="UIkit.notification({
-                                message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
-                                status: 'success',
-                                pos: 'bottom-right',
-                                timeout: '2500'
-                            })" 
-                        >Save</button>
-                    </footer>
-                </form>
-            </article>
+                    <li><span class="uk-text-accent">JS Docs</span></li>
+                <?js } ?>
+            </ul>
         </div>
-            
-        <script src="js/uikit.min.js"></script>
-        <script src="js/uikit-icons.min.js"></script>
-        <script src="js/bundle.js"></script>
-    </body>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <!-- <li>
+                    <a href="readme.html">Readme Docs</a>
+                </li> -->
+                <li class="uk-active">
+                    <a href="index.html">JS Docs</a>
+                </li>
+                <li>
+                    <a title="Settings" 
+                        href="#settingsModal" 
+                        uk-icon="icon:cog;" 
+                        uk-toggle>
+                    </a>
+                </li>
+                <li>
+                    <button class="uk-navbar-toggle uk-hidden@m" 
+                        type="button" 
+                        uk-toggle="target: #offcanvas-overlay" 
+                        uk-navbar-toggle-icon>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="content" class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
+        <article class="uk-article">
+            <?js= content ?>
+        </article>
+        <footer class="uk-container uk-container-small uk-margin-xlarge uk-section-small">
+            <p class="uk-text-meta">
+                Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc</a>.
+            <br />
+                Last compiled on <time></time> using a <a href="https://github.com/williampansky/shs-docs" target="_blank">custom version</a> of the <a href="https://github.com/clenemt/docdash" target="_blank">docdash</a> theme.
+            </p>
+        </footer>
+    </main>
+
+    <aside id="offcanvas-overlay" uk-offcanvas="mode:slide; overlay:true;">
+        <div id="sideNav" class="uk-offcanvas-bar uk-background-secondary">
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+            <nav class="uk-nav uk-nav-default">
+                <?js if (env.conf.docdash.search) { ?>
+                    <form class="uk-search uk-search-default uk-width-1-1">
+                        <span uk-search-icon></span>
+                        <input type="search" id="nav-search" class="uk-search-input" placeholder="Search" />
+                    </form>
+                <?js } ?>
+                <?js= this.nav ?>
+            </nav>
+        </div>
+    </aside>
+
+    <div id="settingsModal" uk-modal>
+        <article class="uk-modal-dialog">
+            <form id="cookieSettings">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <header class="uk-modal-header">
+                    <h2 class="uk-modal-title">Settings</h2>
+                </header>
+                <div class="uk-modal-body" uk-overflow-auto>
+                    <fieldset class="uk-fieldset">
+                        <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
+                        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                            <label>
+                                <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
+                                Type Without Ligatures
+                            </label>
+                            <label>
+                                <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
+                                Type With Ligatures
+                            </label>
+                            <!-- <label>
+                                <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                Light Theme
+                            </label>
+                            <label>
+                                <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
+                                Dark Theme
+                            </label> -->
+                        </div>
+                    </fieldset>
+                </div>
+                <footer class="uk-modal-footer uk-text-right">
+                    <button id="settingsCancel" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button id="settingsSave" 
+                        class="uk-button uk-button-primary uk-modal-close" 
+                        type="button" 
+                        onclick="UIkit.notification({
+                            message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
+                            status: 'success',
+                            pos: 'bottom-right',
+                            timeout: '2500'
+                        })" 
+                    >Save</button>
+                </footer>
+            </form>
+        </article>
+    </div>
+        
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/bundle.js"></script>
+
+    <?js if (env.conf.docdash.search || env.conf.docdash.collapse) { ?>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <?js if (env.conf.docdash.search) { ?>
+            <script src="js/search.js"></script>
+        <?js } ?>
+        <?js if (env.conf.docdash.collapse) { ?>
+            <script src="js/collapse.js"></script>
+        <?js } ?>
+    <?js } ?>
+
+    <?js if (env.conf.docdash.scripts && env.conf.docdash.scripts.length) {
+        for(var i = 0; i < env.conf.docdash.scripts.length; i++){
+            if (env.conf.docdash.scripts[i].indexOf(".css") != -1) {
+        ?>
+            <link type="text/css" rel="stylesheet" href="<?js= env.conf.docdash.scripts[i] ?>">
+        <?js
+            } else {
+        ?>
+            <script src="<?js= env.conf.docdash.scripts[i] ?>"></script>
+        <?js
+            }
+        }
+    } ?>
+</body>
 </html>

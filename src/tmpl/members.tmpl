@@ -2,8 +2,8 @@
     var data = obj;
     var self = this;
 ?>
-<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle" data-file="members.tmpl">
-    <h4 class="jsdoc-item-name uk-card-header uk-card-title uk-background-gradient">
+<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle <?js if (data.deprecated) { ?>deprecated<?js } ?>" data-file="members.tmpl">
+    <h4 class="jsdoc-item-name uk-card-header uk-card-title">
         <?js= data.attribs + name + (data.signature ? data.signature : '') ?>
         <span class="uk-label uk-light">Member</span>
     </h4>

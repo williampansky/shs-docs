@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Docdash | AppIcon</title>
+    <title>Docdash | config:postcss</title>
 
     
         
@@ -50,7 +50,7 @@
                 <!-- <li><a href="readme.html">Home</a></li> -->
                 
                     <li><a href="index.html">JS Docs</a></li>
-                    <li><span class="uk-text-accent">AppIcon</span></li>
+                    <li><span class="uk-text-accent">config:postcss</span></li>
                 
             </ul>
         </div>
@@ -90,12 +90,17 @@
         <section class="intro">
             <header>
                 
-                    <h1 class="uk-article-title">AppIcon</h1>
+                    <h1 class="uk-article-title">config:postcss</h1>
                 
 
                 
-                    
+                    <h2>
                         
+
+                        <!-- config:postcss -->
+
+                        
+                    </h2>
                     
                 
             </header>
@@ -113,14 +118,16 @@
     
         <div class="container">
             <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Render an SVG icon from the img/icons directory.</p></dd>
+            <dd class="tag-summary"><p>PostCSS is a tool for transforming styles with JS plugins.
+These plugins can lint your CSS, support variables and mixins,
+transpile future CSS syntax, inline images, and more.</p></dd>
         </div>
     
 
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line1">line 1</a></dd>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line1">line 1</a></dd>
         </div>
     
 
@@ -136,11 +143,6 @@
 
     
 
-    
-        <div class="container">
-            <dt class="tag-version uk-text-meta">Version:</dt>
-            <dd class="tag-version">0.2.5</dd>
-        </div>
     
 
     
@@ -158,15 +160,6 @@
     <!--  -->
 
     
-        
-            <div class="container">
-                <dt class="tag-author uk-text-meta">Author:</dt>
-                <dd class="tag-author">Ross Joo</dd>
-            </div>
-        
-    
-
-    
 
     
 
@@ -179,133 +172,15 @@
     
         
             <div class="container">
-                <dt class="tag-todo uk-text-meta">To Do:</dt>
-                <dd class="tag-todo">continue research into necessity of <i></i> and if it can be removed</dd>
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/postcss/postcss">github/postcss</a></p></dd>
             </div>
         
-            <div class="container">
-                <dt class="tag-todo uk-text-meta">To Do:</dt>
-                <dd class="tag-todo">add support for the rest of the color schemes (black-lighten, gray-darken)</dd>
-            </div>
-        
+    
+
     
 </dl>
 
-
-    <div class="jsdoc-item">
-        
-
-<fieldset class="js-docitem-props uk-overflow-auto">
-    <legend class="subsection-title uk-text-meta uk-text-uppercase">Properties</legend>
-    <table class="props uk-table uk-table-small uk-table-striped uk-table-hover uk-table-middle uk-table-responsive uk-margin-remove uk-text-small">
-        <thead>
-            <tr>
-                
-                    <th>Name</th>
-                
-
-                <th>Type</th>
-
-                
-
-                
-                    <th>Default</th>
-                
-
-                <th class="last">Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            
-                <tr>
-                    
-                        <td class="name"><code>icon</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">String</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>''</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p></td>
-                </tr>
-
-            
-                <tr>
-                    
-                        <td class="name"><code>color</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">String</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>black</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p></td>
-                </tr>
-
-            
-                <tr>
-                    
-                        <td class="name"><code>form</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">Boolean</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>false</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>Used to determine if this icon is part of a form input element.</p></td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</fieldset>
-    </div>
 
 
 
@@ -320,12 +195,14 @@
             <!-- =============================================== -->
             
                 
-                    <div class="description uk-margin" data-line="52"><pre class="prettyprint source lang-jsx"><code>// This will load `@/img/icons/icon-close.svg`
-&lt;AppIcon icon=&quot;close&quot; /></code></pre></div>
+                    <div class="description uk-margin" data-line="64"><p>Run <code>npx autoprefixer --info</code> to check which browsers
+are selected and which properties will be prefixed.</p></div>
                 
-            <!-- ====================================================
-            doc.kind === 'class'
-            ==================================================== -->
+
+                <!-- ====================================================
+                @name doc.examples
+                ==================================================== -->
+                
             
 
 
@@ -382,90 +259,6 @@
         * @desc Renders members, if applicable.
         ==================================================== -->
         
-            <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Members</h3>
-            
-                
-<section id="~mounted" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="members.tmpl">
-    <h4 class="jsdoc-item-name uk-card-header uk-card-title">
-        <span class="type-signature uk-text-meta">(inner) </span>mounted<span class="type-signature uk-text-meta"></span>
-        <span class="uk-label uk-light">Member</span>
-    </h4>
-
-    <div class="uk-card-body">
-        
-
-<dl class="jsdoc-item-details">
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line19">line 19</a></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-        
-
-        <!--  -->
-
-        
-
-        
-
-        <!-- <a href="~mounted" 
-            class="uk-icon uk-animation-slide-right-small" 
-            uk-icon="link" 
-            uk-tooltip="Copy Link">
-        </a> -->
-</section>
-            
-        
 
 
 
@@ -478,12 +271,12 @@
             <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Methods</h3>
             
                 
-<section id="~created" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
+<section id=".Autoprefixer" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
     
         
 
         <h4 class="jsdoc-item-name uk-card-header uk-card-title">
-            <span class="type-signature uk-text-meta">(inner) </span>created<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            <span class="type-signature uk-text-meta">(static) </span>Autoprefixer<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
             
             <span class="uk-label uk-light">Method</span>
         </h4>
@@ -494,11 +287,17 @@
 
 <dl class="jsdoc-item-details">
     
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>PostCSS plugin to parse CSS and add vendor prefixes
+to CSS rules using values from Can I Use.</p></dd>
+        </div>
+    
 
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line24">line 24</a></dd>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line16">line 16</a></dd>
         </div>
     
 
@@ -541,114 +340,12 @@
     
 
     
-
-    
-</dl>
-
-
-
-
         
-            <div class="description uk-margin" data-file="method">
-                <p>123</p>
-<pre class="prettyprint source lang-jsx"><code>if (this.icon)
-     this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);</code></pre>
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/postcss/autoprefixer">github/autoprefixer</a></p></dd>
             </div>
         
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-    </div>
-
-    <!--  -->
-
-    <!-- <a href="~created" 
-        class="uk-icon uk-animation-slide-right-small" 
-        uk-icon="link" 
-        uk-tooltip="Copy Link">
-    </a> -->
-</section>
-            
-                
-<section id="~render" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
-    
-        
-
-        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
-            <span class="type-signature uk-text-meta">(inner) </span>render<span class="signature">(createElement)</span><span class="type-signature uk-text-meta"></span>
-            
-            <span class="uk-label uk-light">Method</span>
-        </h4>
-    
-
-    <div class="uk-card-body">
-        
-
-<dl class="jsdoc-item-details">
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source"><a href="appicon.js.html">appicon.js</a>, <a href="appicon.js.html#line34">line 34</a></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -657,10 +354,6 @@
 
 
 
-        
-            <div class="description uk-margin" data-file="method">
-                <p>123</p>
-            </div>
         
 
         
@@ -672,59 +365,17 @@
         
             <h5 class="subsection-title uk-margin-small-bottom">Example</h5>
             
-    <pre class="language-"><code class="language-">if (this.icon)
-     this.raw = require(`!svg-inline-loader!@/img/icons/icon-${this.icon}.svg`);</code></pre>
+    <pre class="language-"><code class="language-">autoprefixer: {
+     add: true, // add prefixes
+     env: '.browserslistrc', // environment for Browserslist
+     flexbox: true, // add prefixes for flexbox properties
+     grid: true, // add IE prefixes for Grid Layout properties
+     remove: true, // remove outdated prefixes
+     supports: true // add prefixes for @supports
+},</code></pre>
 
         
 
-        
-            
-<fieldset class="js-docitem-params uk-overflow-auto">
-    <legend class="subsection-title uk-text-meta uk-text-uppercase">Parameters</legend>
-    <table class="params uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive uk-margin-remove">
-        <thead>
-            <tr>
-                
-                    <th>Name</th>
-                
-
-                <th>Type</th>
-
-                
-
-                
-
-                <th class="last">Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            
-                <tr>
-                    
-                        <td class="name"><code>createElement</code></td>
-                    
-
-                    <td class="type">
-                    
-                        
-    <span class="param-type">String</span>
-    
-
-                    
-                    </td>
-
-                    
-
-                    
-
-                    <td class="description last"><p>Basically document.createElement('i');</p></td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</fieldset>
         
 
         
@@ -740,7 +391,637 @@
 
     <!--  -->
 
-    <!-- <a href="~render" 
+    <!-- <a href=".Autoprefixer" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+            
+                
+<section id=".Colorguard" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle deprecated" data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
+            <span class="type-signature uk-text-meta">(static) </span>Colorguard<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            
+                <span class="uk-badge uk-text-meta">Deprecated</span>
+            
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>CSS Colorguard helps you maintain the color set that you want,
+and warns you when colors you've added are too similar to ones that
+already exist. Naturally, it's all configurable to your tastes.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line42">line 42</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!-- 
+        <div class="container">
+            <dt class="important tag-deprecated uk-text-meta">Deprecated:</dt>
+            
+                <dd class="yes-def tag-deprecated">Yes</dd>
+            
+        </div>
+     -->
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/SlexAxton/css-colorguard">github/css-colorguard</a></p></dd>
+            </div>
+        
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href=".Colorguard" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+            
+                
+<section id=".CSSnano" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
+            <span class="type-signature uk-text-meta">(static) </span>CSSnano<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>A modern, modular compression tool written on top of the
+PostCSS ecosystem, which allows us to use a lot of powerful features
+in order to compact CSS appropriately.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line59">line 59</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--  -->
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/cssnano/cssnano">github/cssnano</a></p></dd>
+            </div>
+        
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+            <h5 class="subsection-title uk-margin-small-bottom">Example</h5>
+            
+    <pre class="language-"><code class="language-">cssnano: { preset: 'default' },</code></pre>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href=".CSSnano" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+            
+                
+<section id=".FilterStream" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle deprecated" data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
+            <span class="type-signature uk-text-meta">(static) </span>FilterStream<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            
+                <span class="uk-badge uk-text-meta">Deprecated</span>
+            
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>PostCSS plugin which allows you to blacklist files and/or
+folders that you don't want to process with a given PostCSS plugin.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line73">line 73</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!-- 
+        <div class="container">
+            <dt class="important tag-deprecated uk-text-meta">Deprecated:</dt>
+            
+                <dd class="yes-def tag-deprecated">Yes</dd>
+            
+        </div>
+     -->
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/tsm91/postcss-filter-stream">github/postcss-filter-stream</a></p></dd>
+            </div>
+        
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href=".FilterStream" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+            
+                
+<section id=".PresetEnv" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
+            <span class="type-signature uk-text-meta">(static) </span>PresetEnv<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>PostCSS Preset Env lets you convert modern CSS into something
+most browsers can understand, determining the polyfills you need based
+on your targeted browsers or runtime environments.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line89">line 89</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--  -->
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/csstools/postcss-preset-env">github/postcss-preset-env</a></p></dd>
+            </div>
+        
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+            <h5 class="subsection-title uk-margin-small-bottom">Example</h5>
+            
+    <pre class="language-"><code class="language-">'postcss-preset-env': { stage: 3 // use stage 3 features },</code></pre>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href=".PresetEnv" 
+        class="uk-icon uk-animation-slide-right-small" 
+        uk-icon="link" 
+        uk-tooltip="Copy Link">
+    </a> -->
+</section>
+            
+                
+<section id=".Sorting" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle " data-file="method.tmpl">
+    
+        
+
+        <h4 class="jsdoc-item-name uk-card-header uk-card-title">
+            <span class="type-signature uk-text-meta">(static) </span>Sorting<span class="signature">()</span><span class="type-signature uk-text-meta"></span>
+            
+            <span class="uk-label uk-light">Method</span>
+        </h4>
+    
+
+    <div class="uk-card-body">
+        
+
+<dl class="jsdoc-item-details">
+    
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>PostCSS plugin to keep rules &amp; at-rules (@...) content in order.</p></dd>
+        </div>
+    
+
+    
+        <div class="container">
+            <dt class="tag-source uk-text-meta">Source:</dt>
+            <dd class="tag-source"><a href="postcss.config.js.html">postcss.config.js</a>, <a href="postcss.config.js.html#line103">line 103</a></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--  -->
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+            <div class="container">
+                <dt class="tag-see uk-text-meta">See:</dt>
+                <dd class="tag-see"><p><a href="https://github.com/hudochenkov/postcss-sorting">github/postcss-sorting</a></p></dd>
+            </div>
+        
+    
+
+    
+</dl>
+
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+            <h5 class="subsection-title uk-margin-small-bottom">Example</h5>
+            
+    <pre class="language-"><code class="language-">'postcss-sorting': {
+     order: [
+         'custom-properties',
+         'dollar-variables',
+         'declarations',
+         'at-rules',
+         'rules'
+     ],
+     'properties-order': [
+         'background',
+         'border',
+         'padding',
+         'margin'
+     ],
+     'unspecified-properties-position': 'bottom'
+}</code></pre>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <!--  -->
+
+    <!-- <a href=".Sorting" 
         class="uk-icon uk-animation-slide-right-small" 
         uk-icon="link" 
         uk-tooltip="Copy Link">
