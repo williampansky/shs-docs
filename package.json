@@ -1,12 +1,13 @@
 {
   "name": "shs-docs",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp compile && npx webpack --config webpack.config.js",
     "build:jsdoc": "node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json",
-    "build": "npx webpack --config webpack.config.js"
+    "build:complete": "gulp compile && npx webpack --config webpack.config.js && node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json"
   },
   "keywords": [
     "documentation",

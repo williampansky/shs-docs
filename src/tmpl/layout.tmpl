@@ -33,7 +33,6 @@
 
     <link rel="stylesheet" href="css/uikit.min.css">
     <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="css/prism.onedark.css">
 </head>
 
 <?js if (title != 'Home') { ?>
@@ -121,26 +120,52 @@
                     <h2 class="uk-modal-title">Settings</h2>
                 </header>
                 <div class="uk-modal-body" uk-overflow-auto>
-                    <fieldset class="uk-fieldset">
+                    <fieldset class="uk-fieldset uk-margin">
                         <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                            <label>
+                            <label class="label-radio">
                                 <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
                                 Type Without Ligatures
                             </label>
-                            <label>
+                            <label class="label-radio">
                                 <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
                                 Type With Ligatures
                             </label>
-                            <!-- <label>
-                                <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
-                                Light Theme
-                            </label>
-                            <label>
-                                <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
-                                Dark Theme
-                            </label> -->
                         </div>
+                    </fieldset>
+                    <fieldset class="uk-fieldset uk-margin">
+                        <legend for="SyntaxTheme" class="uk-legend">Syntax Highlight Theme</legend>
+                        <section class="uk-margin uk-grid-small uk-child-width-1-2 uk-grid">
+                            <div>
+                                <h4 class="uk-h6 uk-text-meta uk-margin-remove">Light Themes</h4>
+                                <div class="uk-grid-small uk-child-width-auto uk-grid">
+                                    <label class="label-radio" for="theme_light">
+                                        <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                        Prism Default
+                                    </label>
+                                    <label class="label-radio" for="theme_github">
+                                        <input id="theme_github" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                        GitHub
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="uk-margin uk-grid-small uk-child-width-1-2 uk-grid">
+                            <div>
+                                <h4 class="uk-h6 uk-text-meta uk-margin-remove">Dark Themes</h4>
+                                <div class="uk-grid-small uk-child-width-auto uk-grid">
+                                    <label class="label-radio" for="theme_dark">
+                                        <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
+                                        Atom One Dark
+                                    </label>
+                                    <label class="label-radio" for="theme_xonokai">
+                                        <input id="theme_xonokai" class="uk-radio" type="radio" name="syntaxTheme">
+                                        Xonokai
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
                     </fieldset>
                 </div>
                 <footer class="uk-modal-footer uk-text-right">
@@ -159,23 +184,28 @@
             </form>
         </article>
     </div>
-        
+
+
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
     <script src="js/bundle.js"></script>
 
+
     <?js if (env.conf.docdash.search || env.conf.docdash.collapse) { ?>
         <script src="js/jquery-3.1.1.min.js"></script>
+        
         <?js if (env.conf.docdash.search) { ?>
             <script src="js/search.js"></script>
         <?js } ?>
+
         <?js if (env.conf.docdash.collapse) { ?>
             <script src="js/collapse.js"></script>
         <?js } ?>
     <?js } ?>
 
+
     <?js if (env.conf.docdash.scripts && env.conf.docdash.scripts.length) {
-        for(var i = 0; i < env.conf.docdash.scripts.length; i++){
+        for (var i = 0; i < env.conf.docdash.scripts.length; i++) {
             if (env.conf.docdash.scripts[i].indexOf(".css") != -1) {
         ?>
             <link type="text/css" rel="stylesheet" href="<?js= env.conf.docdash.scripts[i] ?>">

@@ -11,14 +11,19 @@ import {
 
 import {
     buildNav,
+    buildTutorialNav,
     fixBrokenHrefs,
     fixBrokenIDs,
+    createTutorialIDs,
+    fixBrokenTutorialIDs,
     addNavHeader,
+    addTutorialNavHeader,
     makeUIkitTables,
     addShadows,
     centerSmallerImages,
     // wordBreakLongTableTDs,
     formatDate,
+    // removeDuplicateTutorialH1s,
     enableScrollSpy
 } from './src/static/js/main';
 
@@ -26,6 +31,7 @@ window.onload = ()=> {
     sidebarScrollListener();
     moveSidebarToPosition();
 
+    // window.onload functions to call for readme pages
     if (document.body.classList.contains('readme')) {
         const promises = [];
         promises.push(buildNav());
@@ -33,6 +39,23 @@ window.onload = ()=> {
             fixBrokenHrefs();
             fixBrokenIDs();
             addNavHeader();
+            makeUIkitTables();
+        }, (err)=> {
+            console.log(err);
+        });
+    }
+
+    // window.onload functions to call for jsdoc tutorial pages
+    if (document.querySelector('.tutorial')) {
+        // createTutorialIDs();
+        fixBrokenTutorialIDs();
+
+        const promises = [];
+        promises.push(buildTutorialNav());
+        Promise.all(promises).then(()=> {
+            // fixBrokenHrefs();
+            // fixBrokenIDs();
+            addTutorialNavHeader();
             makeUIkitTables();
         }, (err)=> {
             console.log(err);
@@ -49,14 +72,21 @@ window.onload = ()=> {
  * "document.ready"
  */
 document.addEventListener('DOMContentLoaded', ()=> {
+    // document.ready functions to call for readme pages
     if (document.body.classList.contains('readme')) {
         addShadows();
         centerSmallerImages();
     }
 
+    // document.ready functions to call for jsdoc pages
     if (document.body.classList.contains('jsdoc')) {
         makeUIkitTables();
         enableScrollSpy();
-        // wordBreakLongTableTDs();
+        addShadows();
+        centerSmallerImages();
+    }
+
+    // document.ready functions to call for jsdoc tutorial pages
+    if (document.querySelector('.tutorial')) {
     }
 });

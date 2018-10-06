@@ -18,6 +18,19 @@ body {
   }
 }
 
+main {
+  min-height: 75vh;
+  padding-bottom: 118px; // Should be equal to the height of your footer
+  position: relative;
+
+  & > footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 /* Never like UIkit's red <em> color */
 em {
   color: inherit;
@@ -27,4 +40,9 @@ em {
 /* Hides unnecessary content from home (index.html) page */
 .home .container-overview {
   display: none;
+}
+
+.label-radio,
+.label-checkbox {
+  cursor: pointer;
 }

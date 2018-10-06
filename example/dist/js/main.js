@@ -10,6 +10,7 @@
 // }
 
 
+
 // /**
 //  * @func convertIdToNavItem
 //  * @param {String} id Unique identifier tag for element.
@@ -21,6 +22,7 @@
 
 //     return obj;
 // }
+
 
 
 // /**
@@ -40,6 +42,7 @@
 // }
 
 
+
 // /**
 //  * @func initNav
 //  * @description Uses convertIdToNavItem(id) as a "method" in the appendToNav()
@@ -52,6 +55,22 @@
 //         appendToNav(convertIdToNavItem(id));
 //     }
 // }
+
+
+
+/**
+ * @func initTutorialNav
+ * @description Uses convertIdToNavItem(id) as a "method" in the appendToNav()
+ * function in order to pass the value of `return obj` to the append function.
+ */
+// export const initTutorialNav = ()=> {
+//     let headings = document.querySelectorAll('h1') && document.querySelectorAll('h2');
+//     for (let i=0; i < headings.length; i++) {
+//         let id = headings[i].id;
+//         appendToNav(convertIdToNavItem(id));
+//     }
+// }
+
 
 
 /**
@@ -106,7 +125,7 @@ export const buildRec = (nodes, element, level)=> {
                 
                 if (li == null) {
                     li = element.appendChild(document.createElement('li'));
-                    li.setAttribute('data-line', '109');
+                    li.setAttribute('data-line', '128');
                 }
                 
                 element = li.appendChild(document.createElement('ul'));
@@ -118,7 +137,7 @@ export const buildRec = (nodes, element, level)=> {
         }
 
         li = element.appendChild(document.createElement('li'));
-        li.setAttribute('data-line', '121');
+        li.setAttribute('data-line', '140');
 
         // replace the next line with archor tags or whatever you want
         li.innerHTML = `<a href="#${node.id}" class="uk-text-truncate uk-animation-fade">${node.innerText}</a>`;
@@ -127,6 +146,7 @@ export const buildRec = (nodes, element, level)=> {
         buildRec(nodes, element, level + currentNode);
     }
 }
+
 
 
 /**
@@ -170,6 +190,51 @@ export const buildNav = ()=> {
 
 
 /**
+ * @summary Wrapper func to call onload to build inline markdown tutorial navs.
+ * 
+ * @func buildTutorialNav
+ * @returns {Promise} resolve
+ * @see [Stack Overflow]{@link https://stackoverflow.com/a/10004137}
+ * 
+ * @desc Thx to {@link https://stackoverflow.com/a/10004137} for info w/Promises.
+ * ```js
+ * let all === document.getElementById('content').getElementsByTagName('*');
+ * ```
+ */
+const buildTutorialNav = async ()=> {
+    await fixBrokenTutorialIDs();
+    await removeDuplicateTutorialH1s();
+    
+    return new Promise(resolve => {
+        let all = document.querySelector('.tutorial-body').getElementsByTagName('*');
+        let nodes = [];
+
+        for (
+            let index = all.length;
+            index--;
+            nodes.unshift(all[index])
+        );
+
+        let result = document.createElement('nav');
+        result.classList.add('uk-nav', 'uk-nav-default');
+        result.setAttribute('uk-scrollspy-nav', 'closest:li; scroll:true; offset:100;');
+
+        buildRec(nodes, result, 1);
+        resolve(document.querySelector('#tutorialNav').appendChild(result));
+
+        let subnavs = document.querySelectorAll('#tutorialNav ul > li > ul');
+        for (let i=0; i < subnavs.length; i++) {
+            if (subnavs[i] !== null && subnavs[i] !== 'undefined')
+                subnavs[i].classList.add('uk-nav-sub');
+        }
+    });
+}
+
+export { buildTutorialNav };
+
+
+
+/**
  * @summary add shadows to imgs
  * @func addShadows
  */
@@ -180,12 +245,25 @@ export const addShadows = ()=> {
 }
 
 
+
 /**
  * @summary add .uk-nav-header to first `<li>` items
  * @func addNavHeader
  */
 export const addNavHeader = ()=> {
     let navHeaders = document.querySelectorAll('#sideNav .uk-nav > li > a:first-of-type');
+    for (let i=0; i < navHeaders.length; i++)
+        navHeaders[i].classList.add('uk-nav-header');
+}
+
+
+
+/**
+ * @summary add .uk-nav-header to first `<li>` items
+ * @func addTutorialNavHeader
+ */
+export const addTutorialNavHeader = ()=> {
+    let navHeaders = document.querySelectorAll('#tutorialNav .uk-nav > li > a:first-of-type');
     for (let i=0; i < navHeaders.length; i++)
         navHeaders[i].classList.add('uk-nav-header');
 }
@@ -249,6 +327,53 @@ export const fixBrokenIDs = ()=> {
     //     }
     // }
 }
+
+
+
+/**
+ * @summary Creates IDs for tutorial headings.
+ * @func createTutorialIDs
+ */
+export const createTutorialIDs = ()=> {
+    let headings = document.querySelectorAll(
+        'h1, h2, h3, h4, h5, h6'
+    );
+
+    for (let i=0; i < headings.length; i++) {
+        let text = headings[i].innerText;
+        headings[i].setAttribute('id', text);
+    }
+}
+
+
+
+/**
+ * @summary fixing #id issues by replacing spaces with dashes.
+ * @func fixBrokenTutorialIDs
+ */
+const fixBrokenTutorialIDs = async ()=> {
+    let regexMatch = /(\ )+/g; // spaces in ID strings
+    let wrapper = document.querySelector('.tutorial');
+    let headings = wrapper.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+    try {
+        await createTutorialIDs();
+        for (let i=0; i < headings.length; i++) {
+            let targetID = headings[i].getAttribute('id');
+            if (targetID.match(regexMatch)) {
+                // console.log(targetID);
+                let newID = targetID.replace(regexMatch, '-');
+                headings[i].setAttribute('id', newID);
+            }
+        }
+    }
+
+    catch(error) {
+        // Handle error
+    }
+}
+export { fixBrokenTutorialIDs };
+
 
 
 /**
@@ -390,6 +515,19 @@ export const formatDate = ()=> {
     };
 
     return today.toLocaleDateString('en-US', options);
+}
+
+
+
+/**
+ * @summary Remove duplicate h1s from tutorials 
+ * if there's one in the markdown file.
+ * @func removeDuplicateTutorialH1s
+ */
+export const removeDuplicateTutorialH1s = ()=> {
+    let inlineH1 = document.querySelector('.tutorial-body > h1');
+    if (inlineH1 !== null && typeof(inlineH1) !== 'undefined')
+        document.querySelector('.tutorial-body > header').remove();
 }
 
 

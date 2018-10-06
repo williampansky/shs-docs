@@ -33,7 +33,6 @@
 
     <link rel="stylesheet" href="css/uikit.min.css">
     <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="css/prism.onedark.css">
 </head>
 
 
@@ -684,7 +683,7 @@ converts Markdown files to Vue components.</p>
                         <input type="search" id="nav-search" class="uk-search-input" placeholder="Search" />
                     </form>
                 
-                <h3 class="uk-nav-header">Links</h3><ul><li><a href="index.html">Readme</a></li><li><a href="yourrepo.host.com" target="_blank" class="menu-item" id="repository" >Repository</a></li><li><a href="https://github.com/clenemt/docdash" target="_blank" class="menu-item" id="repository" >Github repo</a></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
+                <h3 class="uk-nav-header">Links</h3><ul><li><a href="index.html">Readme</a></li><li><a href="yourrepo.host.com" target="_blank" class="menu-item" id="repository" >Repository</a></li><li><a href="https://github.com/clenemt/docdash" target="_blank" class="menu-item" id="repository" >Github repo</a></li></ul><h3 class="uk-nav-header">Tutorials</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="tutorial-Getting Started.html">Getting Started</a></li><li><a href="tutorial-Localhost Setup.html">Localhost Setup</a></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
             </nav>
         </div>
     </aside>
@@ -697,26 +696,52 @@ converts Markdown files to Vue components.</p>
                     <h2 class="uk-modal-title">Settings</h2>
                 </header>
                 <div class="uk-modal-body" uk-overflow-auto>
-                    <fieldset class="uk-fieldset">
+                    <fieldset class="uk-fieldset uk-margin">
                         <legend for="CodeExamples" class="uk-legend">Code Examples</legend>
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                            <label>
+                            <label class="label-radio">
                                 <input id="type_noLigatures" class="uk-radio" type="radio" name="codeLigatures" checked>
                                 Type Without Ligatures
                             </label>
-                            <label>
+                            <label class="label-radio">
                                 <input id="type_withLigatures" class="uk-radio" type="radio" name="codeLigatures">
                                 Type With Ligatures
                             </label>
-                            <!-- <label>
-                                <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
-                                Light Theme
-                            </label>
-                            <label>
-                                <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
-                                Dark Theme
-                            </label> -->
                         </div>
+                    </fieldset>
+                    <fieldset class="uk-fieldset uk-margin">
+                        <legend for="SyntaxTheme" class="uk-legend">Syntax Highlight Theme</legend>
+                        <section class="uk-margin uk-grid-small uk-child-width-1-2 uk-grid">
+                            <div>
+                                <h4 class="uk-h6 uk-text-meta uk-margin-remove">Light Themes</h4>
+                                <div class="uk-grid-small uk-child-width-auto uk-grid">
+                                    <label class="label-radio" for="theme_light">
+                                        <input id="theme_light" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                        Prism Default
+                                    </label>
+                                    <label class="label-radio" for="theme_github">
+                                        <input id="theme_github" class="uk-radio" type="radio" name="syntaxTheme" checked>
+                                        GitHub
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="uk-margin uk-grid-small uk-child-width-1-2 uk-grid">
+                            <div>
+                                <h4 class="uk-h6 uk-text-meta uk-margin-remove">Dark Themes</h4>
+                                <div class="uk-grid-small uk-child-width-auto uk-grid">
+                                    <label class="label-radio" for="theme_dark">
+                                        <input id="theme_dark" class="uk-radio" type="radio" name="syntaxTheme">
+                                        Atom One Dark
+                                    </label>
+                                    <label class="label-radio" for="theme_xonokai">
+                                        <input id="theme_xonokai" class="uk-radio" type="radio" name="syntaxTheme">
+                                        Xonokai
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
                     </fieldset>
                 </div>
                 <footer class="uk-modal-footer uk-text-right">
@@ -735,20 +760,25 @@ converts Markdown files to Vue components.</p>
             </form>
         </article>
     </div>
-        
+
+
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
     <script src="js/bundle.js"></script>
 
+
     
         <script src="js/jquery-3.1.1.min.js"></script>
         
+        
             <script src="js/search.js"></script>
         
+
         
             <script src="js/collapse.js"></script>
         
     
+
 
     
 </body>

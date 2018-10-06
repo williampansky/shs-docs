@@ -26,6 +26,10 @@ a:visited:hover,
   border-bottom: 1px solid #ddd;
 }
 
+.uk-nav a {
+  border-bottom: 0;
+}
+
 .uk-container a:hover,
 .uk-container a:active {
   border-bottom-color: var(--color-secondary);

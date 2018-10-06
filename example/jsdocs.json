@@ -55,7 +55,12 @@
     },
     "templates": {
         "cleverLinks": true,
-        "monospaceLinks": true
+        "monospaceLinks": true,
+        "default": {
+            "staticFiles": {
+                "include": [ "example/img" ]
+            }
+        }
     },
     "docdash": {
         "static": true,

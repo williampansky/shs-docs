@@ -33,6 +33,7 @@
 // .uk-navbar-item > span {
 // 	padding-left: 4px;
 // }
+
 .uk-navbar-item, 
 .uk-navbar-nav > li > a, 
 .uk-navbar-toggle {
@@ -49,4 +50,43 @@
   margin: 0 1em;
   position: relative;
   bottom: 1px;
+}
+
+ul.uk-nav-sub {
+  padding: 0;
+  & > li:first-child { margin-top: 4px; }
+  & > li { padding: 0 0 0 15px; }
+  & > li:last-child { margin-bottom: 15px; }
+}
+
+
+
+.tutorial {
+  .uk-sticky {
+    width: 200px !important;
+    position: fixed;
+    top: 90px;
+    right: 40px;
+  }
+
+  @media (min-width: 960px) {
+    &-body { margin-right: 0; }
+  }
+
+  @media (min-width: 1200px) {
+    &-body { margin-right: 240px; }
+  }
+
+  @media (min-width: 1600px) {
+    &-body { margin-right: 0; }
+  }
+
+  @media (min-width: 1800px) {
+    .uk-sticky { width: 400px !important; }
+    &-body { margin-right: 0; }
+  }
+}
+
+@media (min-width: 1600px) {
+  .uk-container { margin-left: 0 !important; }
 }

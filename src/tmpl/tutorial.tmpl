@@ -1,19 +1,31 @@
-<section>
+<section class="tutorial">
+    
+    <div class="tutorial-body">
+        <header>
+            <h1 class="uk-article-title">
+                <span><?js= header ?></span>
+            </h1>
+        </header>
 
-<header>
-    <?js if (children.length > 0) { ?>
-    <ul><?js
-        var self = this;
-        children.forEach(function(t) { ?>
-        <li><?js= self.tutoriallink(t.name) ?></li>
-    <?js }); ?></ul>
-    <?js } ?>
+        <?js= content ?>
 
-    <h2><?js= header ?></h2>
-</header>
+        <footer>
+        </footer>
+    </div>
 
-<article>
-    <?js= content ?>
-</article>
-
+    <aside class="uk-visible@l">
+        <div uk-sticky="offset: 90;" class="uk-sticky uk-active uk-sticky-fixed">
+        <div id="tutorialNav"></div>
+            <?js if (children.length > 0) { ?>
+                <h2 class="uk-heading-divider uk-h4">Sub-articles</h2>
+                <ul class="uk-list uk-list-bullet">
+                    <?js
+                    var self = this;
+                    children.forEach(function(t) { ?>
+                        <li><?js= self.tutoriallink(t.name) ?></li>
+                    <?js }); ?>
+                </ul>
+            <?js } ?>
+        </div>
+    </aside>
 </section>

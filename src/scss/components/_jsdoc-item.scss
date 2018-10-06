@@ -177,7 +177,10 @@
   border-radius: 0;
   color: #fff;
   background: var(--color-danger);
+  font-size: .75rem;
+  letter-spacing: 0.025em;
   padding: 0 8px;
+  margin: 0 0 1px 1rem;
   opacity: 0.875;
 
   &:hover, &:focus {

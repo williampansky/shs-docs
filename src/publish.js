@@ -1,20 +1,20 @@
 /*global env: true */
 'use strict';
 
-var doop = require('jsdoc/util/doop');
-var fs = require('jsdoc/fs');
-var helper = require('jsdoc/util/templateHelper');
-var logger = require('jsdoc/util/logger');
-var path = require('jsdoc/path');
-var taffy = require('taffydb').taffy;
-var template = require('jsdoc/template');
-var util = require('util');
+var doop        = require('jsdoc/util/doop');
+var fs          = require('jsdoc/fs');
+var helper      = require('jsdoc/util/templateHelper');
+var logger      = require('jsdoc/util/logger');
+var path        = require('jsdoc/path');
+var taffy       = require('taffydb').taffy;
+var template    = require('jsdoc/template');
+var util        = require('util');
 
-var htmlsafe = helper.htmlsafe;
-var linkto = helper.linkto;
-var resolveAuthorLinks = helper.resolveAuthorLinks;
-var scopeToPunc = helper.scopeToPunc;
-var hasOwnProp = Object.prototype.hasOwnProperty;
+var htmlsafe            = helper.htmlsafe;
+var linkto              = helper.linkto;
+var resolveAuthorLinks  = helper.resolveAuthorLinks;
+var scopeToPunc         = helper.scopeToPunc;
+var hasOwnProp          = Object.prototype.hasOwnProperty;
 
 var data;
 var view;
@@ -25,23 +25,25 @@ function copyFile(source, target, cb) {
     var cbCalled = false;
   
     var rd = fs.createReadStream(source);
-    rd.on("error", function(err) {
-      done(err);
+    rd.on('error', function(err) {
+        done(err);
     });
+
     var wr = fs.createWriteStream(target);
-    wr.on("error", function(err) {
-      done(err);
+    wr.on('error', function(err) {
+        done(err);
     });
-    wr.on("close", function(ex) {
-      done();
+
+    wr.on('close', function(ex) {
+        done();
     });
     rd.pipe(wr);
   
     function done(err) {
-      if (!cbCalled) {
-        cb(err);
-        cbCalled = true;
-      }
+        if (!cbCalled) {
+            cb(err);
+            cbCalled = true;
+        }
     }
 }
 
@@ -70,9 +72,9 @@ function needsSignature(doclet) {
     var needsSig = false;
 
     // function and class definitions always get a signature
-    if (doclet.kind === 'function' || doclet.kind === 'class' && !doclet.hideconstructor) {
+    if (doclet.kind === 'function' || doclet.kind === 'class' && !doclet.hideconstructor)
         needsSig = true;
-    }
+    
     // typedefs that contain functions get a signature, too
     else if (doclet.kind === 'typedef' && doclet.type && doclet.type.names &&
         doclet.type.names.length) {
@@ -90,16 +92,13 @@ function needsSignature(doclet) {
 function getSignatureAttributes(item) {
     var attributes = [];
 
-    if (item.optional) {
+    if (item.optional)
         attributes.push('opt');
-    }
 
-    if (item.nullable === true) {
+    if (item.nullable === true)
         attributes.push('nullable');
-    }
-    else if (item.nullable === false) {
+    else if (item.nullable === false)
         attributes.push('non-null');
-    }
 
     return attributes;
 }
@@ -108,9 +107,8 @@ function updateItemName(item) {
     var attributes = getSignatureAttributes(item);
     var itemName = item.name || '';
 
-    if (item.variable) {
+    if (item.variable)
         itemName = '&hellip;' + itemName;
-    }
 
     if (attributes && attributes.length) {
         itemName = util.format( '%s<span class="signature-attributes">%s</span>', itemName,
@@ -141,9 +139,8 @@ function buildItemTypeStrings(item) {
 function buildAttribsString(attribs) {
     var attribsString = '';
 
-    if (attribs && attribs.length) {
+    if (attribs && attribs.length)
         attribsString = htmlsafe( util.format('(%s) ', attribs.join(', ')) );
-    }
 
     return attribsString;
 }
@@ -164,10 +161,10 @@ function addSignatureParams(f) {
 }
 
 function addSignatureReturns(f) {
-    var attribs = [];
-    var attribsString = '';
-    var returnTypes = [];
-    var returnTypesString = '';
+    var attribs             = [];
+    var attribsString       = '';
+    var returnTypes         = [];
+    var returnTypesString   = '';
 
     // jam all the return-type attributes into an array. this could create odd results (for example,
     // if there are both nullable and non-nullable return types), but let's assume that most people
@@ -175,21 +172,19 @@ function addSignatureReturns(f) {
     if (f.returns) {
         f.returns.forEach(function(item) {
             helper.getAttribs(item).forEach(function(attrib) {
-                if (attribs.indexOf(attrib) === -1) {
+                if (attribs.indexOf(attrib) === -1)
                     attribs.push(attrib);
-                }
             });
         });
 
         attribsString = buildAttribsString(attribs);
     }
 
-    if (f.returns) {
+    if (f.returns)
         returnTypes = addNonParamAttributes(f.returns);
-    }
-    if (returnTypes.length) {
+    
+    if (returnTypes.length)
         returnTypesString = util.format( ' &rarr; %s{%s}', attribsString, returnTypes.join('|') );
-    }
 
     f.signature = '<span class="signature">' + (f.signature || '') + '</span>' +
         '<span class="type-signature uk-text-meta">' + returnTypesString + '</span>';
@@ -220,9 +215,8 @@ function shortenPaths(files, commonPrefix) {
 }
 
 function getPathFromDoclet(doclet) {
-    if (!doclet.meta) {
+    if (!doclet.meta)
         return null;
-    }
 
     return doclet.meta.path && doclet.meta.path !== 'null' ?
         path.join(doclet.meta.path, doclet.meta.filename) :
@@ -233,17 +227,16 @@ function generate(type, title, docs, filename, resolveLinks) {
     resolveLinks = resolveLinks === false ? false : true;
 
     var docData = {
-        type: type,
-        title: title,
-        docs: docs
+        type:   type,
+        title:  title,
+        docs:   docs
     };
 
     var outpath = path.join(outdir, filename),
         html = view.render('container.tmpl', docData);
 
-    if (resolveLinks) {
+    if (resolveLinks)
         html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
-    }
 
     fs.writeFileSync(outpath, html, 'utf8');
 }
@@ -301,9 +294,8 @@ function attachModuleSymbols(doclets, modules) {
                 .map(function(symbol) {
                     symbol = doop(symbol);
 
-                    if (symbol.kind === 'class' || symbol.kind === 'function' && !symbol.hideconstructor) {
+                    if (symbol.kind === 'class' || symbol.kind === 'function' && !symbol.hideconstructor)
                         symbol.name = symbol.name.replace('module:', '(require("') + '"))';
-                    }
 
                     return symbol;
                 });
@@ -319,51 +311,61 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
         items.forEach(function(item) {
             var displayName;
-            var methods = find({kind:'function', memberof: item.longname});
-            var members = find({kind:'member', memberof: item.longname});
+            var methods = find({ kind: 'function',  memberof: item.longname });
+            var members = find({ kind: 'member',    memberof: item.longname });
             var docdash = env && env.conf && env.conf.docdash || {};
             var conf = env && env.conf || {};
-            if ( !hasOwnProp.call(item, 'longname') ) {
+
+            if (!hasOwnProp.call(item, 'longname')) {
                 itemsNav += '<li>' + linktoFn('', item.name);
                 itemsNav += '</li>';
-                } else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
-                    if (conf.templates.default.useLongnameInNav) {
-                        displayName = item.longname;
-                    } else {
-                        displayName = item.name;
-                    }
-                    itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''));
+            } else if (!hasOwnProp.call(itemsSeen, item.longname)) {
+
+                if (conf.templates.default.useLongnameInNav)
+                    displayName = item.longname;
+                else
+                    displayName = item.name;
+
+                itemsNav += '<li>' + linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''));
 
                 if (docdash.static && members.find(function (m) { return m.scope === 'static'; } )) {
                     itemsNav += '<ul class="members" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">';
 
                     members.forEach(function (member) {
-                        if (!member.scope === 'static') return;
+                        if (!member.scope === 'static')
+                            return;
+                        
                         itemsNav += '<li data-type="member"';
-                        if(docdash.collapse)
+
+                        if (docdash.collapse)
                             itemsNav += ' style="display: none;"';
+                        
                         itemsNav += '>';
                         itemsNav += linkto(member.longname, member.name);
                         itemsNav += '</li>';
                     });
 
-                    itemsNav += "</ul>";
+                    itemsNav += '</ul>';
                 }
 
                 if (methods.length) {
                     itemsNav += '<ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">';
 
                     methods.forEach(function (method) {
-                        if (!method.scope === 'static') return;
+                        if (!method.scope === 'static')
+                            return;
+                        
                         itemsNav += '<li data-type="method"';
-                        if(docdash.collapse)
+
+                        if (docdash.collapse)
                             itemsNav += ' style="display: none;"';
+                        
                         itemsNav += '>';
                         itemsNav += linkto(method.longname, method.name);
-                        itemsNav += "</li>";
+                        itemsNav += '</li>';
                     });
 
-                    itemsNav += "</ul>";
+                    itemsNav += '</ul>';
                 }
 
                 itemsNav += '</li>';
@@ -371,9 +373,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             }
         });
 
-        if (itemsNav !== '') {
+        if (itemsNav !== '')
             nav += '<h3 class="uk-nav-header">' + itemHeading + '</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;">' + itemsNav + '</ul>';
-        }
     }
 
     return nav;
@@ -411,7 +412,7 @@ function buildNav(members) {
     var docdash = env && env.conf && env.conf.docdash || {};
     if (docdash.menu) {
         nav += '<h3 class="uk-nav-header">Links</h3><ul>';
-        nav += '<li><a href="index.html">Readme</a></li>'
+        nav += '<li><a href="index.html">Readme</a></li>';
 
         for (var menu in docdash.menu) {
             nav += '<li><a ';
@@ -425,14 +426,32 @@ function buildNav(members) {
         nav += '</ul>';
     }
 
+    // if (members.tutorials.length) {
+    //     var tutorialsNav = '';
+
+    //     members.tutorials.forEach(function(g) {
+    //         if ( (docdash.typedefs || g.kind !== 'typedef') && !hasOwnProp.call(seen, g.longname) ) {
+    //             tutorialsNav += '<li><a href="tutorial-' + g.longname + '.html">' + g.longname + '</a></li>';
+    //         }
+    //         seen[g.longname] = true;
+    //     });
+
+    //     if (!tutorialsNav) {
+    //         // turn the heading into a link so you can actually get to the global page
+    //         nav += '<h3>' + linkto('global', 'Documentation') + '</h3>';
+    //     } else {
+    //         nav += '<h3 class="uk-nav-header">Documentation</h3><ul id="tutorialsNav" class="uk-nav-sub" uk-scrollspy-nav="closest:li; scroll:true; offset:100;">' + tutorialsNav + '</ul>';
+    //     }
+    // }
+
     var defaultOrder = [
+        'Tutorials', 
         'Classes', 
         'Modules', 
         'Externals', 
         'Events', 
         'Namespaces', 
         'Mixins', 
-        'Tutorials', 
         'Interfaces'
     ];
     

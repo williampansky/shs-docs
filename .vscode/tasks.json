@@ -4,6 +4,15 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "[build] Runs webpack and builds template bundle.",
+            "type": "npm",
+            "script": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
             "label": "[build:jsdoc] Builds documentation files.",
             "type": "npm",
             "script": "build:jsdoc",
@@ -13,10 +22,13 @@
             }
         },
         {
-            "label": "[build] Runs webpack and builds template bundle.",
+            "label": "[build:complete] Runs webpack and builds template bundle, then builds documentation files.",
             "type": "npm",
-            "script": "build",
-            "problemMatcher": []
+            "script": "build:complete",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
         }
     ]
 }

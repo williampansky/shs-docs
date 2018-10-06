@@ -16,6 +16,37 @@ pre {
   padding: 0;
 }
 
+div.code-toolbar {
+  & > .toolbar {
+    right: 5px !important;
+  }
+
+  .toolbar-item + .toolbar-item {
+    margin-left: 0.25rem;
+  }
+
+  & > .toolbar a,
+  & > .toolbar button,
+  & > .toolbar span {
+    border: 0 !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+  }
+
+  & > .toolbar span { cursor: default; }
+}
+
+div.code-toolbar > pre[class*="language-"] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 2em !important;
+  margin: .5em 0 !important;
+}
+
+.tutorial-body pre {
+  padding: 2em;
+}
+
 /* CUSTOM PRISM KEYWORDS */
 .language-xml .token.cdata {
   color: var(--color-accent);
