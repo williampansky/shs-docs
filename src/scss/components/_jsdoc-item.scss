@@ -188,3 +188,22 @@
     background: var(--color-danger);
   }
 }
+
+
+.jsdoc-item-todo {
+  .uk-label {
+    border-radius: 0;
+    font-size: .75rem;
+    letter-spacing: 0.0075em;
+    text-transform: lowercase;
+    text-shadow: 0.35px 0.35px 0.15px rgba(0, 0, 0, 0.35);
+  }
+
+  .uk-list > li:nth-child(n+2) { margin-top: 0; }
+}
+
+
+.jsdoc-item-tutorials {
+  font-size: 14px;
+  line-height: 20px;
+}

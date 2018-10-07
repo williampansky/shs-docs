@@ -11,4 +11,15 @@
     width: auto;
     padding: 0 1rem;
   }
+
+  .label-radio {
+    cursor: pointer;
+
+    &.checked {
+      color: white;
+      background: var(--color-primary);
+    }
+
+    // & .uk-radio { display: none; }
+  }
 }

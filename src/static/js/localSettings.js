@@ -24,6 +24,7 @@ export const Settings = {
         Settings.setSettings();
         Settings.applySettings();
         Settings.handleFormRadios();
+        Settings.checkIfSettingsWereUpdated();
     },
 
     /**
@@ -38,6 +39,10 @@ export const Settings = {
 
             case 'syntax':
                 setting = localStorage.getItem('syntax');
+            break;
+
+            case 'settingsUpdated':
+                setting = localStorage.getItem('settingsUpdated');
             break;
         
             default:
@@ -87,6 +92,9 @@ export const Settings = {
                 localStorage.setItem('syntax', 'light');
                 setTimeout(()=> { Settings.applySettings(); }, 300);
             }
+
+            // sets refresh boolean for checkIfSettingsWereUpdated();
+            localStorage.setItem('settingsUpdated', true);
 
             // refresh and settings changes
             setTimeout(()=> {
@@ -176,7 +184,7 @@ export const Settings = {
                 } else {
                     let style  = document.createElement('link');
                     style.rel  = 'stylesheet';
-                    style.href = 'css/prism.default.css';
+                    style.href = 'css/prism.duotone-light.css';
                     style.setAttribute('data-settings', 'syntax');
                     document.head.append(style);
                 }
@@ -231,6 +239,55 @@ export const Settings = {
                 Settings.vars.syntax.dark.removeAttribute('checked', '');
                 Settings.vars.syntax.xonokai.removeAttribute('checked', '');
             break;
+        }
+    },
+
+
+    /**
+     * @todo add logic to make this work.
+     * @summary Checks for input[name="syntaxTheme"][checked] 
+     * and sets [data-checked] on the parent.
+     * @method setParentAsChecked
+     */
+    // setParentAsChecked: ()=> {
+    //     let checked = document.querySelector('.label-radio > input[name="syntaxTheme"][checked]');
+    //     let parent  = checked.parentNode;
+    //     let form    = document.querySelector('#cookieSettings');
+    //     let radios  = form.querySelectorAll('.label-radio');
+        
+    //     radios.forEach(radio => {
+    //         radio.addEventListener('click', ()=> {
+    //             parent.setAttribute('data-checked', '');
+    //         });
+    //     });
+    // }
+
+
+    /**
+     * @summary Displays uk-notification after page refresh.
+     * @method displaySuccessNotification
+     */
+    displaySuccessNotification: ()=> {
+        UIkit.notification({
+            message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
+            status: 'success',
+            pos: 'bottom-left',
+            timeout: '2500'
+        });
+    },
+
+
+    /**
+     * @summary Checks localstorage for boolean key.
+     * If true, display modal and then delete the key.
+     * @method checkIfSettingsWereUpdated
+     */
+    checkIfSettingsWereUpdated: ()=> {
+        const settingsUpdated = Settings.getSettings('settingsUpdated');
+        if (settingsUpdated === 'true') {
+            console.log('Settings updated');
+            Settings.displaySuccessNotification();
+            localStorage.removeItem('settingsUpdated');
         }
     }
 }

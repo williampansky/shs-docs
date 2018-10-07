@@ -1,6 +1,6 @@
 {
   "name": "shs-docs",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "scripts": {

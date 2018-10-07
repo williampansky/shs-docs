@@ -1,0 +1,144 @@
+<?js
+    var self = this;
+    var isGlobalPage;
+?>
+<article
+class="uk-grid-collapse uk-child-width-1-2@s uk-flex-top"
+uk-grid>
+    <?js if (env.conf.docdash.settings_background) { ?>
+        <div
+        id="settingsBackground"
+        class="uk-background-cover"
+        style="background-image: url('<?js= env.conf.docdash.settings_background ?>');"
+        uk-height-viewport></div>
+    <?js } else { ?>
+        <div
+        id="settingsBackground"
+        class="uk-background-cover uk-background-primary"
+        uk-height-viewport></div>
+    <?js } ?>
+    <form id="cookieSettings">
+        <header class="uk-modal-header">
+            <h2 class="uk-modal-title">Settings</h2>
+        </header>
+        <div class="uk-modal-body">
+            <fieldset class="uk-fieldset uk-margin">
+                <legend
+                for="CodeExamples"
+                class="uk-legend">
+                    Code Ligatures
+                </legend>
+                <p class="uk-text-meta uk-margin-small-top">
+                    Typographic ligatures are when multiple characters
+                    appear to combine into a single character.
+                    Simplistically, when you type two or more characters &
+                    they magically attach to each other, you're using
+                    ligatures that were supported by your OS, your app,
+                    and your font.
+                </p>
+                <div
+                class="uk-margin uk-grid uk-child-width-auto"
+                uk-grid>
+                    <label class="label-radio" for="type_noLigatures">
+                        <input
+                        id="type_noLigatures"
+                        class="uk-radio"
+                        type="radio"
+                        name="codeLigatures" checked>
+                        Type Without Ligatures
+                    </label>
+                    <label class="label-radio" for="type_withLigatures">
+                        <input
+                        id="type_withLigatures"
+                        class="uk-radio"
+                        type="radio"
+                        name="codeLigatures">
+                        Type With Ligatures
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset class="uk-fieldset uk-margin">
+                <legend
+                for="SyntaxTheme"
+                class="uk-legend">
+                    Syntax Highlight Theme
+                </legend>
+                <section class="uk-margin uk-grid uk-grid-small uk-child-width-1-2">
+                    <div>
+                        <h4 class="uk-h6 uk-text-meta uk-margin-remove">
+                            Light Themes
+                        </h4>
+                        <div
+                        class="uk-grid uk-grid-small uk-child-width-auto"
+                        uk-grid>
+                            <label class="label-radio" for="theme_light">
+                                <input
+                                id="theme_light"
+                                class="uk-radio"
+                                type="radio"
+                                name="syntaxTheme">
+                                Duotone Light
+                            </label>
+                            <label class="label-radio" for="theme_github">
+                                <input
+                                id="theme_github"
+                                class="uk-radio"
+                                type="radio"
+                                name="syntaxTheme">
+                                GitHub
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="uk-margin uk-grid uk-grid-small uk-child-width-1-2">
+                    <div>
+                        <h4 class="uk-h6 uk-text-meta uk-margin-remove">
+                            Dark Themes
+                        </h4>
+                        <div
+                        class="uk-grid uk-grid-small uk-child-width-auto"
+                        uk-grid>
+                            <label class="label-radio" for="theme_dark">
+                                <input
+                                id="theme_dark"
+                                class="uk-radio"
+                                type="radio"
+                                name="syntaxTheme">
+                                Atom One Dark
+                            </label>
+                            <label class="label-radio" for="theme_xonokai">
+                                <input
+                                id="theme_xonokai"
+                                class="uk-radio"
+                                type="radio"
+                                name="syntaxTheme">
+                                Xonokai
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </fieldset>
+        </div>
+        <footer class="uk-modal-footer uk-text-right">
+            <button
+            id="settingsCancel"
+            class="uk-button uk-button-default uk-modal-close"
+            type="button">Cancel</button>
+            <button
+            id="settingsSave"
+            class="uk-button uk-button-primary uk-modal-close uk-margin-left"
+            type="submit">Save</button>
+            <!-- <button id="settingsSave" 
+                class="uk-button uk-button-primary uk-modal-close uk-margin-left" 
+                type="button" 
+                onclick="UIkit.notification({
+                    message: '<span uk-icon=\'icon:cog;\'></span> Settings updated',
+                    status: 'success',
+                    pos: 'bottom-right',
+                    timeout: '2500'
+                })" 
+            >Save</button> -->
+        </footer>
+    </form>
+</article>

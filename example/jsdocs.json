@@ -45,57 +45,65 @@
         "excludePattern": "(node_modules/|dist|.min)"
     },
     "opts": {
-        "template": "src",
-        "readme": "example/README.md",
-        "tutorials": "example/tutorials",
-        "encoding": "utf8",
-        "destination": "example/dist",
-        "recurse": true,
-        "verbose": true
+        "template":     "src",
+        "readme":       "example/README.md",
+        "tutorials":    "example/tutorials",
+        "encoding":     "utf8",
+        "destination":  "example/dist",
+        "recurse":      true,
+        "verbose":      true
     },
     "templates": {
-        "cleverLinks": true,
+        "cleverLinks":    true,
         "monospaceLinks": true,
         "default": {
             "staticFiles": {
-                "include": [ "example/img" ]
+                "include": [
+                    "example/img"
+                ]
             }
         }
     },
     "docdash": {
+        "project_title": "SHS Docs",
+        "settings_background": "",
+        "links": {
+            "repo": {
+                "type": "git",
+                "url":  "git.sabre.com"
+            },
+            "slack": {
+                "dx":         "shs-dx",
+                "project_id": "CCKUXQ2TG"
+            }
+        },
+        "menu": {
+            // "Repository": {
+            //     "href":     "yourrepo.host.com",
+            //     "target":   "_blank",
+            //     "id":       "repository",
+            //     "class":    ""
+            // }
+        },
         "static": true,
-        "sort": true,
+        "sort":   true,
         "disqus": "",
 		"openGraph": {
-			"title": "Docdash",
-			"type": "website",
-			"image": "https://cloud.githubusercontent.com/assets/447956/13398144/4dde7f36-defd-11e5-8909-1a9013302cb9.png",
-			"site_name": "Docdash",
-			"url": "http://clenemt.github.io/docdash/"
+			"title":     "",
+			"site_name": "",
+			"type":      "",
+			"image":     "",
+			"url":       ""
 		},
 		"meta": {
-			"title": "Docdash",
-			"description": "A clean, responsive documentation template theme for JSDoc 3.",
-			"keyword": "jsdoc, docdash"
+			"title":        "",
+			"description":  "",
+			"keyword":      ""
 		},
-        "search": true,
+        "search":   true,
         "collapse": true,
         "typedefs": true,
         "removeQuotes": "none",
-        "scripts": [],
-        "menu":{
-            "Repository":{
-                "href":"yourrepo.host.com",
-                "target":"_blank",
-                "class":"menu-item",
-                "id":"repository"
-            },
-            "Github repo":{
-                "href":"https://github.com/clenemt/docdash",
-                "target":"_blank",
-                "class":"menu-item",
-                "id":"repository"
-            }
-        }
+        "scripts": []
     }
 }

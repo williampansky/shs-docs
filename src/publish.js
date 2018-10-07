@@ -408,12 +408,59 @@ function buildNav(members) {
     var nav = '';
     var seen = {};
     var seenTutorials = {};
-    
     var docdash = env && env.conf && env.conf.docdash || {};
+
+
     if (docdash.menu) {
         nav += '<h3 class="uk-nav-header">Links</h3><ul>';
         nav += '<li><a href="index.html">Readme</a></li>';
 
+
+        // conf.links
+        if (docdash.links) {
+            // conf.links => repo
+            if (docdash.links.repo) {
+                nav += `
+                    <li>
+                        <a
+                        target="_blank"
+                        href="${docdash.links.repo.url}">
+                            Repository [${docdash.links.repo.type}]
+                        </a>
+                    </li>
+                `;
+            }
+
+            // conf.links => slack => dx
+            // CAVC91ZKQ === #dx-tech-team
+            if (docdash.links.slack.dx) {
+                nav += `
+                    <li>
+                        <a
+                        target="_blank"
+                        href="https://${docdash.links.slack.dx}.slack.com/messages/CAVC91ZKQ/">
+                            Slack | SHS DX
+                        </a>
+                    </li>
+                `;
+            }
+
+            // conf.links => slack => project_id
+            if (docdash.links.slack.project_id) {
+                nav += `
+                    <li>
+                        <a
+                        target="_blank"
+                        href="https://${docdash.links.slack.dx}.slack.com/messages/${docdash.links.slack.project_id}/">
+                            Slack | ${docdash.project_title}
+                        </a>
+                    </li>
+                `;
+            }
+        }
+
+
+        // conf.menu items
         for (var menu in docdash.menu) {
             nav += '<li><a ';
             // add attributes
@@ -422,7 +469,6 @@ function buildNav(members) {
             }
             nav += '>' + menu + '</a></li>';
         }
-
         nav += '</ul>';
     }
 
@@ -514,10 +560,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     helper.registerLink('global', globalUrl);
 
     // set up templating
-    view.layout = conf.default.layoutFile ?
-        path.getResourcePath(path.dirname(conf.default.layoutFile),
-            path.basename(conf.default.layoutFile) ) :
-        'layout.tmpl';
+    view.layout = conf.default.layoutFile ? path.getResourcePath(path.dirname(conf.default.layoutFile), path.basename(conf.default.layoutFile) ) : 'layout.tmpl';
 
     // set up tutorials for helper
     helper.setTutorials(tutorials);

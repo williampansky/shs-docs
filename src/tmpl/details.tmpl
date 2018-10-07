@@ -78,7 +78,7 @@
         </div>
     <?js } ?>
 
-    <?js if (data.type && data.type.names) {?>
+    <?js if (data.type && data.type.names) { ?>
         <div class="container">
             <dt class="tag-type uk-text-meta">Type:</dt>
             <dd class="tag-type"><?js= self.partial('type.tmpl', data.type.names) ?></dd>
@@ -160,7 +160,7 @@
         </div>
     <?js } ?> -->
 
-    <?js if (data.author && author.length) {?>
+    <?js if (data.author && author.length) { ?>
         <?js author.forEach(function(a) { ?>
             <div class="container">
                 <dt class="tag-author uk-text-meta">Author:</dt>
@@ -169,21 +169,21 @@
         <?js }); ?>
     <?js } ?>
 
-    <?js if (data.copyright) {?>
+    <?js if (data.copyright) { ?>
         <div class="container">
             <dt class="tag-copyright uk-text-meta">Copyright:</dt>
             <dd class="tag-copyright"><?js= copyright ?></dd>
         </div>
     <?js } ?>
 
-    <?js if (data.license) {?>
+    <?js if (data.license) { ?>
         <div class="container">
             <dt class="tag-license uk-text-meta">License:</dt>
             <dd class="tag-license"><?js= license ?></dd>
         </div>
     <?js } ?>
 
-    <?js if (data.defaultvalue) {?>
+    <?js if (data.defaultvalue) { ?>
         <div class="container">
             <dt class="tag-default uk-text-meta">Default Value:</dt>
             <dd class="tag-default">
@@ -192,16 +192,7 @@
         </div>
     <?js } ?>
 
-    <?js if (data.tutorials && tutorials.length) {?>
-        <?js tutorials.forEach(function(t) { ?>
-            <div class="container">
-                <dt class="tag-tutorial uk-text-meta">Tutorials:</dt>
-                <dd class="tag-tutorial"><?js= self.tutoriallink(t) ?></dd>
-            </div>
-        <?js }); ?>
-    <?js } ?>
-
-    <?js if (data.see && see.length) {?>
+    <?js if (data.see && see.length) { ?>
         <?js see.forEach(function(s) { ?>
             <div class="container">
                 <dt class="tag-see uk-text-meta">See:</dt>
@@ -209,17 +200,39 @@
             </div>
         <?js }); ?>
     <?js } ?>
-
-    <?js if (data.todo && todo.length) {?>
-        <?js todo.forEach(function(t) { ?>
-            <div class="container">
-                <dt class="tag-todo uk-text-meta">To Do:</dt>
-                <dd class="tag-todo"><?js= t ?></dd>
-            </div>
-        <?js }); ?>
-    <?js } ?>
 </dl>
 
+
+<!-- TUTORIALS -->
+<?js if (data.tutorials && tutorials.length) { ?>
+    <div class="jsdoc-item-tutorials uk-margin">
+        <dt class="tag-tutorial uk-text-meta">Tutorials:</dt>
+        <div class="uk-grid uk-grid-small">
+            <?js tutorials.forEach(function(t) { ?>
+                <dd class="tag-tutorial"><?js= self.tutoriallink(t) ?></dd>
+            <?js }); ?>
+        </div>
+    </div>
+<?js } ?>
+
+
+<!-- TODO ITEMS -->
+<?js if (data.todo && todo.length) { ?>
+    <div class="jsdoc-item-todo uk-margin">
+        <!-- <dt class="tag-todo uk-text-meta">To Do:</dt> -->
+        <ul class="uk-list">
+            <?js todo.forEach(function(t) { ?>
+                <li>
+                    <span class="uk-label uk-label-danger">@todo</span>
+                    <span class="tag-todo uk-text-meta"><?js= t ?></span>
+                </li>
+            <?js }); ?>
+        </ul>
+    </div>
+<?js } ?>
+
+
+<!-- PROPS -->
 <?js
     var properties = data.properties;
     if (properties && properties.length && properties.forEach) {

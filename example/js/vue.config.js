@@ -25,6 +25,7 @@ module.exports = {
              * @method TodoWebpackPlugin
              * @memberof config:vue
              * @see [Github/todo-webpack-plugin]{@link https://github.com/mikeerickson/todo-webpack-plugin}
+             * @todo lorem ipsum
              */
             new TodoWebpackPlugin({
                 console: false,
