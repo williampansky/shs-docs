@@ -21,37 +21,43 @@
     </div>
 
     <aside class="uk-visible@l">
-        <div uk-sticky="offset: 90;" class="uk-sticky uk-active uk-sticky-fixed">
-            <div id="tutorialNav"></div>
-            <?js if (children.length > 0) { ?>
-                <h2 class="uk-heading-divider uk-h4">Sub-articles</h2>
-                <ul class="uk-list uk-list-bullet">
-                    <?js
-                    var self = this;
-                    children.forEach(function(t) { ?>
-                        <li><?js= self.tutoriallink(t.name) ?></li>
-                    <?js }); ?>
-                </ul>
-            <?js } ?>
-            <?js if (env.conf.docdash.links.slack.project_id) { ?>
-                <hr />
-                <div id="tutorialNav_helpers">
-                    <ul class="uk-nav uk-nav-default">
-                        <?js if (env.conf.docdash.links.slack.project_id) { ?>
-                            <li>
-                                <a
-                                target="_blank"
-                                href="<?js= getHelpLink ?>">
-                                    <span
-                                    class="uk-margin-small-right"
-                                    uk-icon="icon: commenting"></span>
-                                    <span class="uk-text-middle">Get help</span>
-                                </a>
-                            </li>
-                        <?js } ?>
+        <div
+        uk-sticky="offset: 90;"
+        class="uk-sticky uk-active uk-sticky-fixed">
+            <div
+            class="uk-animation-slide-right-medium"
+            style="animation-delay: 500ms;">
+                <div id="tutorialNav"></div>
+                <?js if (children.length > 0) { ?>
+                    <h2 class="uk-heading-divider uk-h4">Sub-articles</h2>
+                    <ul class="uk-list uk-list-bullet">
+                        <?js
+                        var self = this;
+                        children.forEach(function(t) { ?>
+                            <li><?js= self.tutoriallink(t.name) ?></li>
+                        <?js }); ?>
                     </ul>
-                </div>
-            <?js } ?>
+                <?js } ?>
+                <?js if (env.conf.docdash.links.slack.project_id) { ?>
+                    <hr />
+                    <div id="tutorialNav_helpers">
+                        <ul class="uk-nav uk-nav-default">
+                            <?js if (env.conf.docdash.links.slack.project_id) { ?>
+                                <li>
+                                    <a
+                                    target="_blank"
+                                    href="<?js= getHelpLink ?>">
+                                        <span
+                                        class="uk-margin-small-right"
+                                        uk-icon="icon: commenting"></span>
+                                        <span class="uk-text-middle">Get help</span>
+                                    </a>
+                                </li>
+                            <?js } ?>
+                        </ul>
+                    </div>
+                <?js } ?>
+            </div>
         </div>
     </aside>
 </section>

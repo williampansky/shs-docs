@@ -1,0 +1,4 @@
+[
+{"component":{"module":"AppButton","exports":"AppButton.vue","version":"0.6.1","phase":"4"}}, 
+{"component":{"module":"AppIcon","exports":"appicon.vue","version":"0.2.5","phase":"3.2"}}
+]

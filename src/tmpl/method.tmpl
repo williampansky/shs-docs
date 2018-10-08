@@ -2,7 +2,12 @@
     var data = obj;
     var self = this;
 ?>
-<section id="<?js= id ?>" class="jsdoc-item uk-card uk-card-default uk-card-small uk-box-shadow-hover-xlarge uk-animation-toggle <?js if (data.deprecated) { ?>deprecated<?js } ?>" data-file="method.tmpl">
+<section
+id="<?js= id ?>"
+class="jsdoc-item uk-card uk-card-default uk-card-small uk-animation-toggle 
+<?js if (!data.deprecated) { ?>uk-box-shadow-hover-xlarge<?js } ?>
+<?js if (data.deprecated) { ?>deprecated<?js } ?>
+" data-file="method.tmpl">
     <?js if (data.kind !== 'module') { ?>
         <?js if (data.kind === 'class' && data.classdesc) { ?>
             <h2 class="subsection-title uk-margin-small-bottom">Constructor</h2>

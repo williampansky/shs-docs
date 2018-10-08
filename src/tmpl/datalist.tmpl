@@ -1,0 +1,32 @@
+<?js
+    var data = obj;
+    var self = this;
+    var isGlobalPage;
+?>
+
+<section class="datalist">
+    <table class="uk-table uk-table-small uk-table-striped uk-table-hover">
+        <thead>
+            <th><td>@name</td></th>
+            <th><td>@exports</td></th>
+            <th><td>@version</td></th>
+            <th><td>@phase</td></th>
+        </thead>
+        <tbody>
+            <?js data.forEach(function(doc, i) { ?>
+                <tr>
+                    <td><?js=  ?></td>
+                </tr>
+            <?js }); ?>
+        </tbody>
+    </table>
+</section>
+
+<!-- <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
+    <h5 class="subsection-title uk-margin-small-bottom">Requires:</h5>
+    <ul>
+        <?js data.requires.forEach(function(r) { ?>
+            <li><?js= self.linkto(r) ?></li>
+        <?js }); ?>
+    </ul>
+<?js } ?> -->

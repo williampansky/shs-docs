@@ -1,3 +1,12 @@
 // ========================================================================
 // LAYOUT => FOOTER
 // ========================================================================
+#content footer.uk-container {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media (min-width: 640px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

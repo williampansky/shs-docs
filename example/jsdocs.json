@@ -1,7 +1,8 @@
 {
     "plugins": [
         "node_modules/jsdoc-vue-component",
-        "plugins/markdown"
+        "plugins/markdown",
+        "src/static/js/tags/phase"
     ],
     "jsdoc-vue-component": {
         "log": false
@@ -77,6 +78,8 @@
                 "project_id": "CCKUXQ2TG"
             }
         },
+        "todo": true,
+        "datalist": true,
         "menu": {
             // "Repository": {
             //     "href":     "yourrepo.host.com",

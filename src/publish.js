@@ -9,6 +9,7 @@ var path        = require('jsdoc/path');
 var taffy       = require('taffydb').taffy;
 var template    = require('jsdoc/template');
 var util        = require('util');
+// var tags        = require('./static/js/tags/index.js');
 
 var htmlsafe            = helper.htmlsafe;
 var linkto              = helper.linkto;
@@ -234,6 +235,24 @@ function generate(type, title, docs, filename, resolveLinks) {
 
     var outpath = path.join(outdir, filename),
         html = view.render('container.tmpl', docData);
+
+    if (resolveLinks)
+        html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
+
+    fs.writeFileSync(outpath, html, 'utf8');
+}
+
+function generateComponentProgress(type, title, docs, filename, resolveLinks) {
+    resolveLinks = resolveLinks === false ? false : true;
+
+    var docData = {
+        type:   type,
+        title:  title,
+        docs:   docs
+    };
+
+    var outpath = path.join(outdir, filename),
+        html = view.render('datalist.tmpl', docData);
 
     if (resolveLinks)
         html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
@@ -537,9 +556,9 @@ function buildNav(members) {
 }
 
 /**
-    @param {TAFFY} taffyData See <http://taffydb.com/>.
-    @param {object} opts
-    @param {Tutorial} tutorials
+ * @param {TAFFY} taffyData See <http://taffydb.com/>.
+ * @param {object} opts
+ * @param {Tutorial} tutorials
  */
 exports.publish = function(taffyData, opts, tutorials) {
     var docdash = env && env.conf && env.conf.docdash || {};
@@ -753,6 +772,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     if (members.globals.length) {
         generate('', 'Global', [{kind: 'globalobj'}], globalUrl);
     }
+    
+    // generateComponentProgress('', 'Component Progress', [{kind: 'globalobj'}], globalUrl);
 
     // index page displays information from package.json and lists files
     var files = find({kind: 'file'});

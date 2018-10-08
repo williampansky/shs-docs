@@ -5,9 +5,12 @@
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp compile && npx webpack --config webpack.config.js",
+    "clean:example": "rm -rf ./example/dist/*;",
+    "build:src": "gulp compile && npx webpack --config webpack.config.js",
+    "build:todo": "node node_modules/leasot/dist/cli/leasot.js -x --reporter vscode 'example/**/*.js' > example/TODO.md",
     "build:jsdoc": "node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json",
-    "build:complete": "gulp compile && npx webpack --config webpack.config.js && node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json"
+    "build:sheets": "node src/static/js/google-sheets/index.js",
+    "build": "npm run clean:example && npm run build:src && npm run build:todo && npm run build:jsdoc"
   },
   "keywords": [
     "documentation",
@@ -27,11 +30,15 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^8.6.0",
+    "cheerio": "^1.0.0-rc.2",
     "clipboard": "^2.0.1",
     "cryptiles": "^4.1.2",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "event-stream": "^3.3.4",
+    "glob-fs": "^0.1.7",
+    "google-auth-library": "^2.0.0",
+    "googleapis": "^34.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
     "gulp-help": "^1.6.1",
@@ -51,6 +58,7 @@
     "jsdoc": "^3.5.5",
     "jsdoc-vue-component": "^2.2.4",
     "karma": "^3.0.0",
+    "leasot": "^7.0.0-rc.5",
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "run-sequence": "^2.2.1",

@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "[build] Runs webpack and builds template bundle.",
+            "label": "[build] Clears dist/, compiles src/, builds JSDoc.",
             "type": "npm",
             "script": "build",
             "problemMatcher": [],
@@ -13,7 +13,25 @@
             }
         },
         {
-            "label": "[build:jsdoc] Builds documentation files.",
+            "label": "[build:src] Runs webpack and builds src/ bundle.",
+            "type": "npm",
+            "script": "build:src",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "[build:todo] Parses @todo tags and builds TODO.md file.",
+            "type": "npm",
+            "script": "build:todo",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "[build:jsdoc] Builds base documentation files.",
             "type": "npm",
             "script": "build:jsdoc",
             "problemMatcher": [],
@@ -22,13 +40,18 @@
             }
         },
         {
-            "label": "[build:complete] Runs webpack and builds template bundle, then builds documentation files.",
+            "label": "[build:sheets] Push to Google Sheets",
             "type": "npm",
-            "script": "build:complete",
+            "script": "build:sheets",
             "problemMatcher": [],
             "presentation": {
                 "reveal": "never"
             }
+        },
+        {
+            "type": "gulp",
+            "task": "compile",
+            "problemMatcher": []
         }
     ]
 }

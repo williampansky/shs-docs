@@ -1,6 +1,12 @@
 // ========================================================================
 // COMPONENTS => DOC ITEM
 // ========================================================================
+.intro {
+  & .uk-article-title { margin-bottom: 0; }
+  & .uk-article-meta { margin-top: 0; }
+}
+
+
 .jsdoc-item {
   & + & {
     margin-top: 60px;
