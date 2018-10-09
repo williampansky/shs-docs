@@ -6,8 +6,9 @@ const cheerio = require('cheerio');
 
 // https://stackoverflow.com/a/6960795
 const parseGlob = './example/dist/**/module-*.html';
+const jsonFile = './src/static/progress.json';
 const parseDir2 = glob.readdir(parseGlob, (err, files)=> {
-    fs.writeFile('text.json', '[' + '\n', ()=> { }); // clear file
+    fs.writeFile(jsonFile, '[' + '\n', ()=> { }); // clear file
 
     let counter = files.length;
 
@@ -51,7 +52,7 @@ const parseDir2 = glob.readdir(parseGlob, (err, files)=> {
                         else
                             data = JSON.stringify(status) + ', \n';
             
-                        fs.appendFile('text.json', data, err => {
+                        fs.appendFile(jsonFile, data, err => {
                             if (err) return console.log(err);
                         });
                         // console.log(JSON.stringify(status));

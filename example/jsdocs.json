@@ -30,7 +30,8 @@
     "recurseDepth": 10,
     "source": {
         "include": [
-            "example/"
+            "example/",
+            "src/"
         ],
         "exclude": [
             "src/static/js/bundle.js",

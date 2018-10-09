@@ -31,6 +31,15 @@
             }
         },
         {
+            "label": "[build:status] Builds progress.json file.",
+            "type": "npm",
+            "script": "build:status",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
             "label": "[build:jsdoc] Builds base documentation files.",
             "type": "npm",
             "script": "build:jsdoc",

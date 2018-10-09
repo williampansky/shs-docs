@@ -1,5 +1,8 @@
 /**
  * @module Settings
+ * @exports src/static/localSettings.js
+ * @version 2.1
+ * @phase 5
  */
 export const Settings = {
     // type: 'noLigatures' || 'withLigatures',
