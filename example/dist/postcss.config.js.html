@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>
-        Docs | router
+        Docs | postcss.config.js
     </title>
 
     
@@ -57,7 +59,7 @@ uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" >
         <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
             
                 <li><a href="index.html">SHS Docs</a></li>
-                <li><span class="uk-text-accent">router</span></li>
+                <li><span class="uk-text-accent">postcss.config.js</span></li>
             
         </ul>
     </div>
@@ -96,237 +98,157 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 
     
     
-
         
-            <section class="intro">
-        
-            <header>
-                
-                    <h1 class="uk-article-title">
-                        router
-                    </h1>
-                    
-
-
-    <h6
-    id="componentSource"
-    class="uk-article-meta">
-        router.js
-    </h6>
-
-                
-                
-                <!--  -->
-
-                
-                    <h2>
-                        
-
-                        <!-- router -->
-
-                        
-                    </h2>
-                    
-                
-            </header>
-
-
-
-
-            <!-- ====================================================
-            * @name details
-            * @desc Renders details.tmpl to the top of the content page.
-            ==================================================== -->
-            
-
-<dl class="jsdoc-item-details">
-    
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Http route definitions with <code>vue-router</code>.</p></dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source">
-                <a href="router.js.html">router.js</a>, 
-                <a href="router.js.html#line1">line 1</a>
-            </dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-<!-- TUTORIALS -->
-
-
-
-<!-- TODO ITEMS -->
-
-
-
-<!-- PROPS -->
-
-
-
-
-
-            
-            <!-- ====================================================
-            * @name type
-            * @desc Conditional check; either 'module', 'class', or otherwise.
-            ==================================================== -->
-            <!-- doc.kind === 'module' -->
-            <!-- =============================================== -->
-            
-                
-                    <div class="description uk-margin" data-line="64"><pre class="prettyprint source lang-treeview"><code>home
-└── dashboard/
-        └── profile/
-        └── reports/
-            └── overrides/
-        └── sessions/
-            └── active/
-            └── modified/
-            └── recent/
-            └── search/
-            └── stats/
-        └── users/
-            └── activity/
-            └── converstion-rate/
-            └── manage/</code></pre></div>
-                
-
-                <!-- ====================================================
-                @name doc.examples
-                ==================================================== -->
-                
-            
-
-
-
-            
-            <!-- ====================================================
-            * @name augments
-            * @desc Renders function arguments.
-            ==================================================== -->
-            
-
-
-
-            
-            <!-- ====================================================
-            * @name requires
-            * @desc Lists required modules and links them, if applicable.
-            ==================================================== -->
-            
-        </section>
-
-
-
-            
-        <!-- ====================================================
-        * @name classes
-        * @desc Renders classes, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name mixins
-        * @desc Renders mixins, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name namespaces
-        * @desc Renders namespaces, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name members
-        * @desc Renders members, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name methods
-        * @desc Renders methods, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name typedefs
-        * @desc Renders typedefs, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name events
-        * @desc Renders events, if applicable.
-        ==================================================== -->
-        
-
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
+ * @summary PostCSS is a tool for transforming styles with JS plugins.
+ * These plugins can lint your CSS, support variables and mixins,
+ * transpile future CSS syntax, inline images, and more.
+ *
+ * @namespace config:postcss
+ * 
+ * @see [github/postcss]{@link https://github.com/postcss/postcss}
+ *
+ * @desc Run `npx autoprefixer --info` to check which browsers
+ * are selected and which properties will be prefixed.
+ */
+module.exports = {
+    parser: 'postcss-scss', // https://github.com/postcss/postcss-scss
+    plugins: {
+        /**
+         * @summary PostCSS plugin to parse CSS and add vendor prefixes
+         * to CSS rules using values from Can I Use.
+         * @method Autoprefixer
+         * @memberof config:postcss
+         * @see [github/autoprefixer]{@link https://github.com/postcss/autoprefixer}
+         * @example
+         * autoprefixer: {
+         *      add: true, // add prefixes
+         *      env: '.browserslistrc', // environment for Browserslist
+         *      flexbox: true, // add prefixes for flexbox properties
+         *      grid: true, // add IE prefixes for Grid Layout properties
+         *      remove: true, // remove outdated prefixes
+         *      supports: true // add prefixes for @supports
+         * },
+         */
+        autoprefixer: {
+            add: true, // add prefixes
+            env: '.browserslistrc', // environment for Browserslist
+            flexbox: true, // add prefixes for flexbox properties
+            grid: true, // add IE prefixes for Grid Layout properties
+            remove: true, // remove outdated prefixes
+            supports: true // add prefixes for @supports
+        },
+
+
+        /**
+         * @deprecated
+         * @summary CSS Colorguard helps you maintain the color set that you want,
+         * and warns you when colors you've added are too similar to ones that
+         * already exist. Naturally, it's all configurable to your tastes.
+         * @method Colorguard
+         * @memberof config:postcss
+         * @see [github/css-colorguard]{@link https://github.com/SlexAxton/css-colorguard}
+         */
+        // colorguard: {
+        //     threshold: 3,           // Lower values are more precise
+        //     whitelist: [
+        //         ['#000000', '#ffffff']
+        //     ]
+        // },
+
+
+        /**
+         * @summary A modern, modular compression tool written on top of the
+         * PostCSS ecosystem, which allows us to use a lot of powerful features
+         * in order to compact CSS appropriately.
+         * @method CSSnano
+         * @memberof config:postcss
+         * @see [github/cssnano]{@link https://github.com/cssnano/cssnano}
+         * @example cssnano: { preset: 'default' },
+         */
+        cssnano: {
+            preset: 'default'
+        },
+
+
+        /**
+         * @deprecated
+         * @summary PostCSS plugin which allows you to blacklist files and/or
+         * folders that you don't want to process with a given PostCSS plugin.
+         * @method FilterStream
+         * @memberof config:postcss
+         * @see [github/postcss-filter-stream]{@link https://github.com/tsm91/postcss-filter-stream}
+         */
+        // 'postcss-filter-stream': {
+        //     filter: [
+        //         '!node_modules/**/*'
+        //     ],
+        //     function: 'colorguard()'
+        // },
+
+
+        /**
+         * @summary PostCSS Preset Env lets you convert modern CSS into something
+         * most browsers can understand, determining the polyfills you need based
+         * on your targeted browsers or runtime environments.
+         * @method PresetEnv
+         * @memberof config:postcss
+         * @see [github/postcss-preset-env]{@link https://github.com/csstools/postcss-preset-env}
+         * @example 'postcss-preset-env': { stage: 3 // use stage 3 features },
+         */
+        'postcss-preset-env': {
+            stage: 3 // use stage 3 features
+        },
+
+
+        /**
+         * @summary PostCSS plugin to keep rules &amp; at-rules (@...) content in order.
+         * @method Sorting
+         * @memberof config:postcss
+         * @see [github/postcss-sorting]{@link https://github.com/hudochenkov/postcss-sorting}
+         * @example
+         * 'postcss-sorting': {
+         *      order: [
+         *          'custom-properties',
+         *          'dollar-variables',
+         *          'declarations',
+         *          'at-rules',
+         *          'rules'
+         *      ],
+         *      'properties-order': [
+         *          'background',
+         *          'border',
+         *          'padding',
+         *          'margin'
+         *      ],
+         *      'unspecified-properties-position': 'bottom'
+         * }
+         */
+        'postcss-sorting': {
+            order: [
+                'custom-properties',
+                'dollar-variables',
+                'declarations',
+                'at-rules',
+                'rules'
+            ],
+            'properties-order': [
+                'background',
+                'border',
+                'padding',
+                'margin'
+            ],
+            'unspecified-properties-position': 'bottom'
+        }
+    }
+};
+</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script src="js/prettify/lang-css.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 

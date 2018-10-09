@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>
-        Docs | router
+        Docs | vue.config.js
     </title>
 
     
@@ -57,7 +59,7 @@ uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" >
         <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
             
                 <li><a href="index.html">SHS Docs</a></li>
-                <li><span class="uk-text-accent">router</span></li>
+                <li><span class="uk-text-accent">vue.config.js</span></li>
             
         </ul>
     </div>
@@ -96,237 +98,157 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 
     
     
-
         
-            <section class="intro">
-        
-            <header>
-                
-                    <h1 class="uk-article-title">
-                        router
-                    </h1>
-                    
-
-
-    <h6
-    id="componentSource"
-    class="uk-article-meta">
-        router.js
-    </h6>
-
-                
-                
-                <!--  -->
-
-                
-                    <h2>
-                        
-
-                        <!-- router -->
-
-                        
-                    </h2>
-                    
-                
-            </header>
-
-
-
-
-            <!-- ====================================================
-            * @name details
-            * @desc Renders details.tmpl to the top of the content page.
-            ==================================================== -->
-            
-
-<dl class="jsdoc-item-details">
-    
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Http route definitions with <code>vue-router</code>.</p></dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source">
-                <a href="router.js.html">router.js</a>, 
-                <a href="router.js.html#line1">line 1</a>
-            </dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-<!-- TUTORIALS -->
-
-
-
-<!-- TODO ITEMS -->
-
-
-
-<!-- PROPS -->
-
-
-
-
-
-            
-            <!-- ====================================================
-            * @name type
-            * @desc Conditional check; either 'module', 'class', or otherwise.
-            ==================================================== -->
-            <!-- doc.kind === 'module' -->
-            <!-- =============================================== -->
-            
-                
-                    <div class="description uk-margin" data-line="64"><pre class="prettyprint source lang-treeview"><code>home
-└── dashboard/
-        └── profile/
-        └── reports/
-            └── overrides/
-        └── sessions/
-            └── active/
-            └── modified/
-            └── recent/
-            └── search/
-            └── stats/
-        └── users/
-            └── activity/
-            └── converstion-rate/
-            └── manage/</code></pre></div>
-                
-
-                <!-- ====================================================
-                @name doc.examples
-                ==================================================== -->
-                
-            
-
-
-
-            
-            <!-- ====================================================
-            * @name augments
-            * @desc Renders function arguments.
-            ==================================================== -->
-            
-
-
-
-            
-            <!-- ====================================================
-            * @name requires
-            * @desc Lists required modules and links them, if applicable.
-            ==================================================== -->
-            
-        </section>
-
-
-
-            
-        <!-- ====================================================
-        * @name classes
-        * @desc Renders classes, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name mixins
-        * @desc Renders mixins, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name namespaces
-        * @desc Renders namespaces, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name members
-        * @desc Renders members, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name methods
-        * @desc Renders methods, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name typedefs
-        * @desc Renders typedefs, if applicable.
-        ==================================================== -->
-        
-
-
-
-            
-        <!-- ====================================================
-        * @name events
-        * @desc Renders events, if applicable.
-        ==================================================== -->
-        
-
+    <section class="source-code">
+        <pre class="prettyprint source linenums"><code>/**
+ * @summary vue.config.js
+ * @namespace config:vue
+ * 
+ * @requires path
+ * @requires TodoWebpackPlugin
+ * 
+ * @prop {String} outputDir=dist - Output directory of compiled Vue bundle.
+ * @prop {String} assetsDir=media - Assets will be referenced using /media as the base URL.
+ */
+
+const path = require('path');
+const TodoWebpackPlugin = require('todo-webpack-plugin');
+
+module.exports = {
+    outputDir: 'dist',
+
+    // assets will be referenced using /media as the base URL
+    assetsDir: 'media',
+
+    configureWebpack: {
+        plugins: [
+            /**
+             * @summary Webpack Plugin to generate TODO.md report.
+             * @method TodoWebpackPlugin
+             * @memberof config:vue
+             * @see [Github/todo-webpack-plugin]{@link https://github.com/mikeerickson/todo-webpack-plugin}
+             * @todo lorem ipsum
+             */
+            new TodoWebpackPlugin({
+                console: false,
+                reporter: 'markdown',
+                filename: 'TODO.md',
+                withInlineFiles: true
+            })
+        ],
+        module: {
+            rules: [
+                {
+                    resourceQuery: /blockType=docs/,
+                    loader: 'null-loader'
+                }
+            ]
+        }
+    },
+
+    /**
+     * @summary Pass config opts to webpack.
+     * @method chainWebpack
+     * @memberof config:vue
+     * 
+     * @param {Object} config Configuration object to pass to Webpack.
+     * 
+     * @description
+     * ### config.plugins
+     * Disable preload/prefetch directives in link elements
+     * ```js
+     * config.plugins.delete('preload');
+     * config.plugins.delete('prefetch');
+     * ```
+     * 
+     * ### config.module
+     * [vue-markdown-loader]{@link https://github.com/QingWei-Li/vue-markdown-loader} 
+     * converts Markdown files to Vue components.
+     * ```js
+     * config.module.rule('md')
+     *      .test(/\.md/)
+     *      .use('vue-loader')
+     *      .loader('vue-loader')
+     *      .end()
+     *      .use('vue-markdown-loader')
+     *      .loader('vue-markdown-loader/lib/markdown-compiler')
+     *      .options({ raw: true });
+     * ```
+     */
+    chainWebpack: config => {
+        config.plugins.delete('preload');
+        config.plugins.delete('prefetch');
+        config.module.rule('md')
+            .test(/\.md/)
+            .use('vue-loader')
+            .loader('vue-loader')
+            .end()
+            .use('vue-markdown-loader')
+            .loader('vue-markdown-loader/lib/markdown-compiler')
+            .options({ raw: true });
+    },
+
+    devServer: {
+        /**
+         * @description
+         * add ssl configuration here once API gets going and if it's needed
+         */
+        proxy: {
+            '/auth': {
+                target: 'https://morez.lh',
+                port: 443,
+                secure: false,
+                changeOrigin: true
+            },
+            '/authorize.php': {
+                target: 'https://morez.lh'
+            }
+        }
+    },
+
+    // turn off app[hash].js
+    filenameHashing: false,
+
+    pluginOptions: {
+        lintStyleOnBuild: true,
+        stylelint: {
+            fix: false
+        },
+        'style-resources-loader': {
+            preProcessor: 'scss',
+            patterns: [
+                // UIkit base Sass partials
+                path.resolve(__dirname, 'node_modules/uikit/src/scss/variables.scss'),
+                path.resolve(__dirname, 'node_modules/uikit/src/scss/mixins.scss'),
+                path.resolve(__dirname, 'node_modules/uikit/src/scss/components/variables.scss'),
+                path.resolve(__dirname, 'node_modules/uikit/src/scss/components/mixin.scss'),
+
+                // MORez-specific partials
+                path.resolve(__dirname, 'src/styles/variables/_colors.scss'),
+                path.resolve(__dirname, 'src/styles/variables/_typography.scss'),
+                path.resolve(__dirname, 'src/styles/_mixins.scss'),
+                path.resolve(__dirname, 'src/styles/_config.scss'),
+            ]
+        }
+    },
+
+    baseUrl: undefined,
+    runtimeCompiler: undefined,
+    productionSourceMap: undefined,
+    parallel: undefined,
+
+    css: {
+        sourceMap: true
+    },
+
+    lintOnSave: undefined
+};
+</code></pre>
+    </section>
+    <script src="js/prettify/prettify.js"></script>
+    <script src="js/prettify/lang-css.js"></script>
+    <script>prettyPrint();</script>
+    <script src="js/linenumber.js"></script>
     
 
 
