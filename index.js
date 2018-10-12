@@ -3,11 +3,11 @@ import _ from 'lodash';
 import prism from './src/static/js/prism.custom.js';
 import treeview from './src/static/js/prism-treeview.js';
 import {Settings} from './src/static/js/localSettings';
-import {
-    renderComponentProgress,
-    postToTable
-} from './src/static/js/progress';
-import jsonData from './src/static/progress.json';
+// import {
+//     renderComponentProgress,
+//     postToTable
+// } from './src/static/js/progress';
+// import jsonData from './src/static/progress.json';
 
 import {
     sidebarScrollListener, 
@@ -67,18 +67,18 @@ window.onload = ()=> {
         });
     }
 
-    // window.onload build component progress table data
-    if (document.querySelector('#componentProgress')) {
-        // const promises = [];
-        // promises.push();
-        // Promise.all(promises).then(()=> {
-            // renderComponentProgress(jsonData);
-            for (let i=0; i < jsonData.length; i++)
-                postToTable(jsonData[i]);
-        // }, (err)=> {
-        //     console.log(err);
-        // });
-    }
+    // // window.onload build component progress table data
+    // if (document.querySelector('#componentProgress')) {
+    //     // const promises = [];
+    //     // promises.push();
+    //     // Promise.all(promises).then(()=> {
+    //         // renderComponentProgress(jsonData);
+    //         for (let i=0; i < jsonData.length; i++)
+    //             postToTable(jsonData[i]);
+    //     // }, (err)=> {
+    //     //     console.log(err);
+    //     // });
+    // }
 
     document.querySelector('footer time').innerHTML = formatDate();
 

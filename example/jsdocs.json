@@ -1,8 +1,7 @@
 {
     "plugins": [
         "node_modules/jsdoc-vue-component",
-        "plugins/markdown",
-        "src/static/js/tags/phase"
+        "plugins/markdown"
     ],
     "jsdoc-vue-component": {
         "log": false

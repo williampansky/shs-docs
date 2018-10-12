@@ -1,6 +1,6 @@
 {
   "name": "shs-docs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "scripts": {
@@ -8,10 +8,10 @@
     "clean:example": "rm -rf ./example/dist/*;",
     "build:src": "gulp compile && npx webpack --config webpack.config.js",
     "build:todo": "node node_modules/leasot/dist/cli/leasot.js -x --reporter vscode 'example/**/*.js' > example/TODO.md",
-    "build:status": "node src/static/js/generateStatus.js",
     "build:jsdoc": "node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json",
+    "build:jsdoc2": "src/jsdoc/jsdoc.js -c ./example/jsdocs.json",
     "build:sheets": "node src/static/js/google-sheets/index.js",
-    "build": "npm run clean:example && npm run build:jsdoc && npm run build:src && npm run build:todo && npm run build:status && npm run build:jsdoc"
+    "build": "npm run clean:example && npm run build:src && npm run build:todo && npm run build:jsdoc2"
   },
   "keywords": [
     "documentation",

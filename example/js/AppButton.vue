@@ -13,7 +13,7 @@
  * 
  * @author William Pansky
  * @version 0.6.1
- * @phase 4
+ * @phase 3.1
  * 
  * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.
  * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.
@@ -21,8 +21,9 @@
  * 
  * @description
  * ```jsx
- * // This will load `@/img/icons/icon-close.svg`
- * <AppIcon icon="close" />
+ * <AppIcon 
+ * v-on:click="event"
+ * icon="close" />
  * ```
  */
 
