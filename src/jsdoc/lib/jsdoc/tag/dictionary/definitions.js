@@ -279,6 +279,13 @@ var baseTags = exports.baseTags = {
             doclet.borrow(borrows.target, borrows.source);
         }
     },
+    bug: {
+        mustHaveValue: true,
+        onTagged: function(doclet, tag) {
+            doclet.bug = doclet.bug || [];
+            doclet.bug.push(tag.value);
+        }
+    },
     class: {
         onTagged: function(doclet, tag) {
             var looksLikeDesc;
@@ -621,6 +628,53 @@ var baseTags = exports.baseTags = {
         mustHaveValue: true,
         onTagged: function(doclet, tag) {
             doclet.phase = tag.value;
+            // var result = tag.value;
+            // switch (tag.value) {
+            //     case '1' || '1.0':
+            //         result = 'Phase 1 » Ideation & Initiation';
+            //         break;
+            //     case '1.1':
+            //         result = 'Phase 1.1 » Conception';
+            //         break;
+            //     case '1.2':
+            //         result = 'Phase 1.2 » Definition';
+            //         break;
+            //     case '1.3':
+            //         result = 'Phase 1.3 » Requirements';
+            //         break;
+            //     case '2' || '2.0':
+            //         result = 'Phase 2 » Alpha | Prototype';
+            //         break;
+            //     case '2.1':
+            //         result = 'Phase 2.1 » Sekelton';
+            //         break;
+            //     case '2.2':
+            //         result = 'Phase 2.2 » Linted';
+            //         break;
+            //     case '2.3':
+            //         result = 'Phase 2.3 » Unit Testing';
+            //         break;
+            //     case '3' || '3.0':
+            //         result = 'Phase 3 » Beta | Integration';
+            //         break;
+            //     case '3.1':
+            //         result = 'Phase 3.1 » Code Evolution';
+            //         break;
+            //     case '3.2':
+            //         result = 'Phase 3.2 » App Integration';
+            //         break;
+            //     case '3.3':
+            //         result = 'Phase 3.3 » Advanced Testing';
+            //         break;
+            //     case '4' || '4.0':
+            //         result = 'Phase 4 » Peer Review';
+            //         break;
+            //     case '5' || '5.0':
+            //         result = 'Phase 5 » MVP Release';
+            //         break;
+            // }
+
+            // doclet.phase = result;
         }
     },
     private: {

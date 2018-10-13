@@ -52,7 +52,8 @@
 <nav
 uk-navbar
 class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
-uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" >
+uk-sticky>
+<!-- uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" > -->
     <div class="uk-navbar-left">
         <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
             
@@ -110,13 +111,77 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 
     <h6
     id="componentSource"
-    class="uk-article-meta">
-        postcss.config.js
+    class="uk-article-exports uk-margin-remove-top">
+        
+            /Users/williampansky/GitHub/shs-docs/example/js
+        
     </h6>
 
+
+                    
+                        
+<a
+class="uk-button uk-button-text uk-position-top-right"
+href="#modalDebug"
+uk-toggle
+style="margin:1rem;">Debug</a>
+
+<article id="modalDebug" uk-modal class="uk-modal-container">
+    <div class="uk-modal-dialog">
+        <button
+        class="uk-modal-close-default"
+        type="button"
+        uk-close></button>
+
+        <header class="uk-modal-header">
+            <h1 class="uk-modal-title">Debug Object</h1>
+        </header>
+
+        <div
+        class="uk-modal-body uk-padding-remove"
+        uk-overflow-auto>
+            <section class="source-code">
+                <pre class="prettyprint language-json"><code>{
+  "comment": "/**\n * @summary PostCSS is a tool for transforming styles with JS plugins.\n * These plugins can lint your CSS, support variables and mixins,\n * transpile future CSS syntax, inline images, and more.\n *\n * @namespace config:postcss\n * \n * @see <a href="https://github.com/postcss/postcss">github/postcss</a>\n *\n * @desc Run `npx autoprefixer --info` to check which browsers\n * are selected and which properties will be prefixed.\n */",
+  "meta": {
+    "filename": "postcss.config.js",
+    "lineno": 1,
+    "columnno": 0,
+    "path": "/Users/williampansky/GitHub/shs-docs/example/js",
+    "code": {},
+    "shortpath": "postcss.config.js"
+  },
+  "summary": "<p>PostCSS is a tool for transforming styles with JS plugins.\nThese plugins can lint your CSS, support variables and mixins,\ntranspile future CSS syntax, inline images, and more.</p>",
+  "kind": "namespace",
+  "name": "config:postcss",
+  "see": [
+    "<p><a href="https://github.com/postcss/postcss">github/postcss</a></p>"
+  ],
+  "description": "<p>Run <code>npx autoprefixer --info</code> to check which browsers\nare selected and which properties will be prefixed.</p>",
+  "longname": "config:postcss",
+  "scope": "global",
+  "___id": "T000005R000002",
+  "___s": true,
+  "attribs": "",
+  "id": "config:postcss",
+  "ancestors": []
+}</code></pre>
+            </section>
+        </div>
+    </div>
+</article>
+
+<style>
+#modalDebug pre { margin: 0 !important; }
+#modalDebug .token.attr-name,
+#modalDebug .token.string {
+    white-space: pre-line;
+}
+</style>
+
+                    
                 
                 
-                <!--  -->
 
                 
                     <h2>
@@ -129,8 +194,6 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
                     
                 
             </header>
-
-
 
 
             <!-- ====================================================
@@ -216,9 +279,11 @@ transpile future CSS syntax, inline images, and more.</p></dd>
 
 
 
+<!-- BUGS -->
+
+
+
 <!-- PROPS -->
-
-
 
 
 
@@ -241,16 +306,12 @@ are selected and which properties will be prefixed.</p></div>
                 
             
 
-
-
             
             <!-- ====================================================
             * @name augments
             * @desc Renders function arguments.
             ==================================================== -->
             
-
-
 
             
             <!-- ====================================================
@@ -260,16 +321,12 @@ are selected and which properties will be prefixed.</p></div>
             
         </section>
 
-
-
             
         <!-- ====================================================
         * @name classes
         * @desc Renders classes, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================
@@ -278,8 +335,6 @@ are selected and which properties will be prefixed.</p></div>
         ==================================================== -->
         
 
-
-
             
         <!-- ====================================================
         * @name namespaces
@@ -287,16 +342,12 @@ are selected and which properties will be prefixed.</p></div>
         ==================================================== -->
         
 
-
-
             
         <!-- ====================================================
         * @name members
         * @desc Renders members, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================
@@ -399,6 +450,10 @@ to CSS rules using values from Can I Use.</p></dd>
 
 
 <!-- TODO ITEMS -->
+
+
+
+<!-- BUGS -->
 
 
 
@@ -556,6 +611,10 @@ already exist. Naturally, it's all configurable to your tastes.</p></dd>
 
 
 
+<!-- BUGS -->
+
+
+
 <!-- PROPS -->
 
 
@@ -686,6 +745,10 @@ in order to compact CSS appropriately.</p></dd>
 
 
 <!-- TODO ITEMS -->
+
+
+
+<!-- BUGS -->
 
 
 
@@ -835,6 +898,10 @@ folders that you don't want to process with a given PostCSS plugin.</p></dd>
 
 
 
+<!-- BUGS -->
+
+
+
 <!-- PROPS -->
 
 
@@ -965,6 +1032,10 @@ on your targeted browsers or runtime environments.</p></dd>
 
 
 <!-- TODO ITEMS -->
+
+
+
+<!-- BUGS -->
 
 
 
@@ -1104,6 +1175,10 @@ uk-box-shadow-hover-xlarge
 
 
 
+<!-- BUGS -->
+
+
+
 <!-- PROPS -->
 
 
@@ -1162,16 +1237,12 @@ uk-box-shadow-hover-xlarge
             
         
 
-
-
             
         <!-- ====================================================
         * @name typedefs
         * @desc Renders typedefs, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================

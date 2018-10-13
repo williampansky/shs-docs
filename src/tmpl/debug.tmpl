@@ -1,0 +1,37 @@
+<?js
+    var data = obj;
+?>
+<a
+class="uk-button uk-button-text uk-position-top-right"
+href="#modalDebug"
+uk-toggle
+style="margin:1rem;">Debug</a>
+
+<article id="modalDebug" uk-modal class="uk-modal-container">
+    <div class="uk-modal-dialog">
+        <button
+        class="uk-modal-close-default"
+        type="button"
+        uk-close></button>
+
+        <header class="uk-modal-header">
+            <h1 class="uk-modal-title">Debug Object</h1>
+        </header>
+
+        <div
+        class="uk-modal-body uk-padding-remove"
+        uk-overflow-auto>
+            <section class="source-code">
+                <pre class="prettyprint language-json"><code><?js= JSON.stringify(data, undefined, 2) ?></code></pre>
+            </section>
+        </div>
+    </div>
+</article>
+
+<style>
+#modalDebug pre { margin: 0 !important; }
+#modalDebug .token.attr-name,
+#modalDebug .token.string {
+    white-space: pre-line;
+}
+</style>

@@ -52,7 +52,8 @@
 <nav
 uk-navbar
 class="uk-navbar-container uk-light uk-animation-fade uk-background-secondary" 
-uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" >
+uk-sticky>
+<!-- uk-sticky="show-on-up:true; animation:uk-animation-slide-top;" > -->
     <div class="uk-navbar-left">
         <ul class="uk-navbar-item uk-light uk-margin-remove uk-breadcrumb uk-visible@m">
             
@@ -110,13 +111,188 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 
     <h6
     id="componentSource"
-    class="uk-article-meta">
-        AppButton.vue
+    class="uk-article-exports uk-margin-remove-top">
+        
+            components/src/AppButton.vue
+        
     </h6>
 
+
+                    
+                        
+<a
+class="uk-button uk-button-text uk-position-top-right"
+href="#modalDebug"
+uk-toggle
+style="margin:1rem;">Debug</a>
+
+<article id="modalDebug" uk-modal class="uk-modal-container">
+    <div class="uk-modal-dialog">
+        <button
+        class="uk-modal-close-default"
+        type="button"
+        uk-close></button>
+
+        <header class="uk-modal-header">
+            <h1 class="uk-modal-title">Debug Object</h1>
+        </header>
+
+        <div
+        class="uk-modal-body uk-padding-remove"
+        uk-overflow-auto>
+            <section class="source-code">
+                <pre class="prettyprint language-json"><code>{
+  "comment": "/**\n * @todo continue research into necessity of <i></i> and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * \n * @bug bug 2\n * \n * @description\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
+  "meta": {
+    "filename": "AppButton.vue",
+    "lineno": 2,
+    "columnno": 0,
+    "path": "/Users/williampansky/GitHub/shs-docs/example/js",
+    "code": {},
+    "shortpath": "AppButton.vue"
+  },
+  "todo": [
+    "continue research into necessity of <i></i> and if it can be removed",
+    "add support for the rest of the color schemes (black-lighten, gray-darken)"
+  ],
+  "summary": "<p>Render an SVG icon from the img/icons directory.</p>",
+  "kind": "module",
+  "name": "AppButton",
+  "alias": "components/src/AppButton.vue",
+  "author": [
+    "William Pansky"
+  ],
+  "version": "0.6.1",
+  "phase": "1.0",
+  "properties": [
+    {
+      "type": {
+        "names": [
+          "String"
+        ]
+      },
+      "defaultvalue": "''",
+      "description": "<p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p>",
+      "name": "icon"
+    },
+    {
+      "type": {
+        "names": [
+          "String"
+        ]
+      },
+      "defaultvalue": "black",
+      "description": "<p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p>",
+      "name": "color"
+    },
+    {
+      "type": {
+        "names": [
+          "Boolean"
+        ]
+      },
+      "defaultvalue": false,
+      "description": "<p>Used to determine if this icon is part of a form input element.</p>",
+      "name": "form"
+    }
+  ],
+  "bug": [
+    "Currently, shorthand Vue's `v-on` directives break code block rendering.",
+    "bug 2"
+  ],
+  "description": "<pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
+  "longname": "module:AppButton",
+  "___id": "T000004R000002",
+  "___s": true,
+  "attribs": "",
+  "id": "AppButton",
+  "ancestors": [],
+  "modules": [
+    {
+      "comment": "/**\n * @todo continue research into necessity of <i></i> and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * \n * @bug bug 2\n * \n * @description\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
+      "meta": {
+        "filename": "AppButton.vue",
+        "lineno": 2,
+        "columnno": 0,
+        "path": "/Users/williampansky/GitHub/shs-docs/example/js",
+        "code": {},
+        "shortpath": "AppButton.vue"
+      },
+      "todo": [
+        "continue research into necessity of <i></i> and if it can be removed",
+        "add support for the rest of the color schemes (black-lighten, gray-darken)"
+      ],
+      "summary": "<p>Render an SVG icon from the img/icons directory.</p>",
+      "kind": "module",
+      "name": "AppButton",
+      "alias": "components/src/AppButton.vue",
+      "author": [
+        "William Pansky"
+      ],
+      "version": "0.6.1",
+      "phase": "1.0",
+      "properties": [
+        {
+          "type": {
+            "names": [
+              "String"
+            ]
+          },
+          "defaultvalue": "''",
+          "description": "<p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p>",
+          "name": "icon"
+        },
+        {
+          "type": {
+            "names": [
+              "String"
+            ]
+          },
+          "defaultvalue": "black",
+          "description": "<p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p>",
+          "name": "color"
+        },
+        {
+          "type": {
+            "names": [
+              "Boolean"
+            ]
+          },
+          "defaultvalue": false,
+          "description": "<p>Used to determine if this icon is part of a form input element.</p>",
+          "name": "form"
+        }
+      ],
+      "bug": [
+        "Currently, shorthand Vue's `v-on` directives break code block rendering.",
+        "bug 2"
+      ],
+      "description": "<pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
+      "longname": "module:AppButton",
+      "___id": "T000002R000002",
+      "___s": true,
+      "attribs": "",
+      "id": "AppButton",
+      "ancestors": []
+    }
+  ]
+}</code></pre>
+            </section>
+        </div>
+    </div>
+</article>
+
+<style>
+#modalDebug pre { margin: 0 !important; }
+#modalDebug .token.attr-name,
+#modalDebug .token.string {
+    white-space: pre-line;
+}
+</style>
+
+                    
                 
                 
-                <!--  -->
 
                 
                     
@@ -124,8 +300,6 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
                     
                 
             </header>
-
-
 
 
             <!-- ====================================================
@@ -178,10 +352,9 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
     
         <div class="container">
             <dt class="tag-phase uk-text-meta">Phase:</dt>
-            <dd
-            id="componentPhase"
-            class="tag-phase">
-                3.1
+            
+            <dd id="componentPhase" class="tag-phase" uk-tooltip="title: Components at Phase 1 are currently just rough ideas.">
+                Phase 1 » Ideation & Initiation
             </dd>
         </div>
     
@@ -226,17 +399,36 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 <!-- TODO ITEMS -->
 
     <div class="jsdoc-item-todo uk-margin">
-        <!-- <dt class="tag-todo uk-text-meta">To Do:</dt> -->
         <ul class="uk-list">
             
                 <li>
-                    <span class="uk-label uk-label-danger">@todo</span>
+                    <span class="uk-label uk-label-warning">@todo</span>
                     <span class="tag-todo uk-text-meta">continue research into necessity of <i></i> and if it can be removed</span>
                 </li>
             
                 <li>
-                    <span class="uk-label uk-label-danger">@todo</span>
+                    <span class="uk-label uk-label-warning">@todo</span>
                     <span class="tag-todo uk-text-meta">add support for the rest of the color schemes (black-lighten, gray-darken)</span>
+                </li>
+            
+        </ul>
+    </div>
+
+
+
+<!-- BUGS -->
+
+    <div class="jsdoc-item-bug uk-margin">
+        <ul class="uk-list">
+            
+                <li>
+                    <span class="uk-label uk-label-danger">@bug</span>
+                    <span class="tag-bug uk-text-meta">Currently, shorthand Vue's `v-on` directives break code block rendering.</span>
+                </li>
+            
+                <li>
+                    <span class="uk-label uk-label-danger">@bug</span>
+                    <span class="tag-bug uk-text-meta">bug 2</span>
                 </li>
             
         </ul>
@@ -363,8 +555,6 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
 
 
 
-
-
             
             <!-- ====================================================
             * @name type
@@ -387,16 +577,12 @@ icon=&quot;close&quot; /></code></pre>
             ==================================================== -->
             
 
-
-
             
             <!-- ====================================================
             * @name augments
             * @desc Renders function arguments.
             ==================================================== -->
             
-
-
 
             
             <!-- ====================================================
@@ -406,16 +592,12 @@ icon=&quot;close&quot; /></code></pre>
             
         </section>
 
-
-
             
         <!-- ====================================================
         * @name classes
         * @desc Renders classes, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================
@@ -424,16 +606,12 @@ icon=&quot;close&quot; /></code></pre>
         ==================================================== -->
         
 
-
-
             
         <!-- ====================================================
         * @name namespaces
         * @desc Renders namespaces, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================
@@ -461,7 +639,7 @@ icon=&quot;close&quot; /></code></pre>
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
                 <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line27">line 27</a>
+                <a href="AppButton.vue.html#line31">line 31</a>
             </dd>
         </div>
     
@@ -516,6 +694,10 @@ icon=&quot;close&quot; /></code></pre>
 
 
 
+<!-- BUGS -->
+
+
+
 <!-- PROPS -->
 
 
@@ -536,8 +718,6 @@ icon=&quot;close&quot; /></code></pre>
 </section>
             
         
-
-
 
             
         <!-- ====================================================
@@ -575,7 +755,7 @@ uk-box-shadow-hover-xlarge
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
                 <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line32">line 32</a>
+                <a href="AppButton.vue.html#line36">line 36</a>
             </dd>
         </div>
     
@@ -627,6 +807,10 @@ uk-box-shadow-hover-xlarge
 
 
 <!-- TODO ITEMS -->
+
+
+
+<!-- BUGS -->
 
 
 
@@ -700,7 +884,7 @@ uk-box-shadow-hover-xlarge
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
                 <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line42">line 42</a>
+                <a href="AppButton.vue.html#line46">line 46</a>
             </dd>
         </div>
     
@@ -752,6 +936,10 @@ uk-box-shadow-hover-xlarge
 
 
 <!-- TODO ITEMS -->
+
+
+
+<!-- BUGS -->
 
 
 
@@ -851,16 +1039,12 @@ uk-box-shadow-hover-xlarge
             
         
 
-
-
             
         <!-- ====================================================
         * @name typedefs
         * @desc Renders typedefs, if applicable.
         ==================================================== -->
         
-
-
 
             
         <!-- ====================================================

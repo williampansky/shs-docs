@@ -168,10 +168,132 @@
     <?js if (data.phase) { ?>
         <div class="container">
             <dt class="tag-phase uk-text-meta">Phase:</dt>
-            <dd
-            id="componentPhase"
-            class="tag-phase">
-                <?js= phase ?>
+            <?js 
+            var result;
+            switch (phase) {
+                case '1':
+                    result = {
+                        text:    'Phase 1 » Ideation & Initiation',
+                        tooltip: 'Components at Phase 1 are currently just rough ideas.'
+                    };
+                    break;
+                case '1.0':
+                    result = {
+                        text:    'Phase 1 » Ideation & Initiation',
+                        tooltip: 'Components at Phase 1 are currently just rough ideas.'
+                    };
+                    break;
+                case '1.1':
+                    result = {
+                        text:    'Phase 1.1 » Conception',
+                        tooltip: 'Component is recognized in the form of a shared note, or message, in a central repository (spreadsheet, Rally, etc).'
+                    };
+                    break;
+                case '1.2':
+                    result = {
+                        text:    'Phase 1.2 » Definition',
+                        tooltip: 'Definition requires a component outline. Must include basic desired functionality, & a visual representation.'
+                    };
+                    break;
+                case '1.3':
+                    result = {
+                        text:    'Phase 1.3 » Requirements',
+                        tooltip: 'Components must be completely outlined—a detailed & complex elaboration of Phase 1.2 definitions.'
+                    };
+                    break;
+                case '2':
+                    result = {
+                        text:    'Phase 2 » Alpha | Prototype',
+                        tooltip: 'Alpha staged phase components have graduated past initial plans and are ready to start development.'
+                    };
+                    break;
+                case '2.0':
+                    result = {
+                        text:    'Phase 2 » Alpha | Prototype',
+                        tooltip: 'Alpha staged phase components have graduated past initial plans and are ready to start development.'
+                    };
+                    break;
+                case '2.1':
+                    result = {
+                        text:    'Phase 2.1 » Sekelton',
+                        tooltip: 'Component file created, contains basic HTML, JavaScript, & scoped Sass tags.'
+                    };
+                    break;
+                case '2.2':
+                    result = {
+                        text:    'Phase 2.2 » Linted',
+                        tooltip: 'Phase 2.2 requires components to pass both ESLint & Stylelint rules.'
+                    };
+                    break;
+                case '2.3':
+                    result = {
+                        text:    'Phase 2.3 » Unit Testing',
+                        tooltip: 'Component is enforced with a basic unit test, accompanied with mock-desired data.'
+                    };
+                    break;
+                case '3':
+                    result = {
+                        text:    'Phase 3 » Beta | Integration',
+                        tooltip: 'Beta components are ready for the next step of advanced development.'
+                    };
+                    break;
+                case '3.0':
+                    result = {
+                        text:    'Phase 3 » Beta | Integration',
+                        tooltip: 'Beta components are ready for the next step of advanced development.'
+                    };
+                    break;
+                case '3.1':
+                    result = {
+                        text:    'Phase 3.1 » Code Evolution',
+                        tooltip: 'Semantic template HTML, complex JavaScript functionality, advanced (per-comp spec) CSS styles.'
+                    };
+                    break;
+                case '3.2':
+                    result = {
+                        text:    'Phase 3.2 » App Integration',
+                        tooltip: 'Component is merged and fully integrated into the application at-large.'
+                    };
+                    break;
+                case '3.3':
+                    result = {
+                        text:    'Phase 3.3 » Advanced Testing',
+                        tooltip: 'Verify the communication paths and interactions between components to detect interface defects.'
+                    };
+                    break;
+                case '4':
+                    result = {
+                        text:    'Phase 4 » Peer Review',
+                        tooltip: 'Phase 4 components have gone through, or are currently under-going, peer review & refactoring.'
+                    };
+                    break;
+                case '4.0':
+                    result = {
+                        text:    'Phase 4 » Peer Review',
+                        tooltip: 'Phase 4 components have gone through, or are currently under-going, peer review & refactoring.'
+                    };
+                    break;
+                case '5':
+                    result = {
+                        text:    'Phase 5 » MVP Release',
+                        tooltip: 'Phase 5 components have individually reached 1.0.0 SemVer & are ready for minimal-viable-product release status.'
+                    };
+                    break;
+                case '5.0':
+                    result = {
+                        text:    'Phase 5 » MVP Release',
+                        tooltip: 'Phase 5 components have individually reached 1.0.0 SemVer & are ready for minimal-viable-product release status.'
+                    };
+                    break;
+                default:
+                    result = {
+                        text:    phase,
+                        tooltip: 'Phase value not currently documented.'
+                    };
+                    break;
+            } ?>
+            <dd id="componentPhase" class="tag-phase" uk-tooltip="title: <?js= result.tooltip ?>">
+                <?js= result.text ?>
             </dd>
         </div>
     <?js } ?>
@@ -294,12 +416,26 @@
 <!-- TODO ITEMS -->
 <?js if (data.todo && todo.length) { ?>
     <div class="jsdoc-item-todo uk-margin">
-        <!-- <dt class="tag-todo uk-text-meta">To Do:</dt> -->
         <ul class="uk-list">
             <?js todo.forEach(function(t) { ?>
                 <li>
-                    <span class="uk-label uk-label-danger">@todo</span>
+                    <span class="uk-label uk-label-warning">@todo</span>
                     <span class="tag-todo uk-text-meta"><?js= t ?></span>
+                </li>
+            <?js }); ?>
+        </ul>
+    </div>
+<?js } ?>
+
+
+<!-- BUGS -->
+<?js if (data.bug && bug.length) { ?>
+    <div class="jsdoc-item-bug uk-margin">
+        <ul class="uk-list">
+            <?js bug.forEach(function(b) { ?>
+                <li>
+                    <span class="uk-label uk-label-danger">@bug</span>
+                    <span class="tag-bug uk-text-meta"><?js= b ?></span>
                 </li>
             <?js }); ?>
         </ul>

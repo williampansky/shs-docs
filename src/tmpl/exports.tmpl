@@ -6,7 +6,11 @@
 <?js if (data.meta && self.outputSourceFiles) { ?>
     <h6
     id="componentSource"
-    class="uk-article-meta">
-        <?js= meta.shortpath ?>
+    class="uk-article-exports uk-margin-remove-top">
+        <?js if (data.alias) { ?>
+            <?js= data.alias ?>
+        <?js } else { ?>
+            <?js= meta.path ?>
+        <?js } ?>
     </h6>
 <?js } ?>

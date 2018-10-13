@@ -67,6 +67,7 @@
     "docdash": {
         "project_title": "SHS Docs",
         "settings_background": "",
+        "debug": true,
         "links": {
             "repo": {
                 "type": "git",

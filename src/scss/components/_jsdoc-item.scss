@@ -196,16 +196,38 @@
 }
 
 
-.jsdoc-item-todo {
+.tag-phase[uk-tooltip] {
+  cursor: default;
+}
+
+.uk-tooltip {
+  line-height: 1.1;
+  padding: 5px 6px 6px;
+}
+
+
+.jsdoc-item-todo,
+.jsdoc-item-bug {
   .uk-label {
     border-radius: 0;
     font-size: .75rem;
     letter-spacing: 0.0075em;
     text-transform: lowercase;
     text-shadow: 0.35px 0.35px 0.15px rgba(0, 0, 0, 0.35);
+    margin-right: 6px;
   }
 
-  .uk-list > li:nth-child(n+2) { margin-top: 0; }
+  .uk-list > li {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+  }
+
+  // .uk-list > li:nth-child(n+2) { margin-top: 0; }
+
+  .uk-text-meta {
+    line-height: 1.2;
+  }
 }
 
 
