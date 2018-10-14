@@ -5,15 +5,16 @@
 /// This document contains any and all necessary variables and mapping for 
 /// this project's color scheme. Feel free to edit the variables as needed. 
 :root {
-  --color-primary: 	#1e87f0;
+  --color-primary: 	  #1e87f0;
   // --color-secondary:#312a29;
-  --color-secondary:#222;
-  --color-accent: 	#EEC33F;
+  --color-secondary:  #222;
+  --color-accent: 	  #EEC33F;
   // --color-gradient:	linear-gradient(to left, #28a5f5, #1e87f0);
-  --color-gradient:	linear-gradient(to left, #0964B9, #1e87f0);
-  --color-success: 	#32d296;
-  --color-warning: 	#faa05a;
-  --color-danger: 	#f23e60;
+  --color-gradient:	  linear-gradient(to left, #0964B9, #1e87f0);
+  --color-gray-light: #dfdfdf;
+  --color-success: 	  #32d296;
+  --color-warning: 	  #faa05a;
+  --color-danger: 	  #f23e60;
 }
 
 $uikit-colors: (
@@ -21,6 +22,7 @@ $uikit-colors: (
   secondary:  var(--color-secondary),
   gradient:   var(--color-gradient),
   // muted: var(--color-muted),
+  gray-light: var(--color-gray-light),
   success:    var(--color-success),
   warning:    var(--color-warning),
   danger:     var(--color-danger)

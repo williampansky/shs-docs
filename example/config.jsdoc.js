@@ -1,0 +1,110 @@
+module.exports = {
+    plugins: [
+        'node_modules/jsdoc-vue-component',
+        'plugins/markdown'
+    ],
+    'jsdoc-vue-component': {
+        log: false
+    },
+    markdown: {
+        tags: [
+            'author', 
+            'classdesc', 
+            'description', 
+            'param', 
+            'property', 
+            'returns', 
+            'see', 
+            'throws', 
+            'vue'
+        ]
+    },
+    tags: {
+        allowUnknownTags: true,
+        dictionaries: [
+            'jsdoc', 
+            'closure'
+        ]
+    },
+    recurseDepth: 10,
+    source: {
+        include: [
+            'example/'
+        ],
+        exclude: [
+            'src/static/js/bundle.js',
+            'src/static/js/clipboard.min.js',
+            'src/static/js/linenumber.js',
+            'src/static/js/highlight.pack.js',
+            'src/static/js/prism-treeview.js',
+            'src/static/js/prism.custom.js',
+            'src/static/js/prism.min.js',
+            'node_modules'
+        ],
+        includePattern: '.+\\.(js|vue)$',
+        excludePattern: '(node_modules/|dist|.min)'
+    },
+    opts: {
+        template:     'src',
+        readme:       'example/README.md',
+        tutorials:    'example/tutorials',
+        encoding:     'utf8',
+        destination:  'example/dist',
+        recurse:      true,
+        verbose:      true
+    },
+    templates: {
+        cleverLinks:    true,
+        monospaceLinks: true,
+        default: {
+            staticFiles: {
+                include: [
+                    'example/img'
+                ]
+            }
+        }
+    },
+    docdash: {
+        project_title: 'SHS Docs',
+        settings_background: '',
+        debug: true,
+        links: {
+            repo: {
+                type: 'git',
+                url:  'git.sabre.com'
+            },
+            slack: {
+                dx:         'shs-dx',
+                project_id: 'CCKUXQ2TG'
+            }
+        },
+        menu: {
+            // 'Repository': {
+            //     href:     'yourrepo.host.com',
+            //     target:   '_blank',
+            //     id:       'repository',
+            //     class:    ''
+            // }
+        },
+        static: true,
+        sort:   true,
+        disqus: '',
+		openGraph: {
+			title:     '',
+			site_name: '',
+			type:      '',
+			image:     '',
+			url:       ''
+		},
+		meta: {
+			title:        '',
+			description:  '',
+			keyword:      ''
+		},
+        search:   true,
+        collapse: true,
+        typedefs: true,
+        removeQuotes: 'none',
+        scripts: []
+    }
+}

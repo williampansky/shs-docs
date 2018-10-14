@@ -3,7 +3,7 @@
 
 <script>
 /**
- * @todo continue research into necessity of <i></i> and if it can be removed
+ * @todo continue research into necessity of i elem and if it can be removed
  * @todo add support for the rest of the color schemes (black-lighten, gray-darken)
  *
  * @summary Render an SVG icon from the img/icons directory.
@@ -20,7 +20,6 @@
  * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.
  * 
  * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.
- * 
  * @bug bug 2
  * 
  * @description
@@ -56,3 +55,6 @@ function created() {}
  */
 function render() {}
 </script>
+
+<style>
+</style>

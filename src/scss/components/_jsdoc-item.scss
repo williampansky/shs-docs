@@ -79,6 +79,10 @@
 
     & .type { white-space: nowrap; }
     & .description { line-height: 1.25; }
+    & .default code {
+      color: #666;
+      background-color: var(--color-gray-light);
+    }
   }
 
   .code-toolbar {
@@ -235,3 +239,4 @@
   font-size: 14px;
   line-height: 20px;
 }
+
