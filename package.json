@@ -1,10 +1,10 @@
 {
   "name": "shs-docs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "bundledDependencies": [
-    "requizzle"
+    "requizzle", "marked"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "gulp-cli": "^2.0.1",
+    "marked": "^0.5.1",
     "prism": "^4.1.2",
     "requizzle": "^0.2.1",
     "uikit": "^3.0.0-rc.5"
