@@ -1,13 +1,14 @@
 {
   "name": "shs-docs",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "bundledDependencies": [
-    "requizzle",
-    "marked",
     "catharsis",
-    "taffydb"
+    "marked",
+    "requizzle",
+    "taffydb",
+    "underscore"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -82,6 +83,7 @@
     "prism": "^4.1.2",
     "requizzle": "^0.2.1",
     "taffydb": "^2.7.3",
-    "uikit": "^3.0.0-rc.5"
+    "uikit": "^3.0.0-rc.5",
+    "underscore": "^1.9.1"
   }
 }
