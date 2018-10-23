@@ -23,6 +23,9 @@
  * @bug bug 2
  * 
  * @description
+  * ```command-line
+ * npm i -D shs-docs
+ * ```
  * ```jsx
  * <AppIcon 
  * v-on:click="event"

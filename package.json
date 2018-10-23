@@ -1,10 +1,13 @@
 {
   "name": "shs-docs",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "bundledDependencies": [
-    "requizzle", "marked"
+    "requizzle",
+    "marked",
+    "catharsis",
+    "taffydb"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -73,10 +76,12 @@
     "webpack-cli": "^3.0.2"
   },
   "dependencies": {
+    "catharsis": "^0.8.9",
     "gulp-cli": "^2.0.1",
     "marked": "^0.5.1",
     "prism": "^4.1.2",
     "requizzle": "^0.2.1",
+    "taffydb": "^2.7.3",
     "uikit": "^3.0.0-rc.5"
   }
 }
