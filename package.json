@@ -1,6 +1,6 @@
 {
   "name": "shs-docs",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
   "scripts": {
@@ -10,7 +10,7 @@
     "build:todo": "node node_modules/leasot/dist/cli/leasot.js -x --reporter vscode 'example/**/*.js' > example/TODO.md",
     "build:jsdoc": "node_modules/jsdoc/jsdoc.js -c ./example/jsdocs.json",
     "build:jsdoc2": "src/jsdoc/jsdoc.js -c ./example/jsdocs.json",
-    "build:jsdoc3": "src/jsdoc/jsdoc.js -c ./example/config.jsdoc.js",
+    "build:jsdoc3": "src/jsdoc/jsdoc.js -c ./example/jsdocs.config.js",
     "build:sheets": "node src/static/js/google-sheets/index.js",
     "build": "npm run clean:example && npm run build:src && npm run build:todo && npm run build:jsdoc3"
   },
@@ -72,6 +72,7 @@
   "dependencies": {
     "gulp-cli": "^2.0.1",
     "prism": "^4.1.2",
+    "requizzle": "^0.2.1",
     "uikit": "^3.0.0-rc.5"
   }
 }
