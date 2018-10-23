@@ -1,8 +1,11 @@
 {
   "name": "shs-docs",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "A documentation generator package designed for SHSDX OpMod developers.",
   "private": false,
+  "bundledDependencies": [
+    "requizzle"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean:example": "rm -rf ./example/dist/*;",
