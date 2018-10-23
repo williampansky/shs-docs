@@ -7,9 +7,9 @@ First, install the package.
 npm i -D shs-docs
 ```
 
-Copy the `example/` directory's `config.jsdoc.js` file to your project root and configure as needed. Then, add the following to your NPM scripts.
+Copy the `example/` directory's `jsdocs.config.js` file to your project root and configure as needed. Then, add the following to your NPM scripts.
 ```json
-"build:docs": "node_modules/shs-docs/src/jsdoc/jsdoc.js -c config.jsdoc.js",
+"build:docs": "node_modules/shs-docs/src/jsdoc/jsdoc.js -c jsdocs.config.js",
 ```
 
 ## Dependencies
@@ -18,7 +18,7 @@ SHS-Docs is powered, most importantly, by [JSDoc 3][jsdoc], and API documentatio
 Name|Description
 :---|:---
 [docdash][docdash]|Lodash inspired JSDoc 3 template/theme.
-[jsdoc][jsdoc]An API documentation generator for JavaScript.
+[jsdoc][jsdoc]|An API documentation generator for JavaScript.
 [jsdoc-vue-component][jsdoc-vue]|A simple plugin for JSDoc to parse `.vue` Single-File Components.
 [uikit][uikit]|A lightweight and modular front-end framework for developing fast and powerful web interfaces.
 
