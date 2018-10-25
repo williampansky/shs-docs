@@ -42,7 +42,7 @@
         {
             "label": "[build:jsdoc] Builds base documentation files.",
             "type": "npm",
-            "script": "build:jsdoc2",
+            "script": "build:jsdoc3",
             "problemMatcher": [],
             "presentation": {
                 "reveal": "never"

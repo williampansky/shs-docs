@@ -240,3 +240,7 @@
   line-height: 20px;
 }
 
+.intro .jsdoc-item .code-toolbar {
+  margin: 0 0 -20px;
+  & a { border: 0; }
+}

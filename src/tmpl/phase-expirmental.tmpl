@@ -1,0 +1,83 @@
+<?js
+    var data = obj;
+    var self = this;
+    var defaultObjectClass = '';
+
+    // Check if the default value is an object or array; if so, apply code highlighting
+    if (data.defaultvalue && (data.defaultvaluetype === 'object' || data.defaultvaluetype === 'array')) {
+        try {
+            var indentedValues = JSON.stringify(JSON.parse(data.defaultvalue), null, '  ');
+            data.defaultvalue = indentedValues;
+        } catch (e) {}
+        data.defaultvalue = "<pre class=\"prism\"><code>" + data.defaultvalue + "</code></pre>";
+        defaultObjectClass = ' class="object-value"';
+    }
+?>
+
+
+<div class="phase-progress uk-grid-small uk-child-width-1-5 uk-margin-large" uk-grid>
+    <div class="phase">
+        <span
+        class="uk-icon-button uk-disabled complete"
+        uk-icon="icon: check"></span>
+        <span class="milestone">Phase 1</span>
+        <span class="uk-text-meta">Ideation</span>
+    </div>
+    <div class="phase">
+        <span
+        class="uk-icon-button uk-disabled complete"
+        uk-icon="icon: check"></span>
+        <span class="milestone">Phase 2</span>
+        <span class="uk-text-meta">Prototype</span>
+    </div>
+    <div class="phase">
+        <span
+        class="uk-icon-button uk-disabled complete"
+        uk-icon="icon: check"></span>
+        <span class="milestone">Phase 3</span>
+        <span class="uk-text-meta">Integration</span>
+    </div>
+    <div class="phase">
+        <span
+        class="uk-icon-button uk-disabled complete"
+        uk-icon="icon: check"></span>
+        <span class="milestone">Phase 4</span>
+        <span class="uk-text-meta">Peer Review</span>
+    </div>
+    <div class="phase">
+        <span
+        class="uk-icon-button uk-disabled"
+        uk-icon="icon: close"></span>
+        <span class="milestone">Phase 5</span>
+        <span class="uk-text-meta">MVP</span>
+    </div>
+</div>
+
+<style>
+    .phase {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    .phase .uk-icon-button {
+        border: 1px solid #999;
+        background-color: transparent;
+        margin-bottom: 6px;
+    }
+
+    .phase .uk-icon-button.complete {
+        color: #fff;
+        border-color: #32d296;
+        background-color: #32d296;
+    }
+
+    .phase .milestone {
+        display: block;
+        line-height: 1.1;
+    }
+
+    .phase .uk-text-meta {
+        white-space: nowrap;
+    }
+</style>

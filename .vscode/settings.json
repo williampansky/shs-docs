@@ -10,5 +10,7 @@
         "**/*.css": true,
         "**/*.css.map": true,
         "**/*.svn": true,
+        "example/": true,
+        "jsdoc/templates/": true
     }
 }

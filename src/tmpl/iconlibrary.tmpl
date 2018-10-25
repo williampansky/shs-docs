@@ -1,0 +1,29 @@
+<?js
+    var self = this;
+    var isGlobalPage;
+
+    var icons = {};
+    var showLibrary         = env.conf.docdash.icons.showLibrary;
+    var iconDirectory       = env.conf.docdash.icons.directory;
+    var iconFiletype        = env.conf.docdash.icons.filetype;
+?>
+
+<section class="tutorial">
+
+    <div class="icon-library">
+        <header>
+            <h1 class="uk-article-title">Icon Library</h1>
+        </header>
+
+        <div uk-grid class="uk-grid uk-grid-small">
+            <img class="icon" src="<?js= iconDirectory ?><?js= iconFiletype ?>" />
+        </div>
+    </div>
+</section>
+
+
+<style>
+.icon-library .icon {
+    width: 20px;
+}
+</style>

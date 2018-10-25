@@ -11,7 +11,7 @@
  * @module AppButton
  * @exports components/src/AppButton.vue
  * 
- * @author William Pansky
+ * @author William Pansky <william.pansky@sabre.com>
  * @version 0.6.1
  * @phase 1.0
  * 
@@ -23,9 +23,6 @@
  * @bug bug 2
  * 
  * @description
-  * ```command-line
- * npm i -D shs-docs
- * ```
  * ```jsx
  * <AppIcon 
  * v-on:click="event"
@@ -33,12 +30,13 @@
  * ```
  */
 
- /**
+/**
  * @member mounted
  */
 function mounted() {}
 
- /**
+/**
+ * @summary Occurs at onload.
  * @method created
  * @desc Occurs at onload.
  * ```jsx

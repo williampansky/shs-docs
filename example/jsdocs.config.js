@@ -68,6 +68,81 @@ module.exports = {
         project_title: 'SHS Docs',
         settings_background: '',
         debug: true,
+        showStyleguide: true,
+        styleguide: {
+            colors: {
+                primary: [
+                    { name: '$color-primary',               hex: '#D7AE45' },
+                    { name: '$color-primary-hover',         hex: '#EEC33F' },
+                ],
+                secondary: [
+                    { name: '$color-secondary',             hex: '#D0021B' },
+                    { name: '$color-secondary-hover',       hex: '#f90926' },
+                    { name: '$color-secondary-alt',         hex: '#C72113' },
+                    { name: '$color-secondary-alt-hover',   hex: '#FC3C2C' },
+                ],
+                neutral: {
+                    black: [
+                        { name: '$color-black',             hex: '#000' },
+                        { name: '$color-black-lighten',     hex: '#1C1C1C' },
+                        { name: '$color-black-alt',         hex: '#333333' },
+                    ],
+                    white: [
+                        { name: '$color-white',             hex: '#fff' },
+                        { name: '$color-white-alt',         hex: '#F6F6F6' },
+                    ],
+                    gray: [
+                        { name: '$color-gray-lighten-40',   hex: '#EBEBEB' },
+                        { name: '$color-gray-lighten-20',   hex: '#DFDFDF' },
+                        { name: '$color-gray',              hex: '#979797' },
+                        { name: '$color-gray-darken-20',    hex: '#707070' },
+                        { name: '$color-gray-darken-40',    hex: '#4A4A4A' },
+                    ],
+                },
+                supplementary: [
+                    { name: '$color-spa',                   hex: '#4F89CD' },
+                    { name: '$color-spa-alt',               hex: '#346CAE' },
+
+                    { name: '$color-dining',                hex: '#0C9E70' },
+                    { name: '$color-dining-alt',            hex: '#087955' },
+
+                    { name: '$color-enhancement',           hex: '#847A71' },
+                    { name: '$color-enhancement-alt',       hex: '#5D564E' },
+
+                    { name: '$color-event',                 hex: '#61506E' },
+                    { name: '$color-event-alt',             hex: '#4A3858' },
+                ],
+                event: [
+                    { name: '$color-active',                hex: '#4F89CD' },
+                    { name: '$color-alert',                 hex: '#FAA05A' },
+                    { name: '$color-error',                 hex: '#D0021B' },
+                    { name: '$color-success',               hex: '#0C9E70' },
+                ]
+            },
+            fonts: {
+                cdn: 'https://fast.fonts.net/cssapi/eafcd160-f807-4cd7-bed7-811ca79de237.css',
+                rootSize:           '12px',
+                rootLineHeight:     '1.675',
+                rootLetterSpacing:  '0.25px',
+                families: [
+                    { 
+                        var: '$font-primary',
+                        name: 'Trade Gothic Roman',
+                        family: 'Trade Gothic LT W01 Roman, sans-serif'
+                    },
+                    { 
+                        var: '$font-condensed',
+                        name: 'Trade Gothic Condensed',
+                        family: 'Trade Gothic LT W01 Cn No-_18, sans-serif;'
+                    },
+                    { 
+                        var: '$font-bold-condensed',
+                        name: 'Trade Gothic Bold Condensed',
+                        family: 'Trade Gothic LT W01 Bd CnNo-20, sans-serif;'
+                    },
+                ]
+            }
+        },
         links: {
             repo: {
                 type: 'git',
@@ -105,6 +180,11 @@ module.exports = {
         collapse: true,
         typedefs: true,
         removeQuotes: 'none',
-        scripts: []
+        scripts: [],
+        icons: {
+            showLibrary: false, // WIP
+            directory:  'example/icons',
+            filetype:   'svg'
+        }
     }
 }

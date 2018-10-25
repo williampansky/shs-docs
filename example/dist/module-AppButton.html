@@ -105,17 +105,44 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
                 
                     <h1 class="uk-article-title">
                         AppButton
+
+                        
+                            <span class="uk-text-meta">
+                                v0.6.1
+                            </span>
+                        
+
+                        
+
+
+    <!-- <div class="container"> -->
+        
+        <span class="uk-text-meta" style="margin: 0 0 0 6px;">/</span>
+        <span
+        id="componentPhase"
+        class="tag-phase uk-text-meta"
+        uk-tooltip="title: Components at Phase 1 are currently just rough ideas.">Phase 1</span>
+    <!-- </div> -->
+
                     </h1>
+
                     
 
 
-    <h6
+    <p
     id="componentSource"
-    class="uk-article-exports uk-margin-remove-top">
+    class="
+        uk-article-exports
+        uk-text-small
+        uk-margin-remove-top
+        uk-margin-small-bottom
+    ">
         
-            components/src/AppButton.vue
+            <a href="js/AppButton.vue" data-is="data.alias">
+                <a href="js_AppButton.vue.html">components/src/AppButton.vue</a>
+            </a>
         
-    </h6>
+    </p>
 
 
                     
@@ -142,14 +169,14 @@ style="margin:1rem;">Debug</a>
         uk-overflow-auto>
             <section class="source-code">
                 <pre class="prettyprint language-json"><code>{
-  "comment": "/**\n * @todo continue research into necessity of i elem and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * @bug bug 2\n * \n * @description\n  * ```command-line\n * npm i -D shs-docs\n * ```\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
+  "comment": "/**\n * @todo continue research into necessity of i elem and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky <william.pansky@sabre.com>\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * @bug bug 2\n * \n * @description\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
   "meta": {
     "filename": "AppButton.vue",
     "lineno": 2,
     "columnno": 0,
     "path": "/Users/sg0301235/www/shs-docs/example/js",
     "code": {},
-    "shortpath": "AppButton.vue"
+    "shortpath": "js/AppButton.vue"
   },
   "todo": [
     "continue research into necessity of i elem and if it can be removed",
@@ -160,7 +187,7 @@ style="margin:1rem;">Debug</a>
   "name": "AppButton",
   "alias": "components/src/AppButton.vue",
   "author": [
-    "William Pansky"
+    "William Pansky <william.pansky@sabre.com>"
   ],
   "version": "0.6.1",
   "phase": "1.0",
@@ -200,7 +227,7 @@ style="margin:1rem;">Debug</a>
     "Currently, shorthand Vue's `v-on` directives break code block rendering.",
     "bug 2"
   ],
-  "description": "<pre class=\"prettyprint source lang-command-line\"><code>npm i -D shs-docs</code></pre><pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
+  "description": "<pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
   "longname": "module:AppButton",
   "___id": "T000004R000002",
   "___s": true,
@@ -209,14 +236,14 @@ style="margin:1rem;">Debug</a>
   "ancestors": [],
   "modules": [
     {
-      "comment": "/**\n * @todo continue research into necessity of i elem and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * @bug bug 2\n * \n * @description\n  * ```command-line\n * npm i -D shs-docs\n * ```\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
+      "comment": "/**\n * @todo continue research into necessity of i elem and if it can be removed\n * @todo add support for the rest of the color schemes (black-lighten, gray-darken)\n *\n * @summary Render an SVG icon from the img/icons directory.\n * \n * @module AppButton\n * @exports components/src/AppButton.vue\n * \n * @author William Pansky <william.pansky@sabre.com>\n * @version 0.6.1\n * @phase 1.0\n * \n * @prop {String} icon='' - The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.\n * @prop {String} color=black - The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.\n * @prop {Boolean} form=false - Used to determine if this icon is part of a form input element.\n * \n * @bug Currently, shorthand Vue's `v-on` directives break code block rendering.\n * @bug bug 2\n * \n * @description\n * ```jsx\n * <AppIcon \n * v-on:click=\"event\"\n * icon=\"close\" />\n * ```\n */",
       "meta": {
         "filename": "AppButton.vue",
         "lineno": 2,
         "columnno": 0,
         "path": "/Users/sg0301235/www/shs-docs/example/js",
         "code": {},
-        "shortpath": "AppButton.vue"
+        "shortpath": "js/AppButton.vue"
       },
       "todo": [
         "continue research into necessity of i elem and if it can be removed",
@@ -227,7 +254,7 @@ style="margin:1rem;">Debug</a>
       "name": "AppButton",
       "alias": "components/src/AppButton.vue",
       "author": [
-        "William Pansky"
+        "William Pansky <william.pansky@sabre.com>"
       ],
       "version": "0.6.1",
       "phase": "1.0",
@@ -267,9 +294,9 @@ style="margin:1rem;">Debug</a>
         "Currently, shorthand Vue's `v-on` directives break code block rendering.",
         "bug 2"
       ],
-      "description": "<pre class=\"prettyprint source lang-command-line\"><code>npm i -D shs-docs</code></pre><pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
+      "description": "<pre class=\"prettyprint source lang-jsx\"><code>&lt;AppIcon \nv-on:click=&quot;event&quot;\nicon=&quot;close&quot; /></code></pre>",
       "longname": "module:AppButton",
-      "___id": "T000002R000002",
+      "___id": "T000002R000050",
       "___s": true,
       "attribs": "",
       "id": "AppButton",
@@ -291,7 +318,23 @@ style="margin:1rem;">Debug</a>
 </style>
 
                     
+
+                    
+                        <blockquote class="uk-margin-medium-bottom">
+                            <p>Render an SVG icon from the img/icons directory.</p>
+
+                            
+                                
+                                    <footer class="uk-margin-remove">
+                                        <cite><a href="mailto:william.pansky@sabre.com">William Pansky</a></cite>
+                                    </footer>
+                                
+                            
+                        </blockquote>
+                    
                 
+
+
                 
 
                 
@@ -300,335 +343,6 @@ style="margin:1rem;">Debug</a>
                     
                 
             </header>
-
-
-            <!-- ====================================================
-            * @name details
-            * @desc Renders details.tmpl to the top of the content page.
-            ==================================================== -->
-            
-
-<dl class="jsdoc-item-details">
-    
-        <div class="container">
-            <dt class="tag-summary uk-text-meta">Summary:</dt>
-            <dd class="tag-summary"><p>Render an SVG icon from the img/icons directory.</p></dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-source uk-text-meta">Source:</dt>
-            <dd class="tag-source">
-                <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line2">line 2</a>
-            </dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="container">
-            <dt class="tag-version uk-text-meta">Version:</dt>
-            <dd
-            id="componentVersion"
-            class="tag-version">
-                0.6.1
-            </dd>
-        </div>
-    
-
-    
-        <div class="container">
-            <dt class="tag-phase uk-text-meta">Phase:</dt>
-            
-            <dd id="componentPhase" class="tag-phase" uk-tooltip="title: Components at Phase 1 are currently just rough ideas.">
-                Phase 1 » Ideation & Initiation
-            </dd>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--  -->
-
-    
-        
-            <div class="container">
-                <dt class="tag-author uk-text-meta">Author:</dt>
-                <dd class="tag-author">William Pansky</dd>
-            </div>
-        
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-<!-- TUTORIALS -->
-
-
-
-<!-- TODO ITEMS -->
-
-    <div class="jsdoc-item-todo uk-margin">
-        <ul class="uk-list">
-            
-                <li>
-                    <span class="uk-label uk-label-warning">@todo</span>
-                    <span class="tag-todo uk-text-small">continue research into necessity of i elem and if it can be removed</span>
-                </li>
-            
-                <li>
-                    <span class="uk-label uk-label-warning">@todo</span>
-                    <span class="tag-todo uk-text-small">add support for the rest of the color schemes (black-lighten, gray-darken)</span>
-                </li>
-            
-        </ul>
-    </div>
-
-
-
-<!-- BUGS -->
-
-    <div class="jsdoc-item-bug uk-margin">
-        <ul class="uk-list">
-            
-                <li>
-                    <span class="uk-label uk-label-danger">@bug</span>
-                    <span class="tag-bug uk-text-small">Currently, shorthand Vue's `v-on` directives break code block rendering.</span>
-                </li>
-            
-                <li>
-                    <span class="uk-label uk-label-danger">@bug</span>
-                    <span class="tag-bug uk-text-small">bug 2</span>
-                </li>
-            
-        </ul>
-    </div>
-
-
-
-<!-- PROPS -->
-
-    <div class="jsdoc-item">
-        
-
-<fieldset class="js-docitem-props uk-overflow-auto">
-    <legend class="subsection-title uk-text-meta uk-text-uppercase">Properties</legend>
-    <table class="props uk-table uk-table-small uk-table-striped uk-table-hover uk-table-middle uk-table-responsive uk-margin-remove uk-text-small">
-        <thead>
-            <tr>
-                
-                    <th>Name</th>
-                
-
-                <th>Type</th>
-
-                
-
-                
-                    <th>Default</th>
-                
-
-                <th class="last">Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            
-                <tr>
-                    
-                        <td class="name"><code>icon</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">String</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>''</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p></td>
-                </tr>
-
-            
-                <tr>
-                    
-                        <td class="name"><code>color</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">String</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>black</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p></td>
-                </tr>
-
-            
-                <tr>
-                    
-                        <td class="name"><code>form</code></td>
-                    
-
-                    <td class="type">
-                        
-                            
-    <span class="param-type">Boolean</span>
-    
-
-                        
-                    </td>
-
-                    
-
-                    
-                        <td class="default">
-                            
-                                <code>false</code>
-                            
-                        </td>
-                    
-
-                    <td class="description last"><p>Used to determine if this icon is part of a form input element.</p></td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</fieldset>
-    </div>
-
-
-
-
-            <!-- ====================================================
-            * @name phase-staging
-            * @desc Renders phase.tmpl.
-            ==================================================== -->
-            <!-- 
-
-<div class="phase-progress uk-grid-small uk-child-width-1-5 uk-margin-large" uk-grid>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 1</span>
-        <span class="uk-text-meta">Ideation</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 2</span>
-        <span class="uk-text-meta">Prototype</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 3</span>
-        <span class="uk-text-meta">Integration</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 4</span>
-        <span class="uk-text-meta">Peer Review</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled"
-        uk-icon="icon: close"></span>
-        <span class="milestone">Phase 5</span>
-        <span class="uk-text-meta">MVP</span>
-    </div>
-</div>
-
-<style>
-    .phase {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-    }
-
-    .phase .uk-icon-button {
-        border: 1px solid #999;
-        background-color: transparent;
-        margin-bottom: 6px;
-    }
-
-    .phase .uk-icon-button.complete {
-        color: #fff;
-        border-color: #32d296;
-        background-color: #32d296;
-    }
-
-    .phase .milestone {
-        display: block;
-        line-height: 1.1;
-    }
-
-    .phase .uk-text-meta {
-        white-space: nowrap;
-    }
-</style>
- -->
 
             
             <!-- ====================================================
@@ -642,7 +356,7 @@ style="margin:1rem;">Debug</a>
                     <div
                     class="description uk-margin uk-animation-fade"
                     data-line="52">
-                        <pre class="prettyprint source lang-command-line"><code>npm i -D shs-docs</code></pre><pre class="prettyprint source lang-jsx"><code>&lt;AppIcon 
+                        <pre class="prettyprint source lang-jsx"><code>&lt;AppIcon 
 v-on:click=&quot;event&quot;
 icon=&quot;close&quot; /></code></pre>
                     </div>
@@ -713,8 +427,8 @@ icon=&quot;close&quot; /></code></pre>
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
-                <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line33">line 33</a>
+                <a href="js_AppButton.vue.html">js/AppButton.vue</a>, 
+                <a href="js_AppButton.vue.html#line30">line 30</a>
             </dd>
         </div>
     
@@ -824,13 +538,18 @@ uk-box-shadow-hover-xlarge
 
 <dl class="jsdoc-item-details">
     
+        <div class="container">
+            <dt class="tag-summary uk-text-meta">Summary:</dt>
+            <dd class="tag-summary"><p>Occurs at onload.</p></dd>
+        </div>
+    
 
     
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
-                <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line38">line 38</a>
+                <a href="js_AppButton.vue.html">js/AppButton.vue</a>, 
+                <a href="js_AppButton.vue.html#line35">line 35</a>
             </dd>
         </div>
     
@@ -958,8 +677,8 @@ uk-box-shadow-hover-xlarge
         <div class="container">
             <dt class="tag-source uk-text-meta">Source:</dt>
             <dd class="tag-source">
-                <a href="AppButton.vue.html">AppButton.vue</a>, 
-                <a href="AppButton.vue.html#line48">line 48</a>
+                <a href="js_AppButton.vue.html">js/AppButton.vue</a>, 
+                <a href="js_AppButton.vue.html#line46">line 46</a>
             </dd>
         </div>
     
@@ -1173,6 +892,7 @@ uk-offcanvas="mode:slide; overlay:true;">
                     placeholder="Search" />
                 </form>
             
+
             <h3 class="uk-nav-header">Links</h3><ul><li><a href="index.html">Readme</a></li>
                     <li>
                         <a
@@ -1197,7 +917,15 @@ uk-offcanvas="mode:slide; overlay:true;">
                             Slack | SHS Docs
                         </a>
                     </li>
-                </ul><h3 class="uk-nav-header">Tutorials</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="tutorial-Getting Started.html">Getting Started</a></li><li><a href="tutorial-Localhost Setup.html">Localhost Setup</a></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppButton.html">AppButton</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppButton.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppButton.html#~render">render</a></li></ul></li><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
+                
+                    <li>
+                        <a href="styleguide.html">Styleguide</a>
+                    </li>
+                
+                    <li>
+                        <a href="iconlibrary.html">Icon Library</a>
+                    </li>
+                </ul><h3 class="uk-nav-header">Tutorials</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="tutorial-Getting Started.html">Getting Started</a></li><li><a href="tutorial-Localhost Setup.html">Localhost Setup</a></li></ul><h3 class="uk-nav-header">Classes</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="Auth.html">Auth</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="Auth.html#clearSession">clearSession</a></li><li data-type="method" style="display: none;"><a href="Auth.html#getLock">getLock</a></li><li data-type="method" style="display: none;"><a href="Auth.html#isAuthenticated">isAuthenticated</a></li><li data-type="method" style="display: none;"><a href="Auth.html#refreshLockToken">refreshLockToken</a></li><li data-type="method" style="display: none;"><a href="Auth.html#setSession">setSession</a></li></ul></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppButton.html">AppButton</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppButton.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppButton.html#~render">render</a></li></ul></li><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
         </nav>
     </div>
 </aside>

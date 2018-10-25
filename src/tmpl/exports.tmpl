@@ -4,13 +4,22 @@
 ?>
 
 <?js if (data.meta && self.outputSourceFiles) { ?>
-    <h6
+    <p
     id="componentSource"
-    class="uk-article-exports uk-margin-remove-top">
+    class="
+        uk-article-exports
+        uk-text-small
+        uk-margin-remove-top
+        uk-margin-small-bottom
+    ">
         <?js if (data.alias) { ?>
-            <?js= data.alias ?>
+            <a href="<?js= meta.shortpath ?>" data-is="data.alias">
+                <?js= self.linkto(meta.shortpath, data.alias) ?>
+            </a>
         <?js } else { ?>
-            <?js= meta.path ?>
+            <a href="<?js= meta.shortpath ?>" data-is="meta.path">
+                <?js= self.linkto(meta.shortpath, meta.path) ?>
+            </a>
         <?js } ?>
-    </h6>
+    </p>
 <?js } ?>

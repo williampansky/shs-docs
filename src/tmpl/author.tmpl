@@ -1,0 +1,13 @@
+<?js
+    var data = obj;
+    var self = this;
+?>
+
+<?js if (data.author && author.length) { ?>
+    <?js author.forEach(function(a) { ?>
+        <div class="container">
+            <dt class="tag-author uk-text-meta">Author:</dt>
+            <dd class="tag-author"><?js= self.resolveAuthorLinks(a) ?></dd>
+        </div>
+    <?js }); ?>
+<?js } ?>

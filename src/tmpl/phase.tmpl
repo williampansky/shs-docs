@@ -14,69 +14,161 @@
     }
 ?>
 
-<div class="phase-progress uk-grid-small uk-child-width-1-5 uk-margin-large" uk-grid>
-    <div class="phase">
+<?js if (data.phase) { ?>
+    <!-- <div class="container"> -->
+        <?js 
+        /**
+         * @summary Converts a number to the appropriate phase string.
+         * @function convertNumbertoComponentPhase
+         * @param {Number} number Number to convert to phase string.
+         */
+        var result;
+        switch (phase) {
+            case '1':
+                result = {
+                    text:    'Phase 1',
+                    textDesc:'Phase 1 » Ideation & Initiation',
+                    tooltip: 'Components at Phase 1 are currently just rough ideas.'
+                };
+                break;
+            case '1.0':
+                result = {
+                    text:    'Phase 1',
+                    textDesc:'Phase 1 » Ideation & Initiation',
+                    tooltip: 'Components at Phase 1 are currently just rough ideas.'
+                };
+                break;
+            case '1.1':
+                result = {
+                    text:    'Phase 1.1',
+                    textDesc:'Phase 1.1 » Conception',
+                    tooltip: 'Component is recognized in the form of a shared note, or message, in a central repository (spreadsheet, Rally, etc).'
+                };
+                break;
+            case '1.2':
+                result = {
+                    text:    'Phase 1.2',
+                    textDesc:'Phase 1.2 » Definition',
+                    tooltip: 'Definition requires a component outline. Must include basic desired functionality, & a visual representation.'
+                };
+                break;
+            case '1.3':
+                result = {
+                    text:    'Phase 1.3',
+                    textDesc:'Phase 1.3 » Requirements',
+                    tooltip: 'Components must be completely outlined—a detailed & complex elaboration of Phase 1.2 definitions.'
+                };
+                break;
+            case '2':
+                result = {
+                    text:    'Phase 2',
+                    textDesc:'Phase 2 » Alpha | Prototype',
+                    tooltip: 'Alpha staged phase components have graduated past initial plans and are ready to start development.'
+                };
+                break;
+            case '2.0':
+                result = {
+                    text:    'Phase 2',
+                    textDesc:'Phase 2 » Alpha | Prototype',
+                    tooltip: 'Alpha staged phase components have graduated past initial plans and are ready to start development.'
+                };
+                break;
+            case '2.1':
+                result = {
+                    text:    'Phase 2.1',
+                    textDesc:'Phase 2.1 » Sekelton',
+                    tooltip: 'Component file created, contains basic HTML, JavaScript, & scoped Sass tags.'
+                };
+                break;
+            case '2.2':
+                result = {
+                    text:    'Phase 2.2',
+                    textDesc:'Phase 2.2 » Linted',
+                    tooltip: 'Phase 2.2 requires components to pass both ESLint & Stylelint rules.'
+                };
+                break;
+            case '2.3':
+                result = {
+                    text:    'Phase 2.3 »',
+                    textDesc:'Phase 2.3 » Unit Testing',
+                    tooltip: 'Component is enforced with a basic unit test, accompanied with mock-desired data.'
+                };
+                break;
+            case '3':
+                result = {
+                    text:    'Phase 3',
+                    textDesc:'Phase 3 » Beta | Integration',
+                    tooltip: 'Beta components are ready for the next step of advanced development.'
+                };
+                break;
+            case '3.0':
+                result = {
+                    text:    'Phase 3',
+                    textDesc:'Phase 3 » Beta | Integration',
+                    tooltip: 'Beta components are ready for the next step of advanced development.'
+                };
+                break;
+            case '3.1':
+                result = {
+                    text:    'Phase 3.1 » ',
+                    textDesc:'Phase 3.1 » Code Evolution',
+                    tooltip: 'Semantic template HTML, complex JavaScript functionality, advanced (per-comp spec) CSS styles.'
+                };
+                break;
+            case '3.2':
+                result = {
+                    text:    'Phase 3.2',
+                    textDesc:'Phase 3.2 » App Integration',
+                    tooltip: 'Component is merged and fully integrated into the application at-large.'
+                };
+                break;
+            case '3.3':
+                result = {
+                    text:    'Phase 3.3',
+                    textDesc:'Phase 3.3 » Advanced Testing',
+                    tooltip: 'Verify the communication paths and interactions between components to detect interface defects.'
+                };
+                break;
+            case '4':
+                result = {
+                    text:    'Phase 4',
+                    textDesc:'Phase 4 » Peer Review',
+                    tooltip: 'Phase 4 components have gone through, or are currently under-going, peer review & refactoring.'
+                };
+                break;
+            case '4.0':
+                result = {
+                    text:    'Phase 4',
+                    textDesc:'Phase 4 » Peer Review',
+                    tooltip: 'Phase 4 components have gone through, or are currently under-going, peer review & refactoring.'
+                };
+                break;
+            case '5':
+                result = {
+                    text:    'Phase 5',
+                    textDesc:'Phase 5 » MVP Release',
+                    tooltip: 'Phase 5 components have individually reached 1.0.0 SemVer & are ready for minimal-viable-product release status.'
+                };
+                break;
+            case '5.0':
+                result = {
+                    text:    'Phase 5',
+                    textDesc:'Phase 5 » MVP Release',
+                    tooltip: 'Phase 5 components have individually reached 1.0.0 SemVer & are ready for minimal-viable-product release status.'
+                };
+                break;
+            default:
+                result = {
+                    text:    phase,
+                    textDesc:phase,
+                    tooltip: 'Phase value not currently documented.'
+                };
+                break;
+        } ?>
+        <span class="uk-text-meta" style="margin: 0 0 0 6px;">/</span>
         <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 1</span>
-        <span class="uk-text-meta">Ideation</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 2</span>
-        <span class="uk-text-meta">Prototype</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 3</span>
-        <span class="uk-text-meta">Integration</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled complete"
-        uk-icon="icon: check"></span>
-        <span class="milestone">Phase 4</span>
-        <span class="uk-text-meta">Peer Review</span>
-    </div>
-    <div class="phase">
-        <span
-        class="uk-icon-button uk-disabled"
-        uk-icon="icon: close"></span>
-        <span class="milestone">Phase 5</span>
-        <span class="uk-text-meta">MVP</span>
-    </div>
-</div>
-
-<style>
-    .phase {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-    }
-
-    .phase .uk-icon-button {
-        border: 1px solid #999;
-        background-color: transparent;
-        margin-bottom: 6px;
-    }
-
-    .phase .uk-icon-button.complete {
-        color: #fff;
-        border-color: #32d296;
-        background-color: #32d296;
-    }
-
-    .phase .milestone {
-        display: block;
-        line-height: 1.1;
-    }
-
-    .phase .uk-text-meta {
-        white-space: nowrap;
-    }
-</style>
+        id="componentPhase"
+        class="tag-phase uk-text-meta"
+        uk-tooltip="title: <?js= result.tooltip ?>"><?js= result.text ?></span>
+    <!-- </div> -->
+<?js } ?>

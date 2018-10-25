@@ -102,7 +102,7 @@ ul.uk-nav-sub {
 
 
 
-#tutorialNav a {
+#asideInnerNav a {
   border-left: 2px solid transparent;
   color: #999;
   line-height: 1.1;
@@ -114,13 +114,13 @@ ul.uk-nav-sub {
   }
 }
 
-#tutorialNav li.uk-active > a {
+#asideInnerNav li.uk-active > a {
   border-color: var(--color-primary);
   color: var(--color-primary);
   padding: 10px;
 }
 
-#tutorialNav_helpers a {
+#asideInnerNav_helpers a {
   border-left: 2px solid transparent;
   display: flex;
   flex-flow: row nowrap;

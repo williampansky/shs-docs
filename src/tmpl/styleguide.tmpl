@@ -1,0 +1,374 @@
+<?js
+    var self = this;
+    var isGlobalPage;
+
+    var colors              = env.conf.docdash.styleguide.colors;
+    var colorsPrimary       = env.conf.docdash.styleguide.colors.primary;
+    var colorsSecondary     = env.conf.docdash.styleguide.colors.secondary;
+    var colorsBlack         = env.conf.docdash.styleguide.colors.neutral.black;
+    var colorsWhite         = env.conf.docdash.styleguide.colors.neutral.white;
+    var colorsGray          = env.conf.docdash.styleguide.colors.neutral.gray;
+    var colorsSupplementary = env.conf.docdash.styleguide.colors.supplementary;
+    var colorsEvent         = env.conf.docdash.styleguide.colors.event;
+    var colorsInnerGridMin  = 'uk-child-width-1-2';
+    var colorsInnerGridMax  = 'uk-child-width-1-4';
+
+    var fonts               = env.conf.docdash.styleguide.fonts;
+    var fontCDN             = env.conf.docdash.styleguide.fonts.cdn;
+    var fontFamilies        = env.conf.docdash.styleguide.fonts.families;
+    var fontSize            = env.conf.docdash.styleguide.fonts.rootSize;
+    var fontLineHeight      = env.conf.docdash.styleguide.fonts.rootLineHeight;
+    var fontLetterSpacing   = env.conf.docdash.styleguide.fonts.rootLetterSpacing;
+
+    // Construct "Get help" slack link
+    if (env.conf.docdash.links.slack.project_id) {
+        var getHelpLink = 'https://shs-dx.slack.com/messages/' + env.conf.docdash.links.slack.project_id + '/';
+    }
+?>
+
+<?js if (fontCDN) { ?>
+    <link rel="stylesheet" href="<?js= fontCDN ?>">
+<?js } ?>
+
+<section class="tutorial">
+
+    <div class="tutorial-body">
+        <header>
+            <h1 class="uk-article-title">Styleguide</h1>
+        </header>
+
+        <?js if (fonts) { ?>
+            <div id="#typography" class="uk-margin-medium">
+                <h2>Typography</h2>
+                <?js if (fontFamilies) { ?>
+                    <div class="uk-margin uk-child-width-1-1">
+                        <span class="uk-text-meta">Font-families</span>
+                        <?js fontFamilies.forEach(function(font) { ?>
+                            <div class="font-stack">
+                                <div
+                                class="uk-width-expand"
+                                style="font-family:<?js= font.family ?>">
+                                    <p class="uk-text-lead"><?js= font.var ?></p>
+                                </div>
+                                <div><?js= font.name ?></div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+
+                    <hr />
+                <?js } ?>
+
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h1</span>
+                    <h1 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h1>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h2</span>
+                    <h2 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h2>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h3</span>
+                    <h3 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h3>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h4</span>
+                    <h4 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h4>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h5</span>
+                    <h5 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h5>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">h6</span>
+                    <h6 class="font-display"
+                        style="font-family:<?js= fontFamilies[0].family ?>">The quick brown fox jumps over the lazy dog</h6>
+                </div>
+                <div class="font-block uk-margin uk-child-width-1-1">
+                    <span class="uk-text-meta">p</span>
+                    <p class="uk-margin-remove-top" 
+                    style="
+                        font-family:<?js= fontFamilies[0].family ?>;
+                        font-size:<?js= fontSize ?>;
+                        line-height:<?js= fontLineHeight ?>;
+                        letter-spacing:<?js= fontLetterSpacing ?>;
+                    ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula eu quam ultricies mattis sit amet non dui. Nam venenatis quam sapien, sed faucibus orci vehicula non. Curabitur eu ornare velit. Vivamus eget erat fermentum, lacinia diam tincidunt, tempus dolor. Aliquam erat volutpat. Duis euismod, ex eget feugiat sollicitudin, velit metus cursus metus, et tempor sapien eros sit amet augue. Vivamus ut justo ut enim blandit malesuada ac a erat.</p>
+                    <p style="
+                        font-family:<?js= fontFamilies[0].family ?>;
+                        font-size:<?js= fontSize ?>;
+                        line-height:<?js= fontLineHeight ?>;
+                        letter-spacing:<?js= fontLetterSpacing ?>;
+                    ">Aenean nec purus vulputate, feugiat ligula in, gravida diam. Suspendisse potenti. Praesent commodo enim leo, vitae suscipit ante commodo ac. Sed luctus mauris in posuere sagittis. Quisque vehicula blandit tincidunt. Mauris ullamcorper mi vitae risus varius auctor. Aenean pellentesque vehicula libero sed ornare. In ultricies est eu arcu vehicula, tristique faucibus odio pellentesque. Integer ultricies tristique lorem, vel venenatis lorem hendrerit et.</p>
+                </div>
+            </div>
+        <?js } ?>
+
+        <?js if (colors) { ?>
+            <div id="colors" class="uk-margin-medium">
+                <h2>Colors</h2>
+                <?js if (colorsPrimary) { ?>
+                    <h3 id="Primary">Primary</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsPrimary.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsSecondary) { ?>
+                    <h3 id="Secondary">Secondary</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsSecondary.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsBlack) { ?>
+                    <h3 id="Neutrals-|-Black">Neutrals | Black</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsBlack.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsWhite) { ?>
+                    <h3 id="Neutrals-|-White">Neutrals | White</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsWhite.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsGray) { ?>
+                    <h3 id="Neutrals-|-Gray">Neutrals | Gray</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsGray.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsSupplementary) { ?>
+                    <h3 id="Supplementary">Supplementary</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsSupplementary.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+
+
+                <?js if (colorsEvent) { ?>
+                    <h3 id="Event">Event</h3>
+                    <div uk-grid class="
+                        uk-grid uk-grid-small 
+                        <?js if (fonts) { ?> <?js= colorsInnerGridMin ?> <?js } else { ?> <?js= colorsInnerGridMax ?> <?js } ?>
+                    ">
+                        <?js colorsEvent.forEach(function(item) { ?>
+                            <div class="color-card">
+                                <p class="name"><?js= item.name ?></p>
+                                <div
+                                class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-box-shadow-hover-small"
+                                style="background:<?js= item.hex ?>">
+                                    <p class="hex"><?js= item.hex ?></p>
+                                </div>
+                            </div>
+                        <?js }); ?>
+                    </div>
+                <?js } ?>
+            </div>
+        <?js } ?>
+    </div>
+
+    <aside id="asideInnerNav" class="uk-visible@l">
+        <div
+        uk-sticky="offset: 90;"
+        class="uk-sticky uk-active uk-sticky-fixed">
+            <div
+            class="uk-animation-slide-right-medium"
+            style="animation-delay: 500ms;">
+                <div id="styleguideNav">
+                    <nav
+                    class="uk-nav uk-nav-default"
+                    uk-scrollspy-nav="closest:li; scroll:true; offset:100;">
+                        <?js if (fonts) { ?>
+                            <li>
+                                <a
+                                href="#typography"
+                                class="uk-text-truncate uk-animation-fade uk-nav-header">
+                                    Typography
+                                </a>
+                            </li>
+                        <?js } ?>
+                        <?js if (colors) { ?>
+                            <li>
+                                <a
+                                href="#colors"
+                                class="uk-text-truncate uk-animation-fade uk-nav-header">
+                                    Colors
+                                </a>
+
+                                <?js if (colorsPrimary || colorsSecondary || colorsBlack || colorsWhite || colorsGray || colorsSupplementary) { ?>
+                                    <ul class="uk-nav-sub">
+                                        <?js if (colorsPrimary) { ?>
+                                            <li><a href="#Primary">Primary</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsSecondary) { ?>
+                                            <li><a href="#Secondary">Secondary</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsBlack) { ?>
+                                            <li><a href="#Neutrals-|-Black">Neutrals | Black</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsWhite) { ?>
+                                            <li><a href="#Neutrals-|-White">Neutrals | White</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsGray) { ?>
+                                            <li><a href="#Neutrals-|-Gray">Neutrals | Gray</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsSupplementary) { ?>
+                                            <li><a href="#Supplementary">Supplementary</a></li>
+                                        <?js } ?>
+                                        <?js if (colorsEvent) { ?>
+                                            <li><a href="#Event">Event</a></li>
+                                        <?js } ?>
+                                    </ul>
+                                <?js } ?>
+
+                            </li>
+                        <?js } ?>
+                    </nav>
+                </div>
+                <?js if (env.conf.docdash.links.slack.project_id) { ?>
+                    <hr />
+                    <div id="tutorialNav_helpers">
+                        <ul class="uk-nav uk-nav-default">
+                            <?js if (env.conf.docdash.links.slack.project_id) { ?>
+                                <li>
+                                    <a
+                                    target="_blank"
+                                    href="<?js= getHelpLink ?>">
+                                        <span
+                                        class="uk-margin-small-right"
+                                        uk-icon="icon: commenting"></span>
+                                        <span class="uk-text-middle">Get help</span>
+                                    </a>
+                                </li>
+                            <?js } ?>
+                        </ul>
+                    </div>
+                <?js } ?>
+            </div>
+        </div>
+    </aside>
+</section>
+
+
+<style>
+.font-stack {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.font-block .font-display {
+    margin: 0 !important;
+}
+
+.color-card {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.color-card .name {
+    text-align: left;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+.color-card .hex {
+    background: #fff;
+    font-size: 0.75em;
+    line-height: 1;
+    text-align: right;
+    /* padding: 1em 0 1em 1em; */
+    padding: 1em;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+}
+</style>

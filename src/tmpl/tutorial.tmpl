@@ -20,7 +20,7 @@
         </footer>
     </div>
 
-    <aside class="uk-visible@l">
+    <aside id="asideInnerNav" class="uk-visible@l">
         <div
         uk-sticky="offset: 90;"
         class="uk-sticky uk-active uk-sticky-fixed">
@@ -40,7 +40,7 @@
                 <?js } ?>
                 <?js if (env.conf.docdash.links.slack.project_id) { ?>
                     <hr />
-                    <div id="tutorialNav_helpers">
+                    <div id="asideInnerNav_helpers">
                         <ul class="uk-nav uk-nav-default">
                             <?js if (env.conf.docdash.links.slack.project_id) { ?>
                                 <li>
