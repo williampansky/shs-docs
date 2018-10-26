@@ -181,10 +181,5 @@ module.exports = {
         typedefs: true,
         removeQuotes: 'none',
         scripts: [],
-        icons: {
-            showLibrary: false, // WIP
-            directory:  'example/icons',
-            filetype:   'svg'
-        }
     }
 }

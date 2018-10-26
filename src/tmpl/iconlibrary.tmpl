@@ -2,22 +2,22 @@
     var self = this;
     var isGlobalPage;
 
-    var icons = {};
+    var icons = content;
     var showLibrary         = env.conf.docdash.icons.showLibrary;
     var iconDirectory       = env.conf.docdash.icons.directory;
     var iconFiletype        = env.conf.docdash.icons.filetype;
 ?>
 
 <section class="tutorial">
-
     <div class="icon-library">
         <header>
             <h1 class="uk-article-title">Icon Library</h1>
         </header>
 
         <div uk-grid class="uk-grid uk-grid-small">
-            <img class="icon" src="<?js= iconDirectory ?><?js= iconFiletype ?>" />
+            <!-- <img class="icon" src="<?js= iconDirectory ?><?js= iconFiletype ?>" /> -->
         </div>
+        <pre><code><?js= content ?></code></pre>
     </div>
 </section>
 

@@ -478,19 +478,10 @@ function buildNav(members) {
             }
 
             // conf.showStyleguide
-            if (docdash.showStyleguide === true) {
+            if (docdash.showStyleguide && docdash.showStyleguide === true) {
                 nav += `
                     <li>
                         <a href="styleguide.html">Styleguide</a>
-                    </li>
-                `;
-            }
-
-            // conf.icons.showLibrary
-            if (docdash.icons.showLibrary === true) {
-                nav += `
-                    <li>
-                        <a href="iconlibrary.html">Icon Library</a>
                     </li>
                 `;
             }
@@ -876,31 +867,6 @@ exports.publish = function(taffyData, opts, tutorials) {
         fs.writeFileSync(styleguidePath, html, 'utf8');
     }
 
-    function generateIconLibrary(title) {
-        var iconLibraryData = {
-            title: title,
-            header: title,
-            content: null,
-            children: null
-        };
-
-        var iconLibraryPath = path.join(outdir, 'iconlibrary.html');
-        var html = view.render('iconlibrary.tmpl', iconLibraryData);
-
-        // yes, you can use {@link} in tutorials too!
-        html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
-        fs.writeFileSync(iconLibraryPath, html, 'utf8');
-    }
-
-    function generateIconLibraryDataObject() {
-        fs.readdir(env.conf.docdash.icons.directory, (err, files) => {
-            files.forEach(file => {
-                if (err) console.log(err);
-                else console.log(file);
-            });
-        });
-    }
-
     // tutorials can have only one parent so there is no risk for loops
     function saveChildren(node) {
         node.children.forEach(function(child) {
@@ -911,11 +877,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     saveChildren(tutorials);
 
-    if (env.conf.docdash.showStyleguide === true)
+    if (env.conf.docdash.showStyleguide && env.conf.docdash.showStyleguide === true) {
         generateStyleguide('Styleguide');
-    
-    if (env.conf.docdash.icons.showLibrary === true) {
-        generateIconLibraryDataObject();
-        generateIconLibrary('Icon Library');
     }
 };
