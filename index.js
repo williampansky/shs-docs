@@ -1,6 +1,6 @@
 import fs from 'fs';
 import _ from 'lodash';
-import prism from './src/static/js/prism.custom.js';
+import prism from './src/static/js/prism.custom-v2.js';
 import treeview from './src/static/js/prism-treeview.js';
 import {Settings} from './src/static/js/localSettings';
 // import {

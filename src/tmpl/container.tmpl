@@ -40,8 +40,53 @@
 
                     <?js= self.partial('exports.tmpl', doc) ?>
 
+                    <?js if (doc.deprecated) { ?>
+                        <div class="
+                            deprecated
+                            uk-background-danger
+                            uk-width-1-1
+                            uk-padding-small
+                            uk-margin
+                            uk-light
+                            uk-box-shadow-large
+                        ">
+                            <?js if (doc.deprecated === true) { ?>
+                                <span uk-icon="icon:warning; ratio:1.1;"></span>
+                                <span class="is-tag">Deprecated</span>
+                            <?js } else { ?>
+                                <span uk-icon="icon:warning; ratio:1.1;"></span>
+                                <span class="is-tag">Deprecated</span>
+                                <div><?js= doc.deprecated ?></div>
+                            <?js } ?>
+                        </div>
+                    <?js } ?>
+
                     <?js if (env.conf.docdash.debug === true) { ?>
                         <?js= self.partial('debug.tmpl', doc) ?>
+                    <?js } ?>
+
+                    <?js if (doc.tutorials && doc.tutorials.length) { ?>
+                        <div class="uk-margin-small tutorials">
+                            <label class="tag-tutorials uk-text-meta">Tutorials:</label>
+                            <?js doc.tutorials.forEach(function(t) { ?>
+                                <div class="tutorials-item">
+                                    <span uk-icon="icon:bookmark; ratio:0.75;"></span>
+                                    <?js= self.tutoriallink(t) ?>
+                                </div>
+                            <?js }); ?>
+                        </div>
+                    <?js } ?>
+                    
+                    <?js if (doc.see && doc.see.length) { ?>
+                        <div class="uk-margin-small see">
+                            <label class="tag-see uk-text-meta">See:</label>
+                            <?js doc.see.forEach(function(s) { ?>
+                                <div class="see-item">
+                                    <span uk-icon="icon:link;"></span>
+                                    <?js= self.linkto(s) ?>
+                                </div>
+                            <?js }); ?>
+                        </div>
                     <?js } ?>
 
                     <?js if (doc.summary) { ?>
@@ -58,9 +103,9 @@
                         </blockquote>
                     <?js } ?>
                 <?js } ?>
-
-
                 
+                
+
 
                 <?js if (!doc.longname || doc.kind !== 'module') { ?>
                     <h2>

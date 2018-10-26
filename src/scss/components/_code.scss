@@ -43,6 +43,13 @@ div.code-toolbar > pre[class*="language-"] {
   margin: .5em 0 !important;
 }
 
+div.code-toolbar > .toolbar span {
+  color: #bbb;
+  font-size: .8em;
+  padding: 0 .5em;
+  background: hsla(0,0%,88%,.2);
+}
+
 .tutorial-body pre {
   padding: 2em;
 }

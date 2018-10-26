@@ -114,7 +114,13 @@ function toTags(docletSrc) {
     // split out the basic tags, keep surrounding whitespace
     // like: @tagTitle tagBody
     docletSrc
-        // replace splitter ats with an arbitrary sequence
+        // https://github.com/jsdoc3/jsdoc/issues/1521#issuecomment-433481572
+        // replace the following @ symbol groups with escaped @ symbols to 
+        // avoid breaking markdown triple-tick code blocks; as JSdoc will 
+        // think it's a doclet tag and try to create a tag object.
+        .replace(/(@:)/g, '&#64;:')                 // @:
+        .replace(/(@import)/g, '&#64;import')       // @import
+
         .replace(/^(\s*)@(\S)/gm, '$1\\@$2')
         // then split on that arbitrary sequence
         .split('\\@')

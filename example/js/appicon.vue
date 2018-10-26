@@ -6,6 +6,8 @@
  * @todo continue research into necessity of <i></i> and if it can be removed
  * @todo add support for the rest of the color schemes (black-lighten, gray-darken)
  *
+ * @deprecated
+ *
  * @summary Render an SVG icon from the img/icons directory.
  * 
  * @module AppIcon

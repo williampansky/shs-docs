@@ -67,7 +67,7 @@ module.exports = {
     docdash: {
         project_title: 'SHS Docs',
         settings_background: '',
-        debug: true,
+        debug: false,
         showStyleguide: true,
         styleguide: {
             colors: {

@@ -3,6 +3,10 @@
  * Inspired by Github syntax coloring
  */
 
+.intro pre[class*="language-"] {
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
     color: #393A34;

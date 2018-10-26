@@ -244,3 +244,49 @@
   margin: 0 0 -20px;
   & a { border: 0; }
 }
+
+
+.intro .deprecated {
+  border-radius: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  .uk-icon { margin-right: 4px; }
+
+  .is-tag {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+
+.intro .see,
+.intro .tutorials {
+  line-height: 1.2;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  .uk-text-meta { min-width: 75px; }
+  .uk-icon { margin-right: 2px; }
+
+  &-item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  &-item p {
+    display: inline-block;
+    margin: 0;
+  }
+  
+  &-item a {
+    text-decoration: none;
+    margin: 0;
+  }
+}
