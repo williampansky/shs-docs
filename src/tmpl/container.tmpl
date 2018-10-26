@@ -103,8 +103,6 @@
                         </blockquote>
                     <?js } ?>
                 <?js } ?>
-                
-                
 
 
                 <?js if (!doc.longname || doc.kind !== 'module') { ?>
@@ -130,6 +128,15 @@
                     <?js }) ?>
                 <?js } ?>
             </header>
+
+            
+            <!-- ====================================================
+            * @name details
+            * @desc Renders todos, bugs, props
+            ==================================================== -->
+            <div class="jsdoc-item">
+                <?js= self.partial('intro-details.tmpl', doc) ?>
+            </div>
 
             
             <!-- ====================================================
@@ -169,28 +176,38 @@
             <?js } ?>
 
             
-            <!-- ====================================================
-            * @name augments
-            * @desc Renders function arguments.
-            ==================================================== -->
-            <?js if (doc.augments && doc.augments.length) { ?>
-                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Extends</h3>
-                <?js= self.partial('augments.tmpl', doc) ?>
-            <?js } ?>
+            <ul uk-accordion>
+                <!-- ====================================================
+                * @name augments
+                * @desc Renders function arguments.
+                ==================================================== -->
+                <?js if (doc.augments && doc.augments.length) { ?>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Extends</a>
+                        <div class="uk-accordion-content">
+                            <?js= self.partial('augments.tmpl', doc) ?>
+                        </div>
+                    </li>
+                <?js } ?>
 
-            
-            <!-- ====================================================
-            * @name requires
-            * @desc Lists required modules and links them, if applicable.
-            ==================================================== -->
-            <?js if (doc.requires && doc.requires.length) { ?>
-                <h3 class="subsection-title uk-margin-large-top uk-margin-small-bottom">Requires</h3>
-                <ul>
-                    <?js doc.requires.forEach(function(r) { ?>
-                        <li><?js= self.linkto(r, r) ?></li>
-                    <?js }); ?>
-                </ul>
-            <?js } ?>
+                    
+                <!-- ====================================================
+                * @name requires
+                * @desc Lists required modules and links them, if applicable.
+                ==================================================== -->
+                <?js if (doc.requires && doc.requires.length) { ?>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Requires</a>
+                        <div class="uk-accordion-content">
+                            <ul>
+                                <?js doc.requires.forEach(function(r) { ?>
+                                    <li><?js= self.linkto(r, r) ?></li>
+                                <?js }); ?>
+                            </ul>
+                        </div>
+                    </li>
+                <?js } ?>
+            </ul>
         </section>
 
             

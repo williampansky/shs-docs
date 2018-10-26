@@ -197,8 +197,6 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
                         </blockquote>
                     
                 
-                
-                
 
 
                 
@@ -207,6 +205,178 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
                     
                 
             </header>
+
+            
+            <!-- ====================================================
+            * @name details
+            * @desc Renders todos, bugs, props
+            ==================================================== -->
+            <div class="jsdoc-item">
+                
+
+<!-- TODO ITEMS -->
+
+    <div class="jsdoc-item-todo uk-margin">
+        <ul class="uk-list">
+            
+                <li>
+                    <span class="uk-label uk-label-warning">@todo</span>
+                    <span class="tag-todo uk-text-small">continue research into necessity of <i></i> and if it can be removed</span>
+                </li>
+            
+                <li>
+                    <span class="uk-label uk-label-warning">@todo</span>
+                    <span class="tag-todo uk-text-small">add support for the rest of the color schemes (black-lighten, gray-darken)</span>
+                </li>
+            
+        </ul>
+    </div>
+
+
+
+<!-- BUGS -->
+
+
+<ul uk-accordion>
+
+<!-- PROPS -->
+
+    
+        <li>
+            <a class="uk-accordion-title" href="#">Props</a>
+            <div class="uk-accordion-content">
+                <div class="jsdoc-item">
+                    
+
+<div class="js-docitem-props uk-overflow-auto">
+    <table class="
+        props 
+        uk-table
+        uk-table-small
+        uk-table-striped
+        uk-table-hover
+        uk-table-middle
+        uk-table-responsive
+        uk-margin-remove
+        uk-text-small
+    ">
+        <thead>
+            <tr>
+                
+                    <th>Name</th>
+                
+
+                <th>Type</th>
+
+                
+
+                
+                    <th>Default</th>
+                
+
+                <th class="last">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr>
+                    
+                        <td class="name"><code>icon</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">String</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>''</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>The icon to load and render. This should match a corresponding icon-*.svg file in the img/icons directory.</p></td>
+                </tr>
+
+            
+                <tr>
+                    
+                        <td class="name"><code>color</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">String</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>black</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>The color of the icon to apply. This should match with the SASS color variables defined in _config.scss.</p></td>
+                </tr>
+
+            
+                <tr>
+                    
+                        <td class="name"><code>form</code></td>
+                    
+
+                    <td class="type">
+                        
+                            
+    <span class="param-type">Boolean</span>
+    
+
+                        
+                    </td>
+
+                    
+
+                    
+                        <td class="default">
+                            
+                                <code>false</code>
+                            
+                        </td>
+                    
+
+                    <td class="description last"><p>Used to determine if this icon is part of a form input element.</p></td>
+                </tr>
+
+            
+        </tbody>
+    </table>
+</div>
+
+                </div>
+            </div>
+        </li>
+    
+
+
+
+</ul>
+            </div>
 
             
             <!-- ====================================================
@@ -230,18 +400,20 @@ class="uk-container uk-container-small uk-margin-medium-top uk-animation-fade">
             
 
             
-            <!-- ====================================================
-            * @name augments
-            * @desc Renders function arguments.
-            ==================================================== -->
-            
+            <ul uk-accordion>
+                <!-- ====================================================
+                * @name augments
+                * @desc Renders function arguments.
+                ==================================================== -->
+                
 
-            
-            <!-- ====================================================
-            * @name requires
-            * @desc Lists required modules and links them, if applicable.
-            ==================================================== -->
-            
+                    
+                <!-- ====================================================
+                * @name requires
+                * @desc Lists required modules and links them, if applicable.
+                ==================================================== -->
+                
+            </ul>
         </section>
 
             
@@ -779,7 +951,7 @@ uk-offcanvas="mode:slide; overlay:true;">
                     <li>
                         <a href="styleguide.html">Styleguide</a>
                     </li>
-                </ul><h3 class="uk-nav-header">Tutorials</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="tutorial-Getting Started.html">Getting Started</a></li><li><a href="tutorial-Localhost Setup.html">Localhost Setup</a></li></ul><h3 class="uk-nav-header">Classes</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="Auth.html">Auth</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="Auth.html#clearSession">clearSession</a></li><li data-type="method" style="display: none;"><a href="Auth.html#getLock">getLock</a></li><li data-type="method" style="display: none;"><a href="Auth.html#isAuthenticated">isAuthenticated</a></li><li data-type="method" style="display: none;"><a href="Auth.html#refreshLockToken">refreshLockToken</a></li><li data-type="method" style="display: none;"><a href="Auth.html#setSession">setSession</a></li></ul></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppButton.html">AppButton</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppButton.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppButton.html#~render">render</a></li></ul></li><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li><li><a href="module-TheDashboard.html">TheDashboard</a></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
+                </ul><h3 class="uk-nav-header">Tutorials</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="tutorial-Getting Started.html">Getting Started</a></li><li><a href="tutorial-Localhost Setup.html">Localhost Setup</a></li></ul><h3 class="uk-nav-header">Classes</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="Auth.html">Auth</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="Auth.html#clearSession">clearSession</a></li><li data-type="method" style="display: none;"><a href="Auth.html#getLock">getLock</a></li><li data-type="method" style="display: none;"><a href="Auth.html#isAuthenticated">isAuthenticated</a></li><li data-type="method" style="display: none;"><a href="Auth.html#refreshLockToken">refreshLockToken</a></li><li data-type="method" style="display: none;"><a href="Auth.html#setSession">setSession</a></li></ul></li></ul><h3 class="uk-nav-header">Modules</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="module-AppButton.html">AppButton</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppButton.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppButton.html#~render">render</a></li></ul></li><li><a href="module-AppIcon.html">AppIcon</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~created">created</a></li><li data-type="method" style="display: none;"><a href="module-AppIcon.html#~render">render</a></li></ul></li><li><a href="module-HeadingLine.html">HeadingLine</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="module-HeadingLine.html#~mounted">mounted</a></li></ul></li><li><a href="module-TheDashboard.html">TheDashboard</a></li></ul><h3 class="uk-nav-header">Namespaces</h3><ul uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li><a href="config_postcss.html">config:postcss</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_postcss.html#.Autoprefixer">Autoprefixer</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Colorguard">Colorguard</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.CSSnano">CSSnano</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.FilterStream">FilterStream</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.PresetEnv">PresetEnv</a></li><li data-type="method" style="display: none;"><a href="config_postcss.html#.Sorting">Sorting</a></li></ul></li><li><a href="config_vue.html">config:vue</a><ul class="uk-nav-sub methods" uk-scrollspy-nav="closest:li; scroll:true; offset:100;"><li data-type="method" style="display: none;"><a href="config_vue.html#.chainWebpack">chainWebpack</a></li><li data-type="method" style="display: none;"><a href="config_vue.html#.TodoWebpackPlugin">TodoWebpackPlugin</a></li></ul></li><li><a href="router.html">router</a></li></ul>
         </nav>
     </div>
 </aside>

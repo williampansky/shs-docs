@@ -1,0 +1,76 @@
+<?js
+    var data = obj;
+    var self = this;
+    var defaultObjectClass = '';
+    var isVue = data.meta.filename.includes('.vue');
+
+    // Check if the default value is an object or array; if so, apply code highlighting
+    if (data.defaultvalue && (data.defaultvaluetype === 'object' || data.defaultvaluetype === 'array')) {
+        try {
+            var indentedValues = JSON.stringify(JSON.parse(data.defaultvalue), null, '  ');
+            data.defaultvalue = indentedValues;
+        } catch (e) {}
+        data.defaultvalue = "<pre class=\"prism\"><code>" + data.defaultvalue + "</code></pre>";
+        defaultObjectClass = ' class="object-value"';
+    }
+?>
+
+<!-- TODO ITEMS -->
+<?js if (data.todo && todo.length) { ?>
+    <div class="jsdoc-item-todo uk-margin">
+        <ul class="uk-list">
+            <?js todo.forEach(function(t) { ?>
+                <li>
+                    <span class="uk-label uk-label-warning">@todo</span>
+                    <span class="tag-todo uk-text-small"><?js= t ?></span>
+                </li>
+            <?js }); ?>
+        </ul>
+    </div>
+<?js } ?>
+
+
+<!-- BUGS -->
+<?js if (data.bug && bug.length) { ?>
+    <div class="jsdoc-item-bug uk-margin">
+        <ul class="uk-list">
+            <?js bug.forEach(function(b) { ?>
+                <li>
+                    <span class="uk-label uk-label-danger">@bug</span>
+                    <span class="tag-bug uk-text-small"><?js= b ?></span>
+                </li>
+            <?js }); ?>
+        </ul>
+    </div>
+<?js } ?>
+
+<?js if (isVue) { ?><ul uk-accordion><?js } ?>
+
+<!-- PROPS -->
+<?js if (isVue) { ?>
+    <?js
+        var properties = data.properties;
+        if (properties && properties.length && properties.forEach) {
+    ?>
+        <li>
+            <a class="uk-accordion-title" href="#">Props</a>
+            <div class="uk-accordion-content">
+                <div class="jsdoc-item">
+                    <?js= this.partial('vue-props.tmpl', data) ?>
+                </div>
+            </div>
+        </li>
+    <?js } ?>
+<?js } else { ?>
+    <?js
+        var properties = data.properties;
+        if (properties && properties.length && properties.forEach) {
+    ?>
+        <div class="jsdoc-item">
+            <?js= this.partial('properties.tmpl', data) ?>
+        </div>
+    <?js } ?>
+<?js } ?>
+
+
+<?js if (isVue) { ?></ul><?js } ?>
