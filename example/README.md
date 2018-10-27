@@ -3,6 +3,10 @@ A documentation generator package designed for SHSDX OpMod developers.
 
 ## Dum et aura corpore
 
+```command-line
+npm install
+```
+
 Lorem markdownum abibat iterumque si amissam utinam ait nil tum! Tollere quas,
 maris? Alta rex sorte Alcmena somno et citharae est apris alta neque Helicen!
 Conde aut fuit erat: centum!

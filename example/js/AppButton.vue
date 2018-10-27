@@ -9,7 +9,7 @@
  * @summary Render an SVG icon from the img/icons directory.
  * 
  * @module AppButton
- * @exports components/src/AppButton.vue
+ * @exports components/buttons/AppButton.vue
  * 
  * @author William Pansky <william.pansky@sabre.com>
  * @version 0.6.1

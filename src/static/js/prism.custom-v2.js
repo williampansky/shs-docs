@@ -3138,6 +3138,7 @@ Prism.hooks.add('wrap', function(env) {
 	});
 
 }());
+
 (function() {
 
 if (typeof self === 'undefined' || !self.Prism || !self.document) {

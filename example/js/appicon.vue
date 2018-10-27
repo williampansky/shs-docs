@@ -11,7 +11,7 @@
  * @summary Render an SVG icon from the img/icons directory.
  * 
  * @module AppIcon
- * @exports components/src/AppIcon.vue
+ * @exports components/AppIcon.vue
  * @tutorial Getting Started
  * @tutorial Localhost Setup
  * 

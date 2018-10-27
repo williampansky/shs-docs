@@ -121,6 +121,7 @@ function toTags(docletSrc) {
         .replace(/(@:)/g, '&#64;:')                 // @:
         .replace(/(@import)/g, '&#64;import')       // @import
         .replace(/(@keyup)/g, '&#64;keyup')         // @keyup
+        .replace(/(@click)/g, '&#64;click')         // @click
 
         .replace(/^(\s*)@(\S)/gm, '$1\\@$2')
         // then split on that arbitrary sequence
